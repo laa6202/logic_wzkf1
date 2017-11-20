@@ -1,9 +1,14 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /tb/dut/clk_sys
-add wave -noupdate /tb/dut/clk_slow
-add wave -noupdate /tb/dut/pluse_us
 add wave -noupdate /tb/dut/rst_n
+add wave -noupdate /tb/dut/u_commu/tbit_fre
+add wave -noupdate /tb/dut/u_commu/tbit_period
+add wave -noupdate /tb/dut/u_commu/tx_total
+add wave -noupdate /tb/dut/u_commu/cnt_tx
+add wave -noupdate /tb/dut/u_commu/tbit_vld
+add wave -noupdate /tb/dut/u_commu/cnt_cycle
+add wave -noupdate /tb/dut/tx
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {21378 ns} 0}
 quietly wave cursor active 1

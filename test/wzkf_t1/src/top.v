@@ -32,6 +32,13 @@ clk_rst_top u_clk_rst(
 );
 
 
+commu_top u_commu(
+.tx(tx),
+.rx(rx),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule
