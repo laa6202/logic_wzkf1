@@ -1,25 +1,9 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/urx_data
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/cnt_us
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_urx/start_uart
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_utx/uart_tx
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_utx/tx_data
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_utx/tx_vld
-add wave -noupdate /tb/sg1_top/u_commu_top/u_phy_utx/cnt_us
-add wave -noupdate /tb/sg1_top/u_ov_inf/ov_sioc
-add wave -noupdate /tb/sg1_top/u_ov_inf/ov_siod
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/scl_nostop
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/scl_up
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/scl_down
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_reg/now_wr
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_reg/now_rd
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/cfg_iic_devid
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/cfg_iic_addr
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/cfg_iic_wdata
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/act_iic_write
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/st_iic
-add wave -noupdate /tb/sg1_top/u_ov_inf/u_iic_inf/sda_org
+add wave -noupdate /tb/dut/clk_sys
+add wave -noupdate /tb/dut/clk_slow
+add wave -noupdate /tb/dut/pluse_us
+add wave -noupdate /tb/dut/rst_n
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {21378 ns} 0}
 quietly wave cursor active 1
