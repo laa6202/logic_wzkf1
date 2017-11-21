@@ -16,11 +16,16 @@ rst_gen u_rst_gen(
 );
 
 //---------- DUT -----------
+wire loop;
 top dut(
 .mclk0(mclk0),
 .mclk1(mclk1),
 .mclk2(mclk2),
-.hrst_n(rst_n)
+.hrst_n(rst_n),
+
+.tx(loop),
+.rx(loop),
+.led()
 
 );
 

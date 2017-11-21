@@ -9,8 +9,12 @@ add wave -noupdate /tb/dut/u_commu/cnt_tx
 add wave -noupdate /tb/dut/u_commu/tbit_vld
 add wave -noupdate /tb/dut/u_commu/cnt_cycle
 add wave -noupdate /tb/dut/tx
+add wave -noupdate /tb/dut/u_commu/rx
+add wave -noupdate /tb/dut/u_commu/rx_vld
+add wave -noupdate /tb/dut/u_commu/rx_total
+add wave -noupdate /tb/dut/led
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {21378 ns} 0}
+WaveRestoreCursors {{Cursor 1} {1611 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 317
 configure wave -valuecolwidth 100
@@ -26,4 +30,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {20874 ns} {21866 ns}
+WaveRestoreZoom {0 ns} {811 ns}
