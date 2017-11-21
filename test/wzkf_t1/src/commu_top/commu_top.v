@@ -9,6 +9,7 @@ rx,
 tbit_fre,
 tx_total,
 rx_total,
+now_send,
 //clk rst
 clk_sys,
 rst_n
@@ -19,6 +20,7 @@ input  rx;
 input [15:0]	tbit_fre;
 input [31:0]	tx_total;
 output[31:0]  rx_total;
+output now_send;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -68,7 +70,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		tx <= ~tx;
 	else ;
 end
-
+wire now_send = (cnt_tx < tx_total) ? 1'b1 : 1'b0;
 
 //--------- rx_bit ---------
 reg [7:0]	rx_reg;

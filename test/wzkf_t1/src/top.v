@@ -21,7 +21,8 @@ hrst_n,
 //
 tx,
 rx,
-led
+led_commu,
+led_ok
 
 );
 input mclk0;
@@ -31,7 +32,8 @@ input hrst_n;
 //
 output tx;
 input  rx;
-output led;
+output led_commu;
+output led_ok;
 //----------------------------------
 //----------------------------------
 
@@ -55,6 +57,7 @@ clk_rst_top u_clk_rst(
 wire [15:0] tbit_fre = `TX_FEQ;
 wire [31:0] tx_total = `TX_COUNT;
 wire [31:0]	rx_total;
+wire now_send;
 commu_top u_commu(
 .tx(tx),
 .rx(rx),
@@ -62,11 +65,12 @@ commu_top u_commu(
 .tbit_fre(tbit_fre),
 .tx_total(tx_total),
 .rx_total(rx_total),
+.now_send(now_send),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
-
-wire led = (tx_total == rx_total) ? 1'b1 : 1'b0;
+wire led_commu = now_send;
+wire led_ok = (tx_total == rx_total) ? 1'b1 : 1'b0;
 
 endmodule

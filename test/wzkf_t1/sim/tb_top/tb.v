@@ -25,7 +25,8 @@ top dut(
 
 .tx(loop),
 .rx(loop),
-.led()
+.led_commu(),
+.led_ok()
 
 );
 
