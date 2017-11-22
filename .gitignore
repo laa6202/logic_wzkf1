@@ -1,1 +1,6 @@
 /test/wzkf_t1/sim/tb_top/work
+/test/wzkf_t1/dev/incremental_db
+/test/wzkf_t1/dev/db
+/test/wzkf_t1/dev/output_files/*.summary
+/test/wzkf_t1/dev/output_files/*.rpt
+/test/wzkf_t1/dev/output_files/*.smsg

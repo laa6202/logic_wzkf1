@@ -10,8 +10,8 @@
 //`define TX_FEQ  16'd50		 	//50kbps
 //`define TX_FEQ  16'd10		 	//10kbps
 //`define TX_FEQ  16'd1			  //1kbps
-`define TX_FEQ  		32'd5000
-`define TX_COUNT		32'd100		//number of send bits 
+`define TX_FEQ  		32'd10000
+`define TX_COUNT		32'd1_0000_0000		//number of send bits 
 
 module top(
 mclk0,
@@ -70,7 +70,7 @@ commu_top u_commu(
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
-wire led_commu = now_send;
-wire led_ok = (tx_total == rx_total) ? 1'b1 : 1'b0;
+wire led_commu = ~now_send;
+wire led_ok = (tx_total == rx_total) ? 1'b0 : 1'b1;
 
 endmodule
