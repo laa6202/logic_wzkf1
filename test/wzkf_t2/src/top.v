@@ -11,7 +11,7 @@
 //`define TX_FEQ  16'd10		 	//10kbps
 //`define TX_FEQ  16'd1			  //1kbps
 `define TX_FEQ  		32'd10000
-`define TX_COUNT		32'd1_0000_0000		//number of send bits 
+`define TX_COUNT		32'd10		//number of send bits 
 
 module top(
 mclk0,
