@@ -1,0 +1,22 @@
+-sv
+-timescale "1ns/1ps"
+-l compile.log
+-incr
+
+-v ../lib/cycloneiv_atoms
+-v ../lib/altera_mf
+-v ../lib/220model
+
++define+SIM
+
+dv/clk_gen.v
+dv/rst_gen.v
+
+
+
+tb.v
+
+../../src/top.v
+../../src/clk_rst_top/clk_rst_top.v
+../../src/clk_rst_top/pluse_us_gen.v
+../../src/commu_top/commu_top.v
