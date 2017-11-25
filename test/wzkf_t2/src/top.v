@@ -3,7 +3,7 @@
 
 //`define TX_FEQ  16'd10000		//10Mbps
 //`define TX_FEQ  16'd5000		//5Mbps
-//`define TX_FEQ  16'd2000		//5Mbps
+//`define TX_FEQ  16'd2000		//2Mbps
 //`define TX_FEQ  16'd1000		//1Mbps
 //`define TX_FEQ  16'd500			//500kbps
 //`define TX_FEQ  16'd100			//100kbps
@@ -11,7 +11,9 @@
 //`define TX_FEQ  16'd10		 	//10kbps
 //`define TX_FEQ  16'd1			  //1kbps
 `define TX_FEQ  		32'd10000
-`define TX_COUNT		32'd10		//number of send bits 
+`define TX_COUNT		32'd8		//number of send bits 
+`define DATA_PATTERN 1'b1			//data pattern: 0-0x55(fixed),1-increased data
+
 
 module top(
 mclk0,
@@ -56,6 +58,7 @@ clk_rst_top u_clk_rst(
 //---------- commu_top -------------
 wire [15:0] tbit_fre = `TX_FEQ;
 wire [31:0] tx_total = `TX_COUNT;
+wire tx_pattern = `DATA_PATTERN;
 wire [31:0]	rx_total;
 wire now_send;
 commu_top u_commu(
@@ -64,6 +67,7 @@ commu_top u_commu(
 //configuration
 .tbit_fre(tbit_fre),
 .tx_total(tx_total),
+.tx_pattern(tx_pattern),
 .rx_total(rx_total),
 .now_send(now_send),
 //clk rst

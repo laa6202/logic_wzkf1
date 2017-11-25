@@ -8,6 +8,7 @@ data_tx,
 //configuration
 tx_total,
 now_send,
+tx_pattern,
 //clk rst
 clk_sys,
 rst_n
@@ -18,6 +19,7 @@ output [7:0]	data_tx;
 //configuration
 input [31:0]	tx_total;
 output 				now_send;
+input 	tx_pattern;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -86,7 +88,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 wire [7:0]	data_tx;
-assign data_tx = data;
+assign data_tx = tx_pattern ? data : 8'h55;
 
 wire now_send;
 assign now_send = (st_tx_mac == S_FIRE) |  (st_tx_mac == S_WAIT) |  (st_tx_mac == S_CHECK)	; 

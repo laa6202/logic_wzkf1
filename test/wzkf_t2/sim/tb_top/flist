@@ -24,5 +24,6 @@ tb.v
 ../../src/commu_top/tx_top.v
 ../../src/commu_top/tx_ctrl.v
 ../../src/commu_top/tx_inf.v
-
+../../src/commu_top/rx_top.v
+../../src/commu_top/rx_inf.v
 
