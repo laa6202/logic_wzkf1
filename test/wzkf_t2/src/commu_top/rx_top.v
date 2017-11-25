@@ -32,6 +32,15 @@ rx_inf u_rx_phy(
 );
 
 
+rx_ctrl u_rx_ctrl(
+.rx_total(rx_total),
+.tx_pattern(tx_pattern),
+.rx_data(rx_data),
+.rx_vld(rx_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 

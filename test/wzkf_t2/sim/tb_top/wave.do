@@ -8,6 +8,11 @@ add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_phy/rx
 add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_phy/rx_vld
 add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_phy/rx_data
 add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_phy/send_bit
+add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_ctrl/rx_total
+add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_ctrl/tx_pattern
+add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_ctrl/rx_data
+add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_ctrl/rx_vld
+add wave -noupdate /tb/dut/u_commu/u_rx_top/u_rx_ctrl/goldern
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {4153 ns} 0}
 quietly wave cursor active 1

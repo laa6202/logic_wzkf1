@@ -11,8 +11,8 @@
 //`define TX_FEQ  16'd10		 	//10kbps
 //`define TX_FEQ  16'd1			  //1kbps
 `define TX_FEQ  		32'd10000
-`define TX_COUNT		32'd8		//number of send bits 
-`define DATA_PATTERN 1'b1			//data pattern: 0-0x55(fixed),1-increased data
+`define TX_COUNT		32'd8		//number of send bytes 
+`define DATA_PATTERN 	1'b1			//data pattern: 0-0x55(fixed),1-increased data
 
 
 module top(
