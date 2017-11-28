@@ -5,4 +5,5 @@ top 模块定义三个宏
 `define TX_COUNT	发送字节数
 `define DATA_PATTERN 	数据模式：0-固定0x55，1-递增数据(0-255循环)
 	
+LED指示灯为负逻辑
 
