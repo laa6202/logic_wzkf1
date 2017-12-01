@@ -17,7 +17,20 @@ rst_gen u_rst_gen(
 
 
 //---------- DUT -----------
+wire ctrl_0_1;
+wire ctrl_1_2;
+wire syn_0_1;
+wire syn_1_2;
 top_s top_s1(
+//485 line
+.rx_ctrl(ctrl_0_1),
+.tx_ctrl(ctrl_1_2),
+.rx_syn(syn_0_1),
+.tx_syn(syn_1_2),
+.tx_a(),
+.rx_a(),
+.tx_b(),
+.rx_b(),
 //clk rst 
 .mclk0(mclk0),
 .mclk1(mclk1),
@@ -25,5 +38,22 @@ top_s top_s1(
 .hrst_n(rst_n)
 );
 
+
+top_s top_s2(
+//485 line
+.rx_ctrl(ctrl_1_2),
+.tx_ctrl(),
+.rx_syn(syn_1_2),
+.tx_syn(),
+.tx_a(),
+.rx_a(),
+.tx_b(),
+.rx_b(),
+//clk rst 
+.mclk0(mclk0),
+.mclk1(mclk1),
+.mclk2(mclk2),
+.hrst_n(rst_n)
+);
 
 endmodule

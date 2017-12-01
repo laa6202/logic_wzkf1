@@ -3,10 +3,10 @@
 
 module top_s(
 //485 line
-tx_ctrl,
 rx_ctrl,
-tx_syn,
+tx_ctrl,
 rx_syn,
+tx_syn,
 tx_a,
 rx_a,
 tx_b,
@@ -18,10 +18,10 @@ mclk2,
 hrst_n
 );
 //485 line
-output	tx_ctrl;
 input		rx_ctrl;
-output	tx_syn;
+output	tx_ctrl;
 input		rx_syn;
+output	tx_syn;
 output	tx_a;
 input		rx_a;
 output	tx_b;
@@ -53,17 +53,27 @@ clk_rst_top u_clk_rst(
 
 
 //--------- the control source ---------
+wire [15:0]	fx_waddr;
+wire 				fx_wr;
+wire [7:0]	fx_data;
+wire				fx_rd;
+wire [15:0]	fx_raddr;
+wire  [7:0]	fx_q;
+wire [7:0]	dev_id;
 control_top u_control_top(
 //485 line
-.tx_ctrl(),
-.rx_ctrl(),
+.tx_ctrl(tx_ctrl),
+.rx_ctrl(rx_ctrl),
 //fx bus
-.fx_waddr(),
-.fx_wr(),
-.fx_data(),
-.fx_rd(),
-.fx_raddr(),
-.fx_q(),
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q),
+//global
+.dev_id(dev_id),
+.mod_id(8'h0),
 //clk rst
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
