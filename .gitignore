@@ -5,3 +5,4 @@
 /test/wzkf_t1/dev/output_files/*.rpt
 /test/wzkf_t1/dev/output_files/*.smsg
 /test/wzkf_t2/sim/tb_top/work
+/main/sim/tb_all/work
