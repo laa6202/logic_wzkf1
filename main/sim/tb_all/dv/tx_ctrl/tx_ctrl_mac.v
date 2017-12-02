@@ -7,8 +7,10 @@ done_tx,
 data_tx,
 //configuration
 tx_total,
-now_send,
-tx_pattern,
+dev_id,
+mod_id,
+cmd_addr,
+cmd_data,
 //clk rst
 clk_sys,
 rst_n
@@ -18,8 +20,10 @@ input  done_tx;
 output [7:0]	data_tx;
 //configuration
 input [31:0]	tx_total;
-output 				now_send;
-input 	tx_pattern;
+input [7:0]	dev_id;
+input [7:0]	mod_id;
+input	[7:0]	cmd_addr;
+input	[7:0]	cmd_data;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -79,18 +83,14 @@ assign finish_send = (tx_total == cnt_tx) ? 1'b1 : 1'b0;
 
 //-------- output -------------
 wire fire_tx = (st_tx_mac == S_FIRE) ? 1'b1 : 1'b0;
-reg [7:0] data;
-always @ (posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		data <= 8'h0;
-	else if(fire_tx)
-		data <= data + 8'h1;
-	else ;
-end
-wire [7:0]	data_tx;
-assign data_tx = tx_pattern ? data : 8'h55;
+wire [7:0] data;
+assign data = (cnt_tx == 8'h0) ? dev_id :
+							(cnt_tx == 8'h1) ? mod_id :
+							(cnt_tx == 8'h2) ? cmd_addr :
+							(cnt_tx == 8'h3) ? cmd_data : 8'h55;
 
-wire now_send;
-assign now_send = (st_tx_mac == S_FIRE) |  (st_tx_mac == S_WAIT) |  (st_tx_mac == S_CHECK)	; 
+wire [7:0]	data_tx;
+assign data_tx =  data ;
+
 
 endmodule

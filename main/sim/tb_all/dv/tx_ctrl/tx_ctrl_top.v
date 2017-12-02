@@ -5,8 +5,8 @@ tx_ctrl,
 //configuration
 dev_id,
 mod_id,
-addr,
-data,
+cmd_addr,
+cmd_data,
 //clk rst
 clk_sys,
 rst_n
@@ -15,8 +15,8 @@ output tx_ctrl;
 //configuration
 input [7:0]	dev_id;
 input [7:0]	mod_id;
-input	[7:0]	addr;
-input	[7:0]	data;
+input	[7:0]	cmd_addr;
+input	[7:0]	cmd_data;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -31,8 +31,10 @@ tx_ctrl_mac u_tx_mac(
 .data_tx(data_tx),
 //configuration
 .tx_total(32'h4),
-.tx_pattern(1'b0),
-.now_send(now_send),
+.dev_id(dev_id),
+.mod_id(mod_id),
+.cmd_addr(cmd_addr),
+.cmd_data(cmd_data),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

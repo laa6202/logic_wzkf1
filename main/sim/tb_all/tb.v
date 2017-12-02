@@ -22,10 +22,10 @@ wire tx_ctrl;
 tx_ctrl_top u_tx_ctrl(
 .tx_ctrl(tx_ctrl),
 //configuration
-.dev_id(),
-.mod_id(),
-.addr(),
-.data(),
+.dev_id(8'hff),
+.mod_id(8'h00),
+.cmd_addr(8'h12),
+.cmd_data(8'h34),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
