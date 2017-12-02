@@ -1,7 +1,7 @@
 //tx_ctrl.v
 `define T_INIT 20'd100
 
-module tx_ctrl_mac(
+module sim_ctrl_mac(
 fire_tx,
 done_tx,
 data_tx,

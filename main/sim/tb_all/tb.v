@@ -25,7 +25,7 @@ wire [7:0] 	cmd_addr;
 wire [7:0]	cmd_data;
 wire				cmd_vld;
 wire tx_ctrl;
-tx_ctrl_top u_tx_ctrl(
+sim_ctrl_top u_tx_ctrl(
 .tx_ctrl(tx_ctrl),
 //configuration
 .dev_id(dev_id),

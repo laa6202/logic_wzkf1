@@ -1,6 +1,6 @@
 //tx_inf.v
 
-module tx_ctrl_phy(
+module sim_ctrl_phy(
 tx_ctrl,
 //control 
 fire_tx,

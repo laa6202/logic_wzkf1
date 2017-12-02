@@ -1,6 +1,6 @@
 //tx_top.v
 
-module tx_ctrl_top(
+module sim_ctrl_top(
 tx_ctrl,
 //configuration
 dev_id,
@@ -27,7 +27,7 @@ input rst_n;
 wire fire_tx;
 wire done_tx;
 wire [7:0] data_tx;
-tx_ctrl_mac u_tx_mac(
+sim_ctrl_mac u_tx_mac(
 .fire_tx(fire_tx),
 .done_tx(done_tx),
 .data_tx(data_tx),
@@ -44,7 +44,7 @@ tx_ctrl_mac u_tx_mac(
 );
 
 
-tx_ctrl_phy u_tx_phy(
+sim_ctrl_phy u_tx_phy(
 .tx_ctrl(tx_ctrl),
 //control 
 .fire_tx(fire_tx),

@@ -4,17 +4,7 @@ add wave -noupdate /tb/top_s1/u_clk_rst/clk_sys
 add wave -noupdate /tb/top_s1/u_clk_rst/clk_slow
 add wave -noupdate /tb/top_s1/u_clk_rst/pluse_us
 add wave -noupdate /tb/top_s1/u_clk_rst/rst_n
-add wave -noupdate /tb/u_tx_ctrl/tx_ctrl
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/dev_id
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/mod_id
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cmd_addr
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cmd_data
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cmd_vld
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/st_tx_mac
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cnt_tx
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/fire_tx
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/data_tx
-add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/done_tx
+add wave -noupdate /tb/top_s1/u_control_top/rx_ctrl
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {2537 ns} 0}
 quietly wave cursor active 1
