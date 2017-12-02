@@ -9,13 +9,14 @@ add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/dev_id
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/mod_id
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cmd_addr
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cmd_data
+add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cmd_vld
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/st_tx_mac
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/cnt_tx
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/fire_tx
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/data_tx
 add wave -noupdate /tb/u_tx_ctrl/u_tx_mac/done_tx
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {9771 ns} 0}
+WaveRestoreCursors {{Cursor 1} {2537 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 309
 configure wave -valuecolwidth 100

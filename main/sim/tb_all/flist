@@ -11,6 +11,7 @@
 
 dv/clk_gen.v
 dv/rst_gen.v
+dv/cmd_gen.v
 dv/tx_ctrl/tx_ctrl_top.v
 dv/tx_ctrl/tx_ctrl_mac.v
 dv/tx_ctrl/tx_ctrl_phy.v

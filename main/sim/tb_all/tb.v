@@ -17,19 +17,35 @@ rst_gen u_rst_gen(
 
 wire clk_sys = mclk1;
 
+
 //------------ source ------------
+wire [7:0]	dev_id;
+wire [7:0]	mod_id;
+wire [7:0] 	cmd_addr;
+wire [7:0]	cmd_data;
+wire				cmd_vld;
 wire tx_ctrl;
 tx_ctrl_top u_tx_ctrl(
 .tx_ctrl(tx_ctrl),
 //configuration
-.dev_id(8'hff),
-.mod_id(8'h00),
-.cmd_addr(8'h12),
-.cmd_data(8'h34),
+.dev_id(dev_id),
+.mod_id(mod_id),
+.cmd_addr(cmd_addr),
+.cmd_data(cmd_data),
+.cmd_vld(cmd_vld),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
+
+cmd_gen u_cmd_gen(
+.dev_id(dev_id),
+.mod_id(mod_id),
+.cmd_addr(cmd_addr),
+.cmd_data(cmd_data),
+.cmd_vld(cmd_vld)
+);
+
 
 //---------- DUT -----------
 wire ctrl_0_1 = tx_ctrl;
@@ -70,5 +86,7 @@ top_s top_s2(
 .mclk2(mclk2),
 .hrst_n(rst_n)
 );
+
+
 
 endmodule
