@@ -15,9 +15,24 @@ rst_gen u_rst_gen(
 .rst_n(rst_n)
 );
 
+wire clk_sys = mclk1;
+
+//------------ source ------------
+wire tx_ctrl;
+tx_ctrl_top u_tx_ctrl(
+.tx_ctrl(tx_ctrl),
+//configuration
+.dev_id(),
+.mod_id(),
+.addr(),
+.data(),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 //---------- DUT -----------
-wire ctrl_0_1;
+wire ctrl_0_1 = tx_ctrl;
 wire ctrl_1_2;
 wire syn_0_1;
 wire syn_1_2;

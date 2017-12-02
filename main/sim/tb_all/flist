@@ -11,9 +11,12 @@
 
 dv/clk_gen.v
 dv/rst_gen.v
-
+dv/tx_ctrl/tx_ctrl_top.v
+dv/tx_ctrl/tx_ctrl_mac.v
+dv/tx_ctrl/tx_ctrl_phy.v
 
 tb.v
+
 
 ../../fpga_s/src/top_s.v
 
