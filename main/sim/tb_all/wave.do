@@ -4,9 +4,13 @@ add wave -noupdate /tb/top_s1/u_clk_rst/clk_sys
 add wave -noupdate /tb/top_s1/u_clk_rst/clk_slow
 add wave -noupdate /tb/top_s1/u_clk_rst/pluse_us
 add wave -noupdate /tb/top_s1/u_clk_rst/rst_n
-add wave -noupdate /tb/top_s1/u_control_top/rx_ctrl
+add wave -noupdate /tb/top_s1/u_control_top/cmdr_dev
+add wave -noupdate /tb/top_s1/u_control_top/cmdr_mod
+add wave -noupdate /tb/top_s1/u_control_top/cmdr_addr
+add wave -noupdate /tb/top_s1/u_control_top/cmdr_data
+add wave -noupdate /tb/top_s1/u_control_top/cmdr_vld
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {2537 ns} 0}
+WaveRestoreCursors {{Cursor 1} {11403 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 309
 configure wave -valuecolwidth 100
@@ -22,4 +26,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {10500 ns}
+WaveRestoreZoom {7325 ns} {7765 ns}

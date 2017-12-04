@@ -39,7 +39,25 @@ input rst_n;
 
 
 //---------------------------------------
-
-
+//---------------------------------------
+wire [7:0]	cmdr_dev;
+wire [7:0]	cmdr_mod;
+wire [7:0]	cmdr_addr;
+wire [7:0]	cmdr_data;
+wire 				cmdr_vld;
+rx_ctrl_top u_rx_ctrl(
+//485 line
+.rx_ctrl(rx_ctrl),
+//cmd decode
+.cmdr_dev(cmdr_dev),
+.cmdr_mod(cmdr_mod),
+.cmdr_addr(cmdr_addr),
+.cmdr_data(cmdr_data),
+.cmdr_vld(cmdr_vld),
+//clk rst
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
+);
 
 endmodule
