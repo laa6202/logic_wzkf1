@@ -1,5 +1,7 @@
 //rx_ctrl_dec.v
 
+`define EN_SIG_DEBUG		//no timeout 
+
 module rx_ctrl_dec(
 //cmd decode
 cmdr_dev,
@@ -66,8 +68,11 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_cycle <= 20'h0;
 end
+`ifdef EN_SIG_DEBUG
+assign timeout_rx = 1'b0;
+`else 
 assign timeout_rx = (cnt_cycle == 16'd1_000_00) ? 1'b1 : 1'b0;
-
+`endif
 
 //--------- output data ---------
 reg [7:0] cmdr_dev;

@@ -60,4 +60,46 @@ rx_ctrl_top u_rx_ctrl(
 .rst_n(rst_n)
 );
 
+
+//---------- factory ---------
+wire [7:0]	cmdt_dev;
+wire [7:0]	cmdt_mod;
+wire [7:0]	cmdt_addr;
+wire [7:0]	cmdt_data;
+wire				cmdt_vld;
+wire [7:0]	cmdl_dev;
+wire [7:0]	cmdl_mod;
+wire [7:0]	cmdl_addr;
+wire [7:0]	cmdl_data;
+wire				cmdl_vld;
+wire [7:0]	dev_id;
+factory_ctrl u_factory_ctrl(
+//cmd receive
+.cmdr_dev(cmdr_dev),
+.cmdr_mod(cmdr_mod),
+.cmdr_addr(cmdr_addr),
+.cmdr_data(cmdr_data),
+.cmdr_vld(cmdr_vld),
+//cmd transmit
+.cmdt_dev(cmdt_dev),
+.cmdt_mod(cmdt_mod),
+.cmdt_addr(cmdt_addr),
+.cmdt_data(cmdt_data),
+.cmdt_vld(cmdt_vld),
+//cmd local
+.cmdl_dev(cmdl_dev),
+.cmdl_mod(cmdl_mod),
+.cmdl_addr(cmdl_addr),
+.cmdl_data(cmdl_data),
+.cmdl_vld(cmdl_vld),
+//configuration
+.dev_id(dev_id),
+//clk rst
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
+);
+
+
+
 endmodule

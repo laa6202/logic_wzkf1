@@ -1,0 +1,15 @@
+设备ID：
+	0x1-0xEF ：
+	0xFF：广播
+
+模块ID[7:6]:
+	00-	singel	read
+	10	singel	write
+
+模块ID[5:0]：
+	0x1	控制器
+
+
+0x1-控制器
+	0x0	RO	dev_id
+	0x10	WR	dev_id
