@@ -17,7 +17,10 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module factory_ctrl
 -- Skipping module tx_ctrl_top
 -- Skipping module tx_ctrl_phy
--- Compiling module tx_ctrl_enc
+-- Skipping module tx_ctrl_enc
+-- Compiling module fx_bc
+-- Skipping module fx_bm
 
 Top level modules:
 	tb
+	fx_bm

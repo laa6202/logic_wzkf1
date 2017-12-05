@@ -95,7 +95,7 @@ end
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cmdl_vld <= 1'b0;
-	else if(localhost & cmdr_vld) 
+	else if((broadcast | localhost) & cmdr_vld) 
 		cmdl_vld <= 1'b1;
 	else 
 		cmdl_vld <= 1'b0;
