@@ -31,7 +31,7 @@ initial begin
 	cmd_vld <= 1'b0;
 	#7000
 	dev_id <= 8'h01;
-	mod_id <= 8'h10;
+	mod_id <= 8'h90;
 	cmd_addr <= 8'h34;
 	cmd_data <= 8'h56;
 	cmd_vld <= 1'b1;
@@ -39,7 +39,7 @@ initial begin
 	cmd_vld <= 1'b0;
 	#7000
 	dev_id <= 8'h02;
-	mod_id <= 8'h11;
+	mod_id <= 8'h91;
 	cmd_addr <= 8'h78;
 	cmd_data <= 8'h90;
 	cmd_vld <= 1'b1;

@@ -9,6 +9,11 @@ add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_mod
 add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_addr
 add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_data
 add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_vld
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_waddr
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_wr
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_data
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_rd
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_raddr
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {8282 ns} 0}
 quietly wave cursor active 1

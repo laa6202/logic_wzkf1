@@ -55,9 +55,12 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		fx_rd <= 1'b0;
 		fx_raddr <= 16'h0;
 	end
-	else begin
-	
-	
+	else  begin
+		fx_wr <= cmdl_vld ? en_wr : 1'b0;
+		fx_rd <= cmdl_vld ? en_rd : 1'b0;
+		fx_waddr <= cmdl_vld ? waddr : 16'h0;
+		fx_raddr <= cmdl_vld ? raddr : 16'h0;
+		fx_data <= cmdl_vld ? data : 8'h0;
 	end
 end
 
