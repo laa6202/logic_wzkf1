@@ -24,16 +24,24 @@ initial begin
 	#3000
 	dev_id <= 8'hff;
 	mod_id <= 8'h0;
-	cmd_addr <= 8'h12;
-	cmd_data <= 8'h23;
+	cmd_addr <= 8'h00;
+	cmd_data <= 8'h00;
 	cmd_vld <= 1'b1;
 	#100 
 	cmd_vld <= 1'b0;
 	#7000
-	dev_id <= 8'hff;
+	dev_id <= 8'h01;
 	mod_id <= 8'h10;
 	cmd_addr <= 8'h34;
 	cmd_data <= 8'h56;
+	cmd_vld <= 1'b1;
+	#100
+	cmd_vld <= 1'b0;
+	#7000
+	dev_id <= 8'h02;
+	mod_id <= 8'h11;
+	cmd_addr <= 8'h78;
+	cmd_data <= 8'h90;
 	cmd_vld <= 1'b1;
 	#100
 	cmd_vld <= 1'b0;
