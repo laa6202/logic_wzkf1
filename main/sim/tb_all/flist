@@ -29,5 +29,7 @@ tb.v
 ../../fpga_s/src/control_top/rx_ctrl/rx_ctrl_phy.v
 ../../fpga_s/src/control_top/rx_ctrl/rx_ctrl_dec.v
 ../../fpga_s/src/control_top/factory_ctrl.v
-
+../../fpga_s/src/control_top/tx_ctrl/tx_ctrl_top.v
+../../fpga_s/src/control_top/tx_ctrl/tx_ctrl_phy.v
+../../fpga_s/src/control_top/tx_ctrl/tx_ctrl_enc.v
 

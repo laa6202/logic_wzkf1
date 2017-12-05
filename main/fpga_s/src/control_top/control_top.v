@@ -40,6 +40,9 @@ input rst_n;
 
 //---------------------------------------
 //---------------------------------------
+
+
+//---------- rx_ctrl ----------
 wire [7:0]	cmdr_dev;
 wire [7:0]	cmdr_mod;
 wire [7:0]	cmdr_addr;
@@ -99,6 +102,22 @@ factory_ctrl u_factory_ctrl(
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );
+
+//---------- tx_ctrl ---------
+tx_ctrl_top u_tx_ctrl(
+//485 line
+.tx_ctrl(tx_ctrl),
+//cmd transmit
+.cmdt_dev(cmdt_dev),
+.cmdt_mod(cmdt_mod),
+.cmdt_addr(cmdt_addr),
+.cmdt_data(cmdt_data),
+.cmdt_vld(cmdt_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 
 
 

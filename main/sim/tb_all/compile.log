@@ -2,7 +2,7 @@ Model Technology ModelSim SE-64 vlog 10.2c Compiler 2013.07 Jul 19 2013
 C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist 
 -- Skipping module clk_gen
 -- Skipping module rst_gen
--- Compiling module cmd_gen
+-- Skipping module cmd_gen
 -- Skipping module sim_ctrl_top
 -- Skipping module sim_ctrl_mac
 -- Skipping module sim_ctrl_phy
@@ -15,6 +15,9 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module rx_ctrl_phy
 -- Skipping module rx_ctrl_dec
 -- Skipping module factory_ctrl
+-- Skipping module tx_ctrl_top
+-- Skipping module tx_ctrl_phy
+-- Compiling module tx_ctrl_enc
 
 Top level modules:
 	tb
