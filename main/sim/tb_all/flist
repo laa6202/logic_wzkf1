@@ -18,7 +18,7 @@ dv/tx_ctrl/sim_ctrl_phy.v
 
 tb.v
 
-
+//------------------------------------------------
 ../../fpga_s/src/top_s.v
 
 ../../fpga_s/src/clk_rst_top/clk_rst_top.v
@@ -36,3 +36,10 @@ tb.v
 ../../fpga_s/src/control_top/fx_bm.v
 ../../fpga_s/src/control_top/cfg_reg.v
 
+
+//------------------------------------------------
+
+../../fpga_m/src/top_m.v
+
+//../../fpga_m/src/clk_rst_top/clk_rst_top.v
+//../../fpga_m/src/clk_rst_top/pluse_us_gen.v

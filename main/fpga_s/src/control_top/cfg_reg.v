@@ -12,9 +12,7 @@ fx_q,
 mod_id,
 clk_sys,
 rst_n
-
 );
-
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
@@ -22,7 +20,6 @@ input [15:0]	fx_waddr;
 input [15:0]	fx_raddr;
 input 				fx_rd;
 output  [7:0]	fx_q;
-
 //clk rst
 input [5:0] mod_id;
 input clk_sys;
