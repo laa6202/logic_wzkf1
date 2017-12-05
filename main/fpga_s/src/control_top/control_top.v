@@ -31,7 +31,7 @@ output [15:0]	fx_raddr;
 input  [7:0]	fx_q;
 //global
 output [7:0]	dev_id;
-input  [7:0]	mod_id;
+input  [5:0]	mod_id;
 //clk rst
 input clk_sys;
 input pluse_us;
@@ -120,6 +120,7 @@ tx_ctrl_top u_tx_ctrl(
 
 
 //----------- fx_bc -----------
+wire [7:0]	fx_q_all;
 fx_bc u_fx_bc(
 .cmdl_mod(cmdl_mod),
 .cmdl_addr(cmdl_addr),
@@ -131,7 +132,7 @@ fx_bc u_fx_bc(
 .fx_data(fx_data),
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
-.fx_q(fx_q),
+.fx_q(fx_q_all),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -147,10 +148,28 @@ fx_bm u_fx_bm(
 .fx_data(fx_data),
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
-.fx_q(fx_q),
+.fx_q(fx_q_all),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
+
+
+wire [7:0]	fx_q_ctrl;
+cfg_reg u_ctrl_reg(
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_ctrl),
+//clk rst
+.mod_id(mod_id),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+assign fx_q_all = fx_q_ctrl | fx_q;
 
 endmodule

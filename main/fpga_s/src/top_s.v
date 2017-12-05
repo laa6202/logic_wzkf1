@@ -73,7 +73,7 @@ control_top u_control_top(
 .fx_q(fx_q),
 //global
 .dev_id(dev_id),
-.mod_id(8'h1),
+.mod_id(6'h1),
 //clk rst
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
