@@ -32,4 +32,15 @@ syn_m_main u_syn_m_main(
 .rst_n(rst_n)
 );
 
+
+wire tx_sync;
+syn_m_sync u_syn_m_sync( 
+.tx_sync(tx_sync),
+.fire_sync(fire_sync),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 endmodule

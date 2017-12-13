@@ -4,10 +4,8 @@ add wave -noupdate -radix decimal /tb/u_top_m/u_syn_m/u_syn_m_main/cnt_us
 add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/clk_sys
 add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/pluse_us
 add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/rst_n
-add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/gps_pluse
-add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/fire_sync
-add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/fire_info
-add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/gps_pluse_true
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_sync/tx_sync
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_sync/fire_sync
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {586 ns} 0}
 quietly wave cursor active 1
