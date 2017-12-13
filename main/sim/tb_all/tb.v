@@ -18,7 +18,7 @@ rst_gen u_rst_gen(
 wire clk_sys = mclk1;
 
 
-//------------ source ------------
+//------------ ctrl source ------------
 wire [7:0]	dev_id;
 wire [7:0]	mod_id;
 wire [7:0] 	cmd_addr;
@@ -47,21 +47,49 @@ cmd_gen u_cmd_gen(
 );
 
 
+
+//------------ gps source ------------
+wire gps_pluse;
+gps_source u_gps_source( 
+.gps_pluse(gps_pluse),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
 //---------- DUT -----------
 wire ctrl_0_1 = tx_ctrl;
 wire ctrl_1_2;
 wire syn_0_1;
-wire syn_1_2;
+wire syn_0_2 = syn_0_1;
+
+top_m u_top_m(
+//485 line
+.tx_ctrl(),
+.tx_syn(syn_0_1),
+.rx_a(rx_a),
+.rx_b(rx_b),
+//gps inf
+.gps_pluse(gps_pluse),		
+//clk rst
+.mclk0(mclk0),
+.mclk1(mclk1),
+.mclk2(mclk2),
+.hrst_n(rst_n)
+);
+
+
 top_s top_s1(
 //485 line
 .rx_ctrl(ctrl_0_1),
 .tx_ctrl(ctrl_1_2),
 .rx_syn(syn_0_1),
-.tx_syn(syn_1_2),
 .tx_a(),
-.rx_a(),
+.de_a(),
 .tx_b(),
-.rx_b(),
+.de_b(),
 //clk rst 
 .mclk0(mclk0),
 .mclk1(mclk1),
@@ -74,12 +102,11 @@ top_s top_s2(
 //485 line
 .rx_ctrl(ctrl_1_2),
 .tx_ctrl(),
-.rx_syn(syn_1_2),
-.tx_syn(),
+.rx_syn(syn_0_2),
 .tx_a(),
-.rx_a(),
+.de_a(),
 .tx_b(),
-.rx_b(),
+.de_b(),
 //clk rst 
 .mclk0(mclk0),
 .mclk1(mclk1),

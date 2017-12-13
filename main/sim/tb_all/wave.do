@@ -1,19 +1,10 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/top_s1/u_clk_rst/rst_n
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/cmdl_mod
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/cmdl_addr
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/cmdl_data
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/cmdl_vld
-add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_mod
-add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_addr
-add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_data
-add wave -noupdate /tb/top_s2/u_control_top/u_fx_bc/cmdl_vld
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_waddr
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_wr
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_data
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_rd
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bc/fx_raddr
+add wave -noupdate /tb/u_top_m/u_syn_m/tx_syn
+add wave -noupdate /tb/u_top_m/u_syn_m/gps_pluse
+add wave -noupdate /tb/u_top_m/u_syn_m/clk_sys
+add wave -noupdate /tb/u_top_m/u_syn_m/pluse_us
+add wave -noupdate /tb/u_top_m/u_syn_m/rst_n
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {8282 ns} 0}
 quietly wave cursor active 1

@@ -6,10 +6,11 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module sim_ctrl_top
 -- Skipping module sim_ctrl_mac
 -- Skipping module sim_ctrl_phy
+-- Skipping module gps_source
 -- Skipping module tb
 -- Skipping module top_s
--- Compiling module clk_rst_top
--- Compiling module pluse_us_gen
+-- Skipping module clk_rst_top
+-- Skipping module pluse_us_gen
 -- Skipping module control_top
 -- Skipping module rx_ctrl_top
 -- Skipping module rx_ctrl_phy
@@ -22,7 +23,8 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module fx_bm
 -- Skipping module cfg_reg
 -- Skipping module top_m
+-- Compiling module syn_m_top
+-- Compiling module syn_m_main
 
 Top level modules:
 	tb
-	top_m

@@ -6,11 +6,10 @@ module top_s(
 rx_ctrl,
 tx_ctrl,
 rx_syn,
-tx_syn,
 tx_a,
-rx_a,
+de_a,
 tx_b,
-rx_b,
+de_b,
 //clk rst
 mclk0,
 mclk1,
@@ -21,11 +20,10 @@ hrst_n
 input		rx_ctrl;
 output	tx_ctrl;
 input		rx_syn;
-output	tx_syn;
 output	tx_a;
-input		rx_a;
+output	de_a;
 output	tx_b;
-input		rx_b;
+output	de_b;
 //clk rst
 input mclk0;
 input mclk1;

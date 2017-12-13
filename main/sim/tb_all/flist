@@ -15,6 +15,7 @@ dv/cmd_gen.v
 dv/tx_ctrl/sim_ctrl_top.v
 dv/tx_ctrl/sim_ctrl_mac.v
 dv/tx_ctrl/sim_ctrl_phy.v
+dv/gps_source.v
 
 tb.v
 
@@ -43,3 +44,5 @@ tb.v
 
 //../../fpga_m/src/clk_rst_top/clk_rst_top.v
 //../../fpga_m/src/clk_rst_top/pluse_us_gen.v
+../../fpga_m/src/syn_m_top/syn_m_top.v
+../../fpga_m/src/syn_m_top/syn_m_main.v
