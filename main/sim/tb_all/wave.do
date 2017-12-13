@@ -1,12 +1,15 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/u_top_m/u_syn_m/tx_syn
-add wave -noupdate /tb/u_top_m/u_syn_m/gps_pluse
-add wave -noupdate /tb/u_top_m/u_syn_m/clk_sys
-add wave -noupdate /tb/u_top_m/u_syn_m/pluse_us
-add wave -noupdate /tb/u_top_m/u_syn_m/rst_n
+add wave -noupdate -radix decimal /tb/u_top_m/u_syn_m/u_syn_m_main/cnt_us
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/clk_sys
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/pluse_us
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/rst_n
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/gps_pluse
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/fire_sync
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/fire_info
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/gps_pluse_true
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {8282 ns} 0}
+WaveRestoreCursors {{Cursor 1} {586 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 309
 configure wave -valuecolwidth 100
@@ -22,4 +25,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {18900 ns}
+WaveRestoreZoom {0 ns} {21056 ns}

@@ -19,18 +19,17 @@ input rst_n;
 //-------------------------------------------
 //-------------------------------------------
 
-
+wire fire_sync;
+wire fire_info;
 syn_m_main u_syn_m_main(
-.fire_sync(),
-.done_sync(),
-.fire_info(),
-.done_info(),
+.fire_sync(fire_sync),
+.fire_info(fire_info),
 //gps info
-.gps_pluse(),
+.gps_pluse(gps_pluse),
 //clk rst
-.clk_sys(),
-.pluse_us(),
-.rst_n()
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
 );
 
 endmodule

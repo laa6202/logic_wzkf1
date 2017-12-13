@@ -5,7 +5,7 @@
 `define LEN_1US  8'd99
 //SIM : LEN_1US_SIM = 0(1-1)
 //`define LEN_1US_SIM 	8'd0	
-`define LEN_1US_SIM 	8'd99
+`define LEN_1US_SIM 	8'd9
 
 module pluse_us_gen(
 pluse_us,
