@@ -27,7 +27,7 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module syn_m_main
 -- Compiling module syn_m_sync
 -- Skipping module syn_m_info
+-- Skipping module tx_info_phy
 
 Top level modules:
 	tb
-	syn_m_info

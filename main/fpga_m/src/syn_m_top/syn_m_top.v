@@ -43,4 +43,17 @@ syn_m_sync u_syn_m_sync(
 );
 
 
+wire tx_info;
+syn_m_info u_syn_m_info(
+.tx_info(tx_info),
+.fire_sync(fire_sync),
+.fire_info(fire_info),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+wire tx_syn =  tx_sync & tx_info;
+
+
 endmodule

@@ -6,6 +6,11 @@ add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/pluse_us
 add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_main/rst_n
 add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_sync/tx_sync
 add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_sync/fire_sync
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_info/utc_sec
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_info/fire_info
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_info/fire_sync
+add wave -noupdate /tb/u_top_m/u_syn_m/u_syn_m_info/tx_info
+add wave -noupdate /tb/u_top_m/u_syn_m/tx_syn
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {586 ns} 0}
 quietly wave cursor active 1

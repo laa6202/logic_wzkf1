@@ -84,9 +84,9 @@ assign fire_sync = pluse_us & (cnt_us == 22'd0_200_000);
 
 wire fire_info;
 `ifdef SIM
-assign fire_info = pluse_us & (cnt_us == 22'd0_80);
+assign fire_info = pluse_us & (cnt_us == 22'd0_60);
 `else 
-assign fire_info = pluse_us & (cnt_us == 22'd0_800_000);
+assign fire_info = pluse_us & (cnt_us == 22'd0_600_000);
 `endif
 
 endmodule
