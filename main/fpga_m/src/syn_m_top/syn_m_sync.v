@@ -22,9 +22,9 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_cycle <= 20'h0;
 `ifdef SIM
-	else if(cnt_cycle == 20'd100)		//1M
+	else if(cnt_cycle == 20'd100)		//1M = 1us
 `else 
-	else if(cnt_cycle == 20'd1_000_00)	//1K
+	else if(cnt_cycle == 20'd1_000_00)	//1K = 1ms
 `endif
 		cnt_cycle <= 20'h0;
 	else if(fire_sync)

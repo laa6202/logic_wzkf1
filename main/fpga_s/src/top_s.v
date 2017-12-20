@@ -79,5 +79,20 @@ control_top u_control_top(
 );
 
 
+//------------ syn_top -------------
+wire [31:0] utc_sec;
+wire [31:0]	now_ns;
+syn_top u_syn_top(
+.rx_syn(rx_syn),
+.utc_sec(utc_sec),
+.now_ns(now_ns),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
+
 endmodule
 
