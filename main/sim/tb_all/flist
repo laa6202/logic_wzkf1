@@ -38,6 +38,7 @@ tb.v
 ../../fpga_s/src/control_top/cfg_reg.v
 ../../fpga_s/src/syn_top/syn_top.v
 ../../fpga_s/src/syn_top/rx_syn_phy.v
+../../fpga_s/src/syn_top/syn_dec.v
 
 
 //------------------------------------------------

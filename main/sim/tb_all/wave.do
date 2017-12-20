@@ -3,9 +3,14 @@ quietly WaveActivateNextPane {} 0
 add wave -noupdate -radix decimal /tb/u_top_m/u_syn_m/u_syn_m_main/cnt_us
 add wave -noupdate /tb/top_s1/rx_syn
 add wave -noupdate /tb/top_s2/rx_syn
-add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/rx_vld
-add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/rx_data
-add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/syn_vld
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/rx_data
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/rx_vld
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/syn_vld
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/utc_sec
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/now_ns
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/clk_sys
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/rst_n
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/cnt_times
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {5441 ns} 0}
 quietly wave cursor active 1
