@@ -11,8 +11,10 @@ add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/now_ns
 add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/clk_sys
 add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/rst_n
 add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/cnt_times
+add wave -noupdate -radix decimal /tb/top_s1/u_syn_top/u_syn_dec/cnt_ns
+add wave -noupdate /tb/top_s1/u_syn_top/u_syn_dec/utc_org
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {5441 ns} 0}
+WaveRestoreCursors {{Cursor 1} {13799 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 309
 configure wave -valuecolwidth 100
@@ -28,4 +30,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {21 us}
+WaveRestoreZoom {13799 ns} {13841 ns}

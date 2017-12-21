@@ -21,6 +21,7 @@ tb.v
 
 //------------------------------------------------
 ../../fpga_s/src/top_s.v
+../../fpga_s/src/fx_bus.v
 
 ../../fpga_s/src/clk_rst_top/clk_rst_top.v
 ../../fpga_s/src/clk_rst_top/pluse_us_gen.v
@@ -39,6 +40,7 @@ tb.v
 ../../fpga_s/src/syn_top/syn_top.v
 ../../fpga_s/src/syn_top/rx_syn_phy.v
 ../../fpga_s/src/syn_top/syn_dec.v
+../../fpga_s/src/syn_top/syn_reg.v
 
 
 //------------------------------------------------

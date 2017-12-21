@@ -79,14 +79,35 @@ control_top u_control_top(
 );
 
 
+wire [7:0] fx_q_syn;
+fx_bus u_fx_bus(
+.fx_q(fx_q),
+.fx_q_syn(fx_q_syn),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
 //------------ syn_top -------------
 wire [31:0] utc_sec;
 wire [31:0]	now_ns;
+wire [7:0] stu_err_syn;
+
 syn_top u_syn_top(
 .rx_syn(rx_syn),
 .utc_sec(utc_sec),
 .now_ns(now_ns),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_syn),
 //clk rst
+.mod_id(6'h2),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
