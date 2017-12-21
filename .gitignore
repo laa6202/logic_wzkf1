@@ -6,3 +6,9 @@
 /test/wzkf_t1/dev/output_files/*.smsg
 /test/wzkf_t2/sim/tb_top/work
 /main/sim/tb_all/work
+/main/fpga_m/dev/output_files/*.summary
+/main/fpga_m/dev/output_files/*.rpt
+/main/fpga_m/dev/incremental_db
+/main/fpga_m/dev/db
+/main/fpga_m/dev/top_m.qws
+/main/fpga_m/dev/output_files/*.smsg
