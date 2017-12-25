@@ -1,8 +1,6 @@
-//pack_top.v
+//commu_top.v
 
-
-module pack_top(
-
+module commu_top(
 
 //clk rst
 clk_sys,
@@ -14,6 +12,7 @@ input clk_sys;
 input rst_n;
 //--------------------------------------
 //--------------------------------------
+
 
 
 endmodule

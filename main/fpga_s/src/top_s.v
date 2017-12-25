@@ -80,9 +80,15 @@ control_top u_control_top(
 
 
 wire [7:0] fx_q_syn;
+wire [7:0] fx_q_ad1;
+wire [7:0] fx_q_ad2 = 8'h0;
+wire [7:0] fx_q_ad3 = 8'h0;
 fx_bus u_fx_bus(
 .fx_q(fx_q),
 .fx_q_syn(fx_q_syn),
+.fx_q_ad1(fx_q_ad1),
+.fx_q_ad2(fx_q_ad2),
+.fx_q_ad3(fx_q_ad3),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -112,6 +118,26 @@ syn_top u_syn_top(
 .rst_n(rst_n)
 );
 
+
+//------------- ad_top ---------------
+wire [23:0]	ad1_data;
+wire				ad1_vld; 
+ad_top ad1_top(
+//data path output
+.ad_data(ad1_data),
+.ad_vld(ad1_vld),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_ad1),
+.mod_id(6'h11),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 
