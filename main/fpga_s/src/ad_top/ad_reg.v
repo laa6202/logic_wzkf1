@@ -8,6 +8,11 @@ fx_data,
 fx_rd,
 fx_raddr,
 fx_q,
+//configuration
+cfg_sample,
+cfg_ad_tp,
+cfg_tp_base,
+cfg_tp_step,
 //clk rst
 mod_id,
 clk_sys,
@@ -20,6 +25,11 @@ input [15:0]	fx_waddr;
 input [15:0]	fx_raddr;
 input 				fx_rd;
 output  [7:0]	fx_q;
+//configuration
+output [7:0]	cfg_sample;
+output [7:0]	cfg_ad_tp;
+output [23:0]	cfg_tp_base;
+output [7:0]	cfg_tp_step;
 //clk rst
 input [5:0] mod_id;
 input clk_sys;
@@ -36,6 +46,10 @@ wire now_rd = fx_rd & dev_rsel;
 
 
 //--------- register --------
+reg [7:0]	cfg_sample;
+reg [7:0]	cfg_ad_tp;
+reg [23:0]cfg_tp_base;
+reg [7:0]	cfg_tp_step;
 reg [7:0] cfg_dbg0;
 reg [7:0] cfg_dbg1;
 reg [7:0] cfg_dbg2;
@@ -50,6 +64,10 @@ reg [7:0] cfg_dbg7;
 //--------- write register ----------
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)	begin
+		cfg_sample <= 8'd20;
+		cfg_ad_tp <= 8'd1;
+		cfg_tp_base <= 24'h0;
+		cfg_tp_step <= 8'h1;
 		cfg_dbg0 <= 8'h80;
 		cfg_dbg1 <= 8'h81;
 		cfg_dbg2 <= 8'h82;
@@ -61,6 +79,12 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	end
 	else if(now_wr) begin
 		case(fx_waddr[7:0])
+			8'h20 : cfg_sample <= fx_data;
+			8'h40	:	cfg_ad_tp <= fx_data;
+			8'h44	:	cfg_tp_base[7:0] <= fx_data;
+			8'h45	:	cfg_tp_base[15:8] <= fx_data;
+			8'h46	:	cfg_tp_base[23:16] <= fx_data;
+			8'h47	:	cfg_tp_step <= fx_data;
 			8'h80 : cfg_dbg0 <= fx_data;
 			8'h81 : cfg_dbg1 <= fx_data;
 			8'h82 : cfg_dbg2 <= fx_data;
@@ -85,6 +109,12 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else if(now_rd) begin
 		case(fx_raddr[7:0])
 			8'h0  : q0 <= mod_id;
+			8'h20 : q0 <= cfg_sample;
+			8'h40 : q0 <= cfg_ad_tp;
+			8'h44 : q0 <= cfg_tp_base[7:0];
+			8'h45 : q0 <= cfg_tp_base[15:8];
+			8'h46 : q0 <= cfg_tp_base[23:16];
+			8'h47 : q0 <= cfg_tp_step;
 			8'h80 : q0 <= cfg_dbg0;
 			8'h81 : q0 <= cfg_dbg1;
 			8'h82 : q0 <= cfg_dbg2;

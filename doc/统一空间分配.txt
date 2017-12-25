@@ -10,6 +10,15 @@
 	0x1	¿ØÖÆÆ÷
 
 
-0x1-¿ØÖÆÆ÷
+0x1:control_top¿ØÖÆÆ÷
 	0x0	RO	dev_id
 	0x10	WR	dev_id
+
+0x2:syn_top
+
+0x11£ºad1_top
+	0x0	RO	mod_id
+	0x20	WR	cfg_sample
+	0x40	WR	cfg_ad_tp
+	0x44-46	WR	cfg_tp_base
+	0x47	WR	cfg_tp_step
