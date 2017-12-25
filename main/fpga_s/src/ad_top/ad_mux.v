@@ -28,6 +28,10 @@ input rst_n;
 //--------------------------------------
 //--------------------------------------
 
+wire [23:0]	ad_data;
+wire 				ad_vld;
+assign ad_data = (cfg_ad_tp == 8'h1) ? tp_data : real_data;
+assign ad_vld  = (cfg_ad_tp == 8'h1) ? tp_vld  : real_vld ;
 
 
 endmodule

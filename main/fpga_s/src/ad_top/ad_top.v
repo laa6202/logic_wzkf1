@@ -59,7 +59,7 @@ ad_reg u_ad_reg(
 
 
 //----------- ad_tp --------
-wire [15:0]	tp_data;
+wire [23:0]	tp_data;
 wire				tp_vld;
 ad_tp u_ad_tp(
 .tp_data(tp_data),
