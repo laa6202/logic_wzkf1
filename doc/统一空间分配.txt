@@ -22,3 +22,6 @@
 	0x40	WR	cfg_ad_tp
 	0x44-46	WR	cfg_tp_base
 	0x47	WR	cfg_tp_step
+
+0x20: dsp_top
+	

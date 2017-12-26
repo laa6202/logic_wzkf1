@@ -56,6 +56,7 @@ input rst_n;
 //--------------------------------------
 
 
+//--------- dsp_reg ---------
 dsp_reg u_dsp_reg(
 //fx bus
 .fx_waddr(fx_waddr),
@@ -66,6 +67,29 @@ dsp_reg u_dsp_reg(
 .fx_q(fx_q),
 .mod_id(mod_id),
 //clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
+//---------- dsp_p1 ------------
+dsp_p1 u_dsp_p1(
+//data path in
+.ad1_data(ad1_data),
+.ad1_vld(ad1_vld),
+.ad2_data(ad2_data),
+.ad2_vld(ad2_vld),
+.ad3_data(ad3_data),
+.ad3_vld(ad3_vld),
+//data path output
+.dp_data(dp_data),
+.dp_vld(dp_vld),
+.dp_utc(dp_utc),
+.dp_ns(dp_ns),
+//clk rst
+.utc_sec(utc_sec),
+.now_ns(now_ns),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

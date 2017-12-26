@@ -66,8 +66,10 @@ reg [31:0]	now_ns;
 reg [31:0]	utc_sec;
 always @ (posedge clk_sys)
 	now_ns <= cnt_ns;
-always @ (posedge clk_sys)	begin
-	if(syn_vld)
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		utc_sec <= 32'h0;
+	else if(syn_vld)
 		utc_sec <= utc_org;
 	else ;
 end
