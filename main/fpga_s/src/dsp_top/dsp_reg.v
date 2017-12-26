@@ -1,6 +1,6 @@
-//cfg_reg.v
+//dsp_reg.v
 
-module cfg_reg(
+module dsp_reg(
 //fx bus
 fx_waddr,
 fx_wr,

@@ -43,7 +43,8 @@ tb.v
 ../../fpga_s/src/ad_top/ad_reg.v
 ../../fpga_s/src/ad_top/ad_tp.v
 ../../fpga_s/src/ad_top/ad_mux.v
-
+../../fpga_s/src/dsp_top/dsp_top.v
+../../fpga_s/src/dsp_top/dsp_reg.v
 
 
 //------------------------------------------------

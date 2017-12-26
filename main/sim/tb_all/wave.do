@@ -1,16 +1,18 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/tp_data
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/tp_vld
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/cfg_sample
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/cfg_ad_tp
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/cfg_tp_base
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/cfg_tp_step
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/rst_n
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/cfg_tp_change
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/tp_period
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/cnt_cycle
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_tp/period_vld
+add wave -noupdate /tb/top_s1/u_dsp_top/ad1_data
+add wave -noupdate /tb/top_s1/u_dsp_top/ad1_vld
+add wave -noupdate /tb/top_s1/u_dsp_top/ad2_data
+add wave -noupdate /tb/top_s1/u_dsp_top/ad2_vld
+add wave -noupdate /tb/top_s1/u_dsp_top/ad3_data
+add wave -noupdate /tb/top_s1/u_dsp_top/ad3_vld
+add wave -noupdate /tb/top_s1/u_dsp_top/dp_data
+add wave -noupdate /tb/top_s1/u_dsp_top/dp_vld
+add wave -noupdate /tb/top_s1/u_dsp_top/dp_utc
+add wave -noupdate /tb/top_s1/u_dsp_top/dp_ns
+add wave -noupdate /tb/top_s1/u_dsp_top/mod_id
+add wave -noupdate /tb/top_s1/u_dsp_top/utc_sec
+add wave -noupdate /tb/top_s1/u_dsp_top/now_ns
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {10972 ns} 0}
 quietly wave cursor active 1

@@ -30,12 +30,14 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module ad_top
 -- Skipping module ad_reg
 -- Skipping module ad_tp
--- Compiling module ad_mux
+-- Skipping module ad_mux
+-- Skipping module dsp_top
+-- Skipping module dsp_reg
 -- Skipping module top_m
 -- Skipping module syn_m_top
 -- Skipping module syn_m_main
 -- Skipping module syn_m_sync
--- Skipping module syn_m_info
+-- Compiling module syn_m_info
 -- Skipping module tx_info_phy
 
 Top level modules:

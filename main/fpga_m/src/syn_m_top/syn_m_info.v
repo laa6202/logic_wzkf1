@@ -23,7 +23,11 @@ input rst_n;
 reg [31:0]	utc_sec;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
+`ifdef SIM
+		utc_sec <= 32'h5511;
+`else
 		utc_sec <= 32'h0;
+`endif
 	//else if()			//update from gps_setting
 	else if(fire_sync)
 		utc_sec <= utc_sec + 32'h1;

@@ -83,12 +83,14 @@ wire [7:0] fx_q_syn;
 wire [7:0] fx_q_ad1;
 wire [7:0] fx_q_ad2 = 8'h0;
 wire [7:0] fx_q_ad3 = 8'h0;
+wire [7:0] fx_q_dsp;
 fx_bus u_fx_bus(
 .fx_q(fx_q),
 .fx_q_syn(fx_q_syn),
 .fx_q_ad1(fx_q_ad1),
 .fx_q_ad2(fx_q_ad2),
 .fx_q_ad3(fx_q_ad3),
+.fx_q_dsp(fx_q_dsp),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -122,6 +124,10 @@ syn_top u_syn_top(
 //------------- ad_top ---------------
 wire [23:0]	ad1_data;
 wire				ad1_vld; 
+wire [23:0]	ad2_data = 24'h2222;
+wire				ad2_vld = ad1_vld;  
+wire [23:0]	ad3_data = 24'h3333;
+wire				ad3_vld = ad1_vld;  
 ad_top ad1_top(
 //data path output
 .ad_data(ad1_data),
@@ -139,6 +145,39 @@ ad_top ad1_top(
 .rst_n(rst_n)
 );
 
+
+//----------- dsp_top ------------
+wire [23:0]	dp_data;
+wire				dp_vld;
+wire [31:0]	dp_utc;
+wire [31:0]	dp_ns;
+dsp_top u_dsp_top(
+//data path in
+.ad1_data(ad1_data),
+.ad1_vld(ad1_vld),
+.ad2_data(ad2_data),
+.ad2_vld(ad2_vld),
+.ad3_data(ad3_data),
+.ad3_vld(ad3_vld),
+//data path output
+.dp_data(dp_data),
+.dp_vld(dp_vld),
+.dp_utc(dp_utc),
+.dp_ns(dp_ns),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_dsp),
+.mod_id(6'h20),
+//clk rst
+.utc_sec(utc_sec),
+.now_ns(now_ns),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule

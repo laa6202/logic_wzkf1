@@ -164,8 +164,8 @@ cfg_reg u_ctrl_reg(
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
 .fx_q(fx_q_ctrl),
-//clk rst
 .mod_id(mod_id),
+//clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
