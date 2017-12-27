@@ -12,3 +12,10 @@
 /main/fpga_m/dev/db
 /main/fpga_m/dev/top_m.qws
 /main/fpga_m/dev/output_files/*.smsg
+/main/fpga_s/dev/db
+/main/fpga_s/dev/output_files/*.summary
+/main/fpga_s/dev/output_files/*.rpt
+/main/fpga_s/dev/incremental_db
+/main/fpga_s/dev/output_files/*.smsg
+/main/fpga_s/dev/top_s.qws
+/main/fpga_s/dev/greybox_tmp
