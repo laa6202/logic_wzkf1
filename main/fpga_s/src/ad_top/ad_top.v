@@ -12,6 +12,8 @@ fx_rd,
 fx_raddr,
 fx_q,
 mod_id,
+//configuration
+cfg_sample,
 //clk rst
 clk_sys,
 rst_n
@@ -27,6 +29,8 @@ input					fx_rd;
 input [15:0]	fx_raddr;
 output	[7:0]	fx_q;
 input [5:0]		mod_id;
+//configuration
+output [7:0]	cfg_sample;
 //clk rst
 input clk_sys;
 input rst_n;

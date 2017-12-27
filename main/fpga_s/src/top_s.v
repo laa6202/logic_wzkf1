@@ -122,6 +122,7 @@ syn_top u_syn_top(
 
 
 //------------- ad_top ---------------
+wire [7:0]	cfg_sample;
 wire [23:0]	ad1_data;
 wire				ad1_vld; 
 wire [23:0]	ad2_data = 24'h2222;
@@ -140,6 +141,8 @@ ad_top ad1_top(
 .fx_raddr(fx_raddr),
 .fx_q(fx_q_ad1),
 .mod_id(6'h11),
+//configuration
+.cfg_sample(cfg_sample),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -179,6 +182,33 @@ dsp_top u_dsp_top(
 .rst_n(rst_n)
 );
 
+
+//----------- pack_top ------------
+wire [7:0]	pk_data;
+wire				pk_vld;
+pack_top u_pack_top(
+//data path input
+.dp_data(dp_data),
+.dp_vld(dp_vld),
+.dp_utc(dp_utc),
+.dp_ns(dp_ns),
+//pack data output
+.pk_data(pk_data),
+.pk_vld(pk_vld),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_dsp),
+.mod_id(6'h21),
+//configuration
+.cfg_sample(cfg_sample),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 endmodule
 
