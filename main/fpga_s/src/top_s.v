@@ -186,6 +186,7 @@ dsp_top u_dsp_top(
 //----------- pack_top ------------
 wire [7:0]	pk_data;
 wire				pk_vld;
+wire				pk_frm;
 pack_top u_pack_top(
 //data path input
 .dp_data(dp_data),
@@ -195,6 +196,7 @@ pack_top u_pack_top(
 //pack data output
 .pk_data(pk_data),
 .pk_vld(pk_vld),
+.pk_frm(pk_frm),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),

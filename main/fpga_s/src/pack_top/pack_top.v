@@ -10,6 +10,7 @@ dp_ns,
 //pack data output
 pk_data,
 pk_vld,
+pk_frm,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -33,6 +34,7 @@ input [31:0]	dp_ns;
 //pack data output
 output [7:0]	pk_data;
 output				pk_vld;
+output 				pk_frm;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
@@ -69,7 +71,7 @@ pack_reg u_pack_reg(
 
 //---------- pack buf --------
 wire [11:0]	buf_waddr;
-wire [11:0]	buf_raddr = 12'h0;
+wire [11:0]	buf_raddr;
 wire [31:0]	q_x;
 wire [31:0]	q_y;
 wire [31:0]	q_z;
@@ -100,7 +102,7 @@ wire	fire_head;
 wire	fire_load;
 wire	fire_tail;
 wire 	done_head = 1'b1;
-wire 	done_load = 1'b1;
+wire 	done_load;
 wire 	done_tail = 1'b1;
 pack_main u_pack_main(
 .fire_head(fire_head),
@@ -109,8 +111,32 @@ pack_main u_pack_main(
 .done_head(done_head),
 .done_load(done_load),
 .done_tail(done_tail),
+.pk_frm(pk_frm),
 //clk rst
 .utc_sec(utc_sec),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
+//----------- pack_load ------------
+wire [7:0] 	load_data;
+wire 				load_vld;
+pack_load u_pack_load(
+.fire_load(fire_load),
+.done_load(done_load),
+//data path
+.load_data(load_data),
+.load_vld(load_vld),
+.buf_waddr(buf_waddr),
+.buf_raddr(buf_raddr),
+.q_x(q_x),
+.q_y(q_y),
+.q_z(q_z),
+//configuration
+.cfg_sample(cfg_sample),
+//clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

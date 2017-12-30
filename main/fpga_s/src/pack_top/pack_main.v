@@ -8,6 +8,7 @@ fire_tail,
 done_head,
 done_load,
 done_tail,
+pk_frm,
 //clk rst
 utc_sec,
 clk_sys,
@@ -19,6 +20,7 @@ output	fire_tail;
 input 	done_head;
 input 	done_load;
 input 	done_tail;
+output	pk_frm;
 //clk rst
 input [31:0]	utc_sec;
 input clk_sys;
@@ -69,6 +71,10 @@ wire	fire_tail;
 assign fire_head = (st_pack_main == S_FIRE_HEAD) ? 1'b1 : 1'b0;
 assign fire_load = (st_pack_main == S_FIRE_LOAD) ? 1'b1 : 1'b0;
 assign fire_tail = (st_pack_main == S_FIRE_TAIL) ? 1'b1 : 1'b0;
+
+
+wire pk_frm;
+assign pk_frm = (st_pack_main != S_IDLE) ? 1'b1 : 1'b0;
 
 
 endmodule
