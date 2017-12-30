@@ -24,4 +24,8 @@
 	0x47	WR	cfg_tp_step
 
 0x20: dsp_top
+
+0x21: pack_top
+
+
 	

@@ -206,6 +206,7 @@ pack_top u_pack_top(
 //configuration
 .cfg_sample(cfg_sample),
 //clk rst
+.utc_sec(utc_sec),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

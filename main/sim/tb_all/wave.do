@@ -1,21 +1,12 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dp_data
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dp_vld
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dp_utc
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dp_ns
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/clk_sys
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/rst_n
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkX/data
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkX/wren
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkY/data
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkY/wren
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkZ/data
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkZ/wren
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkUTC/data
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkUTC/wren
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkNS/data
-add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/dram_pkNS/wren
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_buf/buf_waddr
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_main/fire_head
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_main/fire_load
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_main/fire_tail
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_main/utc_sec
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_main/st_pack_main
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_main/utc_sec_change
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {1010 ns} 0}
 quietly wave cursor active 1
