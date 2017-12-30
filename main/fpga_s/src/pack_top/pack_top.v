@@ -63,6 +63,8 @@ pack_reg u_pack_reg(
 .fx_raddr(fx_raddr),
 .fx_q(fx_q),
 .mod_id(mod_id),
+//configuration
+.cfg_pkg_en(cfg_pkg_en),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -112,6 +114,8 @@ pack_main u_pack_main(
 .done_load(done_load),
 .done_tail(done_tail),
 .pk_frm(pk_frm),
+//configuration
+.cfg_pkg_en(cfg_pkg_en),
 //clk rst
 .utc_sec(utc_sec),
 .clk_sys(clk_sys),

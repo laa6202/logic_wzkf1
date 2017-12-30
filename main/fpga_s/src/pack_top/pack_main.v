@@ -9,6 +9,8 @@ done_head,
 done_load,
 done_tail,
 pk_frm,
+//configuration
+cfg_pkg_en,
 //clk rst
 utc_sec,
 clk_sys,
@@ -21,12 +23,17 @@ input 	done_head;
 input 	done_load;
 input 	done_tail;
 output	pk_frm;
+//configuration
+input [7:0] cfg_pkg_en;
 //clk rst
 input [31:0]	utc_sec;
 input clk_sys;
 input rst_n;
 //-----------------------------------------
 //-----------------------------------------
+
+
+wire pack_en = cfg_pkg_en[0];
 
 
 //------------ main FSM of pack --------
@@ -45,7 +52,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		st_pack_main <= S_IDLE;
 	else begin
 		case(st_pack_main)
-			S_IDLE : st_pack_main <= utc_sec_change ? S_FIRE_HEAD : S_IDLE;
+			S_IDLE : st_pack_main <= pack_en & utc_sec_change ? 
+																S_FIRE_HEAD : S_IDLE;
 			S_FIRE_HEAD : st_pack_main <= S_WAIT_HEAD;
 			S_WAIT_HEAD : st_pack_main <= done_head ? S_FIRE_LOAD : S_WAIT_HEAD;
 			S_FIRE_LOAD : st_pack_main <= S_WAIT_LOAD;
