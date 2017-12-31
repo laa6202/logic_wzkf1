@@ -53,7 +53,7 @@ input rst_n;
 //--------------------------------------
 
 
-
+wire [7:0] cfg_pkg_en;
 pack_reg u_pack_reg(
 //fx bus
 .fx_waddr(fx_waddr),
@@ -99,6 +99,18 @@ pack_buf u_pack_buf(
 );
 
 
+//------------ pack_base -----------
+wire [11:0] len_load;
+pack_base u_pack_base(
+.len_load(len_load),
+.pk_frm(pk_frm),
+.cfg_sample(cfg_sample),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 //---------- pack main ----------
 wire	fire_head;
 wire	fire_load;
@@ -124,6 +136,8 @@ pack_main u_pack_main(
 
 
 
+
+
 //----------- pack_load ------------
 wire [7:0] 	load_data;
 wire 				load_vld;
@@ -139,7 +153,7 @@ pack_load u_pack_load(
 .q_y(q_y),
 .q_z(q_z),
 //configuration
-.cfg_sample(cfg_sample),
+.len_load(len_load),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

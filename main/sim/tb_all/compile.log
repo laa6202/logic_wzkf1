@@ -35,9 +35,10 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module dsp_reg
 -- Skipping module dsp_p1
 -- Compiling module pack_top
--- Compiling module pack_reg
+-- Skipping module pack_reg
 -- Skipping module pack_buf
--- Compiling module pack_main
+-- Skipping module pack_base
+-- Skipping module pack_main
 -- Skipping module pack_head
 -- Skipping module pack_load
 -- Skipping module ram32x4k
