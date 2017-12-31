@@ -115,7 +115,7 @@ pack_base u_pack_base(
 wire	fire_head;
 wire	fire_load;
 wire	fire_tail;
-wire 	done_head = 1'b1;
+wire 	done_head;
 wire 	done_load;
 wire 	done_tail = 1'b1;
 pack_main u_pack_main(
@@ -135,6 +135,25 @@ pack_main u_pack_main(
 );
 
 
+
+//----------- pack_head ------------
+wire [7:0] 	head_data;
+wire 				head_vld;
+pack_head u_pack_head(
+.fire_head(fire_head),
+.done_head(done_head),
+//data path
+.head_data(head_data),
+.head_vld(head_vld),
+.q_utc(q_utc),
+.q_ns(q_ns),
+//configuration
+.cfg_sample(cfg_sample),
+.len_load(len_load),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 
