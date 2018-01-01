@@ -62,10 +62,9 @@ end
 
 
 //-------------- output syn data --------
-reg [31:0]	now_ns;
+wire [31:0]	now_ns;
+assign	now_ns = cnt_ns;
 reg [31:0]	utc_sec;
-always @ (posedge clk_sys)
-	now_ns <= cnt_ns;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		utc_sec <= 32'h0;

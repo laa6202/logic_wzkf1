@@ -214,5 +214,30 @@ pack_top u_pack_top(
 .rst_n(rst_n)
 );
 
+
+//----------- commu_top ----------
+commu_top u_commu_top(
+//pack data output
+.pk_data(pk_data),
+.pk_vld(pk_vld),
+.pk_frm(pk_frm),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_dsp),
+.mod_id(6'h22),
+//configuration
+.cfg_sample(cfg_sample),
+.dev_id(dev_id),
+//clk rst
+.utc_sec(utc_sec),
+.now_ns(now_ns),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 endmodule
 
