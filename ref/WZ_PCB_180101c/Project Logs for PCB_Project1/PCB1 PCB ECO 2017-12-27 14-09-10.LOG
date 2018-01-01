@@ -1,0 +1,270 @@
+Removed Pin From Net: NetName=TEST_V- Pin=C?-2
+Removed Pin From Net: NetName=TMP_DATA Pin=P?-2
+Removed Pin From Net: NetName=TEST_V- Pin=R?-1
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=C?
+Removed Member From Class: ClassName=Power Member=C?
+Removed Member From Class: ClassName=Power Member=C?
+Removed Member From Class: ClassName=Power Member=C?
+Removed Member From Class: ClassName=Power Member=C?
+Removed Member From Class: ClassName=FPGA_POWER Member=D?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=FPGA_POWER Member=R?
+Removed Member From Class: ClassName=Power Member=R?
+Removed Member From Class: ClassName=Power Member=R?
+Change Component Designator: OldDesignator=C? NewDesignator=C147
+Change Component Designator: OldDesignator=C? NewDesignator=C148
+Change Component Designator: OldDesignator=C? NewDesignator=C149
+Change Component Designator: OldDesignator=C? NewDesignator=C150
+Change Component Designator: OldDesignator=C? NewDesignator=C151
+Change Component Designator: OldDesignator=C? NewDesignator=C152
+Change Component Designator: OldDesignator=C? NewDesignator=C153
+Change Component Designator: OldDesignator=C? NewDesignator=C154
+Change Component Designator: OldDesignator=D? NewDesignator=D2
+Change Component Designator: OldDesignator=D? NewDesignator=D3
+Change Component Designator: OldDesignator=P? NewDesignator=P3
+Change Component Designator: OldDesignator=P? NewDesignator=P5
+Change Component Designator: OldDesignator=P? NewDesignator=P7
+Change Component Designator: OldDesignator=P? NewDesignator=P8
+Change Component Designator: OldDesignator=R? NewDesignator=R101
+Change Component Designator: OldDesignator=R? NewDesignator=R102
+Change Component Designator: OldDesignator=R? NewDesignator=R103
+Change Component Designator: OldDesignator=R? NewDesignator=R104
+Change Component Designator: OldDesignator=R? NewDesignator=R105
+Change Component Designator: OldDesignator=R? NewDesignator=R106
+Change Component Designator: OldDesignator=R? NewDesignator=R107
+Change Component Designator: OldDesignator=R? NewDesignator=R108
+Change Component Designator: OldDesignator=R? NewDesignator=R109
+Change Component Designator: OldDesignator=R? NewDesignator=R110
+Change Component Designator: OldDesignator=R? NewDesignator=R111
+Change Component Designator: OldDesignator=R? NewDesignator=R112
+Change Component Designator: OldDesignator=R? NewDesignator=R113
+Change Component Designator: OldDesignator=R? NewDesignator=R114
+Change Component Designator: OldDesignator=R? NewDesignator=R115
+Change Component Designator: OldDesignator=R? NewDesignator=R116
+Change Component Designator: OldDesignator=R? NewDesignator=R117
+Change Component Designator: OldDesignator=R? NewDesignator=R118
+Change Component Designator: OldDesignator=R? NewDesignator=R119
+Change Component Designator: OldDesignator=R? NewDesignator=R120
+Change Component Designator: OldDesignator=R? NewDesignator=R121
+Change Component Designator: OldDesignator=R? NewDesignator=R122
+Change Component Designator: OldDesignator=R? NewDesignator=R123
+Added Pin To Net: NetName=GND Pin=C147-1
+Added Pin To Net: NetName=+5V_D Pin=C148-1
+Added Pin To Net: NetName=GND Pin=C148-2
+Added Pin To Net: NetName=+5V_D Pin=C150-1
+Added Pin To Net: NetName=GND Pin=C150-2
+Added Pin To Net: NetName=GND Pin=C151-1
+Added Pin To Net: NetName=TEST_V+ Pin=C151-2
+Added Pin To Net: NetName=GND Pin=C152-1
+Added Pin To Net: NetName=TEST_V- Pin=C152-2
+Added Pin To Net: NetName=GND Pin=C153-1
+Added Pin To Net: NetName=+12V Pin=C153-2
+Added Pin To Net: NetName=-12V Pin=C154-1
+Added Pin To Net: NetName=GND Pin=C154-2
+Added Pin To Net: NetName=HMC5883_SDA Pin=P7-1
+Added Pin To Net: NetName=HMC5883_WSDA Pin=P7-2
+Added Pin To Net: NetName=HMC5883_SCL Pin=P7-3
+Added Pin To Net: NetName=HMC5883_RDY Pin=P7-4
+Added Pin To Net: NetName=GND Pin=P7-5
+Added Pin To Net: NetName=3V3 Pin=P8-1
+Added Pin To Net: NetName=TMP_DATA Pin=P8-2
+Added Pin To Net: NetName=GND Pin=P8-4
+Added Pin To Net: NetName=MAIN_DATA_TXEN Pin=R102-1
+Added Pin To Net: NetName=GPS_TIMER Pin=R103-2
+Added Pin To Net: NetName=CMD_BUS Pin=R104-2
+Added Pin To Net: NetName=MAIN_DATA Pin=R105-1
+Added Pin To Net: NetName=MAIN_DATA_RXEN Pin=R106-1
+Added Pin To Net: NetName=TEST_I+ Pin=R108-1
+Added Pin To Net: NetName=TEST_I- Pin=R109-1
+Added Pin To Net: NetName=TEST_V+ Pin=R110-1
+Added Pin To Net: NetName=+12V Pin=R110-2
+Added Pin To Net: NetName=TEST_V+ Pin=R111-1
+Added Pin To Net: NetName=GND Pin=R111-2
+Added Pin To Net: NetName=3V3 Pin=R112-2
+Added Pin To Net: NetName=TEST_V- Pin=R113-1
+Added Pin To Net: NetName=-12V Pin=R113-2
+Added Pin To Net: NetName=TEST_V- Pin=R114-1
+Added Pin To Net: NetName=GND Pin=R114-2
+Added Pin To Net: NetName=GND Pin=R115-1
+Added Pin To Net: NetName=ADC_IN0 Pin=R116-2
+Added Pin To Net: NetName=ADC_IN3 Pin=R117-1
+Added Pin To Net: NetName=GND Pin=R118-2
+Added Pin To Net: NetName=GND Pin=R119-1
+Added Pin To Net: NetName=ADC_IN1 Pin=R120-2
+Added Pin To Net: NetName=ADC_IN2 Pin=R121-1
+Added Pin To Net: NetName=GND Pin=R122-2
+Added Pin To Net: NetName=3V3 Pin=R123-2
+Change Net Name : Old Net Name=NetD?_2 New Net Name=NetD3_2
+Added Pin To Net: NetName=NetC147_2 Pin=C147-2
+Added Net: Name=NetC147_2
+Added Pin To Net: NetName=NetC149_2 Pin=C149-2
+Added Net: Name=NetC149_2
+Added Pin To Net: NetName=NetD2_1 Pin=D2-1
+Added Pin To Net: NetName=NetD2_1 Pin=R112-1
+Added Net: Name=NetD2_1
+Added Pin To Net: NetName=NetD2_2 Pin=D2-2
+Added Pin To Net: NetName=NetD2_2 Pin=U16-57
+Added Net: Name=NetD2_2
+Added Pin To Net: NetName=NetD3_1 Pin=D3-1
+Added Pin To Net: NetName=NetD3_1 Pin=R123-1
+Added Net: Name=NetD3_1
+Added Pin To Net: NetName=NetP3_1 Pin=P3-1
+Added Pin To Net: NetName=NetP3_1 Pin=R101-1
+Added Net: Name=NetP3_1
+Added Pin To Net: NetName=NetP3_2 Pin=P3-2
+Added Pin To Net: NetName=NetP3_2 Pin=R101-2
+Added Net: Name=NetP3_2
+Added Pin To Net: NetName=NetP5_1 Pin=P5-1
+Added Pin To Net: NetName=NetP5_1 Pin=R107-2
+Added Net: Name=NetP5_1
+Added Pin To Net: NetName=NetP5_2 Pin=P5-2
+Added Pin To Net: NetName=NetP5_2 Pin=R107-1
+Added Net: Name=NetP5_2
+Added Pin To Net: NetName=NetR102_2 Pin=R102-2
+Added Net: Name=NetR102_2
+Added Pin To Net: NetName=NetR103_1 Pin=R103-1
+Added Net: Name=NetR103_1
+Added Pin To Net: NetName=NetR104_1 Pin=R104-1
+Added Net: Name=NetR104_1
+Added Pin To Net: NetName=NetR105_2 Pin=R105-2
+Added Net: Name=NetR105_2
+Added Pin To Net: NetName=NetR106_2 Pin=R106-2
+Added Net: Name=NetR106_2
+Added Pin To Net: NetName=NetR108_2 Pin=R108-2
+Added Net: Name=NetR108_2
+Added Pin To Net: NetName=NetR109_2 Pin=R109-2
+Added Net: Name=NetR109_2
+Added Pin To Net: NetName=NetR115_2 Pin=R115-2
+Added Pin To Net: NetName=NetR115_2 Pin=R116-1
+Added Net: Name=NetR115_2
+Added Pin To Net: NetName=NetR117_2 Pin=R117-2
+Added Pin To Net: NetName=NetR117_2 Pin=R118-1
+Added Net: Name=NetR117_2
+Added Pin To Net: NetName=NetR119_2 Pin=R119-2
+Added Pin To Net: NetName=NetR119_2 Pin=R120-1
+Added Net: Name=NetR119_2
+Added Pin To Net: NetName=NetR121_2 Pin=R121-2
+Added Pin To Net: NetName=NetR121_2 Pin=R122-1
+Added Net: Name=NetR121_2
+Added Class: Name=485Driver_MAX3462
+Added Member To Class: ClassName=Power Member=Component C147 102
+Added Member To Class: ClassName=Power Member=Component C148 104
+Added Member To Class: ClassName=Power Member=Component C149 102
+Added Member To Class: ClassName=Power Member=Component C150 104
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component C151 Cap
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component C152 Cap
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component C153 104
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component D3 LED
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component P7 Header 5
+Added Member To Class: ClassName=Power Member=Component R108 000
+Added Member To Class: ClassName=Power Member=Component R109 000
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R110 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R111 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R112 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R113 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R114 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R115 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R116 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R117 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R118 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R119 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R120 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R121 Res2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R123 Res2

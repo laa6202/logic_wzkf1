@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=MAIN_DATA_TXEN Pin=R124-2
+Removed Pin From Net: NetName=MAIN_DATA_RXEN Pin=R125-1
+Added Pin To Net: NetName=NetR102_2 Pin=R124-2
+Added Pin To Net: NetName=NetR106_2 Pin=R125-1
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=Power

@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=DGND Pin=C151-1
+Removed Pin From Net: NetName=DGND Pin=C152-1
+Removed Pin From Net: NetName=DGND Pin=R111-2
+Removed Pin From Net: NetName=DGND Pin=R114-2
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C151
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C151
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C152
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R110
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R111
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R113
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R114
+Added Pin To Net: NetName=SGND Pin=C151-1
+Added Pin To Net: NetName=SGND Pin=C152-1
+Added Pin To Net: NetName=SGND Pin=R111-2
+Added Pin To Net: NetName=SGND Pin=R114-2
+Added Member To Class: ClassName=Power Member=Component C151 Cap
+Added Member To Class: ClassName=Power Member=Component C152 Cap
+Added Member To Class: ClassName=Power Member=Component R110 Res2
+Added Member To Class: ClassName=Power Member=Component R111 Res2
+Added Member To Class: ClassName=Power Member=Component R113 Res2
+Added Member To Class: ClassName=Power Member=Component R114 Res2
+Added Room: Name=Power

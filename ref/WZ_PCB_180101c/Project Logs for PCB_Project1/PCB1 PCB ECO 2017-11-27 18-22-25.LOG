@@ -1,0 +1,4 @@
+Added Component: Designator=P21(SIP2_5.08)
+Added Pin To Net: NetName=SGND Pin=P21-1
+Added Pin To Net: NetName=+12V Pin=P21-2
+Added Member To Class: ClassName=Power Member=Component P21 Header 2

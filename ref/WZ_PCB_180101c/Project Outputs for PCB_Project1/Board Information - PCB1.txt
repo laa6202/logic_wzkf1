@@ -1,0 +1,5 @@
+Board Information Report
+Filename     : D:\WorkGit\Microseismograph\Weizhen_PCB_FPGA\WZ_PCB\PCB1.PcbDoc
+Date         : 2017/12/31
+Time         : 15:31:22
+Time Elapsed : 00:00:00

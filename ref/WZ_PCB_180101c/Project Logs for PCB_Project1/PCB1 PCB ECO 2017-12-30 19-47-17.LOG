@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=R80 Old Footprint=0402 New Footprint=0603
+Change Component Footprint: Designator=R82 Old Footprint=0402 New Footprint=0603
+Change Component Footprint: Designator=R83 Old Footprint=0402 New Footprint=0603
+Change Component Footprint: Designator=R84 Old Footprint=0402 New Footprint=0603
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER

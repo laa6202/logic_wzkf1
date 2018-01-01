@@ -1,0 +1,26 @@
+Added Component: Designator=U22(VQFN32)
+Added Pin To Net: NetName=NetC116_1 Pin=U22-1
+Added Pin To Net: NetName=DGND Pin=U22-2
+Added Pin To Net: NetName=NetL2_1 Pin=U22-3
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-4
+Added Pin To Net: NetName=DGND Pin=U22-7
+Added Pin To Net: NetName=NetR96_1 Pin=U22-11
+Added Pin To Net: NetName=DGND Pin=U22-13
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-15
+Added Pin To Net: NetName=NetC139_1 Pin=U22-16
+Added Pin To Net: NetName=NetR98_2 Pin=U22-17
+Added Pin To Net: NetName=NetR95_2 Pin=U22-18
+Added Pin To Net: NetName=NetR94_2 Pin=U22-19
+Added Pin To Net: NetName=NetR93_2 Pin=U22-20
+Added Pin To Net: NetName=REF_V2 Pin=U22-22
+Added Pin To Net: NetName=NetR89_2 Pin=U22-23
+Added Pin To Net: NetName=NetR100_2 Pin=U22-24
+Added Pin To Net: NetName=NetC112_1 Pin=U22-25
+Added Pin To Net: NetName=DGND Pin=U22-26
+Added Pin To Net: NetName=NetL1_1 Pin=U22-27
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-28
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-29
+Added Pin To Net: NetName=DGND Pin=U22-31
+Added Pin To Net: NetName=NetR92_2 Pin=U22-32
+Added Pin To Net: NetName=DGND Pin=U22-33
+Added Member To Class: ClassName=FPGA_POWER Member=Component U22 TPS650243RHBR

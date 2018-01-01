@@ -1,0 +1,8 @@
+Removed Member From Class: ClassName=Power Member=T10
+Removed Member From Class: ClassName=Power Member=T10
+Removed Member From Class: ClassName=Power Member=T10
+Added Pin To Net: NetName=MCU_FPGA_BAK7 Pin=U16-59
+Added Pin To Net: NetName=MCU_FPGA_BAK7 Pin=U18-A4
+Added Net: Name=MCU_FPGA_BAK7
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

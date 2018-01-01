@@ -1,0 +1,31 @@
+Change Component Footprint: Designator=C13 Old Footprint=0603 New Footprint=0805C
+Change Component Footprint: Designator=C14 Old Footprint=0603 New Footprint=0805C
+Added Component: Designator=C92(0805C)
+Added Component: Designator=C157(0805C)
+Added Component: Designator=C158(0805C)
+Added Component: Designator=C159(0805C)
+Added Component: Designator=C160(0805C)
+Added Component: Designator=C161(0805C)
+Added Pin To Net: NetName=+5V1 Pin=C92-1
+Added Pin To Net: NetName=AGND Pin=C92-2
+Added Pin To Net: NetName=AGND Pin=C157-1
+Added Pin To Net: NetName=-5V1 Pin=C157-2
+Added Pin To Net: NetName=+5V2 Pin=C158-1
+Added Pin To Net: NetName=AGND Pin=C158-2
+Added Pin To Net: NetName=AGND Pin=C159-1
+Added Pin To Net: NetName=-5V2 Pin=C159-2
+Added Pin To Net: NetName=+5V3 Pin=C160-1
+Added Pin To Net: NetName=AGND Pin=C160-2
+Added Pin To Net: NetName=AGND Pin=C161-1
+Added Pin To Net: NetName=-5V3 Pin=C161-2
+Added Pin To Net: NetName=-5V3 Pin=R58-1
+Added Pin To Net: NetName=-5V3 Pin=U15-5
+Added Member To Class: ClassName=CH1_CH2 Member=Component C92 104
+Added Member To Class: ClassName=CH1_CH2 Member=Component C157 104
+Added Member To Class: ClassName=CH1_CH2 Member=Component C158 104
+Added Member To Class: ClassName=CH1_CH2 Member=Component C159 104
+Added Member To Class: ClassName=CH3 Member=Component C160 104
+Added Member To Class: ClassName=CH3 Member=Component C161 104
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=Power

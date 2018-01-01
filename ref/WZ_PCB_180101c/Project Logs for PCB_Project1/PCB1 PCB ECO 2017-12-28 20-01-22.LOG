@@ -1,0 +1,41 @@
+Removed Pin From Net: NetName=DGND Pin=D1-2
+Removed Pin From Net: NetName=DGND Pin=D9-2
+Removed Pin From Net: NetName=DGND Pin=D10-2
+Removed Pin From Net: NetName=DGND Pin=D11-2
+Removed Pin From Net: NetName=DGND Pin=D12-2
+Removed Pin From Net: NetName=DGND Pin=D13-2
+Removed Pin From Net: NetName=DGND Pin=D14-2
+Removed Pin From Net: NetName=DGND Pin=D15-2
+Added Pin To Net: NetName=+3.3V Pin=R88-2
+Added Pin To Net: NetName=+3.3V Pin=R129-2
+Added Pin To Net: NetName=+3.3V Pin=R130-2
+Added Pin To Net: NetName=+3.3V Pin=R131-2
+Added Pin To Net: NetName=+3.3V Pin=R132-2
+Added Pin To Net: NetName=+3.3V Pin=R133-2
+Added Pin To Net: NetName=+3.3V Pin=R134-2
+Added Pin To Net: NetName=+3.3V Pin=R135-2
+Added Pin To Net: NetName=FPGA_LED1 Pin=D15-2
+Added Pin To Net: NetName=FPGA_LED1 Pin=U18-AB18
+Added Net: Name=FPGA_LED1
+Added Pin To Net: NetName=FPGA_LED2 Pin=D14-2
+Added Pin To Net: NetName=FPGA_LED2 Pin=U18-AA17
+Added Net: Name=FPGA_LED2
+Added Pin To Net: NetName=FPGA_LED3 Pin=D13-2
+Added Pin To Net: NetName=FPGA_LED3 Pin=U18-AB17
+Added Net: Name=FPGA_LED3
+Added Pin To Net: NetName=FPGA_LED4 Pin=D12-2
+Added Pin To Net: NetName=FPGA_LED4 Pin=U18-AA18
+Added Net: Name=FPGA_LED4
+Added Pin To Net: NetName=FPGA_LED5 Pin=D11-2
+Added Pin To Net: NetName=FPGA_LED5 Pin=U18-AA19
+Added Net: Name=FPGA_LED5
+Added Pin To Net: NetName=FPGA_LED6 Pin=D10-2
+Added Pin To Net: NetName=FPGA_LED6 Pin=U18-AB19
+Added Net: Name=FPGA_LED6
+Added Pin To Net: NetName=FPGA_LED7 Pin=D9-2
+Added Pin To Net: NetName=FPGA_LED7 Pin=U18-W17
+Added Net: Name=FPGA_LED7
+Added Pin To Net: NetName=FPGA_LED8 Pin=D1-2
+Added Pin To Net: NetName=FPGA_LED8 Pin=U18-Y17
+Added Net: Name=FPGA_LED8
+Added Room: Name=EP3CE75F484

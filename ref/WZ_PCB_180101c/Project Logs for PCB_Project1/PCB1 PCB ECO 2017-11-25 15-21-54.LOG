@@ -1,0 +1,40 @@
+Removed Pin From Net: NetName=OUT+ Pin=R10-2
+Removed Pin From Net: NetName=OUT+ Pin=R11-1
+Removed Pin From Net: NetName=OUT- Pin=R24-1
+Removed Pin From Net: NetName=OUT+ Pin=R27-2
+Removed Pin From Net: NetName=OUT+ Pin=R28-1
+Removed Pin From Net: NetName=OUT- Pin=R41-1
+Removed Pin From Net: NetName=OUT+ Pin=R44-2
+Removed Pin From Net: NetName=OUT+ Pin=R45-1
+Removed Pin From Net: NetName=OUT- Pin=R58-1
+Removed Pin From Net: NetName=OUT+ Pin=U7-4
+Removed Pin From Net: NetName=OUT- Pin=U7-5
+Removed Pin From Net: NetName=OUT+ Pin=U11-4
+Removed Pin From Net: NetName=OUT- Pin=U11-5
+Removed Pin From Net: NetName=OUT+ Pin=U15-4
+Removed Pin From Net: NetName=OUT- Pin=U15-5
+Added Pin To Net: NetName=OUT- Pin=R44-2
+Added Pin To Net: NetName=OUT- Pin=R45-1
+Added Pin To Net: NetName=OUT+ Pin=R58-1
+Added Pin To Net: NetName=OUT- Pin=U15-4
+Added Pin To Net: NetName=OUT+ Pin=U15-5
+Change Net Name : Old Net Name=OUT+ New Net Name=OUT3-
+Change Net Name : Old Net Name=OUT- New Net Name=OUT3+
+Added Pin To Net: NetName=OUT1+ Pin=R10-2
+Added Pin To Net: NetName=OUT1+ Pin=R11-1
+Added Pin To Net: NetName=OUT1+ Pin=U7-4
+Added Net: Name=OUT1+
+Added Pin To Net: NetName=OUT1- Pin=R24-1
+Added Pin To Net: NetName=OUT1- Pin=U7-5
+Added Net: Name=OUT1-
+Added Pin To Net: NetName=OUT2+ Pin=R27-2
+Added Pin To Net: NetName=OUT2+ Pin=R28-1
+Added Pin To Net: NetName=OUT2+ Pin=U11-4
+Added Net: Name=OUT2+
+Added Pin To Net: NetName=OUT2- Pin=R41-1
+Added Pin To Net: NetName=OUT2- Pin=U11-5
+Added Net: Name=OUT2-
+Added Room: Name=MAX3462
+Added Room: Name=Power
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

@@ -1,0 +1,14 @@
+Change Component Footprint: Designator=C47 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C58 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C59 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=R67 Old Footprint=0805R New Footprint=0603
+Change Component Footprint: Designator=R70 Old Footprint=0805R New Footprint=0603
+Change Component Footprint: Designator=R86 Old Footprint=0805R New Footprint=0603
+Change Component Footprint: Designator=R87 Old Footprint=0805R New Footprint=0603
+Change Component Comment : Designator=C48 Old Comment=0.1 New Comment=104
+Change Component Comment : Designator=C49 Old Comment=0.1 New Comment=104
+Change Component Comment : Designator=C50 Old Comment=0.1 New Comment=104
+Change Component Comment : Designator=C51 Old Comment=0.1 New Comment=104
+Change Component Comment : Designator=C52 Old Comment=0.1 New Comment=104
+Change Component Comment : Designator=C53 Old Comment=0.1 New Comment=104
+Change Component Comment : Designator=C47 Old Comment=0.1uF New Comment=104

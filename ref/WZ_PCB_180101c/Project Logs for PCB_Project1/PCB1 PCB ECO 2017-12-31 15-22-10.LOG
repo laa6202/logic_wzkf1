@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=SGND Pin=C155-2
+Removed Pin From Net: NetName=SGND Pin=D8-1
+Removed Pin From Net: NetName=SGND Pin=U28-3
+Removed Pin From Net: NetName=SGND Pin=U28-5
+Added Pin To Net: NetName=DGND Pin=C155-2
+Added Pin To Net: NetName=DGND Pin=D8-1
+Added Pin To Net: NetName=DGND Pin=U28-3
+Added Pin To Net: NetName=DGND Pin=U28-5
+Added Room: Name=Power

@@ -1,0 +1,17 @@
+Added Component: Designator=BOOT1(HDR1X3)
+Added Component: Designator=J2(HDR1X4)
+Added Component: Designator=JP1(HDR1X4)
+Added Pin To Net: NetName=NetBOOT1_1 Pin=BOOT1-1
+Added Pin To Net: NetName=BOOT0 Pin=BOOT1-2
+Added Pin To Net: NetName=GND Pin=BOOT1-3
+Added Pin To Net: NetName=5V Pin=J2-1
+Added Pin To Net: NetName=TX1 Pin=J2-2
+Added Pin To Net: NetName=RX1 Pin=J2-3
+Added Pin To Net: NetName=GND Pin=J2-4
+Added Pin To Net: NetName=3V3 Pin=JP1-1
+Added Pin To Net: NetName=JTMS Pin=JP1-2
+Added Pin To Net: NetName=JTCK Pin=JP1-3
+Added Pin To Net: NetName=GND Pin=JP1-4
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component BOOT1 
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component J2 CON4
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component JP1 

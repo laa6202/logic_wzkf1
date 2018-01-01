@@ -1,0 +1,46 @@
+Removed Pin From Net: NetName=SYNC_3A Pin=P27-1
+Removed Pin From Net: NetName=DOUT_3A Pin=P27-2
+Removed Pin From Net: NetName=DIN_3A Pin=P27-3
+Added Component: Designator=C41(0805C)
+Added Component: Designator=C42(0805C)
+Added Component: Designator=C43(0805C)
+Added Component: Designator=C44(0805C)
+Added Component: Designator=R74(0805R)
+Added Component: Designator=R75(0805R)
+Added Component: Designator=R76(0805R)
+Added Component: Designator=R77(0805R)
+Added Component: Designator=R78(0805R)
+Added Component: Designator=R79(0805R)
+Added Component: Designator=R81(0805R)
+Added Component: Designator=R85(0805R)
+Added Pin To Net: NetName=DGND Pin=C41-1
+Added Pin To Net: NetName=NetC41_2 Pin=C41-2
+Added Pin To Net: NetName=DGND Pin=C42-1
+Added Pin To Net: NetName=FPGA_DCLK Pin=C42-2
+Added Pin To Net: NetName=DGND Pin=C43-1
+Added Pin To Net: NetName=FPGA_NCSO Pin=C43-2
+Added Pin To Net: NetName=DGND Pin=C44-1
+Added Pin To Net: NetName=FPGA_ASDO Pin=C44-2
+Added Pin To Net: NetName=-12V Pin=P27-1
+Added Pin To Net: NetName=SYNC_3A Pin=P27-1
+Added Pin To Net: NetName=DOUT_3A Pin=P27-2
+Added Pin To Net: NetName=SGND Pin=P27-2
+Added Pin To Net: NetName=+12V Pin=P27-3
+Added Pin To Net: NetName=DIN_3A Pin=P27-3
+Added Pin To Net: NetName=NetR74_1 Pin=R74-1
+Added Pin To Net: NetName=NetR74_2 Pin=R74-2
+Added Pin To Net: NetName=+2.5V Pin=R75-1
+Added Pin To Net: NetName=NetJ1_4 Pin=R75-2
+Added Pin To Net: NetName=FPGA_TMS Pin=R76-1
+Added Pin To Net: NetName=NetJ1_4 Pin=R76-2
+Added Pin To Net: NetName=FPGA_TDI Pin=R77-1
+Added Pin To Net: NetName=NetJ1_4 Pin=R77-2
+Added Pin To Net: NetName=DGND Pin=R78-1
+Added Pin To Net: NetName=FPGA_TCK Pin=R78-2
+Added Pin To Net: NetName=DGND Pin=R79-1
+Added Pin To Net: NetName=MSEL0 Pin=R79-2
+Added Pin To Net: NetName=+3.3V Pin=R81-1
+Added Pin To Net: NetName=MSEL1 Pin=R81-2
+Added Pin To Net: NetName=FPGA_DATA0 Pin=R85-1
+Added Pin To Net: NetName=NetC41_2 Pin=R85-2
+Added Class: Name=EP3CE75F484

@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=HMC5883_RDY Pin=P7-4
+Removed Pin From Net: NetName=DGND Pin=P7-5
+Added Pin To Net: NetName=DGND Pin=P7-4
+Added Pin To Net: NetName=3V3 Pin=P7-5

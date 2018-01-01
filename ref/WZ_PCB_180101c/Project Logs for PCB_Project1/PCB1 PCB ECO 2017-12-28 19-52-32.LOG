@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=FPGA_TEST1 Pin=U18-J21
+Added Pin To Net: NetName=FPGA_TEST1 Pin=U18-J22

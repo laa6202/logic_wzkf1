@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=MAIN_DATA_RXEN Pin=R?-1
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Removed Member From Class: ClassName=STM32F103RBT6 Member=R?
+Change Component Designator: OldDesignator=R? NewDesignator=R124
+Change Component Designator: OldDesignator=R? NewDesignator=R125
+Added Pin To Net: NetName=+5V_485 Pin=R124-1
+Added Pin To Net: NetName=MAIN_DATA_RXEN Pin=R125-1
+Added Pin To Net: NetName=GND Pin=R125-2
+Added Member To Class: ClassName=485Driver_MAX3462 Member=Component R124 1001

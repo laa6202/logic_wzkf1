@@ -1,0 +1,52 @@
+Removed Member From Class: ClassName=STM32F103RBT6 Member=P5
+Added Component: Designator=U1(SOP14)
+Added Component: Designator=U2(SOP14)
+Added Component: Designator=U23(SOP14)
+Added Component: Designator=U24(SOP14)
+Added Pin To Net: NetName=GND Pin=U1-1
+Added Pin To Net: NetName=NetR103_1 Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=GND Pin=U1-6
+Added Pin To Net: NetName=GND Pin=U1-7
+Added Pin To Net: NetName=NetP1_2 Pin=U1-11
+Added Pin To Net: NetName=NetP1_1 Pin=U1-12
+Added Pin To Net: NetName=+5V_485 Pin=U1-14
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=NetR104_1 Pin=U2-2
+Added Pin To Net: NetName=GND Pin=U2-3
+Added Pin To Net: NetName=NetR102_2 Pin=U2-4
+Added Pin To Net: NetName=NetR105_2 Pin=U2-5
+Added Pin To Net: NetName=GND Pin=U2-6
+Added Pin To Net: NetName=GND Pin=U2-7
+Added Pin To Net: NetName=NetP3_2 Pin=U2-9
+Added Pin To Net: NetName=NetP3_1 Pin=U2-10
+Added Pin To Net: NetName=NetP2_2 Pin=U2-11
+Added Pin To Net: NetName=NetP2_1 Pin=U2-12
+Added Pin To Net: NetName=+5V_485 Pin=U2-14
+Added Pin To Net: NetName=GND Pin=U23-1
+Added Pin To Net: NetName=+5V_485 Pin=U23-4
+Added Pin To Net: NetName=NetR103_1 Pin=U23-5
+Added Pin To Net: NetName=GND Pin=U23-6
+Added Pin To Net: NetName=GND Pin=U23-7
+Added Pin To Net: NetName=NetP4_2 Pin=U23-9
+Added Pin To Net: NetName=NetP4_1 Pin=U23-10
+Added Pin To Net: NetName=+5V_485 Pin=U23-14
+Added Pin To Net: NetName=GND Pin=U24-1
+Added Pin To Net: NetName=NetR105_2 Pin=U24-2
+Added Pin To Net: NetName=NetR106_2 Pin=U24-3
+Added Pin To Net: NetName=+5V_485 Pin=U24-4
+Added Pin To Net: NetName=NetR104_1 Pin=U24-5
+Added Pin To Net: NetName=GND Pin=U24-6
+Added Pin To Net: NetName=GND Pin=U24-7
+Added Pin To Net: NetName=NetP6_2 Pin=U24-9
+Added Pin To Net: NetName=NetP6_1 Pin=U24-10
+Added Pin To Net: NetName=NetP5_2 Pin=U24-11
+Added Pin To Net: NetName=NetP5_1 Pin=U24-12
+Added Pin To Net: NetName=+5V_485 Pin=U24-14
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component C154 104
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component P8 Header 4
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R122 Res2
+Added Member To Class: ClassName=485Driver_MAX3462 Member=Component U1 MAX3461
+Added Member To Class: ClassName=485Driver_MAX3462 Member=Component U2 MAX3461
+Added Member To Class: ClassName=485Driver_MAX3462 Member=Component U23 MAX3461
+Added Member To Class: ClassName=485Driver_MAX3462 Member=Component U24 MAX3461

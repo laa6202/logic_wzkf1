@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=C151 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C152 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C153 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C154 Old Footprint=0805C New Footprint=0603
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

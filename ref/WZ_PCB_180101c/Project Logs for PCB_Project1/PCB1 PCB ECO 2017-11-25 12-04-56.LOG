@@ -1,0 +1,7 @@
+Added Component: Designator=U5(SO8)
+Added Pin To Net: NetName=NetC10_2 Pin=U5-2
+Added Pin To Net: NetName=NetR16_2 Pin=U5-3
+Added Pin To Net: NetName=-5V Pin=U5-4
+Added Pin To Net: NetName=+5V Pin=U5-7
+Added Pin To Net: NetName=NetC11_1 Pin=U5-8
+Added Member To Class: ClassName=Sheet1 Member=Component U5 AD797

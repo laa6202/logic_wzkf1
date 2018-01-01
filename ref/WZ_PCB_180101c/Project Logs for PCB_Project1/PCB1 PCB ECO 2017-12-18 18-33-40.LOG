@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=SGND Pin=P27-2
+Removed Member From Class: ClassName=Power Member=P27
+Change Component DesignItemId : Designator=P27 Old DesignItemId=Header 3 New DesignItemId=Header 6
+Change Component Footprint: Designator=P27 Old Footprint=HDR1X3 New Footprint=HDR1X6
+Change Component Comment : Designator=P27 Old Comment=Header 3 New Comment=Header 6
+Added Component: Designator=P11(HDR1X3)
+Added Pin To Net: NetName=-12V Pin=P11-1
+Added Pin To Net: NetName=SGND Pin=P11-2
+Added Pin To Net: NetName=+12V Pin=P11-3
+Added Pin To Net: NetName=DOUT_3A Pin=P27-2
+Added Pin To Net: NetName=SCLK_3A Pin=P27-4
+Added Pin To Net: NetName=DGND Pin=P27-6
+Added Member To Class: ClassName=Power Member=Component P11 Header 3
+Added Member To Class: ClassName=CH3 Member=Component P27 Header 6

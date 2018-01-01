@@ -1,0 +1,7 @@
+Removed Member From Class: ClassName=FPGA_POWER Member=D1
+Removed Member From Class: ClassName=FPGA_POWER Member=R88
+Change Component DesignItemId : Designator=P9 Old DesignItemId=Header 8X2 New DesignItemId=Header 16
+Change Component Footprint: Designator=P9 Old Footprint=HDR2X8 New Footprint=HDR1X16
+Change Component Comment : Designator=P9 Old Comment=EXTERN_PIN New Comment=Header 16
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER

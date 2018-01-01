@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=NetC10_1 Pin=U5-6
+Added Pin To Net: NetName=NetC19_1 Pin=U9-6
+Added Pin To Net: NetName=NetC28_1 Pin=U13-6
+Added Room: Name=MAX3462
+Added Room: Name=Power
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

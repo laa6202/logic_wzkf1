@@ -1,0 +1,7 @@
+Added Component: Designator=U4(B1205SW)
+Added Pin To Net: NetName=+12V Pin=U4-1
+Added Pin To Net: NetName=SGND Pin=U4-2
+Added Pin To Net: NetName=DGND Pin=U4-4
+Added Pin To Net: NetName=+5V_D Pin=U4-6
+Added Member To Class: ClassName=Power Member=Component U4 B1205S2W
+Added Room: Name=Power

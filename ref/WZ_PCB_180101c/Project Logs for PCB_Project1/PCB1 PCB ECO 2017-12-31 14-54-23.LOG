@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=+1.2V Pin=T17-1
+Removed Pin From Net: NetName=+1.2V Pin=T18-1
+Removed Pin From Net: NetName=+3.3V Pin=T21-1
+Removed Member From Class: ClassName=FPGA_POWER Member=T18
+Removed Member From Class: ClassName=FPGA_POWER Member=T18
+Removed Member From Class: ClassName=FPGA_POWER Member=T21
+Added Pin To Net: NetName=NetC113_1 Pin=T17-1
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER

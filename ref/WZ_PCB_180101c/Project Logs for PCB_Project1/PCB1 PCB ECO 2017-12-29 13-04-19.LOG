@@ -1,0 +1,17 @@
+Added Component: Designator=C156(0603)
+Added Component: Designator=R136(0603)
+Added Pin To Net: NetName=DGND Pin=C156-1
+Added Pin To Net: NetName=+3.3V Pin=R136-2
+Added Pin To Net: NetName=RESET_FPGA Pin=C156-2
+Added Pin To Net: NetName=RESET_FPGA Pin=R136-1
+Added Pin To Net: NetName=RESET_FPGA Pin=U18-G21
+Added Net: Name=RESET_FPGA
+Added Member To Class: ClassName=EP3CE75F484 Member=Component C156 104
+Added Member To Class: ClassName=EP3CE75F484 Member=Component R136 1002
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

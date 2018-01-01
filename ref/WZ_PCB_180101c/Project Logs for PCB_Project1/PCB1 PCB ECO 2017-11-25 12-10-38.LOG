@@ -1,0 +1,43 @@
+Change Component Footprint: Designator=P22 Old Footprint=HDR1X2H New Footprint=HDR1X2
+Change Component Footprint: Designator=P24 Old Footprint=HDR1X2H New Footprint=HDR1X2
+Added Component: Designator=S2(HDR1X2)
+Added Component: Designator=U7(SO8)
+Added Component: Designator=U8(SO8)
+Added Component: Designator=U9(SO8)
+Added Component: Designator=U11(SO8)
+Added Component: Designator=U12(SO8)
+Added Pin To Net: NetName=NetR33_1 Pin=S2-1
+Added Pin To Net: NetName=AGND Pin=S2-2
+Added Pin To Net: NetName=NetR10_1 Pin=U7-1
+Added Pin To Net: NetName=NetR12_2 Pin=U7-2
+Added Pin To Net: NetName=+5V Pin=U7-3
+Added Pin To Net: NetName=OUT+ Pin=U7-4
+Added Pin To Net: NetName=OUT- Pin=U7-5
+Added Pin To Net: NetName=-5V Pin=U7-6
+Added Pin To Net: NetName=NetR25_2 Pin=U7-7
+Added Pin To Net: NetName=NetR23_2 Pin=U7-8
+Added Pin To Net: NetName=+5VA Pin=U8-2
+Added Pin To Net: NetName=AGND Pin=U8-4
+Added Pin To Net: NetName=+VREF Pin=U8-6
+Added Pin To Net: NetName=NetC19_2 Pin=U9-2
+Added Pin To Net: NetName=NetR33_2 Pin=U9-3
+Added Pin To Net: NetName=-5V Pin=U9-4
+Added Pin To Net: NetName=+5V Pin=U9-7
+Added Pin To Net: NetName=NetC20_1 Pin=U9-8
+Added Pin To Net: NetName=NetR27_1 Pin=U11-1
+Added Pin To Net: NetName=NetR29_2 Pin=U11-2
+Added Pin To Net: NetName=+5V Pin=U11-3
+Added Pin To Net: NetName=OUT+ Pin=U11-4
+Added Pin To Net: NetName=OUT- Pin=U11-5
+Added Pin To Net: NetName=-5V Pin=U11-6
+Added Pin To Net: NetName=NetR42_2 Pin=U11-7
+Added Pin To Net: NetName=NetR40_2 Pin=U11-8
+Added Pin To Net: NetName=+5VA Pin=U12-2
+Added Pin To Net: NetName=AGND Pin=U12-4
+Added Pin To Net: NetName=+VREF Pin=U12-6
+Added Member To Class: ClassName=Sheet1 Member=Component S2 Sensor
+Added Member To Class: ClassName=Sheet1 Member=Component U7 ADA4041-1
+Added Member To Class: ClassName=Sheet1 Member=Component U8 ADR421
+Added Member To Class: ClassName=Sheet1 Member=Component U9 AD797
+Added Member To Class: ClassName=Sheet1 Member=Component U11 ADA4041-1
+Added Member To Class: ClassName=Sheet1 Member=Component U12 ADR421

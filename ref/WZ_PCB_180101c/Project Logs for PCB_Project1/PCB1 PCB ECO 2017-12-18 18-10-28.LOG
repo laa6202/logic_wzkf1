@@ -1,0 +1,102 @@
+Removed Pin From Net: NetName=SGND Pin=C36-2
+Removed Pin From Net: NetName=SGND Pin=P21-1
+Removed Pin From Net: NetName=+12V Pin=P21-2
+Removed Pin From Net: NetName=SYNC_3A Pin=P27-1
+Removed Pin From Net: NetName=DOUT_3A Pin=P27-2
+Removed Pin From Net: NetName=DIN_3A Pin=P27-3
+Removed Pin From Net: NetName=SCLK_3A Pin=P27-4
+Removed Pin From Net: NetName=DGND Pin=P27-6
+Removed Pin From Net: NetName=+12V Pin=R67-2
+Removed Pin From Net: NetName=SGND Pin=R70-1
+Removed Pin From Net: NetName=SGND Pin=U16-4
+Removed Pin From Net: NetName=+12V Pin=U16-6
+Removed Pin From Net: NetName=SGND Pin=U17-2
+Removed Pin From Net: NetName=SGND Pin=U17-2
+Removed Member From Class: ClassName=Power Member=P21
+Removed Member From Class: ClassName=Power Member=P21
+Removed Member From Class: ClassName=CH3 Member=P27
+Removed Member From Class: ClassName=Power Member=R66
+Removed Member From Class: ClassName=Power Member=R67
+Removed Member From Class: ClassName=Power Member=R70
+Removed Member From Class: ClassName=Power Member=U16
+Removed Member From Class: ClassName=Power Member=U16
+Change Component DesignItemId : Designator=P27 Old DesignItemId=Header 6 New DesignItemId=Header 3
+Change Component Footprint: Designator=P27 Old Footprint=HDR1X6 New Footprint=HDR1X3
+Change Component Comment : Designator=P27 Old Comment=Header 6 New Comment=Header 3
+Added Component: Designator=C39(0805C)
+Added Component: Designator=C40(0805C)
+Added Component: Designator=C45(C68uF)
+Added Component: Designator=C46(C68uF)
+Added Component: Designator=T12(TEST)
+Added Component: Designator=T13(TEST)
+Added Component: Designator=T14(TEST)
+Added Component: Designator=T15(TEST)
+Added Component: Designator=T16(TEST)
+Added Pin To Net: NetName=SGND Pin=C24-2
+Added Pin To Net: NetName=SGND Pin=C25-2
+Added Pin To Net: NetName=SGND Pin=C33-2
+Added Pin To Net: NetName=SGND Pin=C34-1
+Added Pin To Net: NetName=SGND Pin=C36-1
+Added Pin To Net: NetName=SGND Pin=C37-1
+Added Pin To Net: NetName=DGND Pin=C39-1
+Added Pin To Net: NetName=DGND Pin=C40-1
+Added Pin To Net: NetName=+12V Pin=C45-1
+Added Pin To Net: NetName=SGND Pin=C45-2
+Added Pin To Net: NetName=SGND Pin=C46-1
+Added Pin To Net: NetName=SYNC_3A Pin=P27-1
+Added Pin To Net: NetName=DOUT_3A Pin=P27-2
+Added Pin To Net: NetName=SGND Pin=P27-2
+Added Pin To Net: NetName=+12V Pin=P27-3
+Added Pin To Net: NetName=DIN_3A Pin=P27-3
+Added Pin To Net: NetName=SGND Pin=R68-2
+Added Pin To Net: NetName=SGND Pin=U12-2
+Added Pin To Net: NetName=SGND Pin=U12-2
+Added Pin To Net: NetName=SGND Pin=U17-3
+Change Net Name : Old Net Name=+3.3V New Net Name=+3.3V_AD
+Added Net: Name=+2.5V
+Added Pin To Net: NetName=+3.3V Pin=C39-2
+Added Pin To Net: NetName=+3.3V Pin=C40-2
+Added Net: Name=+3.3V
+Added Pin To Net: NetName=-12V Pin=C36-2
+Added Pin To Net: NetName=-12V Pin=C46-2
+Added Pin To Net: NetName=-12V Pin=P27-1
+Added Pin To Net: NetName=-12V Pin=U17-2
+Added Pin To Net: NetName=-12V Pin=U17-2
+Added Net: Name=-12V
+Added Net: Name=FPGA_ASDO
+Added Net: Name=FPGA_CONF_DONE
+Added Net: Name=FPGA_DATA0
+Added Net: Name=FPGA_DCLK
+Added Net: Name=FPGA_NCE
+Added Net: Name=FPGA_NCONFIG
+Added Net: Name=FPGA_NCSO
+Added Net: Name=FPGA_NSTATUS
+Added Net: Name=FPGA_TCK
+Added Net: Name=FPGA_TDI
+Added Net: Name=FPGA_TDO
+Added Net: Name=FPGA_TMS
+Added Net: Name=MSEL0
+Added Net: Name=MSEL1
+Added Net: Name=NetC41_2
+Added Net: Name=NetJ1_4
+Added Net: Name=NetR74_1
+Added Net: Name=NetR74_2
+Added Pin To Net: NetName=NetT12_1 Pin=T12-1
+Added Net: Name=NetT12_1
+Added Pin To Net: NetName=NetT13_1 Pin=T13-1
+Added Net: Name=NetT13_1
+Added Pin To Net: NetName=NetT14_1 Pin=T14-1
+Added Net: Name=NetT14_1
+Added Pin To Net: NetName=NetT15_1 Pin=T15-1
+Added Net: Name=NetT15_1
+Added Pin To Net: NetName=NetT16_1 Pin=T16-1
+Added Net: Name=NetT16_1
+Added Class: Name=EP3CE75F484
+Added Member To Class: ClassName=Power Member=Component C45 10uF
+Added Member To Class: ClassName=Power Member=Component C46 10uF
+Added Member To Class: ClassName=Power Member=Component P27 Header 3
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=EP3CE75F484
+Added Room: Name=Power

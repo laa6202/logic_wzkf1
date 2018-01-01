@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C7 Old Footprint=POLAR0.8 New Footprint=C68uF
+Change Component Footprint: Designator=C8 Old Footprint=POLAR0.8 New Footprint=C68uF
+Added Room: Name=Power

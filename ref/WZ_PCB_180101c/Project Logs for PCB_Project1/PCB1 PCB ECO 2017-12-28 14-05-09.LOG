@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=+5V_485 Pin=U3-1
+Removed Pin From Net: NetName=DGND Pin=U3-3
+Change Component Footprint: Designator=U3 Old Footprint=SOT223-4M New Footprint=SOT223
+Added Pin To Net: NetName=DGND Pin=U3-1
+Added Pin To Net: NetName=+5V_485 Pin=U3-3
+Added Pin To Net: NetName=+3.3V_AD Pin=U3-4
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

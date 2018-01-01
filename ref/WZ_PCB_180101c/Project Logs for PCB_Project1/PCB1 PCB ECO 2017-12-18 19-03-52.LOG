@@ -1,0 +1,4 @@
+Added Component: Designator=R66(0603)
+Added Pin To Net: NetName=NetR66_1 Pin=R66-1
+Added Pin To Net: NetName=GND Pin=R66-2
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R66 0

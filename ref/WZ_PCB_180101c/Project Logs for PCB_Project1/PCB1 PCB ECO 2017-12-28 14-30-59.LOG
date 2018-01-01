@@ -1,0 +1,5 @@
+Added Component: Designator=P11(MHDR1X3)
+Added Pin To Net: NetName=NetP11_1 Pin=P11-1
+Added Pin To Net: NetName=SGND Pin=P11-2
+Added Pin To Net: NetName=NetP11_3 Pin=P11-3
+Added Member To Class: ClassName=Power Member=Component P11 POWER

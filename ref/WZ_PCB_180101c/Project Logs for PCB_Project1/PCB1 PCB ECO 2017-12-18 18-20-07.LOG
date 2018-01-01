@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=DIN_3A Pin=P27-3
+Added Component: Designator=R80(0402)
+Added Component: Designator=R82(0402)
+Added Component: Designator=R83(0402)
+Added Component: Designator=R84(0402)
+Added Component: Designator=U19(CLOCK4)
+Added Component: Designator=U20(SO8)
+Added Pin To Net: NetName=SYNC_3A Pin=P27-1
+Added Pin To Net: NetName=DOUT_3A Pin=P27-2
+Added Pin To Net: NetName=+12V Pin=P27-3
+Added Pin To Net: NetName=DIN_3A Pin=P27-3
+Added Pin To Net: NetName=FPGA_NCE Pin=R80-1
+Added Pin To Net: NetName=DGND Pin=R80-2
+Added Pin To Net: NetName=+3.3V Pin=R82-1
+Added Pin To Net: NetName=FPGA_CONF_DONE Pin=R82-2
+Added Pin To Net: NetName=FPGA_NCONFIG Pin=R83-1
+Added Pin To Net: NetName=+3.3V Pin=R83-2
+Added Pin To Net: NetName=FPGA_NSTATUS Pin=R84-1
+Added Pin To Net: NetName=+3.3V Pin=R84-2
+Added Pin To Net: NetName=DGND Pin=U19-2
+Added Pin To Net: NetName=NetR74_1 Pin=U19-3
+Added Pin To Net: NetName=+3.3V Pin=U19-4
+Added Pin To Net: NetName=FPGA_NCSO Pin=U20-1
+Added Pin To Net: NetName=NetC41_2 Pin=U20-2
+Added Pin To Net: NetName=+3.3V Pin=U20-3
+Added Pin To Net: NetName=DGND Pin=U20-4
+Added Pin To Net: NetName=FPGA_ASDO Pin=U20-5
+Added Pin To Net: NetName=FPGA_DCLK Pin=U20-6
+Added Pin To Net: NetName=+3.3V Pin=U20-7
+Added Pin To Net: NetName=+3.3V Pin=U20-8
+Added Class: Name=EP3CE75F484

@@ -1,0 +1,9 @@
+Removed Member From Class: ClassName=FPGA_POWER Member=C92
+Change Component Footprint: Designator=C22 Old Footprint=0603 New Footprint=0805C
+Change Component Footprint: Designator=C23 Old Footprint=0603 New Footprint=0805C
+Change Component Footprint: Designator=C31 Old Footprint=0603 New Footprint=0805C
+Change Component Footprint: Designator=C32 Old Footprint=0603 New Footprint=0805C
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power

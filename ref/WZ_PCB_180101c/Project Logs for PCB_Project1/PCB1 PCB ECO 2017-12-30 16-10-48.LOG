@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=ADC_IN2 Pin=R117-1
+Removed Pin From Net: NetName=ADC_IN3 Pin=R120-2
+Removed Pin From Net: NetName=ADC_IN1 Pin=R121-1
+Removed Pin From Net: NetName=TMP_DATA Pin=U16-3
+Removed Pin From Net: NetName=MCU_FPGA_BAK1 Pin=U16-10
+Removed Pin From Net: NetName=MCU_FPGA_BAK2 Pin=U16-11
+Removed Pin From Net: NetName=SPI1_NSS Pin=U16-20
+Removed Pin From Net: NetName=SPI1_SCK Pin=U16-21
+Removed Pin From Net: NetName=SPI1_MISO Pin=U16-22
+Removed Pin From Net: NetName=SPI1_MOSI Pin=U16-23
+Removed Pin From Net: NetName=MCU_FPGA_BAK3 Pin=U16-24
+Removed Pin From Net: NetName=MCU_FPGA_BAK4 Pin=U16-25
+Removed Pin From Net: NetName=HMC5883_SCL Pin=U16-29
+Removed Pin From Net: NetName=HMC5883_RDY Pin=U16-30
+Removed Pin From Net: NetName=MCU_FPGA_BAK5 Pin=U16-37
+Removed Pin From Net: NetName=MCU_FPGA_BAK6 Pin=U16-38
+Removed Pin From Net: NetName=NetD3_2 Pin=U16-39
+Removed Pin From Net: NetName=NetD2_2 Pin=U16-57
+Removed Pin From Net: NetName=HMC5883_SDA Pin=U16-61
+Removed Pin From Net: NetName=HMC5883_WSDA Pin=U16-62
+Removed Pin From Net: NetName=ADC_IN3 Pin=U27-7
+Removed Pin From Net: NetName=ADC_IN1 Pin=U27-8
+Removed Pin From Net: NetName=ADC_IN2 Pin=U27-14
+Added Component: Designator=T8(TEST)
+Added Component: Designator=T10(TEST)
+Added Component: Designator=T13(TEST)
+Added Pin To Net: NetName=ADC_IN1 Pin=R117-1
+Added Pin To Net: NetName=ADC_IN2 Pin=R120-2
+Added Pin To Net: NetName=ADC_IN3 Pin=R121-1
+Added Pin To Net: NetName=HMC5883_SCL Pin=U16-2
+Added Pin To Net: NetName=HMC5883_WSDA Pin=U16-3
+Added Pin To Net: NetName=HMC5883_SDA Pin=U16-4
+Added Pin To Net: NetName=SDA Pin=U16-8
+Added Pin To Net: NetName=SCL Pin=U16-9
+Added Pin To Net: NetName=NetD3_2 Pin=U16-22
+Added Pin To Net: NetName=TMP_DATA Pin=U16-25
+Added Pin To Net: NetName=NetD2_2 Pin=U16-27
+Added Pin To Net: NetName=SPI1_NSS Pin=U16-33
+Added Pin To Net: NetName=SPI1_SCK Pin=U16-34
+Added Pin To Net: NetName=SPI1_MISO Pin=U16-35
+Added Pin To Net: NetName=SPI1_MOSI Pin=U16-36
+Added Pin To Net: NetName=MCU_FPGA_BAK2 Pin=U16-51
+Added Pin To Net: NetName=MCU_FPGA_BAK3 Pin=U16-52
+Added Pin To Net: NetName=MCU_FPGA_BAK4 Pin=U16-53
+Added Pin To Net: NetName=MCU_FPGA_BAK1 Pin=U16-54
+Added Pin To Net: NetName=MCU_FPGA_BAK5 Pin=U16-57
+Added Pin To Net: NetName=MCU_FPGA_BAK6 Pin=U16-58
+Added Pin To Net: NetName=HMC5883_RDY Pin=U16-62
+Added Pin To Net: NetName=ADC_IN2 Pin=U27-7
+Added Pin To Net: NetName=ADC_IN3 Pin=U27-8
+Added Pin To Net: NetName=ADC_IN1 Pin=U27-14
+Added Pin To Net: NetName=NetT8_1 Pin=T8-1
+Added Pin To Net: NetName=NetT8_1 Pin=U16-55
+Added Net: Name=NetT8_1
+Added Pin To Net: NetName=NetT10_1 Pin=T10-1
+Added Pin To Net: NetName=NetT10_1 Pin=U16-56
+Added Net: Name=NetT10_1
+Added Pin To Net: NetName=NetT13_1 Pin=T13-1
+Added Pin To Net: NetName=NetT13_1 Pin=U16-50
+Added Net: Name=NetT13_1
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component T8 
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component T10 
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component T13 
+Added Room: Name=STM32F103RBT6

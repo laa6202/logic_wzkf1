@@ -1,0 +1,44 @@
+Removed Pin From Net: NetName=DOUT_1A Pin=P25-1
+Removed Pin From Net: NetName=DIN_1A Pin=P25-2
+Removed Pin From Net: NetName=SCLK_1A Pin=P25-3
+Removed Pin From Net: NetName=SYNC_1A Pin=P25-4
+Removed Pin From Net: NetName=DOUT_1A Pin=P27-1
+Removed Pin From Net: NetName=DIN_1A Pin=P27-2
+Removed Pin From Net: NetName=SCLK_1A Pin=P27-3
+Removed Pin From Net: NetName=SYNC_1A Pin=P27-4
+Removed Pin From Net: NetName=DOUT_1A Pin=R31-2
+Removed Pin From Net: NetName=DIN_1A Pin=R34-2
+Removed Pin From Net: NetName=SCLK_1A Pin=R35-2
+Removed Pin From Net: NetName=SYNC_1A Pin=R39-2
+Removed Pin From Net: NetName=DOUT_1A Pin=R48-2
+Removed Pin From Net: NetName=DIN_1A Pin=R51-2
+Removed Pin From Net: NetName=SCLK_1A Pin=R52-2
+Removed Pin From Net: NetName=SYNC_1A Pin=R56-2
+Added Pin To Net: NetName=DIN_2A Pin=P25-2
+Added Pin To Net: NetName=DIN_2A Pin=R34-2
+Added Net: Name=DIN_2A
+Added Pin To Net: NetName=DIN_3A Pin=P27-2
+Added Pin To Net: NetName=DIN_3A Pin=R51-2
+Added Net: Name=DIN_3A
+Added Pin To Net: NetName=DOUT_2A Pin=P25-1
+Added Pin To Net: NetName=DOUT_2A Pin=R31-2
+Added Net: Name=DOUT_2A
+Added Pin To Net: NetName=DOUT_3A Pin=P27-1
+Added Pin To Net: NetName=DOUT_3A Pin=R48-2
+Added Net: Name=DOUT_3A
+Added Pin To Net: NetName=SCLK_2A Pin=P25-3
+Added Pin To Net: NetName=SCLK_2A Pin=R35-2
+Added Net: Name=SCLK_2A
+Added Pin To Net: NetName=SCLK_3A Pin=P27-3
+Added Pin To Net: NetName=SCLK_3A Pin=R52-2
+Added Net: Name=SCLK_3A
+Added Pin To Net: NetName=SYNC_2A Pin=P25-4
+Added Pin To Net: NetName=SYNC_2A Pin=R39-2
+Added Net: Name=SYNC_2A
+Added Pin To Net: NetName=SYNC_3A Pin=P27-4
+Added Pin To Net: NetName=SYNC_3A Pin=R56-2
+Added Net: Name=SYNC_3A
+Added Room: Name=MAX3462
+Added Room: Name=Power
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

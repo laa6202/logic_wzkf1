@@ -1,0 +1,31 @@
+Added Component: Designator=R66(0603)
+Added Component: Designator=T7(TEST)
+Added Component: Designator=T8(TEST)
+Added Component: Designator=T9(TEST)
+Added Component: Designator=T10(TEST)
+Added Component: Designator=T11(TEST)
+Added Component: Designator=T12(TEST)
+Added Component: Designator=T13(TEST)
+Added Component: Designator=T14(TEST)
+Added Component: Designator=T15(TEST)
+Added Pin To Net: NetName=NetR66_1 Pin=R66-1
+Added Pin To Net: NetName=GND Pin=R66-2
+Added Pin To Net: NetName=AGND Pin=T7-1
+Added Pin To Net: NetName=DGND Pin=T8-1
+Added Pin To Net: NetName=+3.3V_AD Pin=T9-1
+Added Pin To Net: NetName=+3.3V_AD Pin=T10-1
+Added Pin To Net: NetName=NetC5_2 Pin=T11-1
+Added Pin To Net: NetName=NetT12_1 Pin=T12-1
+Added Pin To Net: NetName=NetT13_1 Pin=T13-1
+Added Pin To Net: NetName=NetT14_1 Pin=T14-1
+Added Pin To Net: NetName=NetT15_1 Pin=T15-1
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component R66 0
+Added Member To Class: ClassName=Power Member=Component T7 AGND
+Added Member To Class: ClassName=Power Member=Component T8 DGND
+Added Member To Class: ClassName=Power Member=Component T9 +3.3V
+Added Member To Class: ClassName=Power Member=Component T10 +3.3V
+Added Member To Class: ClassName=Power Member=Component T11 GND_D
+Added Member To Class: ClassName=EP3CE75F484 Member=Component T12 
+Added Member To Class: ClassName=EP3CE75F484 Member=Component T13 A3
+Added Member To Class: ClassName=EP3CE75F484 Member=Component T14 
+Added Member To Class: ClassName=EP3CE75F484 Member=Component T15 

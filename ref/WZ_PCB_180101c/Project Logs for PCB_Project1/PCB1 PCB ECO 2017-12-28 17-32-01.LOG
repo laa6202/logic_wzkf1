@@ -1,0 +1,35 @@
+Added Component: Designator=D4(0805_LED)
+Added Component: Designator=D5(0805_LED)
+Added Component: Designator=D6(0805_LED)
+Added Component: Designator=D7(0805_LED)
+Added Component: Designator=R8(0603)
+Added Component: Designator=R73(0603)
+Added Component: Designator=R126(0603)
+Added Component: Designator=R127(0603)
+Added Pin To Net: NetName=SGND Pin=D4-2
+Added Pin To Net: NetName=-12V Pin=D5-2
+Added Pin To Net: NetName=DGND Pin=D6-2
+Added Pin To Net: NetName=DGND Pin=D7-2
+Added Pin To Net: NetName=+12V Pin=R8-2
+Added Pin To Net: NetName=SGND Pin=R73-2
+Added Pin To Net: NetName=+5V_D Pin=R126-2
+Added Pin To Net: NetName=+3.3V_AD Pin=R127-2
+Added Pin To Net: NetName=NetD4_1 Pin=D4-1
+Added Pin To Net: NetName=NetD4_1 Pin=R8-1
+Added Net: Name=NetD4_1
+Added Pin To Net: NetName=NetD5_1 Pin=D5-1
+Added Pin To Net: NetName=NetD5_1 Pin=R73-1
+Added Net: Name=NetD5_1
+Added Pin To Net: NetName=NetD6_1 Pin=D6-1
+Added Pin To Net: NetName=NetD6_1 Pin=R126-1
+Added Net: Name=NetD6_1
+Added Member To Class: ClassName=Power Member=Component D4 LED
+Added Member To Class: ClassName=Power Member=Component D5 LED
+Added Member To Class: ClassName=Power Member=Component D6 LED
+Added Member To Class: ClassName=Power Member=Component D7 LED
+Added Member To Class: ClassName=Power Member=Component R8 Res2
+Added Member To Class: ClassName=Power Member=Component R73 Res2
+Added Member To Class: ClassName=Power Member=Component R126 Res2
+Added Member To Class: ClassName=Power Member=Component R127 Res2
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

@@ -1,0 +1,20 @@
+Added Component: Designator=U25(SO8)
+Added Component: Designator=U26(SO8)
+Added Pin To Net: NetName=NetP11_3 Pin=U25-1
+Added Pin To Net: NetName=NetP11_3 Pin=U25-2
+Added Pin To Net: NetName=+12V Pin=U25-3
+Added Pin To Net: NetName=+12V Pin=U25-4
+Added Pin To Net: NetName=GND Pin=U25-5
+Added Pin To Net: NetName=NetC147_2 Pin=U25-6
+Added Pin To Net: NetName=NetR108_2 Pin=U25-7
+Added Pin To Net: NetName=+5V_D Pin=U25-8
+Added Pin To Net: NetName=-12V Pin=U26-1
+Added Pin To Net: NetName=-12V Pin=U26-2
+Added Pin To Net: NetName=NetP11_1 Pin=U26-3
+Added Pin To Net: NetName=NetP11_1 Pin=U26-4
+Added Pin To Net: NetName=GND Pin=U26-5
+Added Pin To Net: NetName=NetC149_2 Pin=U26-6
+Added Pin To Net: NetName=NetR109_2 Pin=U26-7
+Added Pin To Net: NetName=+5V_D Pin=U26-8
+Added Member To Class: ClassName=Power Member=Component U25 ACS712
+Added Member To Class: ClassName=Power Member=Component U26 ACS712

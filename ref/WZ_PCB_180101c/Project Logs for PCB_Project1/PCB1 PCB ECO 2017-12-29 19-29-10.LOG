@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=C9 Old Footprint=0603 New Footprint=0805C
+Change Component Footprint: Designator=C18 Old Footprint=0603 New Footprint=0805C
+Change Component Footprint: Designator=C27 Old Footprint=0603 New Footprint=0805C
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=Power

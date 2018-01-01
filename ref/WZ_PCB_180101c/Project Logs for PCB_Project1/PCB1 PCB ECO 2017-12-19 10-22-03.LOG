@@ -1,0 +1,348 @@
+Removed Pin From Net: NetName=+5V Pin=C?-2
+Removed Pin From Net: NetName=DGND Pin=T?-1
+Change Component Designator: OldDesignator=C? NewDesignator=C54
+Change Component Designator: OldDesignator=C? NewDesignator=C55
+Change Component Designator: OldDesignator=C? NewDesignator=C56
+Change Component Designator: OldDesignator=C? NewDesignator=C57
+Change Component Designator: OldDesignator=C? NewDesignator=C60
+Change Component Designator: OldDesignator=C? NewDesignator=C61
+Change Component Designator: OldDesignator=C? NewDesignator=C62
+Change Component Designator: OldDesignator=C? NewDesignator=C63
+Change Component Designator: OldDesignator=C? NewDesignator=C64
+Change Component Designator: OldDesignator=C? NewDesignator=C65
+Change Component Designator: OldDesignator=C? NewDesignator=C66
+Change Component Designator: OldDesignator=C? NewDesignator=C67
+Change Component Designator: OldDesignator=C? NewDesignator=C68
+Change Component Designator: OldDesignator=C? NewDesignator=C69
+Change Component Designator: OldDesignator=C? NewDesignator=C70
+Change Component Designator: OldDesignator=C? NewDesignator=C71
+Change Component Designator: OldDesignator=C? NewDesignator=C72
+Change Component Designator: OldDesignator=C? NewDesignator=C73
+Change Component Designator: OldDesignator=C? NewDesignator=C74
+Change Component Designator: OldDesignator=C? NewDesignator=C75
+Change Component Designator: OldDesignator=C? NewDesignator=C76
+Change Component Designator: OldDesignator=C? NewDesignator=C77
+Change Component Designator: OldDesignator=C? NewDesignator=C78
+Change Component Designator: OldDesignator=C? NewDesignator=C79
+Change Component Designator: OldDesignator=C? NewDesignator=C80
+Change Component Designator: OldDesignator=C? NewDesignator=C81
+Change Component Designator: OldDesignator=C? NewDesignator=C82
+Change Component Designator: OldDesignator=C? NewDesignator=C83
+Change Component Designator: OldDesignator=C? NewDesignator=C84
+Change Component Designator: OldDesignator=C? NewDesignator=C85
+Change Component Designator: OldDesignator=C? NewDesignator=C86
+Change Component Designator: OldDesignator=C? NewDesignator=C87
+Change Component Designator: OldDesignator=C? NewDesignator=C88
+Change Component Designator: OldDesignator=C? NewDesignator=C89
+Change Component Designator: OldDesignator=C? NewDesignator=C90
+Change Component Designator: OldDesignator=C? NewDesignator=C93
+Change Component Designator: OldDesignator=C? NewDesignator=C94
+Change Component Designator: OldDesignator=C? NewDesignator=C95
+Change Component Designator: OldDesignator=C? NewDesignator=C96
+Change Component Designator: OldDesignator=C? NewDesignator=C97
+Change Component Designator: OldDesignator=C? NewDesignator=C98
+Change Component Designator: OldDesignator=C? NewDesignator=C99
+Change Component Designator: OldDesignator=C? NewDesignator=C100
+Change Component Designator: OldDesignator=C? NewDesignator=C101
+Change Component Designator: OldDesignator=C? NewDesignator=C102
+Change Component Designator: OldDesignator=C? NewDesignator=C103
+Change Component Designator: OldDesignator=C? NewDesignator=C104
+Change Component Designator: OldDesignator=C? NewDesignator=C105
+Change Component Designator: OldDesignator=C? NewDesignator=C106
+Change Component Designator: OldDesignator=C? NewDesignator=C107
+Change Component Designator: OldDesignator=C? NewDesignator=C108
+Change Component Designator: OldDesignator=C? NewDesignator=C109
+Change Component Designator: OldDesignator=C? NewDesignator=C110
+Change Component Designator: OldDesignator=C? NewDesignator=C111
+Change Component Designator: OldDesignator=C? NewDesignator=C120
+Change Component Designator: OldDesignator=C? NewDesignator=C121
+Change Component Designator: OldDesignator=C? NewDesignator=C122
+Change Component Designator: OldDesignator=C? NewDesignator=C123
+Change Component Designator: OldDesignator=C? NewDesignator=C124
+Change Component Designator: OldDesignator=C? NewDesignator=C125
+Change Component Designator: OldDesignator=C? NewDesignator=C126
+Change Component Designator: OldDesignator=C? NewDesignator=C127
+Change Component Designator: OldDesignator=C? NewDesignator=C128
+Change Component Designator: OldDesignator=C? NewDesignator=C129
+Change Component Designator: OldDesignator=C? NewDesignator=C130
+Change Component Designator: OldDesignator=C? NewDesignator=C131
+Change Component Designator: OldDesignator=C? NewDesignator=C132
+Change Component Designator: OldDesignator=C? NewDesignator=C133
+Change Component Designator: OldDesignator=C? NewDesignator=C134
+Change Component Designator: OldDesignator=C? NewDesignator=C136
+Change Component Designator: OldDesignator=C? NewDesignator=C137
+Change Component Designator: OldDesignator=C? NewDesignator=C140
+Change Component Designator: OldDesignator=C? NewDesignator=C141
+Change Component Designator: OldDesignator=C? NewDesignator=C142
+Change Component Designator: OldDesignator=C? NewDesignator=C143
+Change Component Designator: OldDesignator=C? NewDesignator=C144
+Change Component Designator: OldDesignator=C? NewDesignator=C145
+Change Component Designator: OldDesignator=C? NewDesignator=C146
+Change Component Designator: OldDesignator=T? NewDesignator=T17
+Change Component Designator: OldDesignator=T? NewDesignator=T18
+Change Component Designator: OldDesignator=T? NewDesignator=T19
+Change Component Designator: OldDesignator=T? NewDesignator=T20
+Change Component Designator: OldDesignator=T? NewDesignator=T21
+Change Component Designator: OldDesignator=T? NewDesignator=T22
+Change Component Designator: OldDesignator=T? NewDesignator=T23
+Added Pin To Net: NetName=DGND Pin=C54-1
+Added Pin To Net: NetName=+3.3V Pin=C54-2
+Added Pin To Net: NetName=DGND Pin=C55-1
+Added Pin To Net: NetName=+3.3V Pin=C55-2
+Added Pin To Net: NetName=DGND Pin=C56-1
+Added Pin To Net: NetName=+3.3V Pin=C56-2
+Added Pin To Net: NetName=DGND Pin=C57-1
+Added Pin To Net: NetName=+3.3V Pin=C57-2
+Added Pin To Net: NetName=DGND Pin=C60-1
+Added Pin To Net: NetName=+3.3V Pin=C60-2
+Added Pin To Net: NetName=DGND Pin=C61-1
+Added Pin To Net: NetName=+3.3V Pin=C61-2
+Added Pin To Net: NetName=DGND Pin=C62-1
+Added Pin To Net: NetName=+3.3V Pin=C62-2
+Added Pin To Net: NetName=DGND Pin=C63-1
+Added Pin To Net: NetName=+3.3V Pin=C63-2
+Added Pin To Net: NetName=DGND Pin=C64-1
+Added Pin To Net: NetName=+3.3V Pin=C64-2
+Added Pin To Net: NetName=DGND Pin=C65-1
+Added Pin To Net: NetName=+3.3V Pin=C65-2
+Added Pin To Net: NetName=DGND Pin=C66-1
+Added Pin To Net: NetName=+3.3V Pin=C66-2
+Added Pin To Net: NetName=DGND Pin=C67-1
+Added Pin To Net: NetName=+3.3V Pin=C67-2
+Added Pin To Net: NetName=DGND Pin=C68-1
+Added Pin To Net: NetName=+3.3V Pin=C68-2
+Added Pin To Net: NetName=DGND Pin=C69-1
+Added Pin To Net: NetName=+3.3V Pin=C69-2
+Added Pin To Net: NetName=DGND Pin=C70-1
+Added Pin To Net: NetName=+3.3V Pin=C70-2
+Added Pin To Net: NetName=DGND Pin=C71-1
+Added Pin To Net: NetName=+3.3V Pin=C71-2
+Added Pin To Net: NetName=DGND Pin=C72-1
+Added Pin To Net: NetName=+3.3V Pin=C72-2
+Added Pin To Net: NetName=DGND Pin=C73-1
+Added Pin To Net: NetName=+3.3V Pin=C73-2
+Added Pin To Net: NetName=DGND Pin=C74-1
+Added Pin To Net: NetName=+3.3V Pin=C74-2
+Added Pin To Net: NetName=DGND Pin=C75-1
+Added Pin To Net: NetName=+1.2V Pin=C75-2
+Added Pin To Net: NetName=DGND Pin=C76-1
+Added Pin To Net: NetName=+1.2V Pin=C76-2
+Added Pin To Net: NetName=DGND Pin=C77-1
+Added Pin To Net: NetName=+1.2V Pin=C77-2
+Added Pin To Net: NetName=DGND Pin=C78-1
+Added Pin To Net: NetName=+1.2V Pin=C78-2
+Added Pin To Net: NetName=DGND Pin=C79-1
+Added Pin To Net: NetName=+1.2V Pin=C79-2
+Added Pin To Net: NetName=DGND Pin=C80-1
+Added Pin To Net: NetName=+1.2V Pin=C80-2
+Added Pin To Net: NetName=DGND Pin=C81-1
+Added Pin To Net: NetName=+1.2V Pin=C81-2
+Added Pin To Net: NetName=DGND Pin=C82-1
+Added Pin To Net: NetName=+1.2V Pin=C82-2
+Added Pin To Net: NetName=DGND Pin=C83-1
+Added Pin To Net: NetName=+1.2V Pin=C83-2
+Added Pin To Net: NetName=DGND Pin=C84-1
+Added Pin To Net: NetName=+1.2V Pin=C84-2
+Added Pin To Net: NetName=DGND Pin=C85-1
+Added Pin To Net: NetName=+1.2V Pin=C85-2
+Added Pin To Net: NetName=DGND Pin=C86-1
+Added Pin To Net: NetName=+1.2V Pin=C86-2
+Added Pin To Net: NetName=DGND Pin=C87-1
+Added Pin To Net: NetName=+1.2V Pin=C87-2
+Added Pin To Net: NetName=DGND Pin=C88-1
+Added Pin To Net: NetName=+1.2V Pin=C88-2
+Added Pin To Net: NetName=DGND Pin=C89-1
+Added Pin To Net: NetName=+1.2V Pin=C89-2
+Added Pin To Net: NetName=DGND Pin=C90-1
+Added Pin To Net: NetName=+1.2V Pin=C90-2
+Added Pin To Net: NetName=DGND Pin=C93-1
+Added Pin To Net: NetName=+5V Pin=C93-2
+Added Pin To Net: NetName=DGND Pin=C94-1
+Added Pin To Net: NetName=+5V Pin=C94-2
+Added Pin To Net: NetName=DGND Pin=C95-1
+Added Pin To Net: NetName=+1.2V Pin=C95-2
+Added Pin To Net: NetName=DGND Pin=C96-1
+Added Pin To Net: NetName=+1.2V Pin=C96-2
+Added Pin To Net: NetName=DGND Pin=C97-1
+Added Pin To Net: NetName=+1.2V Pin=C97-2
+Added Pin To Net: NetName=DGND Pin=C98-1
+Added Pin To Net: NetName=+1.2V Pin=C98-2
+Added Pin To Net: NetName=DGND Pin=C99-1
+Added Pin To Net: NetName=+1.2V Pin=C99-2
+Added Pin To Net: NetName=DGND Pin=C100-1
+Added Pin To Net: NetName=+1.2V Pin=C100-2
+Added Pin To Net: NetName=DGND Pin=C101-1
+Added Pin To Net: NetName=+1.2V Pin=C101-2
+Added Pin To Net: NetName=DGND Pin=C102-1
+Added Pin To Net: NetName=+1.2V Pin=C102-2
+Added Pin To Net: NetName=DGND Pin=C103-1
+Added Pin To Net: NetName=+1.2V Pin=C103-2
+Added Pin To Net: NetName=DGND Pin=C104-1
+Added Pin To Net: NetName=+1.2V Pin=C104-2
+Added Pin To Net: NetName=DGND Pin=C105-1
+Added Pin To Net: NetName=+1.2V Pin=C105-2
+Added Pin To Net: NetName=DGND Pin=C106-1
+Added Pin To Net: NetName=+1.2V Pin=C106-2
+Added Pin To Net: NetName=DGND Pin=C107-1
+Added Pin To Net: NetName=+1.2V Pin=C107-2
+Added Pin To Net: NetName=DGND Pin=C108-1
+Added Pin To Net: NetName=+1.2V Pin=C108-2
+Added Pin To Net: NetName=DGND Pin=C109-1
+Added Pin To Net: NetName=+1.2V Pin=C109-2
+Added Pin To Net: NetName=DGND Pin=C110-1
+Added Pin To Net: NetName=+1.2V Pin=C110-2
+Added Pin To Net: NetName=DGND Pin=C111-1
+Added Pin To Net: NetName=+1.2V Pin=C111-2
+Added Pin To Net: NetName=DGND Pin=C120-1
+Added Pin To Net: NetName=+3.3V Pin=C120-2
+Added Pin To Net: NetName=DGND Pin=C121-1
+Added Pin To Net: NetName=+3.3V Pin=C121-2
+Added Pin To Net: NetName=DGND Pin=C122-1
+Added Pin To Net: NetName=+3.3V Pin=C122-2
+Added Pin To Net: NetName=DGND Pin=C123-1
+Added Pin To Net: NetName=+3.3V Pin=C123-2
+Added Pin To Net: NetName=DGND Pin=C124-1
+Added Pin To Net: NetName=+3.3V Pin=C124-2
+Added Pin To Net: NetName=DGND Pin=C125-1
+Added Pin To Net: NetName=+3.3V Pin=C125-2
+Added Pin To Net: NetName=DGND Pin=C126-1
+Added Pin To Net: NetName=+3.3V Pin=C126-2
+Added Pin To Net: NetName=DGND Pin=C127-1
+Added Pin To Net: NetName=+3.3V Pin=C127-2
+Added Pin To Net: NetName=DGND Pin=C128-1
+Added Pin To Net: NetName=+3.3V Pin=C128-2
+Added Pin To Net: NetName=DGND Pin=C129-1
+Added Pin To Net: NetName=+3.3V Pin=C129-2
+Added Pin To Net: NetName=DGND Pin=C130-1
+Added Pin To Net: NetName=+3.3V Pin=C130-2
+Added Pin To Net: NetName=DGND Pin=C131-1
+Added Pin To Net: NetName=+3.3V Pin=C131-2
+Added Pin To Net: NetName=DGND Pin=C132-1
+Added Pin To Net: NetName=+3.3V Pin=C132-2
+Added Pin To Net: NetName=DGND Pin=C133-1
+Added Pin To Net: NetName=+3.3V Pin=C133-2
+Added Pin To Net: NetName=DGND Pin=C134-1
+Added Pin To Net: NetName=+3.3V Pin=C134-2
+Added Pin To Net: NetName=DGND Pin=C136-1
+Added Pin To Net: NetName=+2.5V Pin=C136-2
+Added Pin To Net: NetName=DGND Pin=C137-1
+Added Pin To Net: NetName=+2.5V Pin=C137-2
+Added Pin To Net: NetName=DGND Pin=C140-1
+Added Pin To Net: NetName=+2.5V Pin=C140-2
+Added Pin To Net: NetName=DGND Pin=C141-1
+Added Pin To Net: NetName=+2.5V Pin=C141-2
+Added Pin To Net: NetName=DGND Pin=C142-1
+Added Pin To Net: NetName=+2.5V Pin=C142-2
+Added Pin To Net: NetName=DGND Pin=C143-1
+Added Pin To Net: NetName=+2.5V Pin=C143-2
+Added Pin To Net: NetName=DGND Pin=C144-1
+Added Pin To Net: NetName=+2.5V Pin=C144-2
+Added Pin To Net: NetName=DGND Pin=C145-1
+Added Pin To Net: NetName=+2.5V Pin=C145-2
+Added Pin To Net: NetName=DGND Pin=C146-1
+Added Pin To Net: NetName=+2.5V Pin=C146-2
+Added Pin To Net: NetName=+1.2V Pin=T17-1
+Added Pin To Net: NetName=+1.2V Pin=T18-1
+Added Pin To Net: NetName=+3.3V Pin=T19-1
+Added Pin To Net: NetName=+3.3V Pin=T20-1
+Added Pin To Net: NetName=+2.5V Pin=T21-1
+Added Pin To Net: NetName=DGND Pin=T22-1
+Added Pin To Net: NetName=DGND Pin=T23-1
+Added Net: Name=NetC112_1
+Added Net: Name=NetC116_1
+Added Net: Name=NetC139_1
+Added Net: Name=NetD1_2
+Added Net: Name=NetJ4_2
+Added Net: Name=NetL1_1
+Added Net: Name=NetL2_1
+Added Net: Name=NetR89_2
+Added Net: Name=NetR92_2
+Added Net: Name=NetR93_2
+Added Net: Name=NetR94_2
+Added Net: Name=NetR95_2
+Added Net: Name=NetR96_1
+Added Net: Name=NetR98_2
+Added Net: Name=NetR100_2
+Added Member To Class: ClassName=FPGA_POWER Member=Component C54 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C55 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C56 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C57 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C60 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C61 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C62 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C63 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C64 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C65 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C66 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C67 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C68 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C69 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C70 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C71 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C72 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C73 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C74 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C75 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C76 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C77 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C78 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C79 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C80 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C81 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C82 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C83 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C84 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C85 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C86 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C87 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C88 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C89 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C90 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C93 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C94 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C95 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C96 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C97 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C98 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C99 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C100 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C101 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C102 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C103 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C104 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C105 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C106 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C107 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C108 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C109 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C110 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C111 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C120 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C121 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C122 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C123 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C124 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C125 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C126 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C127 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C128 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C129 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C130 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C131 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C132 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C134 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C136 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C137 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C140 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C141 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C142 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C143 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C144 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C145 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C146 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component T17 +1.2V
+Added Member To Class: ClassName=FPGA_POWER Member=Component T18 +1.2V
+Added Member To Class: ClassName=FPGA_POWER Member=Component T19 +3.3V
+Added Member To Class: ClassName=FPGA_POWER Member=Component T20 +3.3V
+Added Member To Class: ClassName=FPGA_POWER Member=Component T21 +2.5V
+Added Member To Class: ClassName=FPGA_POWER Member=Component T23 DGND

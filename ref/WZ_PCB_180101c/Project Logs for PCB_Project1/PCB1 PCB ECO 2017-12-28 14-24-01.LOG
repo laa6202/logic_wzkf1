@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=NetC34_2 Pin=U17-1
+Removed Pin From Net: NetName=SGND Pin=U17-3
+Added Component: Designator=U12(SOT89-M)
+Added Pin To Net: NetName=NetC24_1 Pin=U12-1
+Added Pin To Net: NetName=SGND Pin=U12-2
+Added Pin To Net: NetName=SGND Pin=U12-2
+Added Pin To Net: NetName=+12V Pin=U12-3
+Added Pin To Net: NetName=SGND Pin=U17-1
+Added Pin To Net: NetName=NetC34_2 Pin=U17-3
+Added Member To Class: ClassName=Power Member=Component U12 78L05
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

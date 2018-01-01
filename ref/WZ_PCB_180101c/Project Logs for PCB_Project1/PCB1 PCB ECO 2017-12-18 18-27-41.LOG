@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=SYNC_3A Pin=P27-1
+Removed Pin From Net: NetName=DOUT_3A Pin=P27-2
+Removed Pin From Net: NetName=DIN_3A Pin=P27-3
+Added Pin To Net: NetName=-12V Pin=P27-1
+Added Pin To Net: NetName=SYNC_3A Pin=P27-1
+Added Pin To Net: NetName=DOUT_3A Pin=P27-2
+Added Pin To Net: NetName=SGND Pin=P27-2
+Added Pin To Net: NetName=+12V Pin=P27-3
+Added Pin To Net: NetName=DIN_3A Pin=P27-3

@@ -1,0 +1,48 @@
+Added Component: Designator=R?(0603)
+Added Component: Designator=R?(0603)
+Added Pin To Net: NetName=+5V_485 Pin=R?-1
+Added Pin To Net: NetName=MAIN_DATA_RXEN Pin=R?-1
+Added Pin To Net: NetName=GND Pin=R?-2
+Added Pin To Net: NetName=MAIN_DATA_TXEN Pin=R?-2
+Added Pin To Net: NetName=AGND Pin=U6-7
+Added Pin To Net: NetName=AGND Pin=U6-11
+Added Pin To Net: NetName=AGND Pin=U6-12
+Added Pin To Net: NetName=AGND Pin=U6-13
+Added Pin To Net: NetName=AGND Pin=U6-14
+Added Pin To Net: NetName=AGND Pin=U6-19
+Added Pin To Net: NetName=AGND Pin=U6-26
+Added Pin To Net: NetName=AGND Pin=U6-33
+Added Pin To Net: NetName=AGND Pin=U10-7
+Added Pin To Net: NetName=AGND Pin=U10-11
+Added Pin To Net: NetName=AGND Pin=U10-12
+Added Pin To Net: NetName=AGND Pin=U10-13
+Added Pin To Net: NetName=AGND Pin=U10-14
+Added Pin To Net: NetName=AGND Pin=U10-19
+Added Pin To Net: NetName=AGND Pin=U10-26
+Added Pin To Net: NetName=AGND Pin=U10-33
+Added Pin To Net: NetName=AGND Pin=U14-7
+Added Pin To Net: NetName=AGND Pin=U14-11
+Added Pin To Net: NetName=AGND Pin=U14-12
+Added Pin To Net: NetName=AGND Pin=U14-13
+Added Pin To Net: NetName=AGND Pin=U14-14
+Added Pin To Net: NetName=AGND Pin=U14-19
+Added Pin To Net: NetName=AGND Pin=U14-26
+Added Pin To Net: NetName=AGND Pin=U14-33
+Added Pin To Net: NetName=MCLK_A Pin=U6-30
+Added Pin To Net: NetName=MCLK_A Pin=U18-K22
+Added Net: Name=MCLK_A
+Added Pin To Net: NetName=MCLK_B Pin=U10-30
+Added Pin To Net: NetName=MCLK_B Pin=U18-K19
+Added Net: Name=MCLK_B
+Added Pin To Net: NetName=MCLK_C Pin=U14-30
+Added Pin To Net: NetName=MCLK_C Pin=U18-L21
+Added Net: Name=MCLK_C
+Added Member To Class: ClassName=485Driver_MAX3462 Member=Component R? 1001
+Added Member To Class: ClassName=485Driver_MAX3462 Member=Component R? 1001
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

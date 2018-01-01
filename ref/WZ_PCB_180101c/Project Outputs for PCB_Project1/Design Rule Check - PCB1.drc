@@ -1,0 +1,107 @@
+Protel Design System Design Rule Check
+PCB File : D:\Work_git\WZ_PCB_180101c\PCB1.PcbDoc
+Date     : 2018-1-1
+Time     : ÉÏÎç 11:58:05
+
+WARNING: 49 Net Ties failed verification
+   SMT Small Component R108-000 (9415mil,3460mil) on Top Layer, SMT Small Component R108-000 (9415mil,3460mil) on Top Layer, has isolated copper
+   SMT Small Component R109-000 (9235mil,3460mil) on Top Layer, SMT Small Component R109-000 (9235mil,3460mil) on Top Layer, has isolated copper
+   SMT Small Component R42-100 (2900mil,3460mil) on Top Layer, SMT Small Component R42-100 (2900mil,3460mil) on Top Layer, has isolated copper
+   SMT Small Component R41-000 (3100mil,3540mil) on Top Layer, SMT Small Component R41-000 (3100mil,3540mil) on Top Layer, has isolated copper
+   SMT Small Component R40-825 (2940mil,3340mil) on Top Layer, SMT Small Component R40-825 (2940mil,3340mil) on Top Layer, has isolated copper
+   SMT Small Component R39-000 (4060mil,3255mil) on Top Layer, SMT Small Component R39-000 (4060mil,3255mil) on Top Layer, has isolated copper
+   SMT Small Component R38-825 (2820mil,3320mil) on Top Layer, SMT Small Component R38-825 (2820mil,3320mil) on Top Layer, has isolated copper
+   SMT Small Component R37-1001 (2300mil,3300mil) on Top Layer, SMT Small Component R37-1001 (2300mil,3300mil) on Top Layer, has isolated copper
+   SMT Small Component R36-000 (3820mil,3600mil) on Bottom Layer, SMT Small Component R36-000 (3820mil,3600mil) on Bottom Layer, has isolated copper
+   SMT Small Component R35-000 (4060mil,3525mil) on Top Layer, SMT Small Component R35-000 (4060mil,3525mil) on Top Layer, has isolated copper
+   SMT Small Component R34-000 (4060mil,3435mil) on Top Layer, SMT Small Component R34-000 (4060mil,3435mil) on Top Layer, has isolated copper
+   SMT Small Component R33-0R (2300mil,3200mil) on Top Layer, SMT Small Component R33-0R (2300mil,3200mil) on Top Layer, has isolated copper
+   SMT Small Component R32-4.99K (3240mil,3180mil) on Top Layer, SMT Small Component R32-4.99K (3240mil,3180mil) on Top Layer, has isolated copper
+   SMT Small Component R31-000 (4060mil,3345mil) on Top Layer, SMT Small Component R31-000 (4060mil,3345mil) on Top Layer, has isolated copper
+   SMT Small Component R30-10R (2300mil,3400mil) on Top Layer, SMT Small Component R30-10R (2300mil,3400mil) on Top Layer, has isolated copper
+   SMT Small Component R29-1001 (3080mil,3180mil) on Top Layer, SMT Small Component R29-1001 (3080mil,3180mil) on Top Layer, has isolated copper
+   SMT Small Component R28-000 (3420mil,3480mil) on Top Layer, SMT Small Component R28-000 (3420mil,3480mil) on Top Layer, has isolated copper
+   SMT Small Component R27-1001 (3420mil,3340mil) on Top Layer, SMT Small Component R27-1001 (3420mil,3340mil) on Top Layer, has isolated copper
+   SMT Small Component R26-1001 (2540mil,3440mil) on Top Layer, SMT Small Component R26-1001 (2540mil,3440mil) on Top Layer, has isolated copper
+   SMT Small Component R25-100 (2900mil,3980mil) on Top Layer, SMT Small Component R25-100 (2900mil,3980mil) on Top Layer, has isolated copper
+   SMT Small Component R24-000 (3120mil,4020mil) on Top Layer, SMT Small Component R24-000 (3120mil,4020mil) on Top Layer, has isolated copper
+   SMT Small Component R23-825 (2940mil,3840mil) on Top Layer, SMT Small Component R23-825 (2940mil,3840mil) on Top Layer, has isolated copper
+   SMT Small Component R22-000 (4060mil,3825mil) on Top Layer, SMT Small Component R22-000 (4060mil,3825mil) on Top Layer, has isolated copper
+   SMT Small Component R21-825 (2820mil,3820mil) on Top Layer, SMT Small Component R21-825 (2820mil,3820mil) on Top Layer, has isolated copper
+   SMT Small Component R20-1001 (2300mil,3800mil) on Top Layer, SMT Small Component R20-1001 (2300mil,3800mil) on Top Layer, has isolated copper
+   SMT Small Component R19-000 (3840mil,4080mil) on Bottom Layer, SMT Small Component R19-000 (3840mil,4080mil) on Bottom Layer, has isolated copper
+   SMT Small Component R18-000 (4060mil,4110mil) on Top Layer, SMT Small Component R18-000 (4060mil,4110mil) on Top Layer, has isolated copper
+   SMT Small Component R17-000 (4060mil,4020mil) on Top Layer, SMT Small Component R17-000 (4060mil,4020mil) on Top Layer, has isolated copper
+   SMT Small Component R15-4.99K (3280mil,3680mil) on Top Layer, SMT Small Component R15-4.99K (3280mil,3680mil) on Top Layer, has isolated copper
+   SMT Small Component R14-000 (4060mil,3925mil) on Top Layer, SMT Small Component R14-000 (4060mil,3925mil) on Top Layer, has isolated copper
+   SMT Small Component R12-1001 (3120mil,3680mil) on Top Layer, SMT Small Component R12-1001 (3120mil,3680mil) on Top Layer, has isolated copper
+   SMT Small Component R11-000 (3420mil,3980mil) on Top Layer, SMT Small Component R11-000 (3420mil,3980mil) on Top Layer, has isolated copper
+   SMT Small Component R10-1001 (3420mil,3840mil) on Top Layer, SMT Small Component R10-1001 (3420mil,3840mil) on Top Layer, has isolated copper
+   SMT Small Component R9-1001 (2500mil,3960mil) on Top Layer, SMT Small Component R9-1001 (2500mil,3960mil) on Top Layer, has isolated copper
+   SMT Small Component R43-1001 (2431.077mil,2946.981mil) on Top Layer, SMT Small Component R43-1001 (2431.077mil,2946.981mil) on Top Layer, has isolated copper
+   SMT Small Component R44-1001 (3420mil,2820mil) on Top Layer, SMT Small Component R44-1001 (3420mil,2820mil) on Top Layer, has isolated copper
+   SMT Small Component R45-000 (3420mil,2960mil) on Top Layer, SMT Small Component R45-000 (3420mil,2960mil) on Top Layer, has isolated copper
+   SMT Small Component R46-1001 (3100mil,2660mil) on Top Layer, SMT Small Component R46-1001 (3100mil,2660mil) on Top Layer, has isolated copper
+   SMT Small Component R48-000 (4060mil,2775mil) on Top Layer, SMT Small Component R48-000 (4060mil,2775mil) on Top Layer, has isolated copper
+   SMT Small Component R49-4.99K (3260mil,2660mil) on Top Layer, SMT Small Component R49-4.99K (3260mil,2660mil) on Top Layer, has isolated copper
+   SMT Small Component R51-000 (4060mil,2865mil) on Top Layer, SMT Small Component R51-000 (4060mil,2865mil) on Top Layer, has isolated copper
+   SMT Small Component R52-000 (4060mil,2955mil) on Top Layer, SMT Small Component R52-000 (4060mil,2955mil) on Top Layer, has isolated copper
+   SMT Small Component R53-000 (3820mil,3000mil) on Bottom Layer, SMT Small Component R53-000 (3820mil,3000mil) on Bottom Layer, has isolated copper
+   SMT Small Component R54-1001 (2280mil,2740mil) on Top Layer, SMT Small Component R54-1001 (2280mil,2740mil) on Top Layer, has isolated copper
+   SMT Small Component R55-825 (2780mil,2800mil) on Top Layer, SMT Small Component R55-825 (2780mil,2800mil) on Top Layer, has isolated copper
+   SMT Small Component R56-000 (4060mil,2680mil) on Top Layer, SMT Small Component R56-000 (4060mil,2680mil) on Top Layer, has isolated copper
+   SMT Small Component R57-825 (2900mil,2840mil) on Top Layer, SMT Small Component R57-825 (2900mil,2840mil) on Top Layer, has isolated copper
+   SMT Small Component R58-000 (3080mil,3040mil) on Top Layer, SMT Small Component R58-000 (3080mil,3040mil) on Top Layer, has isolated copper
+   SMT Small Component R59-100 (2860mil,3000mil) on Top Layer, SMT Small Component R59-100 (2860mil,3000mil) on Top Layer, has isolated copper
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Silkscreen Over Component Pads (Clearance=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Violation between Hole Size Constraint: Via (9807mil,4094mil) Top Layer to Bottom Layer
+   Violation between Hole Size Constraint: Via (9800mil,2705mil) Top Layer to Bottom Layer
+   Violation between Hole Size Constraint: Via (1905mil,4060mil) Top Layer to Bottom Layer
+   Violation between Hole Size Constraint: Via (5897mil,4109mil) Top Layer to Bottom Layer
+   Violation between Hole Size Constraint: Via (5651mil,2782mil) Top Layer to Bottom Layer
+   Violation between Hole Size Constraint: Via (1885mil,2745mil) Top Layer to Bottom Layer
+Rule Violations :6
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=200mil) (Preferred=20mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Track (3771.992mil,3871.63mil)(3835mil,3871.63mil)  Top Layer and 
+                     Pad U6-29(3771.992mil,3871.63mil)  Top Layer
+   Violation between Track (3791.992mil,3351.63mil)(3857.542mil,3351.63mil)  Top Layer and 
+                     Pad U10-29(3791.992mil,3351.63mil)  Top Layer
+   Violation between Track (3791.992mil,2811.63mil)(3856mil,2811.63mil)  Top Layer and 
+                     Pad U14-29(3791.992mil,2811.63mil)  Top Layer
+Rule Violations :3
+
+
+Violations Detected : 9
+Time Elapsed        : 00:00:03

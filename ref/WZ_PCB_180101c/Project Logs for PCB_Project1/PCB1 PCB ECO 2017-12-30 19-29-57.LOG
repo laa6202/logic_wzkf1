@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=SCL Pin=U16-44
+Removed Pin From Net: NetName=SDA Pin=U16-45
+Removed Pin From Net: NetName=NetR74_2 Pin=U18-AB12
+Added Pin To Net: NetName=3V3 Pin=J2-1
+Added Pin To Net: NetName=NetR74_2 Pin=U18-A12
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

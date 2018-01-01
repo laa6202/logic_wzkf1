@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=FPGA_NCSO Pin=U20-1
+Removed Pin From Net: NetName=NetC41_2 Pin=U20-2
+Removed Pin From Net: NetName=+3.3V Pin=U20-3
+Removed Pin From Net: NetName=DGND Pin=U20-4
+Removed Pin From Net: NetName=FPGA_ASDO Pin=U20-5
+Removed Pin From Net: NetName=FPGA_DCLK Pin=U20-6
+Removed Pin From Net: NetName=+3.3V Pin=U20-7
+Removed Pin From Net: NetName=+3.3V Pin=U20-8
+Change Component DesignItemId : Designator=U20 Old DesignItemId=EPCS4 New DesignItemId=EPCS64
+Change Component Footprint: Designator=U20 Old Footprint=SO8 New Footprint=SOP65P780-16M
+Change Component Comment : Designator=U20 Old Comment=EPCS16SI8N New Comment=EPCS64
+Added Pin To Net: NetName=+3.3V Pin=U20-1
+Added Pin To Net: NetName=+3.3V Pin=U20-2
+Added Pin To Net: NetName=FPGA_NCSO Pin=U20-7
+Added Pin To Net: NetName=FPGA_DATA0 Pin=U20-8
+Added Pin To Net: NetName=+3.3V Pin=U20-9
+Added Pin To Net: NetName=DGND Pin=U20-10
+Added Pin To Net: NetName=FPGA_ASDO Pin=U20-15
+Added Pin To Net: NetName=FPGA_DCLK Pin=U20-16
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER

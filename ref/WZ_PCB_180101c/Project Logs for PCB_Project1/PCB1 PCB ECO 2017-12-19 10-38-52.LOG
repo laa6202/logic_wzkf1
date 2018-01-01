@@ -1,0 +1,57 @@
+Removed Member From Class: ClassName=STM32F103RBT6 Member=U22
+Added Component: Designator=D1(0805_LED)
+Added Component: Designator=R88(0603)
+Added Component: Designator=R89(0603)
+Added Component: Designator=R90(0603)
+Added Component: Designator=R91(0603)
+Added Component: Designator=R92(0603)
+Added Component: Designator=R93(0603)
+Added Component: Designator=R94(0603)
+Added Component: Designator=R95(0603)
+Added Component: Designator=R96(0603)
+Added Component: Designator=R97(0603)
+Added Component: Designator=R98(0603)
+Added Component: Designator=R99(0603)
+Added Component: Designator=R100(0603)
+Added Pin To Net: NetName=+5V Pin=D1-1
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Pin To Net: NetName=DGND Pin=R88-1
+Added Pin To Net: NetName=NetD1_2 Pin=R88-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R89-1
+Added Pin To Net: NetName=NetR89_2 Pin=R89-2
+Added Pin To Net: NetName=NetC112_1 Pin=R90-1
+Added Pin To Net: NetName=REF_V2 Pin=R90-2
+Added Pin To Net: NetName=REF_V2 Pin=R91-1
+Added Pin To Net: NetName=DGND Pin=R91-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R92-1
+Added Pin To Net: NetName=NetR92_2 Pin=R92-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R93-1
+Added Pin To Net: NetName=NetR93_2 Pin=R93-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R94-1
+Added Pin To Net: NetName=NetR94_2 Pin=R94-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R95-1
+Added Pin To Net: NetName=NetR95_2 Pin=R95-2
+Added Pin To Net: NetName=NetR96_1 Pin=R96-1
+Added Pin To Net: NetName=NetC139_1 Pin=R96-2
+Added Pin To Net: NetName=NetC139_1 Pin=R97-1
+Added Pin To Net: NetName=DGND Pin=R97-2
+Added Pin To Net: NetName=NetJ4_2 Pin=R98-1
+Added Pin To Net: NetName=NetR98_2 Pin=R98-2
+Added Pin To Net: NetName=NetR96_1 Pin=R99-1
+Added Pin To Net: NetName=DGND Pin=R99-2
+Added Pin To Net: NetName=DGND Pin=R100-1
+Added Pin To Net: NetName=NetR100_2 Pin=R100-2
+Added Member To Class: ClassName=FPGA_POWER Member=Component D1 LED
+Added Member To Class: ClassName=FPGA_POWER Member=Component R88 4702
+Added Member To Class: ClassName=FPGA_POWER Member=Component R89 1001
+Added Member To Class: ClassName=FPGA_POWER Member=Component R90 9102
+Added Member To Class: ClassName=FPGA_POWER Member=Component R91 2002
+Added Member To Class: ClassName=FPGA_POWER Member=Component R92 1001
+Added Member To Class: ClassName=FPGA_POWER Member=Component R93 1001
+Added Member To Class: ClassName=FPGA_POWER Member=Component R94 1001
+Added Member To Class: ClassName=FPGA_POWER Member=Component R95 1001
+Added Member To Class: ClassName=FPGA_POWER Member=Component R96 1503
+Added Member To Class: ClassName=FPGA_POWER Member=Component R97 1002
+Added Member To Class: ClassName=FPGA_POWER Member=Component R98 1001
+Added Member To Class: ClassName=FPGA_POWER Member=Component R99 1003
+Added Member To Class: ClassName=FPGA_POWER Member=Component R100 1001

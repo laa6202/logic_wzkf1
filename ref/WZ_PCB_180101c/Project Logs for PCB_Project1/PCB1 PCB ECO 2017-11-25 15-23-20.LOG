@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=DOUT_1A Pin=P23-1
+Removed Pin From Net: NetName=DIN_1A Pin=P23-2
+Removed Pin From Net: NetName=SCLK_1A Pin=P23-3
+Removed Pin From Net: NetName=SYNC_1A Pin=P23-4
+Added Pin To Net: NetName=SYNC_1A Pin=P23-1
+Added Pin To Net: NetName=DOUT_1A Pin=P23-2
+Added Pin To Net: NetName=DIN_1A Pin=P23-3
+Added Pin To Net: NetName=SCLK_1A Pin=P23-4
+Added Room: Name=MAX3462
+Added Room: Name=Power
+Added Room: Name=Sheet1
+Added Room: Name=Sheet2

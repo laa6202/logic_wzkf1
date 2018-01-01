@@ -1,0 +1,34 @@
+Removed Pin From Net: NetName=NetT12_1 Pin=U18-N19
+Added Component: Designator=R60(0805R)
+Added Component: Designator=R61(0805R)
+Added Component: Designator=R62(0805R)
+Added Component: Designator=R63(0805R)
+Added Component: Designator=R64(0805R)
+Added Component: Designator=R69(0805R)
+Added Component: Designator=R71(0805R)
+Added Pin To Net: NetName=+5V1 Pin=R60-1
+Added Pin To Net: NetName=NetC24_1 Pin=R60-2
+Added Pin To Net: NetName=+5VA Pin=R61-1
+Added Pin To Net: NetName=+5V1 Pin=R61-2
+Added Pin To Net: NetName=+5V2 Pin=R62-1
+Added Pin To Net: NetName=NetC24_1 Pin=R62-2
+Added Pin To Net: NetName=+5VB Pin=R63-1
+Added Pin To Net: NetName=+5V2 Pin=R63-2
+Added Pin To Net: NetName=+5V3 Pin=R64-1
+Added Pin To Net: NetName=NetC24_1 Pin=R64-2
+Added Pin To Net: NetName=-5V1 Pin=R69-1
+Added Pin To Net: NetName=NetC34_2 Pin=R69-2
+Added Pin To Net: NetName=-5V2 Pin=R71-1
+Added Pin To Net: NetName=NetC34_2 Pin=R71-2
+Added Pin To Net: NetName=NetT12_1 Pin=U18-G1
+Added Member To Class: ClassName=Power Member=Component R60 000
+Added Member To Class: ClassName=Power Member=Component R61 000
+Added Member To Class: ClassName=Power Member=Component R62 000
+Added Member To Class: ClassName=Power Member=Component R63 000
+Added Member To Class: ClassName=Power Member=Component R64 000
+Added Member To Class: ClassName=Power Member=Component R69 000
+Added Member To Class: ClassName=Power Member=Component R71 000
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=EP3CE75F484
+Added Room: Name=Power

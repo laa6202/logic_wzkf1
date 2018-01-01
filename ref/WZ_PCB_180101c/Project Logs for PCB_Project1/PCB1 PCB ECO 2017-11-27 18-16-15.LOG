@@ -1,0 +1,98 @@
+Removed Pin From Net: NetName=GND Pin=C5-1
+Removed Pin From Net: NetName=+5V_485 Pin=C5-2
+Removed Pin From Net: NetName=GND Pin=C6-1
+Removed Pin From Net: NetName=+5V_485 Pin=C6-2
+Removed Pin From Net: NetName=+5V_485 Pin=C7-1
+Removed Pin From Net: NetName=GND Pin=C7-2
+Removed Pin From Net: NetName=+5V_485 Pin=C8-1
+Removed Pin From Net: NetName=GND Pin=C8-2
+Removed Pin From Net: NetName=GND Pin=P13-1
+Removed Pin From Net: NetName=GND Pin=P15-1
+Removed Pin From Net: NetName=GND Pin=P17-1
+Removed Pin From Net: NetName=GND Pin=P18-1
+Removed Pin From Net: NetName=+5V_485 Pin=P19-1
+Removed Pin From Net: NetName=GND Pin=P19-2
+Removed Pin From Net: NetName=+5V_485 Pin=P20-1
+Removed Pin From Net: NetName=GND Pin=P20-2
+Removed Pin From Net: NetName=GND Pin=U3-4
+Removed Pin From Net: NetName=+5V_485 Pin=U4-1
+Removed Pin From Net: NetName=GND Pin=U4-4
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=C5
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=C6
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=C7
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=C8
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P11
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P12
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P13
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P14
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P15
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P16
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P17
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P18
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P19
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=P20
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=R5
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=R6
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=R7
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=R8
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=U3
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=U3
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=U4
+Removed Member From Class: ClassName=485Driver_MAX3462 Member=U4
+Change Component DesignItemId : Designator=C6 Old DesignItemId=Cap New DesignItemId=Cap Pol2
+Change Component DesignItemId : Designator=C7 Old DesignItemId=Cap Pol2 New DesignItemId=Cap
+Change Component DesignItemId : Designator=U4 Old DesignItemId=MAX3462 New DesignItemId=B1205S2W
+Change Component DesignItemId : Designator=U3 Old DesignItemId=MAX3462 New DesignItemId=LM1117-3.3V
+Change Component Footprint: Designator=C6 Old Footprint=0805C New Footprint=C68uF
+Change Component Footprint: Designator=C7 Old Footprint=C68uF New Footprint=0805C
+Change Component Footprint: Designator=U4 Old Footprint=SO8 New Footprint=B1205SW
+Change Component Footprint: Designator=U3 Old Footprint=SO8 New Footprint=SOT223-4M
+Change Component Comment : Designator=C7 Old Comment=10uF New Comment=104
+Change Component Comment : Designator=R5 Old Comment=100 New Comment=000
+Change Component Comment : Designator=R6 Old Comment=100 New Comment=000
+Change Component Comment : Designator=R7 Old Comment=100 New Comment=000
+Change Component Comment : Designator=R8 Old Comment=100 New Comment=000
+Change Component Comment : Designator=C6 Old Comment=104 New Comment=10uF
+Change Component Comment : Designator=U4 Old Comment=MAX3462 New Comment=B1205S2W
+Change Component Comment : Designator=U3 Old Comment=MAX3462 New Comment=LM1117-3.3V
+Added Component: Designator=C38(0805C)
+Added Component: Designator=T11(TEST)
+Added Pin To Net: NetName=+3.3V Pin=C6-1
+Added Pin To Net: NetName=DGND Pin=C6-2
+Added Pin To Net: NetName=+3.3V Pin=C7-1
+Added Pin To Net: NetName=DGND Pin=C7-2
+Added Pin To Net: NetName=+12V Pin=C8-1
+Added Pin To Net: NetName=SGND Pin=C8-2
+Added Pin To Net: NetName=+12V Pin=C38-1
+Added Pin To Net: NetName=SGND Pin=C38-2
+Added Pin To Net: NetName=+5V_485 Pin=R5-1
+Added Pin To Net: NetName=DGND Pin=R6-1
+Added Pin To Net: NetName=AGND Pin=R7-1
+Added Pin To Net: NetName=GND Pin=R8-1
+Added Pin To Net: NetName=+3.3V Pin=U3-2
+Added Pin To Net: NetName=DGND Pin=U3-3
+Added Pin To Net: NetName=+12V Pin=U4-1
+Added Pin To Net: NetName=SGND Pin=U4-2
+Added Pin To Net: NetName=+5V_D Pin=C5-1
+Added Pin To Net: NetName=+5V_D Pin=R5-2
+Added Pin To Net: NetName=+5V_D Pin=U4-6
+Added Net: Name=+5V_D
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC5_2 Pin=R6-2
+Added Pin To Net: NetName=NetC5_2 Pin=R7-2
+Added Pin To Net: NetName=NetC5_2 Pin=R8-2
+Added Pin To Net: NetName=NetC5_2 Pin=T11-1
+Added Pin To Net: NetName=NetC5_2 Pin=U4-4
+Added Net: Name=NetC5_2
+Added Member To Class: ClassName=Power Member=Component C5 104
+Added Member To Class: ClassName=Power Member=Component C6 10uF
+Added Member To Class: ClassName=Power Member=Component C7 104
+Added Member To Class: ClassName=Power Member=Component C8 10uF
+Added Member To Class: ClassName=Power Member=Component C38 104
+Added Member To Class: ClassName=Power Member=Component R5 000
+Added Member To Class: ClassName=Power Member=Component R6 000
+Added Member To Class: ClassName=Power Member=Component R7 000
+Added Member To Class: ClassName=Power Member=Component R8 000
+Added Member To Class: ClassName=Power Member=Component T11 GND_D
+Added Member To Class: ClassName=Power Member=Component U3 LM1117-3.3V
+Added Member To Class: ClassName=Power Member=Component U4 B1205S2W

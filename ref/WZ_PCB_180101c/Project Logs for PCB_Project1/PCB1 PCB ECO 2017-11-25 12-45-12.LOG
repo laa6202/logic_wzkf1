@@ -1,0 +1,34 @@
+Added Component: Designator=U6(LFCSP32)
+Added Component: Designator=U10(LFCSP32)
+Added Pin To Net: NetName=+5VA Pin=U6-5
+Added Pin To Net: NetName=AGND Pin=U6-6
+Added Pin To Net: NetName=NetR11_2 Pin=U6-9
+Added Pin To Net: NetName=NetR24_2 Pin=U6-10
+Added Pin To Net: NetName=+VREF Pin=U6-17
+Added Pin To Net: NetName=AGND Pin=U6-18
+Added Pin To Net: NetName=AGND Pin=U6-21
+Added Pin To Net: NetName=DGND Pin=U6-22
+Added Pin To Net: NetName=+5VA Pin=U6-23
+Added Pin To Net: NetName=+3.3V Pin=U6-24
+Added Pin To Net: NetName=NetR22_1 Pin=U6-25
+Added Pin To Net: NetName=NetR14_1 Pin=U6-27
+Added Pin To Net: NetName=NetR17_1 Pin=U6-28
+Added Pin To Net: NetName=NetR18_1 Pin=U6-31
+Added Pin To Net: NetName=NetR19_1 Pin=U6-32
+Added Pin To Net: NetName=+5VA Pin=U10-5
+Added Pin To Net: NetName=AGND Pin=U10-6
+Added Pin To Net: NetName=NetR28_2 Pin=U10-9
+Added Pin To Net: NetName=NetR41_2 Pin=U10-10
+Added Pin To Net: NetName=+VREF Pin=U10-17
+Added Pin To Net: NetName=AGND Pin=U10-18
+Added Pin To Net: NetName=AGND Pin=U10-21
+Added Pin To Net: NetName=DGND Pin=U10-22
+Added Pin To Net: NetName=+5VA Pin=U10-23
+Added Pin To Net: NetName=+3.3V Pin=U10-24
+Added Pin To Net: NetName=NetR39_1 Pin=U10-25
+Added Pin To Net: NetName=NetR31_1 Pin=U10-27
+Added Pin To Net: NetName=NetR34_1 Pin=U10-28
+Added Pin To Net: NetName=NetR35_1 Pin=U10-31
+Added Pin To Net: NetName=NetR36_1 Pin=U10-32
+Added Member To Class: ClassName=Sheet1 Member=Component U6 AD7195
+Added Member To Class: ClassName=Sheet1 Member=Component U10 AD7195

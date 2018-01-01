@@ -1,0 +1,5 @@
+Added Component: Designator=R6(0805R)
+Added Pin To Net: NetName=3V3 Pin=R6-1
+Added Pin To Net: NetName=+3.3V_AD Pin=R6-2
+Added Member To Class: ClassName=Power Member=Component R6 000
+Added Room: Name=Power

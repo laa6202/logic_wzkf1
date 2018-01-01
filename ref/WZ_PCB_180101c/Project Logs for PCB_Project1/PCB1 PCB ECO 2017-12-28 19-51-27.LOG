@@ -1,0 +1,4 @@
+Change Component DesignItemId : Designator=P9 Old DesignItemId=Header 16 New DesignItemId=Header 12
+Change Component Footprint: Designator=P9 Old Footprint=HDR1X16 New Footprint=HDR1X12
+Change Component Comment : Designator=P9 Old Comment=Header 16 New Comment=Header 12
+Added Room: Name=EP3CE75F484

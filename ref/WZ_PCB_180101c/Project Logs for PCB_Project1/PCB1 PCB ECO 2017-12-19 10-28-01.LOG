@@ -1,0 +1,105 @@
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C54
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C55
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C56
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C57
+Removed Member From Class: ClassName=STM32F103RBT6 Member=C60
+Added Component: Designator=C91(6032)
+Added Component: Designator=C112(C226)
+Added Component: Designator=C113(6032)
+Added Component: Designator=C114(6032)
+Added Component: Designator=C115(6032)
+Added Component: Designator=C116(C226)
+Added Component: Designator=C117(6032)
+Added Component: Designator=C118(6032)
+Added Component: Designator=C119(6032)
+Added Component: Designator=C135(6032)
+Added Component: Designator=C138(6032)
+Added Component: Designator=C139(C226)
+Added Component: Designator=J4(I_ON)
+Added Component: Designator=J5(I_ON)
+Added Component: Designator=J6(I_ON)
+Added Component: Designator=J7(I_ON)
+Added Component: Designator=L1(L3R3)
+Added Component: Designator=L2(L3R3)
+Added Component: Designator=U22(VQFN32)
+Added Pin To Net: NetName=+5V Pin=C91-1
+Added Pin To Net: NetName=DGND Pin=C91-2
+Added Pin To Net: NetName=NetC112_1 Pin=C112-1
+Added Pin To Net: NetName=DGND Pin=C112-2
+Added Pin To Net: NetName=+1.2V Pin=C113-1
+Added Pin To Net: NetName=DGND Pin=C113-2
+Added Pin To Net: NetName=+1.2V Pin=C114-1
+Added Pin To Net: NetName=DGND Pin=C114-2
+Added Pin To Net: NetName=+1.2V Pin=C115-1
+Added Pin To Net: NetName=DGND Pin=C115-2
+Added Pin To Net: NetName=NetC116_1 Pin=C116-1
+Added Pin To Net: NetName=DGND Pin=C116-2
+Added Pin To Net: NetName=+3.3V Pin=C117-1
+Added Pin To Net: NetName=DGND Pin=C117-2
+Added Pin To Net: NetName=+3.3V Pin=C118-1
+Added Pin To Net: NetName=DGND Pin=C118-2
+Added Pin To Net: NetName=+3.3V Pin=C119-1
+Added Pin To Net: NetName=DGND Pin=C119-2
+Added Pin To Net: NetName=+3.3V Pin=C135-1
+Added Pin To Net: NetName=DGND Pin=C135-2
+Added Pin To Net: NetName=+2.5V Pin=C138-1
+Added Pin To Net: NetName=DGND Pin=C138-2
+Added Pin To Net: NetName=NetC139_1 Pin=C139-1
+Added Pin To Net: NetName=DGND Pin=C139-2
+Added Pin To Net: NetName=+5V Pin=J4-1
+Added Pin To Net: NetName=NetJ4_2 Pin=J4-2
+Added Pin To Net: NetName=NetC112_1 Pin=J5-1
+Added Pin To Net: NetName=+3.3V Pin=J5-2
+Added Pin To Net: NetName=NetC116_1 Pin=J6-1
+Added Pin To Net: NetName=+1.2V Pin=J6-2
+Added Pin To Net: NetName=NetC139_1 Pin=J7-1
+Added Pin To Net: NetName=+2.5V Pin=J7-2
+Added Pin To Net: NetName=NetL1_1 Pin=L1-1
+Added Pin To Net: NetName=NetC112_1 Pin=L1-2
+Added Pin To Net: NetName=NetL2_1 Pin=L2-1
+Added Pin To Net: NetName=NetC116_1 Pin=L2-2
+Added Pin To Net: NetName=NetC116_1 Pin=U22-1
+Added Pin To Net: NetName=DGND Pin=U22-2
+Added Pin To Net: NetName=NetL2_1 Pin=U22-3
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-4
+Added Pin To Net: NetName=DGND Pin=U22-7
+Added Pin To Net: NetName=NetR96_1 Pin=U22-11
+Added Pin To Net: NetName=DGND Pin=U22-13
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-15
+Added Pin To Net: NetName=NetC139_1 Pin=U22-16
+Added Pin To Net: NetName=NetR98_2 Pin=U22-17
+Added Pin To Net: NetName=NetR95_2 Pin=U22-18
+Added Pin To Net: NetName=NetR94_2 Pin=U22-19
+Added Pin To Net: NetName=NetR93_2 Pin=U22-20
+Added Pin To Net: NetName=REF_V2 Pin=U22-22
+Added Pin To Net: NetName=NetR89_2 Pin=U22-23
+Added Pin To Net: NetName=NetR100_2 Pin=U22-24
+Added Pin To Net: NetName=NetC112_1 Pin=U22-25
+Added Pin To Net: NetName=DGND Pin=U22-26
+Added Pin To Net: NetName=NetL1_1 Pin=U22-27
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-28
+Added Pin To Net: NetName=NetJ4_2 Pin=U22-29
+Added Pin To Net: NetName=DGND Pin=U22-31
+Added Pin To Net: NetName=NetR92_2 Pin=U22-32
+Added Pin To Net: NetName=DGND Pin=U22-33
+Added Member To Class: ClassName=FPGA_POWER Member=Component C91 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C112 226
+Added Member To Class: ClassName=FPGA_POWER Member=Component C113 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C114 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C115 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C116 226
+Added Member To Class: ClassName=FPGA_POWER Member=Component C117 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C118 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C119 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C133 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C135 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C138 68uF16V
+Added Member To Class: ClassName=FPGA_POWER Member=Component C139 226
+Added Member To Class: ClassName=FPGA_POWER Member=Component J4 
+Added Member To Class: ClassName=FPGA_POWER Member=Component J5 
+Added Member To Class: ClassName=FPGA_POWER Member=Component J6 
+Added Member To Class: ClassName=FPGA_POWER Member=Component J7 
+Added Member To Class: ClassName=FPGA_POWER Member=Component L1 3.3uH
+Added Member To Class: ClassName=FPGA_POWER Member=Component L2 3.3uH
+Added Member To Class: ClassName=FPGA_POWER Member=Component T22 DGND
+Added Member To Class: ClassName=FPGA_POWER Member=Component U22 TPS650243RHBR

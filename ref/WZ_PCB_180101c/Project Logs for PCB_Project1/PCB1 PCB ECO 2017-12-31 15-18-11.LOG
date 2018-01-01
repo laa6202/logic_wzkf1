@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=DGND Pin=C147-1
+Removed Pin From Net: NetName=DGND Pin=C149-1
+Removed Pin From Net: NetName=DGND Pin=U25-5
+Removed Pin From Net: NetName=DGND Pin=U26-5
+Added Pin To Net: NetName=SGND Pin=C147-1
+Added Pin To Net: NetName=SGND Pin=C149-1
+Added Pin To Net: NetName=SGND Pin=U25-5
+Added Pin To Net: NetName=SGND Pin=U26-5
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power

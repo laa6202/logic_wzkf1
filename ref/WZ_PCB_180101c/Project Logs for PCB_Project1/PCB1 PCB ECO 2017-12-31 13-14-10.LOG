@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=+2.5V Pin=C137-2
+Removed Pin From Net: NetName=+2.5V Pin=C138-1
+Added Component: Designator=C143(0402C)
+Added Component: Designator=C146(0402C)
+Added Pin To Net: NetName=NetC139_1 Pin=C137-2
+Added Pin To Net: NetName=NetC139_1 Pin=C138-1
+Added Pin To Net: NetName=DGND Pin=C143-1
+Added Pin To Net: NetName=+2.5V Pin=C143-2
+Added Pin To Net: NetName=DGND Pin=C146-1
+Added Pin To Net: NetName=+2.5V Pin=C146-2
+Change Net Name : Old Net Name=NetC139_1 New Net Name=NetC137_2
+Added Member To Class: ClassName=FPGA_POWER Member=Component C143 104
+Added Member To Class: ClassName=FPGA_POWER Member=Component C146 104
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER
+Added Room: Name=Power
+Added Room: Name=STM32F103RBT6

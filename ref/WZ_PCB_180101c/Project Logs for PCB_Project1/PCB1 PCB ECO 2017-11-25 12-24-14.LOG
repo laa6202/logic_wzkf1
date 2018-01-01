@@ -1,0 +1,12 @@
+Added Component: Designator=T1(TEST)
+Added Component: Designator=T2(TEST)
+Added Component: Designator=T3(TEST)
+Added Component: Designator=T4(TEST)
+Added Pin To Net: NetName=NetR11_2 Pin=T1-1
+Added Pin To Net: NetName=NetR24_2 Pin=T2-1
+Added Pin To Net: NetName=NetR28_2 Pin=T3-1
+Added Pin To Net: NetName=NetR41_2 Pin=T4-1
+Added Member To Class: ClassName=Sheet1 Member=Component T1 TEST
+Added Member To Class: ClassName=Sheet1 Member=Component T2 TEST
+Added Member To Class: ClassName=Sheet1 Member=Component T3 TEST
+Added Member To Class: ClassName=Sheet1 Member=Component T4 TEST

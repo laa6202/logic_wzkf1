@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=C147 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C148 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C149 Old Footprint=0805C New Footprint=0603
+Change Component Footprint: Designator=C150 Old Footprint=0805C New Footprint=0603
+Added Room: Name=Power

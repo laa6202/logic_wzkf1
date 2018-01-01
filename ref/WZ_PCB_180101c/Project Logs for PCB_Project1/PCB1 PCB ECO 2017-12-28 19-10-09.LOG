@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=J4 Old Footprint=I_ON New Footprint=I_ON1
+Change Component Footprint: Designator=J5 Old Footprint=I_ON New Footprint=I_ON1
+Change Component Footprint: Designator=J6 Old Footprint=I_ON New Footprint=I_ON1
+Change Component Footprint: Designator=J7 Old Footprint=I_ON New Footprint=I_ON1
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=FPGA_POWER

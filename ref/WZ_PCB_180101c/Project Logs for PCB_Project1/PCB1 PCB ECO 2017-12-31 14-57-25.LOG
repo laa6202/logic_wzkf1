@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=+3.3V Pin=T19-1
+Removed Pin From Net: NetName=+2.5V Pin=T20-1
+Added Pin To Net: NetName=NetC112_1 Pin=T19-1
+Added Pin To Net: NetName=NetC137_2 Pin=T20-1
+Added Room: Name=EP3CE75F484
+Added Room: Name=FPGA_POWER

@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=U16 Old Footprint=SOIC127P600-8M New Footprint=DIP8
+Added Room: Name=485Driver_MAX3462
+Added Room: Name=CH1_CH2
+Added Room: Name=CH3
+Added Room: Name=Power

@@ -1,0 +1,16 @@
+Added Component: Designator=U27(SOP14)
+Added Pin To Net: NetName=ADC_IN0 Pin=U27-1
+Added Pin To Net: NetName=NetR115_2 Pin=U27-2
+Added Pin To Net: NetName=TEST_V+ Pin=U27-3
+Added Pin To Net: NetName=+12V Pin=U27-4
+Added Pin To Net: NetName=TEST_V- Pin=U27-5
+Added Pin To Net: NetName=NetR119_2 Pin=U27-6
+Added Pin To Net: NetName=ADC_IN1 Pin=U27-7
+Added Pin To Net: NetName=ADC_IN2 Pin=U27-8
+Added Pin To Net: NetName=NetR121_2 Pin=U27-9
+Added Pin To Net: NetName=TEST_I+ Pin=U27-10
+Added Pin To Net: NetName=-12V Pin=U27-11
+Added Pin To Net: NetName=TEST_I- Pin=U27-12
+Added Pin To Net: NetName=NetR117_2 Pin=U27-13
+Added Pin To Net: NetName=ADC_IN3 Pin=U27-14
+Added Member To Class: ClassName=STM32F103RBT6 Member=Component U27 OPA4277

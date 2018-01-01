@@ -1,0 +1,40 @@
+Removed Pin From Net: NetName=SYNC_3A Pin=P27-1
+Removed Pin From Net: NetName=DIN_3A Pin=P27-3
+Added Component: Designator=U18(FBGA484)
+Added Pin To Net: NetName=-12V Pin=P27-1
+Added Pin To Net: NetName=SYNC_3A Pin=P27-1
+Added Pin To Net: NetName=DOUT_3A Pin=P27-2
+Added Pin To Net: NetName=+12V Pin=P27-3
+Added Pin To Net: NetName=DIN_3A Pin=P27-3
+Added Pin To Net: NetName=FPGA_NCSO Pin=U18-E2
+Added Pin To Net: NetName=NetT13_1 Pin=U18-F8
+Added Pin To Net: NetName=+2.5V Pin=U18-F18
+Added Pin To Net: NetName=NetR74_2 Pin=U18-G1
+Added Pin To Net: NetName=+2.5V Pin=U18-G6
+Added Pin To Net: NetName=FPGA_ASDO Pin=U18-H6
+Added Pin To Net: NetName=FPGA_DATA0 Pin=U18-K1
+Added Pin To Net: NetName=FPGA_DCLK Pin=U18-K2
+Added Pin To Net: NetName=FPGA_NCONFIG Pin=U18-K5
+Added Pin To Net: NetName=FPGA_NSTATUS Pin=U18-K6
+Added Pin To Net: NetName=MSEL0 Pin=U18-K20
+Added Pin To Net: NetName=FPGA_TMS Pin=U18-L1
+Added Pin To Net: NetName=FPGA_TCK Pin=U18-L2
+Added Pin To Net: NetName=FPGA_NCE Pin=U18-L3
+Added Pin To Net: NetName=FPGA_TDO Pin=U18-L4
+Added Pin To Net: NetName=FPGA_TDI Pin=U18-L5
+Added Pin To Net: NetName=MSEL0 Pin=U18-L17
+Added Pin To Net: NetName=MSEL1 Pin=U18-L18
+Added Pin To Net: NetName=NetT16_1 Pin=U18-M16
+Added Pin To Net: NetName=MSEL0 Pin=U18-M17
+Added Pin To Net: NetName=FPGA_CONF_DONE Pin=U18-M18
+Added Pin To Net: NetName=NetT15_1 Pin=U18-M19
+Added Pin To Net: NetName=NetT14_1 Pin=U18-M20
+Added Pin To Net: NetName=NetT12_1 Pin=U18-N19
+Added Pin To Net: NetName=+2.5V Pin=U18-T6
+Added Pin To Net: NetName=+2.5V Pin=U18-U18
+Added Pin To Net: NetName=+1.2V Pin=U18-E17
+Added Pin To Net: NetName=+1.2V Pin=U18-F6
+Added Pin To Net: NetName=+1.2V Pin=U18-U6
+Added Pin To Net: NetName=+1.2V Pin=U18-V17
+Added Net: Name=+1.2V
+Added Member To Class: ClassName=EP3CE75F484 Member=Component U18 EP4CE75F23I7
