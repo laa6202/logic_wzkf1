@@ -21,6 +21,7 @@ fx_q,
 mod_id,
 //configuration
 cfg_sample,
+dev_id,
 //clk rst
 utc_sec,
 clk_sys,
@@ -45,6 +46,7 @@ output  [7:0]	fx_q;
 input [5:0] mod_id;
 //configuration
 input [7:0]	cfg_sample;
+input [7:0]	dev_id;
 //clk rst
 input [31:0]	utc_sec;
 input clk_sys;
@@ -115,16 +117,20 @@ pack_base u_pack_base(
 wire	fire_head;
 wire	fire_load;
 wire	fire_tail;
+wire	fire_crc;
 wire 	done_head;
 wire 	done_load;
-wire 	done_tail = 1'b1;
+wire 	done_tail;
+wire 	done_crc;
 pack_main u_pack_main(
 .fire_head(fire_head),
 .fire_load(fire_load),
 .fire_tail(fire_tail),
+.fire_crc(fire_crc),
 .done_head(done_head),
 .done_load(done_load),
 .done_tail(done_tail),
+.done_crc(done_crc),
 .pk_frm(pk_frm),
 //configuration
 .cfg_pkg_en(cfg_pkg_en),
@@ -150,6 +156,7 @@ pack_head u_pack_head(
 //configuration
 .cfg_sample(cfg_sample),
 .len_load(len_load),
+.dev_id(dev_id),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -173,6 +180,61 @@ pack_load u_pack_load(
 .q_z(q_z),
 //configuration
 .len_load(len_load),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//----------- pack_tail ----------
+wire [7:0]	tail_data;
+wire				tail_vld;
+pack_tail u_pack_tail(
+.fire_tail(fire_tail),
+.done_tail(done_tail),
+//data path
+.tail_data(tail_data),
+.tail_vld(tail_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//----------- pack_crc ----------
+wire [7:0]	crc_data;
+wire				crc_vld;
+pack_crc u_pack_crc(
+.fire_crc(fire_crc),
+.done_crc(done_crc),
+//data path
+.head_data(head_data),
+.head_vld(head_vld),
+.load_data(load_data),
+.load_vld(load_vld),
+.tail_data(tail_data),
+.tail_vld(tail_vld),
+.crc_data(crc_data),
+.crc_vld(crc_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//---------- pack_mux ---------
+pack_mux u_pack_mux(
+.pk_data(pk_data),
+.pk_vld(pk_vld),
+//data path
+.head_data(head_data),
+.head_vld(head_vld),
+.load_data(load_data),
+.load_vld(load_vld),
+.tail_data(tail_data),
+.tail_vld(tail_vld),
+.crc_data(crc_data),
+.crc_vld(crc_vld),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

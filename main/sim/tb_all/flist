@@ -54,6 +54,7 @@ tb.v
 ../../fpga_s/src/pack_top/pack_head.v
 ../../fpga_s/src/pack_top/pack_load.v
 ../../fpga_s/src/pack_top/pack_tail.v
+../../fpga_s/src/pack_top/pack_crc.v
 ../../fpga_s/src/pack_top/pack_mux.v
 
 ../../fpga_s/ip/ram/ram32x4k.v

@@ -207,6 +207,7 @@ pack_top u_pack_top(
 .mod_id(6'h21),
 //configuration
 .cfg_sample(cfg_sample),
+.dev_id(dev_id),
 //clk rst
 .utc_sec(utc_sec),
 .clk_sys(clk_sys),

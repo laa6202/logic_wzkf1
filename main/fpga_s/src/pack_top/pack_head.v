@@ -12,6 +12,7 @@ q_ns,
 //configuration
 cfg_sample,
 len_load,
+dev_id,
 //clk rst
 clk_sys,
 rst_n
@@ -26,6 +27,7 @@ input [31:0]	q_ns;
 //configuration
 input [7:0]		cfg_sample;
 input [11:0]	len_load;
+input [7:0]		dev_id;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -88,8 +90,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else begin
 		case(st_pack_head)
 			S_VER  : head_data <= 8'h51;
-			S_PID  : head_data <= cfg_sample;
-			S_LEN1 : head_data <= {4'h0,len_load[11:8]};
+			S_PID  : head_data <= dev_id;
+			S_LEN1 : head_data <= {cfg_sample[3:0],len_load[11:8]};
 			S_LEN2 : head_data <= len_load[7:0];
 			S_UTC1 : head_data <= q_utc[31:24];
 			S_UTC2 : head_data <= q_utc[23:16];
