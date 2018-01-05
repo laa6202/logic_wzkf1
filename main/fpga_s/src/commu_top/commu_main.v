@@ -40,6 +40,7 @@ assign cmd_re = cmd_retry[0] & cmd_retry[1];
 //------------ main FSM -------------
 parameter S_IDLE = 4'h0;
 parameter S_BUF = 4'ha;
+parameter S_BUF2 = 4'hb;
 parameter S_FIRE_H = 4'h1;
 parameter S_WAIT_H = 4'h2;
 parameter S_FIRE_P = 4'h3;
@@ -48,6 +49,7 @@ parameter S_FIRE_T = 4'h5;
 parameter S_WAIT_T = 4'h6;
 parameter S_DONE = 4'hf;
 reg [3:0] st_commu_main;
+wire finish_buf2;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		st_commu_main <= S_IDLE;
@@ -62,11 +64,29 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			S_WAIT_H : st_commu_main <= done_head ? S_FIRE_P : S_WAIT_H;
 			S_WAIT_P : st_commu_main <= done_push ? S_FIRE_T : S_WAIT_P;
 			S_WAIT_T : st_commu_main <= done_tail ? S_DONE : S_WAIT_T;
-			S_BUF  : st_commu_main <= (~pk_frm) ? S_IDLE : S_BUF;
+			S_BUF  : st_commu_main <= (~pk_frm) ? S_BUF2 : S_BUF;
+			S_BUF2 : st_commu_main <= finish_buf2 ? S_IDLE : S_BUF2;
 			S_DONE : st_commu_main <= S_IDLE;
 			default : st_commu_main <= S_IDLE;
 		endcase
 	end
 end
+
+
+//--------- FSM buf2 -------
+reg [31:0] cnt_buf2;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_buf2 <= 32'h0;
+	else if(st_commu_main == S_BUF2)
+		cnt_buf2 <= cnt_buf2 + 32'h1;
+	else 
+		cnt_buf2 <= 32'h0;
+end
+`ifdef SIM
+assign finish_buf2 = (cnt_buf2 == 32'd1_00) ? 1'b1 :1'b0;
+`else 
+assign finish_buf2 = (cnt_buf2 == 32'd1_000_00) ? 1'b1 : 1'b0;
+`endif 
 
 endmodule

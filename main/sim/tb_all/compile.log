@@ -44,11 +44,11 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module pack_tail
 -- Skipping module pack_crc
 -- Skipping module pack_mux
--- Compiling module commu_top
+-- Skipping module commu_top
 -- Skipping module commu_reg
 -- Skipping module commu_base
 -- Skipping module commu_buf
--- Skipping module commu_main
+-- Compiling module commu_main
 -- Skipping module ram32x4k
 -- Skipping module ram8x32k
 -- Skipping module top_m
