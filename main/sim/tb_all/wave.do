@@ -12,6 +12,7 @@ add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/pk_data
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/pk_vld
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/pk_frm
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/len_pkg
+add wave -noupdate /tb/top_s1/u_commu_top/u_commu_main/st_commu_main
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {7020 ns} 0}
 quietly wave cursor active 0

@@ -9,6 +9,8 @@ fx_rd,
 fx_raddr,
 fx_q,
 mod_id,
+//configuration
+cmd_retry,
 //clk rst
 clk_sys,
 rst_n
@@ -20,7 +22,9 @@ input [15:0]	fx_waddr;
 input [15:0]	fx_raddr;
 input 				fx_rd;
 output  [7:0]	fx_q;
-input [5:0] mod_id;
+input 	[5:0] mod_id;
+//configuration
+output [7:0]	cmd_retry;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -36,6 +40,7 @@ wire now_rd = fx_rd & dev_rsel;
 
 
 //--------- register --------
+wire [7:0] cmd_retry;
 reg [7:0] cfg_dbg0;
 reg [7:0] cfg_dbg1;
 reg [7:0] cfg_dbg2;
@@ -75,6 +80,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 			
+			
+assign cmd_retry = (now_wr & (fx_waddr[7:0] == 8'h30)) ? fx_data : 8'h0;
 
 //---------- read register ---------
 reg [7:0] q0;

@@ -56,6 +56,7 @@ input rst_n;
 
 
 //--------- commu_reg ---------
+wire [7:0]	cmd_retry;
 commu_reg u_commu_reg(
 //fx bus
 .fx_waddr(fx_waddr),
@@ -65,6 +66,8 @@ commu_reg u_commu_reg(
 .fx_raddr(fx_raddr),
 .fx_q(fx_q),
 .mod_id(mod_id),
+//confiration
+.cmd_retry(cmd_retry),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -102,6 +105,31 @@ commu_buf u_commu_buf(
 .rst_n(rst_n)
 );
 
+
+//--------- commu_main ------------
+wire fire_head;
+wire fire_push;
+wire fire_tail;
+wire done_head;
+wire done_push;
+wire done_tail;
+wire slot_rdy = 1'b0;
+commu_main u_commu_main(
+//control signal
+.fire_head(fire_head),
+.fire_push(fire_push),
+.fire_tail(fire_tail),
+.done_head(done_head),
+.done_push(done_push),
+.done_tail(done_tail),
+//env
+.pk_frm(pk_frm),
+.slot_rdy(slot_rdy),
+.cmd_retry(cmd_retry),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 wire tx_a = ^pk_data ^ pk_vld ^ pk_frm;
 
