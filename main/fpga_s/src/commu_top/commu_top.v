@@ -84,11 +84,17 @@ commu_base u_commu_base(
 
 
 //---------- commu_buf ----------
+wire buf_rd;
+wire buf_frm;
+wire [7:0] buf_q;
 commu_buf u_commu_buf(
 //pack data output
 .pk_data(pk_data),
 .pk_vld(pk_vld),
 .pk_frm(pk_frm),
+.buf_rd(buf_rd),
+.buf_q(buf_q),
+.buf_frm(buf_frm),
 //parmeter 
 .len_pkg(len_pkg),
 //clk rst
@@ -96,5 +102,7 @@ commu_buf u_commu_buf(
 .rst_n(rst_n)
 );
 
+
+wire tx_a = ^pk_data ^ pk_vld ^ pk_frm;
 
 endmodule
