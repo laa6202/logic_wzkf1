@@ -1,10 +1,14 @@
 //commu_top.v
 
 module commu_top(
-//pack data output
+//data path
 pk_data,
 pk_vld,
 pk_frm,
+tx_a,
+de_a,
+tx_b,
+de_b,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -23,10 +27,14 @@ clk_sys,
 rst_n
 );
 
-//pack data output
+//data path
 input [7:0]	pk_data;
 input				pk_vld;
 input 			pk_frm;
+output	tx_a;
+output	de_a;
+output	tx_b;
+output	de_b;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
@@ -61,5 +69,32 @@ commu_reg u_commu_reg(
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
+
+
+//------------ commu_base --------
+wire [15:0]	len_pkg;
+commu_base u_commu_base(
+.len_pkg(len_pkg),
+//configuration
+.cfg_sample(cfg_sample),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//---------- commu_buf ----------
+commu_buf u_commu_buf(
+//pack data output
+.pk_data(pk_data),
+.pk_vld(pk_vld),
+.pk_frm(pk_frm),
+//parmeter 
+.len_pkg(len_pkg),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 
 endmodule

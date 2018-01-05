@@ -25,7 +25,7 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module cfg_reg
 -- Skipping module syn_top
 -- Skipping module rx_syn_phy
--- Compiling module syn_dec
+-- Skipping module syn_dec
 -- Skipping module syn_reg
 -- Skipping module ad_top
 -- Skipping module ad_reg
@@ -46,6 +46,8 @@ C:\Tools\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module pack_mux
 -- Skipping module commu_top
 -- Skipping module commu_reg
+-- Compiling module commu_base
+-- Skipping module commu_buf
 -- Skipping module ram32x4k
 -- Skipping module top_m
 -- Skipping module syn_m_top

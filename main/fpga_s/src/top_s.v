@@ -217,10 +217,14 @@ pack_top u_pack_top(
 
 //----------- commu_top ----------
 commu_top u_commu_top(
-//pack data output
+//data path
 .pk_data(pk_data),
 .pk_vld(pk_vld),
 .pk_frm(pk_frm),
+.tx_a(tx_a),
+.de_a(de_a),
+.tx_b(tx_b),
+.de_b(de_b),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),
