@@ -3,6 +3,7 @@
 `define TW_HEAD 8'd10
 `define TIMOUT_TX_SIM 16'd6
 `define TIMOUT_TX 		16'hC0
+
 module commu_head(
 //control signal
 fire_head,
