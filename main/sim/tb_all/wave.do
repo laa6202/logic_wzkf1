@@ -1,21 +1,20 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/top_s1/u_commu_top/pk_data
-add wave -noupdate /tb/top_s1/u_commu_top/pk_vld
-add wave -noupdate /tb/top_s1/u_commu_top/pk_frm
-add wave -noupdate /tb/top_s1/u_commu_top/cfg_sample
-add wave -noupdate /tb/top_s1/u_commu_top/dev_id
-add wave -noupdate /tb/top_s1/u_commu_top/utc_sec
-add wave -noupdate /tb/top_s1/u_commu_top/now_ns
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/cnt_buf
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/pk_data
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/pk_vld
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/pk_frm
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_buf/len_pkg
 add wave -noupdate /tb/top_s1/u_commu_top/u_commu_main/st_commu_main
+add wave -noupdate /tb/top_s1/u_commu_top/u_commu_slot/slot_begin
+add wave -noupdate /tb/top_s1/u_commu_top/u_commu_slot/slot_rdy
+add wave -noupdate /tb/top_s1/u_commu_top/u_commu_slot/mode_numDev
+add wave -noupdate /tb/top_s1/u_commu_top/u_commu_slot/dev_id
+add wave -noupdate /tb/top_s1/u_commu_top/u_commu_slot/cmd_retry
+add wave -noupdate /tb/top_s1/u_commu_top/u_commu_slot/cmd_re
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {7020 ns} 0}
-quietly wave cursor active 0
+WaveRestoreCursors {{Cursor 1} {214494 ns} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 309
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -30,4 +29,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {21 us}
+WaveRestoreZoom {207851 ns} {218409 ns}

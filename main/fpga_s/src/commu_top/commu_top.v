@@ -56,6 +56,7 @@ input rst_n;
 
 
 //--------- commu_reg ---------
+wire [7:0]	cfg_numDev;
 wire [7:0]	cmd_retry;
 commu_reg u_commu_reg(
 //fx bus
@@ -67,6 +68,7 @@ commu_reg u_commu_reg(
 .fx_q(fx_q),
 .mod_id(mod_id),
 //confiration
+.cfg_numDev(cfg_numDev),
 .cmd_retry(cmd_retry),
 //clk rst
 .clk_sys(clk_sys),
@@ -76,9 +78,16 @@ commu_reg u_commu_reg(
 
 //------------ commu_base --------
 wire [15:0]	len_pkg;
+wire [1:0]	mode_numDev;
+wire [15:0]	tbit_frq;
+wire [19:0]	tbit_period;
 commu_base u_commu_base(
 .len_pkg(len_pkg),
+.mode_numDev(mode_numDev),
+.tbit_frq(tbit_frq),
+.tbit_period(tbit_period),
 //configuration
+.cfg_numDev(cfg_numDev),
 .cfg_sample(cfg_sample),
 //clk rst
 .clk_sys(clk_sys),
@@ -113,7 +122,8 @@ wire fire_tail;
 wire done_head;
 wire done_push;
 wire done_tail;
-wire slot_rdy = 1'b0;
+wire slot_begin;
+wire slot_rdy;
 commu_main u_commu_main(
 //control signal
 .fire_head(fire_head),
@@ -124,7 +134,20 @@ commu_main u_commu_main(
 .done_tail(done_tail),
 //env
 .pk_frm(pk_frm),
+.slot_begin(slot_begin),
 .slot_rdy(slot_rdy),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//--------- commu_slot ----------
+commu_slot u_commu_slot(
+.slot_begin(slot_begin),
+.slot_rdy(slot_rdy),
+.mode_numDev(mode_numDev),
+.dev_id(dev_id),
 .cmd_retry(cmd_retry),
 //clk rst
 .clk_sys(clk_sys),

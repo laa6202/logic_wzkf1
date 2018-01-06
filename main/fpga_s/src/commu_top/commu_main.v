@@ -11,7 +11,7 @@ done_tail,
 //env
 pk_frm,
 slot_rdy,
-cmd_retry,
+slot_begin,
 //clk rst
 clk_sys,
 rst_n
@@ -26,21 +26,20 @@ input done_tail;
 //env
 input pk_frm;
 input slot_rdy;
-input [7:0]	cmd_retry;
+output slot_begin;
 //clk rst
 input clk_sys;
 input rst_n;
 //------------------------------------------
 //------------------------------------------
 
-wire cmd_re;
-assign cmd_re = cmd_retry[0] & cmd_retry[1];
 
 
 //------------ main FSM -------------
 parameter S_IDLE = 4'h0;
 parameter S_BUF = 4'ha;
 parameter S_BUF2 = 4'hb;
+parameter S_SLOT = 4'hc;
 parameter S_FIRE_H = 4'h1;
 parameter S_WAIT_H = 4'h2;
 parameter S_FIRE_P = 4'h3;
@@ -56,8 +55,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else begin
 		case(st_commu_main)
 			S_IDLE : st_commu_main <= pk_frm ? S_BUF : 
-																slot_rdy ? S_FIRE_H :
-																cmd_re ? S_FIRE_H : S_IDLE;
+																slot_rdy ? S_FIRE_H : S_IDLE;
 			S_FIRE_H : st_commu_main <= S_WAIT_H;
 			S_FIRE_P : st_commu_main <= S_WAIT_P;
 			S_FIRE_T : st_commu_main <= S_WAIT_T;
@@ -65,7 +63,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			S_WAIT_P : st_commu_main <= done_push ? S_FIRE_T : S_WAIT_P;
 			S_WAIT_T : st_commu_main <= done_tail ? S_DONE : S_WAIT_T;
 			S_BUF  : st_commu_main <= (~pk_frm) ? S_BUF2 : S_BUF;
-			S_BUF2 : st_commu_main <= finish_buf2 ? S_IDLE : S_BUF2;
+			S_BUF2 : st_commu_main <= finish_buf2 ? S_SLOT : S_BUF2;
+			S_SLOT : st_commu_main <= S_IDLE;
 			S_DONE : st_commu_main <= S_IDLE;
 			default : st_commu_main <= S_IDLE;
 		endcase
@@ -88,5 +87,12 @@ assign finish_buf2 = (cnt_buf2 == 32'd1_00) ? 1'b1 :1'b0;
 `else 
 assign finish_buf2 = (cnt_buf2 == 32'd1_000_00) ? 1'b1 : 1'b0;
 `endif 
+
+
+//--------- slot begin ---------
+wire slot_begin;
+assign slot_begin = (st_commu_main == S_SLOT) ? 1'b1 : 1'b0;
+
+
 
 endmodule
