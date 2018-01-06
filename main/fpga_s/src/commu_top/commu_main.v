@@ -94,5 +94,14 @@ wire slot_begin;
 assign slot_begin = (st_commu_main == S_SLOT) ? 1'b1 : 1'b0;
 
 
+//---------- control singal ----------
+wire fire_head;
+wire fire_push;
+wire fire_tail; 
+assign fire_head = (st_commu_main == S_FIRE_H) ? 1'b1 : 1'b0;
+assign fire_push = (st_commu_main == S_FIRE_P) ? 1'b1 : 1'b0;
+assign fire_tail = (st_commu_main == S_FIRE_T) ? 1'b1 : 1'b0;
+
+
 
 endmodule

@@ -154,6 +154,100 @@ commu_slot u_commu_slot(
 .rst_n(rst_n)
 );
 
-wire tx_a = ^pk_data ^ pk_vld ^ pk_frm;
+
+
+//----------- commu_head ---------
+wire				fire_tx_head;
+wire				done_tx_head;
+wire [15:0]	data_tx_head;
+commu_head u_commu_head(
+//control signal
+.fire_head(fire_head),
+.done_head(done_head),
+//data path
+.fire_tx(fire_tx_head),
+.done_tx(done_tx_head),
+.data_tx(data_tx_head),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//---------- commu_push --------
+wire				fire_tx_push;
+wire				done_tx_push;
+wire [15:0]	data_tx_push;
+commu_push u_commu_push(
+.fire_push(fire_push),
+.done_push(done_push),
+//data path
+.buf_rd(buf_rd),
+.buf_q(buf_q),
+.buf_frm(buf_frm),
+.fire_tx(fire_tx_push),
+.done_tx(done_tx_push),
+.data_tx(data_tx_push),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//----------- commu_tail ---------
+wire				fire_tx_tail;
+wire				done_tx_tail;
+wire [15:0]	data_tx_tail;
+commu_tail u_commu_tail(
+//control signal
+.fire_tail(fire_tail),
+.done_tail(done_tail),
+//data path
+.fire_tx(fire_tx_tail),
+.done_tx(done_tx_tail),
+.data_tx(data_tx_tail),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//------------- commu_mux ------------
+wire				fire_tx;
+wire				done_tx;
+wire [15:0]	data_tx;
+commu_mux u_commu_mux(
+.fire_tx_head(fire_tx_head),
+.done_tx_head(done_tx_head),
+.data_tx_head(data_tx_head),
+.fire_tx_push(fire_tx_push),
+.done_tx_push(done_tx_push),
+.data_tx_push(data_tx_push),
+.fire_tx_tail(fire_tx_tail),
+.done_tx_tail(done_tx_tail),
+.data_tx_tail(data_tx_tail),
+.fire_tx(fire_tx),
+.done_tx(done_tx),
+.data_tx(data_tx),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//---------- commu_tx_inf -----------
+commu_tx_inf u_commu_tx_inf(
+.tx(tx_a),
+//control 
+.fire_tx(fire_tx),
+.done_tx(done_tx),
+.data_tx(data_tx),
+.tbit_period(tbit_period),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 
 endmodule

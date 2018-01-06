@@ -62,6 +62,11 @@ tb.v
 ../../fpga_s/src/commu_top/commu_buf.v
 ../../fpga_s/src/commu_top/commu_main.v
 ../../fpga_s/src/commu_top/commu_slot.v
+../../fpga_s/src/commu_top/commu_head.v
+../../fpga_s/src/commu_top/commu_push.v
+../../fpga_s/src/commu_top/commu_tail.v
+../../fpga_s/src/commu_top/commu_mux.v
+../../fpga_s/src/commu_top/commu_tx_inf.v
 
 ../../fpga_s/ip/ram/ram32x4k.v
 ../../fpga_s/ip/ram/ram8x32k.v
