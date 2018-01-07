@@ -57,6 +57,7 @@ input rst_n;
 
 //--------- commu_reg ---------
 wire [7:0]	cfg_numDev;
+wire [7:0]  cfg_sendEn;
 wire [7:0]	cmd_retry;
 commu_reg u_commu_reg(
 //fx bus
@@ -69,6 +70,7 @@ commu_reg u_commu_reg(
 .mod_id(mod_id),
 //confiration
 .cfg_numDev(cfg_numDev),
+.cfg_sendEn(cfg_sendEn),
 .cmd_retry(cmd_retry),
 //clk rst
 .clk_sys(clk_sys),
@@ -125,6 +127,7 @@ wire done_tail;
 wire slot_begin;
 wire slot_rdy;
 commu_main u_commu_main(
+.de_a(de_a),
 //control signal
 .fire_head(fire_head),
 .fire_push(fire_push),
@@ -136,6 +139,7 @@ commu_main u_commu_main(
 .pk_frm(pk_frm),
 .slot_begin(slot_begin),
 .slot_rdy(slot_rdy),
+.cfg_sendEn(cfg_sendEn),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

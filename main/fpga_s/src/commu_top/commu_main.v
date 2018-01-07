@@ -1,6 +1,7 @@
 //commu_main.v
 
 module commu_main(
+de_a,
 //control signal
 fire_head,
 fire_push,
@@ -12,10 +13,12 @@ done_tail,
 pk_frm,
 slot_rdy,
 slot_begin,
+cfg_sendEn,
 //clk rst
 clk_sys,
 rst_n
 );
+output de_a;
 //control signal
 output fire_head;
 output fire_push;
@@ -27,6 +30,7 @@ input done_tail;
 input pk_frm;
 input slot_rdy;
 output slot_begin;
+input [7:0]	cfg_sendEn;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -69,6 +73,19 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			default : st_commu_main <= S_IDLE;
 		endcase
 	end
+end
+
+
+reg de_a;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		de_a <= 1'b0;
+	else if((st_commu_main == S_FIRE_H) | (st_commu_main == S_WAIT_H) |
+					(st_commu_main == S_FIRE_P) | (st_commu_main == S_WAIT_P) |
+					(st_commu_main == S_FIRE_T) | (st_commu_main == S_WAIT_T) ) 
+		de_a <= cfg_sendEn[0];
+	else 
+		de_a <= 1'b0;
 end
 
 

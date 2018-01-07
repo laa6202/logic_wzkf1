@@ -27,5 +27,10 @@
 
 0x21: pack_top
 
+0x22: commu_top
+	0x0	RO	mod_id
+	0x10	RW	cfg_numDev
+	0x14	RW	cfg_sendEn
+	0x30	WO	cmd_retry
 
 	
