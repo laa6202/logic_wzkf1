@@ -188,6 +188,8 @@ commu_push u_commu_push(
 .fire_tx(fire_tx_push),
 .done_tx(done_tx_push),
 .data_tx(data_tx_push),
+//configuration
+.len_pkg(len_pkg),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
