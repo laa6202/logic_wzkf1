@@ -47,6 +47,23 @@ cmd_gen u_cmd_gen(
 );
 
 
+//------------ arm spi --------------
+wire spi_csn;
+wire spi_sck;
+wire spi_miso;
+wire spi_mosi;
+arm_spi u_arm_spi(
+//arm spi
+.spi_csn(spi_csn),
+.spi_sck(spi_sck),
+.spi_miso(spi_miso),
+.spi_mosi(spi_mosi),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 
 //------------ gps source ------------
 wire gps_pluse;
@@ -68,6 +85,11 @@ wire rx_a;
 wire rx_b;
 
 top_m u_top_m(
+//arm spi
+.spi_csn(spi_csn),
+.spi_sck(spi_sck),
+.spi_miso(spi_miso),
+.spi_mosi(spi_mosi),
 //485 line
 .tx_ctrl(),
 .tx_syn(syn_0_1),

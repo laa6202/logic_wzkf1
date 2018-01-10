@@ -1,6 +1,11 @@
 //top_s.v
 
 module top_m(
+//arm spi
+spi_csn,
+spi_sck,
+spi_miso,
+spi_mosi,
 //485 line
 tx_ctrl,
 tx_syn,
@@ -14,6 +19,11 @@ mclk1,
 mclk2,
 hrst_n
 );
+//arm spi
+input spi_csn;
+input spi_sck;
+output	spi_miso;
+input		spi_mosi;
 //485 line
 output 	tx_ctrl;
 output 	tx_syn;
@@ -58,6 +68,21 @@ syn_m_top u_syn_m(
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );
+
+
+//---------- arm commu_top ----------
+commu_m_top u_commu_m(
+//arm spi
+.spi_csn(spi_csn),
+.spi_sck(spi_sck),
+.spi_miso(spi_miso),
+.spi_mosi(spi_mosi),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 
 
 //----------- fetch_m_top -----------
