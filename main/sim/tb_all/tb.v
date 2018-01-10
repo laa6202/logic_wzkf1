@@ -64,6 +64,8 @@ wire ctrl_0_1 = tx_ctrl;
 wire ctrl_1_2;
 wire syn_0_1;
 wire syn_0_2 = syn_0_1;
+wire rx_a;
+wire rx_b;
 
 top_m u_top_m(
 //485 line
@@ -81,13 +83,15 @@ top_m u_top_m(
 );
 
 
+wire tx_a0,tx_a1;
+wire de_a0,de_a1;
 top_s top_s1(
 //485 line
 .rx_ctrl(ctrl_0_1),
 .tx_ctrl(ctrl_1_2),
 .rx_syn(syn_0_1),
-.tx_a(),
-.de_a(),
+.tx_a(tx_a0),
+.de_a(de_a0),
 .tx_b(),
 .de_b(),
 //clk rst 
@@ -114,6 +118,7 @@ top_s top_s2(
 .hrst_n(rst_n)
 );
 
-
+assign rx_a = de_a0 ? tx_a0 :
+							 1'b1;
 
 endmodule

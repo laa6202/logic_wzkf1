@@ -2,6 +2,7 @@
 
 module syn_m_top(
 tx_syn,
+fire_sync,
 //gps inf
 gps_pluse,
 //clk rst
@@ -10,6 +11,7 @@ pluse_us,
 rst_n
 );
 output	tx_syn;
+output 	fire_sync;
 //gps inf
 input		gps_pluse;
 //clk rst

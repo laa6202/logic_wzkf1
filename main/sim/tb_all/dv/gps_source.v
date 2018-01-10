@@ -13,17 +13,17 @@ input rst_n;
 //-----------------------------------------
 //-----------------------------------------
 
-reg [19:0] cnt_cycle;
+reg [29:0] cnt_cycle;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		cnt_cycle <= 20'h0;
+		cnt_cycle <= 30'h0;
 	else 
-		cnt_cycle <= cnt_cycle + 20'h1;
+		cnt_cycle <= cnt_cycle + 30'h1;
 end
 
-wire gps_pluse = 	(cnt_cycle == 20'd5) | (cnt_cycle == 20'd1015) |
-									(cnt_cycle == 20'd2024) | (cnt_cycle == 20'd3033) |
-									(cnt_cycle == 20'd6066) | (cnt_cycle == 20'd9099) ;
+wire gps_pluse = 	(cnt_cycle == 30'd5) | (cnt_cycle == 30'd10015) |
+									(cnt_cycle == 30'd20024) | (cnt_cycle == 30'd30033) |
+									(cnt_cycle == 30'd60066) | (cnt_cycle == 30'd90099) ;
 
 
 endmodule

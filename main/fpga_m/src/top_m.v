@@ -47,8 +47,10 @@ clk_rst_top u_clk_rst(
 
 //--------- syn_m_top ---------
 wire tx_syn1;
+wire fire_sync;
 syn_m_top u_syn_m(
-.tx_syn(tx_syn1),
+.tx_syn(tx_syn),
+.fire_sync(fire_sync),
 //gps inf
 .gps_pluse(gps_pluse),
 //clk rst
@@ -57,6 +59,17 @@ syn_m_top u_syn_m(
 .rst_n(rst_n)
 );
 
-wire tx_syn =  tx_syn1;
+
+//----------- fetch_m_top -----------
+fetch_top y_fetch_top(
+.rx_a(rx_a),
+.rx_b(rx_b),
+//clk rst
+.fire_sync(fire_sync),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 
 endmodule

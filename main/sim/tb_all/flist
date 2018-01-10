@@ -80,4 +80,7 @@ tb.v
 ../../fpga_m/src/syn_m_top/syn_m_sync.v
 ../../fpga_m/src/syn_m_top/syn_m_info.v
 ../../fpga_m/src/syn_m_top/tx_info_phy.v
+../../fpga_m/src/fetch_top/fetch_top.v
+
+
 
