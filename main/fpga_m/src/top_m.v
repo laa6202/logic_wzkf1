@@ -46,8 +46,9 @@ clk_rst_top u_clk_rst(
 
 
 //--------- syn_m_top ---------
+wire tx_syn1;
 syn_m_top u_syn_m(
-.tx_syn(tx_syn),
+.tx_syn(tx_syn1),
 //gps inf
 .gps_pluse(gps_pluse),
 //clk rst
@@ -56,6 +57,6 @@ syn_m_top u_syn_m(
 .rst_n(rst_n)
 );
 
-
+wire tx_syn =  tx_syn1;
 
 endmodule
