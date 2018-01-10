@@ -83,6 +83,7 @@ tb.v
 ../../fpga_m/src/syn_m_top/tx_info_phy.v
 ../../fpga_m/src/fetch_top/fetch_top.v
 ../../fpga_m/src/commu_m_top/commu_m_top.v
+../../fpga_m/src/commu_m_top/spi_top.v
 
 
 

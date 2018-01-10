@@ -22,6 +22,10 @@ input rst_n;
 //-----------------------------------------
 
 
+//------------ spi_csn ------------
+wire spi_csn = 1'b0;
+
+
 //------------ spi_sck ------------
 reg [3:0] cnt_cycle;
 always @ (posedge clk_sys or negedge rst_n)	begin
@@ -60,6 +64,9 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 wire spi_sck = spi_en ? spi_sck_i : 1'b1;
 
+
+//----------- spi_mosi -----------
+wire spi_mosi = 1'b0;
 
 
 

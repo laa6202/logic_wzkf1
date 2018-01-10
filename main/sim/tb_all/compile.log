@@ -3,7 +3,7 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module clk_gen
 -- Skipping module rst_gen
 -- Skipping module cmd_gen
--- Compiling module arm_spi
+-- Skipping module arm_spi
 -- Skipping module sim_ctrl_top
 -- Skipping module sim_ctrl_mac
 -- Skipping module sim_ctrl_phy
@@ -66,6 +66,7 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module tx_info_phy
 -- Skipping module fetch_top
 -- Skipping module commu_m_top
+-- Compiling module spi_top
 -- Scanning library file '../lib/cycloneiv_atoms.v'
 -- Scanning library file '../lib/altera_mf.v'
 -- Skipping module altsyncram

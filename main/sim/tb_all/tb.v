@@ -90,6 +90,7 @@ top_m u_top_m(
 .spi_sck(spi_sck),
 .spi_miso(spi_miso),
 .spi_mosi(spi_mosi),
+.arm_int_n(),
 //485 line
 .tx_ctrl(),
 .tx_syn(syn_0_1),

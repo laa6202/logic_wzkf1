@@ -6,6 +6,7 @@ spi_csn,
 spi_sck,
 spi_miso,
 spi_mosi,
+arm_int_n,
 //485 line
 tx_ctrl,
 tx_syn,
@@ -24,6 +25,7 @@ input spi_csn;
 input spi_sck;
 output	spi_miso;
 input		spi_mosi;
+output	arm_int_n;
 //485 line
 output 	tx_ctrl;
 output 	tx_syn;
@@ -77,6 +79,7 @@ commu_m_top u_commu_m(
 .spi_sck(spi_sck),
 .spi_miso(spi_miso),
 .spi_mosi(spi_mosi),
+.arm_int_n(arm_int_n),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -86,7 +89,7 @@ commu_m_top u_commu_m(
 
 
 //----------- fetch_m_top -----------
-fetch_top y_fetch_top(
+fetch_top u_fetch_top(
 .rx_a(rx_a),
 .rx_b(rx_b),
 //clk rst
