@@ -77,4 +77,36 @@ spi_top u_spi_inf(
 );
 
 
+//----------- commu_m_mux ----------
+wire 				real_rd;
+wire [7:0]	real_q;
+wire 				tp_rd;
+wire [7:0]	tp_q;
+commu_m_mux u_commu_m_mux(
+.real_rd(real_rd),
+.real_q(real_q),
+.tp_rd(tp_rd),
+.tp_q(tp_q),
+.req_rd(req_rd),
+.req_q(req_q),
+//configuratiuon
+.cfg_tp(cfg_tp),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//----------- commu_tp ----------
+commu_m_tp u_commu_m_tp(
+.tp_rd(tp_rd),
+.tp_q(tp_q),
+//configuratiuon
+.cfg_tp(cfg_tp),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 endmodule

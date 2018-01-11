@@ -65,15 +65,15 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		req_rd <= (cnt_spi_bit == 4'h0) & spi_sck_falling;
 end
 
-reg req_rd_dly;
+reg req_rd_dly[2:0];
 always @(posedge clk_sys)
-	req_rd_dly <= req_rd;
+	req_rd_dly <= {req_rd_dly[1:0],req_rd};
 	
 reg [7:0] req_q_lock;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		req_q_lock <= 8'h0;
-	else if(req_rd_dly | spi_csn_falling)
+	else if(req_rd_dly[1] | spi_csn_falling)
 		req_q_lock <= req_q;
 	else ;
 end
@@ -88,7 +88,7 @@ reg miso;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		miso <= 1'b1;
-	else if(spi_sck_falling | spi_csn_falling_dly)	begin
+	else if(spi_sck_falling | spi_csn_falling_dly | req_rd_dly[2])	begin
 		case(cnt_spi_bit)
 			4'h0 : miso <= req_q_lock[7];
 			4'h1 : miso <= req_q_lock[6];
