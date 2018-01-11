@@ -80,6 +80,14 @@ commu_m_top u_commu_m(
 .spi_miso(spi_miso),
 .spi_mosi(spi_mosi),
 .arm_int_n(arm_int_n),
+//fx bus
+.fx_waddr(),
+.fx_wr(1'b0),
+.fx_data(),
+.fx_rd(1'b0),
+.fx_raddr(),
+.fx_q(),
+.mod_id(6'h22),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

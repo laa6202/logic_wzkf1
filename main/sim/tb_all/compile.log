@@ -65,8 +65,11 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module syn_m_info
 -- Skipping module tx_info_phy
 -- Skipping module fetch_top
--- Skipping module commu_m_top
+-- Compiling module commu_m_top
 -- Compiling module spi_top
+-- Compiling module commu_m_reg
+-- Compiling module commu_m_tp
+-- Compiling module commu_m_mux
 -- Scanning library file '../lib/cycloneiv_atoms.v'
 -- Scanning library file '../lib/altera_mf.v'
 -- Skipping module altsyncram
@@ -82,3 +85,5 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 
 Top level modules:
 	tb
+	commu_m_tp
+	commu_m_mux

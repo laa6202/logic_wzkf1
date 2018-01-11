@@ -1,4 +1,4 @@
-//spi_top.v
+//spi_inf.v
 
 module spi_top(
 //arm rd
