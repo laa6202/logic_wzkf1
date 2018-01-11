@@ -77,7 +77,7 @@ commu_m_top u_commu_m(
 //arm spi
 .spi_csn(spi_csn),
 .spi_sck(spi_sck),
-.spi_miso(spi_miso),
+.spi_miso(),
 .spi_mosi(spi_mosi),
 .arm_int_n(arm_int_n),
 //fx bus
@@ -92,7 +92,7 @@ commu_m_top u_commu_m(
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
-
+wire spi_miso = 1'bz;
 
 
 

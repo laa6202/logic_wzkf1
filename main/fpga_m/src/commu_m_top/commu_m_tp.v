@@ -29,9 +29,9 @@ end
 
 wire [7:0]	tp_q;
 assign tp_q = (swift == 2'h0) ? 8'h55 : 
-							(swift == 2'h1) ? 8'hAA : 
-							(swift == 2'h2) ? 8'h5A : 
-							(swift == 2'h3) ? 8'hA5 : 8'h55;
+							(swift == 2'h1) ? 8'h55 : 
+							(swift == 2'h2) ? 8'h55 : 
+							(swift == 2'h3) ? 8'h55 : 8'h55;
 
 
 endmodule
