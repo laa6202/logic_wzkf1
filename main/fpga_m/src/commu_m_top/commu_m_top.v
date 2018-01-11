@@ -25,6 +25,9 @@ input rst_n;
 
 
 spi_top u_spi_top(
+//arm rd
+.req_rd(),
+.req_q(8'h54),
 //arm spi
 .spi_csn(spi_csn),
 .spi_sck(spi_sck),

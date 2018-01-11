@@ -6,6 +6,11 @@ add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/spi_miso
 add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/spi_mosi
 add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/clk_sys
 add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/rst_n
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/spi_sck_rasing
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/spi_sck_falling
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/cnt_spi_bit
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/req_rd_dly
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_top/req_q_lock
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {2111 ns} 0}
 quietly wave cursor active 1
@@ -23,4 +28,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {5250 ns}
+WaveRestoreZoom {13 ns} {5263 ns}

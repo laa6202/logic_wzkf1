@@ -23,7 +23,13 @@ input rst_n;
 
 
 //------------ spi_csn ------------
-wire spi_csn = 1'b0;
+reg spi_csn;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		spi_csn <= 1'b1;
+	else 
+		spi_csn <= 1'b0;
+end
 
 
 //------------ spi_sck ------------
