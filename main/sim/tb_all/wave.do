@@ -4,6 +4,9 @@ add wave -noupdate /tb/u_top_m/u_commu_m/spi_csn
 add wave -noupdate /tb/u_top_m/u_commu_m/spi_sck
 add wave -noupdate /tb/u_top_m/u_commu_m/spi_miso
 add wave -noupdate /tb/u_top_m/u_commu_m/spi_mosi
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_inf/req_q_lock
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_inf/req_rd
+add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_inf/req_q
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {2111 ns} 0}
 quietly wave cursor active 1

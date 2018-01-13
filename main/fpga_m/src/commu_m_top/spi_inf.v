@@ -42,17 +42,21 @@ io_filter spi_cs_filter(
 //--------- spi sck cap ---------
 reg spi_csn_reg;
 reg spi_sck_reg;
+reg spi_sck_reg2;
 always @ (posedge clk_sys)	begin
 	spi_csn_reg <= spi_csn_real;
 	spi_sck_reg <= spi_sck;
+	spi_sck_reg2 <= spi_sck_reg;
 end
 wire spi_csn_falling = spi_csn_reg & (~spi_csn_real);
-wire spi_sck_rasing = (~spi_sck_reg) & spi_sck & (~spi_csn_real);
-wire spi_sck_falling = spi_sck_reg & (~spi_sck) & (~spi_csn_real);
+wire spi_sck_rasing = (~spi_sck_reg2) & spi_sck_reg & (~spi_csn_real);
+wire spi_sck_falling = spi_sck_reg2 & (~spi_sck_reg) & (~spi_csn_real);
 
 reg [3:0]  cnt_spi_bit;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)	
+		cnt_spi_bit <= 4'h0;
+	else if(spi_csn_real)
 		cnt_spi_bit <= 4'h0;
 	else if(spi_sck_rasing)	begin
 		if(cnt_spi_bit == 4'h7)
@@ -104,19 +108,33 @@ always @ (posedge clk_sys)
 	spi_csn_falling_dly <= spi_csn_falling;
 	
 reg miso;
+wire [2:0] next_spi_bit = cnt_spi_bit[2:0] + 3'h1;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		miso <= 1'b1;
-	else if(spi_sck_rasing_dly | spi_csn_falling_dly | req_rd_dly2)	begin
-		case(cnt_spi_bit)
-			4'h0 : miso <= req_q_lock[7];
-			4'h1 : miso <= req_q_lock[6];
-			4'h2 : miso <= req_q_lock[5];
-			4'h3 : miso <= req_q_lock[4];
-			4'h4 : miso <= req_q_lock[3];
-			4'h5 : miso <= req_q_lock[2];
-			4'h6 : miso <= req_q_lock[1];
-			4'h7 : miso <= req_q_lock[0];
+	else if( spi_csn_falling_dly | req_rd_dly2)	begin
+		case(cnt_spi_bit[2:0])
+			3'h0 : miso <= req_q_lock[7];
+			3'h1 : miso <= req_q_lock[6];
+			3'h2 : miso <= req_q_lock[5];
+			3'h3 : miso <= req_q_lock[4];
+			3'h4 : miso <= req_q_lock[3];
+			3'h5 : miso <= req_q_lock[2];
+			3'h6 : miso <= req_q_lock[1];
+			3'h7 : miso <= req_q_lock[0];
+			default :;
+		endcase		
+	end
+	else if(spi_sck_rasing)	begin
+		case(next_spi_bit)
+			3'h0 : miso <= req_q_lock[7];
+			3'h1 : miso <= req_q_lock[6];
+			3'h2 : miso <= req_q_lock[5];
+			3'h3 : miso <= req_q_lock[4];
+			3'h4 : miso <= req_q_lock[3];
+			3'h5 : miso <= req_q_lock[2];
+			3'h6 : miso <= req_q_lock[1];
+			3'h7 : miso <= req_q_lock[0];
 			default :;
 		endcase
 	end 
