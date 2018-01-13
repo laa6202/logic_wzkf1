@@ -40,6 +40,7 @@ wire now_rd = fx_rd & dev_rsel;
 
 
 //--------- register --------
+reg [7:0]	cfg_tp;
 reg [7:0] cfg_dbg0;
 reg [7:0] cfg_dbg1;
 reg [7:0] cfg_dbg2;
@@ -54,6 +55,7 @@ reg [7:0] cfg_dbg7;
 //--------- write register ----------
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)	begin
+		cfg_tp   <= 8'h3;
 		cfg_dbg0 <= 8'h80;
 		cfg_dbg1 <= 8'h81;
 		cfg_dbg2 <= 8'h82;
@@ -65,6 +67,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	end
 	else if(now_wr) begin
 		case(fx_waddr[7:0])
+			8'h40 : cfg_tp   <= fx_data;
 			8'h80 : cfg_dbg0 <= fx_data;
 			8'h81 : cfg_dbg1 <= fx_data;
 			8'h82 : cfg_dbg2 <= fx_data;
@@ -89,6 +92,7 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else if(now_rd) begin
 		case(fx_raddr[7:0])
 			8'h0  : q0 <= mod_id;
+			8'h40 : q0 <= cfg_tp;
 			8'h80 : q0 <= cfg_dbg0;
 			8'h81 : q0 <= cfg_dbg1;
 			8'h82 : q0 <= cfg_dbg2;

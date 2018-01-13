@@ -19,6 +19,11 @@ input rst_n;
 //----------------------------------------
 //----------------------------------------
 
+
+wire [1:0]	tp_mode;
+assign tp_mode = cfg_tp[1:0];
+
+
 reg [7:0] swift;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -28,15 +33,11 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 
 wire [7:0]	tp_q;
-assign tp_q = swift;
+assign tp_q = (tp_mode == 2'h1) ? 8'hff :
+							(tp_mode == 2'h2) ? 8'h55 :
+							(tp_mode == 2'h3) ?  swift : 8'h0;
 
-/*
-assign tp_q = (swift == 2'h0) ? 8'h55 : 
-							(swift == 2'h1) ? 8'hAA : 
-							(swift == 2'h2) ? 8'h5A : 
-							(swift == 2'h3) ? 8'hA5 : 8'h55;
 
-*/
 
 
 endmodule
