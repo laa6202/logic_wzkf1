@@ -29,18 +29,26 @@ input rst_n;
 
 
 //---------- spi_filter ---------
+wire spi_csn_real;
+io_filter spi_cs_filter(
+.io_in(spi_csn),
+.io_real(spi_csn_real),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 //--------- spi sck cap ---------
 reg spi_csn_reg;
 reg spi_sck_reg;
 always @ (posedge clk_sys)	begin
-	spi_csn_reg <= spi_csn;
+	spi_csn_reg <= spi_csn_real;
 	spi_sck_reg <= spi_sck;
 end
-wire spi_csn_falling = spi_csn_reg & (~spi_csn);
-wire spi_sck_rasing = (~spi_sck_reg) & spi_sck & (~spi_csn);
-wire spi_sck_falling = spi_sck_reg & (~spi_sck) & (~spi_csn);
+wire spi_csn_falling = spi_csn_reg & (~spi_csn_real);
+wire spi_sck_rasing = (~spi_sck_reg) & spi_sck & (~spi_csn_real);
+wire spi_sck_falling = spi_sck_reg & (~spi_sck) & (~spi_csn_real);
 
 reg [3:0]  cnt_spi_bit;
 always @(posedge clk_sys or negedge rst_n)	begin
@@ -73,7 +81,13 @@ always @(posedge clk_sys) begin
 	req_rd_dly1 <= req_rd_dly0;
 	req_rd_dly2 <= req_rd_dly1;
 end
-	
+
+reg spi_sck_rasing_dly;
+
+always @(posedge clk_sys)	
+	spi_sck_rasing_dly <= spi_sck_rasing;
+
+
 reg [7:0] req_q_lock;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -93,7 +107,7 @@ reg miso;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		miso <= 1'b1;
-	else if(spi_sck_falling | spi_csn_falling_dly | req_rd_dly2)	begin
+	else if(spi_sck_rasing_dly | spi_csn_falling_dly | req_rd_dly2)	begin
 		case(cnt_spi_bit)
 			4'h0 : miso <= req_q_lock[7];
 			4'h1 : miso <= req_q_lock[6];
@@ -109,7 +123,11 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 
-wire spi_miso = miso;
+
+reg spi_miso;
+always @(posedge clk_sys)
+	spi_miso <= miso;
 
 
 endmodule
+
