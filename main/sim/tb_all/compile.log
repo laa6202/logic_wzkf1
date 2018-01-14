@@ -52,7 +52,7 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module commu_main
 -- Skipping module commu_slot
 -- Skipping module commu_head
--- Skipping module commu_push
+-- Compiling module commu_push
 -- Skipping module commu_tail
 -- Skipping module commu_mux
 -- Skipping module commu_tx_inf
@@ -65,8 +65,10 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module syn_m_sync
 -- Skipping module syn_m_info
 -- Skipping module tx_info_phy
--- Compiling module fetch_top
+-- Skipping module fetch_top
 -- Skipping module fetch_reg
+-- Skipping module fetch_base
+-- Skipping module fetch_rx_inf
 -- Skipping module commu_m_top
 -- Skipping module spi_top
 -- Skipping module commu_m_reg

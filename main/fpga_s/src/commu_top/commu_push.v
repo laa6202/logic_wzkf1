@@ -95,11 +95,29 @@ reg [7:0] buf_q_reg;
 always @ (posedge clk_sys)
 	buf_q_reg <= buf_q;
 
-wire				fire_tx;
-wire [15:0]	data_tx;
-assign fire_tx = (st_commu_push == S_FIRE) ? 1'b1 : 1'b0;
-assign data_tx = (st_commu_push == S_FIRE) ? {buf_q_reg,buf_q}: 16'h0;
+//wire				fire_tx;
+//assign fire_tx = (st_commu_push == S_FIRE) ? 1'b1 : 1'b0;
+//wire [15:0]	data_tx;
+//assign data_tx = (st_commu_push == S_FIRE) ? {buf_q_reg,buf_q}: 16'h0;
+reg fire_tx;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		fire_tx <= 1'b0;
+	else 
+		fire_tx <= (st_commu_push == S_FIRE) ? 1'b1 : 1'b0;
+end
 
+
+reg [15:0]	data_tx;
+always  @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		data_tx <= 16'h0;
+	else if(st_commu_push == S_DONE)
+		data_tx <= 16'h0;
+	else if(st_commu_push == S_FIRE)
+		data_tx <= {buf_q_reg,buf_q};
+	else ;
+end
 
 
 endmodule

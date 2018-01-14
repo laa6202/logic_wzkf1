@@ -44,6 +44,8 @@ input rst_n;
 
 
 //---------- fetch_reg ------------
+wire [7:0]	cfg_sample;
+wire [7:0]	cfg_numDev;
 fetch_reg u_fetch_reg(
 //fx bus
 .fx_waddr(fx_waddr),
@@ -54,12 +56,47 @@ fetch_reg u_fetch_reg(
 .fx_q(fx_q),
 .mod_id(mod_id),
 //configuration
-
+.cfg_sample(cfg_sample),
+.cfg_numDev(cfg_numDev),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
 
+
+//---------- fetch_base --------
+wire [15:0]	len_pkg;
+wire [1:0]  mode_numDev;
+wire [15:0]	tbit_frq;
+wire [19:0]	tbit_period;
+fetch_base u_fetch_base(
+.len_pkg(len_pkg),
+.mode_numDev(mode_numDev),
+.tbit_frq(tbit_frq),
+.tbit_period(tbit_period),
+//configuration
+.cfg_numDev(cfg_numDev),
+.cfg_sample(cfg_sample),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
+
+//--------- fetch_rx_inf ---------
+wire [15:0]	rx_data;
+wire				rx_vld;
+fetch_rx_inf u_fetch_inf(
+.rx(rx_a),
+.tbit_period(tbit_period),
+.rx_vld(rx_vld),
+.rx_data(rx_data),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule
