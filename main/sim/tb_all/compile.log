@@ -73,8 +73,8 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module repkg_top
 -- Skipping module commu_m_top
 -- Skipping module commu_m_reg
--- Skipping module commu_m_main
--- Compiling module commu_m_buf
+-- Compiling module commu_m_main
+-- Skipping module commu_m_buf
 -- Skipping module commu_m_push
 -- Skipping module commu_m_tp
 -- Skipping module commu_m_mux
@@ -94,5 +94,3 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 
 Top level modules:
 	tb
-	commu_m_main
-	commu_m_push

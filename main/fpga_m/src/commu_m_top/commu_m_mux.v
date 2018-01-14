@@ -27,8 +27,12 @@ input rst_n;
 //----------------------------------------
 //----------------------------------------
 
-wire tp_rd = req_rd;
-wire [7:0] req_q = tp_q;
+
+wire sel_normal = (cfg_tp == 8'h0) ? 1'b1 : 1'b0;
+
+wire real_rd = sel_normal & req_rd;
+wire tp_rd = (~sel_normal) & req_rd;
+wire [7:0] req_q = sel_normal ? real_q : tp_q;
 
 
 endmodule

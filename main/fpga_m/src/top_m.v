@@ -80,6 +80,7 @@ syn_m_top u_syn_m(
 wire [15:0]	pkg_data;
 wire				pkg_vld;
 wire				pkg_frm;
+wire [15:0] len_pkg;
 fetch_top u_fetch_top(
 .rx_a(rx_a),
 .rx_b(rx_b),
@@ -94,6 +95,7 @@ fetch_top u_fetch_top(
 .fx_raddr(),
 .fx_q(),
 .mod_id(6'h3),
+.len_pkg(len_pkg),
 //clk rst
 .fire_sync(fire_sync),
 .clk_sys(clk_sys),
@@ -148,6 +150,7 @@ commu_m_top u_commu_m(
 .fx_raddr(),
 .fx_q(),
 .mod_id(6'h2),
+.len_pkg(len_pkg),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

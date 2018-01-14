@@ -15,6 +15,15 @@ add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_buf/whit_chip
 add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_buf/buf_rd
 add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_buf/buf_frm
 add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_buf/buf_q
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/fire_push
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/done_push
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/buf_rd
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/buf_frm
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/buf_q
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/real_rd
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/real_q
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/len_pkg
+add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_push/cnt_rd
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {416580 ns} 0}
 quietly wave cursor active 1

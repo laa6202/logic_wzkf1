@@ -19,6 +19,7 @@ fx_rd,
 fx_raddr,
 fx_q,
 mod_id,
+len_pkg,
 //clk rst
 clk_sys,
 rst_n
@@ -41,6 +42,7 @@ input [15:0]	fx_raddr;
 input 				fx_rd;
 output  [7:0]	fx_q;
 input [5:0] mod_id;
+input [15:0]	len_pkg;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -86,10 +88,39 @@ commu_m_buf u_commu_m_buf(
 );
 
 
+//----------- commu_m_main -----------
+wire fire_push;
+wire done_push;
+commu_m_main u_commu_m_main(
+.fire_push(fire_push),
+.done_push(done_push),
+.repk_frm(repk_frm),
+.arm_int_n(arm_int_n),
+.buf_frm(buf_frm),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
+
+//---------- real push ---------
 wire 				real_rd;
 wire [7:0]	real_q;
-
+commu_m_push u_commu_m_push(
+//control signal
+.fire_push(fire_push),
+.done_push(done_push),
+//read path
+.buf_rd(buf_rd),
+.buf_frm(buf_frm),
+.buf_q(buf_q),
+.real_rd(real_rd),
+.real_q(real_q),
+.len_pkg(len_pkg),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 //----------- commu_tp ----------

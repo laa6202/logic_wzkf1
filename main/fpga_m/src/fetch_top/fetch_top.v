@@ -16,6 +16,7 @@ fx_rd,
 fx_raddr,
 fx_q,
 mod_id,
+len_pkg,
 //clk rst
 fire_sync,
 clk_sys,
@@ -35,6 +36,7 @@ input [15:0]	fx_raddr;
 input 				fx_rd;
 output  [7:0]	fx_q;
 input [5:0] mod_id;
+output [15:0] len_pkg;
 //clk rst
 input fire_sync;
 input clk_sys;

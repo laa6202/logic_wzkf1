@@ -55,7 +55,7 @@ reg [7:0] cfg_dbg7;
 //--------- write register ----------
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)	begin
-		cfg_tp   <= 8'h3;
+		cfg_tp   <= 8'h0;
 		cfg_dbg0 <= 8'h80;
 		cfg_dbg1 <= 8'h81;
 		cfg_dbg2 <= 8'h82;
