@@ -2,11 +2,14 @@
 
 module top_m(
 //arm spi
-spi_csn,
-spi_sck,
-spi_miso,
-spi_mosi,
-arm_int_n,
+pspi_csn,
+pspi_sck,
+pspi_miso,
+pspi_mosi,
+cspi_csn,
+cspi_sck,
+cspi_miso,
+cspi_mosi,
 //485 line
 tx_ctrl,
 tx_syn,
@@ -21,11 +24,14 @@ mclk2,
 hrst_n
 );
 //arm spi
-input spi_csn;
-input spi_sck;
-output	spi_miso;
-input		spi_mosi;
-output	arm_int_n;
+input 	pspi_csn;
+input 	pspi_sck;
+output	pspi_miso;
+input		pspi_mosi;
+input 	cspi_csn;
+input 	cspi_sck;
+output	cspi_miso;
+input		cspi_mosi;
 //485 line
 output 	tx_ctrl;
 output 	tx_syn;
@@ -57,6 +63,36 @@ clk_rst_top u_clk_rst(
 );
 
 
+
+//---------- master_top -----------
+wire [15:0]	fx_waddr;
+wire				fx_wr;
+wire [7:0]	fx_data;
+wire				fx_rd;
+wire [15:0]	fx_raddr;
+wire  [7:0]	fx_q;
+wire 				arm_int_n;
+master_top u_master_top( 
+//arm control spi
+.cspi_csn(cspi_csn),
+.cspi_sck(cspi_sck),
+.cspi_miso(cspi_miso),
+.cspi_mosi(cspi_mosi),
+//fx bus master
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q),
+//signal line 
+.arm_int_n(arm_int_n),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 //--------- syn_m_top ---------
 wire tx_syn1;
 wire fire_sync;
@@ -70,9 +106,6 @@ syn_m_top u_syn_m(
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );
-
-
-
 
 
 
@@ -94,7 +127,7 @@ fetch_top u_fetch_top(
 .fx_rd(1'b0),
 .fx_raddr(),
 .fx_q(),
-.mod_id(6'h3),
+.mod_id(6'h33),
 .len_pkg(len_pkg),
 //clk rst
 .fire_sync(fire_sync),
@@ -122,7 +155,7 @@ repkg_top u_repkg_top(
 .fx_rd(1'b0),
 .fx_raddr(),
 .fx_q(),
-.mod_id(6'h4),
+.mod_id(6'h34),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -133,10 +166,10 @@ repkg_top u_repkg_top(
 //---------- arm commu_top ----------
 commu_m_top u_commu_m(
 //arm spi
-.spi_csn(spi_csn),
-.spi_sck(spi_sck),
-.spi_miso(spi_miso),
-.spi_mosi(spi_mosi),
+.spi_csn(pspi_csn),
+.spi_sck(pspi_sck),
+.spi_miso(pspi_miso),
+.spi_mosi(pspi_mosi),
 .arm_int_n(arm_int_n),
 //pkg data
 .repk_data(repk_data),
@@ -149,7 +182,7 @@ commu_m_top u_commu_m(
 .fx_rd(1'b0),
 .fx_raddr(),
 .fx_q(),
-.mod_id(6'h2),
+.mod_id(6'h32),
 .len_pkg(len_pkg),
 //clk rst
 .clk_sys(clk_sys),

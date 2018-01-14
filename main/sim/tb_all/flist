@@ -77,6 +77,7 @@ tb.v
 ../../fpga_m/src/base_ip/io_filter.v
 //../../fpga_m/src/clk_rst_top/clk_rst_top.v
 //../../fpga_m/src/clk_rst_top/pluse_us_gen.v
+../../fpga_m/src/master_top/master_top.v
 ../../fpga_m/src/syn_m_top/syn_m_top.v
 ../../fpga_m/src/syn_m_top/syn_m_main.v
 ../../fpga_m/src/syn_m_top/syn_m_sync.v

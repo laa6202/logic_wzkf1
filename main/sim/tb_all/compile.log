@@ -60,6 +60,7 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module ram8x32k
 -- Skipping module top_m
 -- Skipping module io_filter
+-- Compiling module master_top
 -- Skipping module syn_m_top
 -- Skipping module syn_m_main
 -- Skipping module syn_m_sync
@@ -73,7 +74,7 @@ C:\modeltech64_10.2c\win64\vlog.exe -reportprogress 300 -f flist
 -- Skipping module repkg_top
 -- Skipping module commu_m_top
 -- Skipping module commu_m_reg
--- Compiling module commu_m_main
+-- Skipping module commu_m_main
 -- Skipping module commu_m_buf
 -- Skipping module commu_m_push
 -- Skipping module commu_m_tp

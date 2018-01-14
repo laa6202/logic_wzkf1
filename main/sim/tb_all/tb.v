@@ -86,11 +86,15 @@ wire rx_b;
 
 top_m u_top_m(
 //arm spi
-.spi_csn(spi_csn),
-.spi_sck(spi_sck),
-.spi_miso(spi_miso),
-.spi_mosi(spi_mosi),
-.arm_int_n(),
+.pspi_csn(spi_csn),
+.pspi_sck(spi_sck),
+.pspi_miso(),
+.pspi_mosi(spi_mosi),
+.cspi_csn(spi_csn),
+.cspi_sck(spi_sck),
+.cspi_miso(),
+.cspi_mosi(spi_mosi),
+
 //485 line
 .tx_ctrl(),
 .tx_syn(syn_0_1),
