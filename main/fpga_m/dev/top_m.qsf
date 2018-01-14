@@ -71,7 +71,6 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -s
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INCREMENTAL_ROUTING=1" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[0] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[4] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[8] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[9] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
@@ -89,19 +88,16 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[1] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[2] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[11] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[12] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[13] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[15] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[22] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_location_assignment PIN_D22 -to spi_sck
-set_location_assignment PIN_C22 -to spi_csn
-set_location_assignment PIN_B21 -to spi_mosi
-set_location_assignment PIN_A20 -to spi_miso
+set_location_assignment PIN_D22 -to pspi_sck
+set_location_assignment PIN_C22 -to pspi_csn
+set_location_assignment PIN_B21 -to pspi_mosi
+set_location_assignment PIN_A20 -to pspi_miso
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "clk_rst_top:u_clk_rst|clk_sys" -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[5] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[6] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[7] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[10] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
@@ -113,27 +109,6 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[16] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[17] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=4096" -section_id auto_signaltap_0
-set_global_assignment -name VERILOG_FILE ../src/fetch_top/fetch_top.v
-set_global_assignment -name VERILOG_FILE ../src/fetch_top/fetch_base.v
-set_global_assignment -name VERILOG_FILE ../src/commu_m_top/spi_inf.v
-set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_tp.v
-set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_reg.v
-set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_mux.v
-set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_top.v
-set_global_assignment -name VERILOG_FILE ../src/syn_m_top/tx_info_phy.v
-set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_top.v
-set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_sync.v
-set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_main.v
-set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_info.v
-set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/pluse_us_gen.v
-set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/clk_rst_top.v
-set_global_assignment -name VERILOG_FILE ../src/base_ip/io_filter.v
-set_global_assignment -name VERILOG_FILE ../ip/pll/sgpll.v
-set_global_assignment -name VERILOG_FILE ../src/top_m.v
-set_global_assignment -name SDC_FILE top_m.sdc
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[3] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[14] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[21] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "commu_m_top:u_commu_m|spi_top:u_spi_inf|cnt_spi_bit[0]" -section_id auto_signaltap_0
@@ -174,10 +149,6 @@ set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20]
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "commu_m_top:u_commu_m|spi_top:u_spi_inf|req_rd" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "commu_m_top:u_commu_m|spi_top:u_spi_inf|spi_sck_rasing" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to hrst_n -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to spi_csn -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to spi_miso -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to spi_mosi -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to spi_sck -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to tx_syn -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "commu_m_top:u_commu_m|spi_top:u_spi_inf|req_q_lock[0]" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "commu_m_top:u_commu_m|spi_top:u_spi_inf|req_q_lock[1]" -section_id auto_signaltap_0
@@ -190,15 +161,54 @@ set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -t
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "commu_m_top:u_commu_m|spi_top:u_spi_inf|req_rd" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "commu_m_top:u_commu_m|spi_top:u_spi_inf|spi_sck_rasing" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to hrst_n -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to spi_csn -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to spi_miso -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to spi_mosi -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to spi_sck -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to tx_syn -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=29" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=29" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_BITS=29" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=113" -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_push.v
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_main.v
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_buf.v
+set_global_assignment -name VERILOG_FILE ../src/repkg_top/repkg_top.v
+set_global_assignment -name VERILOG_FILE ../src/fetch_top/fetch_rx_inf.v
+set_global_assignment -name VERILOG_FILE ../src/fetch_top/fetch_reg.v
+set_global_assignment -name VERILOG_FILE ../src/fetch_top/fetch_pkg.v
+set_global_assignment -name VERILOG_FILE ../src/fetch_top/fetch_top.v
+set_global_assignment -name VERILOG_FILE ../src/fetch_top/fetch_base.v
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/spi_inf.v
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_tp.v
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_reg.v
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_mux.v
+set_global_assignment -name VERILOG_FILE ../src/commu_m_top/commu_m_top.v
+set_global_assignment -name VERILOG_FILE ../src/syn_m_top/tx_info_phy.v
+set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_top.v
+set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_sync.v
+set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_main.v
+set_global_assignment -name VERILOG_FILE ../src/syn_m_top/syn_m_info.v
+set_global_assignment -name VERILOG_FILE ../src/master_top/master_top.v
+set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/pluse_us_gen.v
+set_global_assignment -name VERILOG_FILE ../src/clk_rst_top/clk_rst_top.v
+set_global_assignment -name VERILOG_FILE ../src/base_ip/io_filter.v
+set_global_assignment -name VERILOG_FILE ../ip/ram/ram8x32k.v
+set_global_assignment -name VERILOG_FILE ../ip/pll/sgpll.v
+set_global_assignment -name VERILOG_FILE ../src/top_m.v
+set_global_assignment -name SDC_FILE top_m.sdc
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_location_assignment PIN_E22 -to cspi_miso
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to pspi_csn -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to pspi_miso -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to pspi_mosi -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to pspi_sck -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to pspi_csn -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to pspi_miso -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to pspi_mosi -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to pspi_sck -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[0] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[2] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[3] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[6] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[12] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[14] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp
