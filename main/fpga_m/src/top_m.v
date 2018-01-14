@@ -97,9 +97,23 @@ commu_m_top u_commu_m(
 
 
 //----------- fetch_m_top -----------
+wire [7:0]	pkg_data;
+wire				pkg_vld;
+wire				pkg_frm;
 fetch_top u_fetch_top(
 .rx_a(rx_a),
 .rx_b(rx_b),
+.pkg_data(pkg_data),
+.pkg_vld(pkg_vld),
+.pkg_frm(pkg_frm),
+//fx bus
+.fx_waddr(),
+.fx_wr(1'b0),
+.fx_data(),
+.fx_rd(1'b0),
+.fx_raddr(),
+.fx_q(),
+.mod_id(6'h21),
 //clk rst
 .fire_sync(fire_sync),
 .clk_sys(clk_sys),

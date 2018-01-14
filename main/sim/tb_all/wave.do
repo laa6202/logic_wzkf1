@@ -1,14 +1,8 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/u_top_m/u_commu_m/spi_csn
-add wave -noupdate /tb/u_top_m/u_commu_m/spi_sck
-add wave -noupdate /tb/u_top_m/u_commu_m/spi_miso
-add wave -noupdate /tb/u_top_m/u_commu_m/spi_mosi
-add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_inf/req_q_lock
-add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_inf/req_rd
-add wave -noupdate /tb/u_top_m/u_commu_m/u_spi_inf/req_q
+add wave -noupdate /tb/u_top_m/u_fetch_top/rx_a
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {2111 ns} 0}
+WaveRestoreCursors {{Cursor 1} {238390 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 309
 configure wave -valuecolwidth 100
@@ -24,4 +18,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {13 ns} {5263 ns}
+WaveRestoreZoom {0 ns} {441 us}
