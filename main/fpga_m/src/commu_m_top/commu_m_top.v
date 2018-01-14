@@ -67,18 +67,39 @@ commu_m_reg u_commu_m_reg(
 );
 
 
-//--------- spi_inf -----------
-wire 				req_rd;
-wire [7:0]	req_q;
-spi_top u_spi_inf(
-//arm rd
-.req_rd(req_rd),
-.req_q(req_q),
-//arm spi
-.spi_csn(spi_csn),
-.spi_sck(spi_sck),
-.spi_miso(spi_miso),
-.spi_mosi(spi_mosi),
+//------------ commu_m_buf ---------
+wire				buf_rd;
+wire				buf_frm;
+wire [7:0]	buf_q;
+commu_m_buf u_commu_m_buf(
+//pkg data
+.repk_data(repk_data),
+.repk_vld(repk_vld),
+.repk_frm(repk_frm),
+//read path
+.buf_rd(buf_rd),
+.buf_frm(buf_frm),
+.buf_q(buf_q),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
+wire 				real_rd;
+wire [7:0]	real_q;
+
+
+
+//----------- commu_tp ----------
+wire 				tp_rd;
+wire [7:0]	tp_q;
+commu_m_tp u_commu_m_tp(
+.tp_rd(tp_rd),
+.tp_q(tp_q),
+//configuratiuon
+.cfg_tp(cfg_tp),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -86,10 +107,8 @@ spi_top u_spi_inf(
 
 
 //----------- commu_m_mux ----------
-wire 				real_rd;
-wire [7:0]	real_q;
-wire 				tp_rd;
-wire [7:0]	tp_q;
+wire 				req_rd;
+wire [7:0]	req_q;
 commu_m_mux u_commu_m_mux(
 .real_rd(real_rd),
 .real_q(real_q),
@@ -105,16 +124,22 @@ commu_m_mux u_commu_m_mux(
 );
 
 
-//----------- commu_tp ----------
-commu_m_tp u_commu_m_tp(
-.tp_rd(tp_rd),
-.tp_q(tp_q),
-//configuratiuon
-.cfg_tp(cfg_tp),
+
+//--------- spi_inf -----------
+spi_inf u_spi_inf(
+//arm rd
+.req_rd(req_rd),
+.req_q(req_q),
+//arm spi
+.spi_csn(spi_csn),
+.spi_sck(spi_sck),
+.spi_miso(spi_miso),
+.spi_mosi(spi_mosi),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
+
 
 
 endmodule

@@ -1,6 +1,6 @@
 //spi_inf.v
 
-module spi_top(
+module spi_inf(
 //arm rd
 req_rd,
 req_q,

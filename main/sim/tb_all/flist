@@ -89,10 +89,13 @@ tb.v
 ../../fpga_m/src/fetch_top/fetch_pkg.v
 ../../fpga_m/src/repkg_top/repkg_top.v
 ../../fpga_m/src/commu_m_top/commu_m_top.v
-../../fpga_m/src/commu_m_top/spi_inf.v
 ../../fpga_m/src/commu_m_top/commu_m_reg.v
+../../fpga_m/src/commu_m_top/commu_m_main.v
+../../fpga_m/src/commu_m_top/commu_m_buf.v
+../../fpga_m/src/commu_m_top/commu_m_push.v
 ../../fpga_m/src/commu_m_top/commu_m_tp.v
 ../../fpga_m/src/commu_m_top/commu_m_mux.v
+../../fpga_m/src/commu_m_top/spi_inf.v
 
 
 
