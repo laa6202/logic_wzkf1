@@ -33,12 +33,24 @@ input rst_n;
 //----------------------------------------
 //----------------------------------------
 
+`ifdef SIM
+wire rx_syn_real = rx_syn;
+`else
+io_filter syn_filter(
+.io_in(rx_syn),
+.io_real(rx_syn_real),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+`endif
+
 
 wire [7:0]	rx_data;
 wire rx_vld;
 wire syn_vld;
 rx_syn_phy u_rx_syn_phy(
-.rx(rx_syn),
+.rx(rx_syn_real),
 `ifdef SIM
 .tbit_period(20'd10),		//10M
 `else
