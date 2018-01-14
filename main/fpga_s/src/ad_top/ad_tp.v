@@ -67,14 +67,15 @@ wire period_vld = (cnt_cycle == (tp_period - 24'h1)) ? 1'b1 : 1'b0;
 
 
 //----------- test pattern output -----------
-reg [23:0] tp_data;
+wire [23:0] tp1_data = 24'h111111;
+reg [23:0] tp2_data;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		tp_data <= cfg_tp_base;
+		tp2_data <= cfg_tp_base;
 	else if(cfg_tp_change)
-		tp_data <= cfg_tp_base;
+		tp2_data <= cfg_tp_base;
 	else if(period_vld)
-		tp_data <= tp_data + {16'h0, cfg_tp_step};
+		tp2_data <= tp2_data + {16'h0, cfg_tp_step};
 	else ;
 end
 reg tp_vld;
@@ -84,6 +85,9 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else 
 		tp_vld <= period_vld ? 1'b1 : 1'b0;
 end
+wire [23:0] tp_data;
+assign tp_data = 	(cfg_ad_tp == 8'h1) ? tp1_data :
+									(cfg_ad_tp == 8'h2) ? tp2_data : 24'h555555;
 
 
 endmodule

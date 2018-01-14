@@ -125,13 +125,13 @@ syn_top u_syn_top(
 wire [7:0]	cfg_sample;
 wire [23:0]	ad1_data;
 wire				ad1_vld; 
-wire [23:0]	ad2_data = 24'h2222;
+wire [23:0]	ad2_data = 24'h222222;
 wire				ad2_vld = ad1_vld;  
-wire [23:0]	ad3_data = 24'h3333;
+wire [23:0]	ad3_data = 24'h333333;
 wire				ad3_vld = ad1_vld;  
 ad_top ad1_top(
 //data path output
-.ad_data(ad1_data),
+.ad_data(ad1_data),		
 .ad_vld(ad1_vld),
 //fx bus
 .fx_waddr(fx_waddr),
