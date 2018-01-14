@@ -7,6 +7,10 @@ spi_sck,
 spi_miso,
 spi_mosi,
 arm_int_n,
+//pkg data
+repk_data,
+repk_vld,
+repk_frm,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -25,6 +29,10 @@ input spi_sck;
 output	spi_miso;
 input		spi_mosi;
 output	arm_int_n;
+//pkg data
+input [15:0]	repk_data;
+input					repk_vld;
+input					repk_frm;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;

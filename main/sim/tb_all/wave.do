@@ -11,6 +11,9 @@ add wave -noupdate /tb/u_top_m/u_fetch_top/u_fetch_pkg/lenw_pkg
 add wave -noupdate /tb/u_top_m/u_fetch_top/u_fetch_pkg/cnt_rx
 add wave -noupdate /tb/u_top_m/u_fetch_top/u_fetch_pkg/pkg_sop
 add wave -noupdate /tb/u_top_m/u_fetch_top/u_fetch_pkg/pkg_eop
+add wave -noupdate /tb/u_top_m/u_commu_m/repk_data
+add wave -noupdate /tb/u_top_m/u_commu_m/repk_vld
+add wave -noupdate /tb/u_top_m/u_commu_m/repk_frm
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {501480 ns} 0}
 quietly wave cursor active 1

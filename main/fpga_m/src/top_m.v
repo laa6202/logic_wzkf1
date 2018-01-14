@@ -72,27 +72,7 @@ syn_m_top u_syn_m(
 );
 
 
-//---------- arm commu_top ----------
-commu_m_top u_commu_m(
-//arm spi
-.spi_csn(spi_csn),
-.spi_sck(spi_sck),
-.spi_miso(spi_miso),
-.spi_mosi(spi_mosi),
-.arm_int_n(arm_int_n),
-//fx bus
-.fx_waddr(),
-.fx_wr(1'b0),
-.fx_data(),
-.fx_rd(1'b0),
-.fx_raddr(),
-.fx_q(),
-.mod_id(6'h22),
-//clk rst
-.clk_sys(clk_sys),
-.rst_n(rst_n)
-);
-//wire spi_miso = spi_mosi;
+
 
 
 
@@ -113,9 +93,62 @@ fetch_top u_fetch_top(
 .fx_rd(1'b0),
 .fx_raddr(),
 .fx_q(),
-.mod_id(6'h21),
+.mod_id(6'h3),
 //clk rst
 .fire_sync(fire_sync),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//------------ repkg_top ----------
+wire [15:0]	repk_data;
+wire				repk_vld;
+wire				repk_frm;
+repkg_top u_repkg_top(
+//data path
+.pkg_data(pkg_data),
+.pkg_vld(pkg_vld),
+.pkg_frm(pkg_frm),
+.repk_data(repk_data),
+.repk_vld(repk_vld),
+.repk_frm(repk_frm),
+//fx bus
+.fx_waddr(),
+.fx_wr(1'b0),
+.fx_data(),
+.fx_rd(1'b0),
+.fx_raddr(),
+.fx_q(),
+.mod_id(6'h4),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
+//---------- arm commu_top ----------
+commu_m_top u_commu_m(
+//arm spi
+.spi_csn(spi_csn),
+.spi_sck(spi_sck),
+.spi_miso(spi_miso),
+.spi_mosi(spi_mosi),
+.arm_int_n(arm_int_n),
+//pkg data
+.repk_data(repk_data),
+.repk_vld(repk_vld),
+.repk_frm(repk_frm),
+//fx bus
+.fx_waddr(),
+.fx_wr(1'b0),
+.fx_data(),
+.fx_rd(1'b0),
+.fx_raddr(),
+.fx_q(),
+.mod_id(6'h2),
+//clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
