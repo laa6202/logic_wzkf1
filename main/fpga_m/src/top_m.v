@@ -97,7 +97,7 @@ commu_m_top u_commu_m(
 
 
 //----------- fetch_m_top -----------
-wire [7:0]	pkg_data;
+wire [15:0]	pkg_data;
 wire				pkg_vld;
 wire				pkg_frm;
 fetch_top u_fetch_top(

@@ -24,7 +24,7 @@ rst_n
 //data path
 input rx_a;
 input rx_b;
-output [7:0]	pkg_data;
+output [15:0]	pkg_data;
 output				pkg_vld;
 output				pkg_frm;
 //fx_bus
@@ -98,6 +98,20 @@ fetch_rx_inf u_fetch_inf(
 .rst_n(rst_n)
 );
 
+
+//----------- fetch_pkg ----------
+fetch_pkg u_fetch_pkg(
+.pkg_data(pkg_data),
+.pkg_vld(pkg_vld),
+.pkg_frm(pkg_frm),
+.rx_vld(rx_vld),
+.rx_data(rx_data),
+//configration
+.len_pkg(len_pkg),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 endmodule
 

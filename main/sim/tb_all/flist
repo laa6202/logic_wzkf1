@@ -86,6 +86,7 @@ tb.v
 ../../fpga_m/src/fetch_top/fetch_reg.v
 ../../fpga_m/src/fetch_top/fetch_base.v
 ../../fpga_m/src/fetch_top/fetch_rx_inf.v
+../../fpga_m/src/fetch_top/fetch_pkg.v
 ../../fpga_m/src/commu_m_top/commu_m_top.v
 ../../fpga_m/src/commu_m_top/spi_inf.v
 ../../fpga_m/src/commu_m_top/commu_m_reg.v
