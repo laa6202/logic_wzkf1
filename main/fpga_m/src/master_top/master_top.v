@@ -16,6 +16,8 @@ fx_raddr,
 fx_q,
 //signal line 
 arm_int_n,
+//485 line
+tx_ctrl,
 //clk rst
 clk_sys,
 rst_n
@@ -34,6 +36,8 @@ output [15:0]	fx_raddr;
 input  [7:0]	fx_q;
 //signal line 
 input  arm_int_n;
+//485 line
+output tx_ctrl;
 //clk rst
 input clk_sys;
 input rst_n;
