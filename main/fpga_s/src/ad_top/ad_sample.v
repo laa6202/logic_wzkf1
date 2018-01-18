@@ -57,8 +57,7 @@ wire clk_2kHz_falling = ( ~clk_2kHz_r[1] ) && clk_2kHz_r[2];
 
 
 //------------- main FSM --------------
-reg ad_cfg;
-reg ad_clk_vld;
+
 //main STATE 
 parameter S_IDLE = 3'h0;
 parameter S_AD_RESET = 3'h1;
@@ -79,12 +78,12 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		st_ad_p1 <= S_IDLE;
 	else begin
 		case(st_ad_p1)
-			S_IDLE : st_ad_p1 <= 1'b1 ? S_AD_RESET : S_IDLE;
-			S_AD_RESET : st_ad_p1 <= (rst_cnt == 6'd60) ? S_AD_CONFIG : S_AD_RESET;
+			S_IDLE : 			st_ad_p1 <= 1'b1 ? S_AD_RESET : S_IDLE;
+			S_AD_RESET : 	st_ad_p1 <= (rst_cnt == 6'd60) ? S_AD_CONFIG : S_AD_RESET;
 			S_AD_CONFIG : st_ad_p1 <= (config_cnt > 8'd190) ? S_AD_RESET_DLY : S_AD_CONFIG;
 			S_AD_RESET_DLY : st_ad_p1 <= ((dly_cnt == 16'd20000)&(~ad_din))? S_AD_SAMPLE : S_AD_RESET_DLY;
-			S_AD_SAMPLE : st_ad_p1 <= (sample_cnt == 240)? S_AD_RESET_DLY : S_AD_SAMPLE;
-			S_DATA_PUSH : st_ad_p1 <= 1'b0 ? S_DONE : S_DATA_PUSH;
+			S_AD_SAMPLE : st_ad_p1 <= (sample_cnt == 240)? S_DATA_PUSH : S_AD_SAMPLE;
+			S_DATA_PUSH : st_ad_p1 <= S_AD_RESET_DLY;
 			S_DONE : st_ad_p1 <= S_IDLE;
 			default : st_ad_p1 <= S_IDLE;
 		endcase
@@ -134,6 +133,8 @@ end
 
 
 //----------- data output -----------
+reg ad_cfg;
+reg ad_clk_vld;
 reg [7:0]cfg_reg8;
 reg [23:0]ret_reg24;
 reg [23:0]got_ad_value;
@@ -183,14 +184,11 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 					ad_cfg <= cfg_reg24[8'd113-config_cnt];
 				end
 				else if((config_cnt == 8'd113)&(ad_clk_in_rising))
-				begin
-				   ad_clk_vld <= 1'b1;
-				   ad_cfg <= cfg_reg24[0];
-				end
-				else if((config_cnt == 8'd114)&(ad_clk_in_rising))
-				begin  
-						ad_cfg <= 1'b0;
-				end
+			    ad_clk_vld <= 1'b1;
+				else if((config_cnt == 8'd113)&(ad_clk_in_falling))
+				  ad_cfg <= cfg_reg24[0];
+				else if((config_cnt == 8'd114)&(ad_clk_in_falling))
+					ad_cfg <= 1'b0;
 				    //writing 3 byte end
 				
 				
@@ -235,7 +233,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 				begin
 					 ret_reg24[8'd163-config_cnt] <= ad_din;
 				end
-				else if((config_cnt == 8'd164)&(ad_clk_in_rising))
+				else if((config_cnt == 8'd163)&(ad_clk_in_rising))
 				begin
 					ad_clk_vld <= 1'b1;
 				end
@@ -267,10 +265,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 					 
 			end
 			S_AD_SAMPLE : 
-			    
 				begin
-				
-				 
 						// reading 3 bytes begin	
 					if((sample_cnt == 8'd210)&(ad_clk_in_falling))
 					begin
@@ -286,12 +281,12 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 					begin
 						 got_ad_value[8'd233-sample_cnt] <= ad_din;
 					end
-					else if((sample_cnt == 8'd234)&(ad_clk_in_rising))
+					else if((sample_cnt == 8'd233)&(ad_clk_in_rising))
 					begin
 						ad_clk_vld <= 1'b1;
 					end
-				
 				end
+			
 			S_DATA_PUSH : ad_cfg = 1'b0;
 			S_DONE :  ad_cfg = 1'b0;
 			default : ad_cfg = 1'b1;
@@ -305,7 +300,7 @@ end
 
 
 
-
+wire ad_clk;
 
 assign ad_clk = ad_clk_in | ad_clk_vld; //enable ad_clk 
 assign ad_vld = clk_2kHz_falling;

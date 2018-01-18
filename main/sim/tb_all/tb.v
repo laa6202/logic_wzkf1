@@ -113,6 +113,12 @@ top_m u_top_m(
 wire tx_a0,tx_a1;
 wire de_a0,de_a1;
 top_s top_s1(
+//adc interface
+.ad_mclk(ad_mclk),
+.ad_clk(ad_clk),
+.ad_din(1'b0),
+.ad_cfg(ad_cfg),
+.ad_sync(ad_sync),
 //485 line
 .rx_ctrl(ctrl_0_1),
 .tx_ctrl(ctrl_1_2),
@@ -130,6 +136,12 @@ top_s top_s1(
 
 
 top_s top_s2(
+//adc interface
+.ad_mclk(),
+.ad_clk(),
+.ad_din(1'b0),
+.ad_cfg(),
+.ad_sync(),
 //485 line
 .rx_ctrl(ctrl_1_2),
 .tx_ctrl(),

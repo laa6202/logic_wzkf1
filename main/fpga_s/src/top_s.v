@@ -2,6 +2,12 @@
 //The top of wz slave FPGA
 
 module top_s(
+//adc interface
+ad_mclk,
+ad_clk,
+ad_din,
+ad_cfg,
+ad_sync,
 //485 line
 rx_ctrl,
 tx_ctrl,
@@ -16,6 +22,12 @@ mclk1,
 mclk2,
 hrst_n
 );
+//adc interface
+output ad_mclk;
+output ad_clk;
+input   ad_din;
+output ad_cfg;
+output ad_sync;
 //485 line
 input		rx_ctrl;
 output	tx_ctrl;
@@ -133,6 +145,12 @@ ad_top ad1_top(
 //data path output
 .ad_data(ad1_data),		
 .ad_vld(ad1_vld),
+//adc interface
+.ad_mclk(ad_mclk),
+.ad_clk(ad_clk),
+.ad_din(ad_din),
+.ad_cfg(ad_cfg),
+.ad_sync(ad_sync),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),
@@ -145,6 +163,7 @@ ad_top ad1_top(
 .cfg_sample(cfg_sample),
 //clk rst
 .clk_sys(clk_sys),
+.pluse_us(pluse_us),
 .rst_n(rst_n)
 );
 
