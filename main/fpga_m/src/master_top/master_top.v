@@ -49,4 +49,24 @@ input rst_n;
 wire cspi_miso = arm_int_n;
 
 
+//----------- fx_bc -----------
+fx_bc_m u_fx_bc(
+.cmdl_mod(cmdl_mod),
+.cmdl_addr(cmdl_addr),
+.cmdl_data(cmdl_data),
+.cmdl_vld(cmdl_vld),
+.cmdl_q(cmdl_q),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 endmodule
