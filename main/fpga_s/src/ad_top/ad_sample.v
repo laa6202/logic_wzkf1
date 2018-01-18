@@ -60,6 +60,7 @@ wire clk_2kHz_falling = ( ~clk_2kHz_r[1] ) && clk_2kHz_r[2];
 
 //main STATE 
 parameter S_IDLE = 3'h0;
+parameter S_INIT = 3'h7;
 parameter S_AD_RESET = 3'h1;
 parameter S_AD_RESET_DLY = 3'h6;
 parameter S_AD_CONFIG = 3'h2;
@@ -67,7 +68,7 @@ parameter S_AD_SAMPLE = 3'h3;
 parameter S_DATA_PUSH = 3'h4;
 parameter S_DONE      = 3'h5;
 
-
+wire finish_init;
 reg [2:0] st_ad_p1;
 reg [5:0]rst_cnt;
 reg [7:0] config_cnt;
@@ -75,10 +76,11 @@ reg [15:0]dly_cnt;
 reg [7:0] sample_cnt;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		st_ad_p1 <= S_IDLE;
+		st_ad_p1 <= S_INIT;
 	else begin
 		case(st_ad_p1)
-			S_IDLE : 			st_ad_p1 <= 1'b1 ? S_AD_RESET : S_IDLE;
+			S_INIT : 			st_ad_p1 <= finish_init ? S_IDLE : S_INIT;		
+			S_IDLE : 			st_ad_p1 <= S_AD_RESET;
 			S_AD_RESET : 	st_ad_p1 <= (rst_cnt == 6'd60) ? S_AD_CONFIG : S_AD_RESET;
 			S_AD_CONFIG : st_ad_p1 <= (config_cnt > 8'd190) ? S_AD_RESET_DLY : S_AD_CONFIG;
 			S_AD_RESET_DLY : st_ad_p1 <= ((dly_cnt == 16'd20000)&(~ad_din))? S_AD_SAMPLE : S_AD_RESET_DLY;
@@ -92,6 +94,18 @@ end
 
 
 //----------- FMS switch condition ---------
+reg [19:0] cnt_init;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_init <= 20'h0;
+	else if(st_ad_p1 == S_INIT)
+		cnt_init <= cnt_init + 20'h1;
+	else 
+		cnt_init <= 20'h0;
+end
+assign finish_init = (cnt_init == 20'hfffff) ? 1'b1 : 1'b0;
+
+
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		dly_cnt <= 16'd0;
@@ -173,7 +187,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 				    //writing 1 byte end
 		 
 				else if(config_cnt == 8'd81)//writing 3 byte begin 
-					cfg_reg24 <= 24'h000116;
+					cfg_reg24 <= 24'h000110;
 				else if((config_cnt == 8'd90)&(ad_clk_in_falling))
 				begin
 					ad_clk_vld <= 1'b0;
