@@ -92,6 +92,8 @@ ad_reg u_ad_reg(
 
 
 //---------- ad_sample ----------
+wire [23:0]	real_data;
+wire				real_vld;
 ad_sample u_ad_sample(
 //adc interface
 .ad_clk_in(clk_2_5M),
@@ -133,7 +135,7 @@ ad_mux u_ad_mux(
 .ad_vld(ad_vld),
 .tp_data(tp_data),
 .tp_vld(tp_vld),
-.real_data(24'h0),
+.real_data(real_data),
 .real_vld(real_vld),
 //configuration
 .cfg_ad_tp(cfg_ad_tp),

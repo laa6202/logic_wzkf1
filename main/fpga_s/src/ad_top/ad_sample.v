@@ -22,12 +22,13 @@ input  clk_2kHz;
 input  ad_din;
 output  ad_cfg;
 output ad_sync;
+//data path
+output [23:0] ad_data;
+output 				ad_vld;
 //clk rst
 input clk_sys;
 input rst_n;
-//data path
-output [23:0] ad_data;
-output ad_vld;
+
 //--------------------------------------------------------
 //--------------------------------------------------------
 
@@ -66,13 +67,12 @@ parameter S_AD_RESET_DLY = 3'h6;
 parameter S_AD_CONFIG = 3'h2;
 parameter S_AD_SAMPLE = 3'h3;
 parameter S_DATA_PUSH = 3'h4;
-parameter S_DONE      = 3'h5;
 
 wire finish_init;
 reg [2:0] st_ad_p1;
 reg [5:0]rst_cnt;
 reg [7:0] config_cnt;
-reg [15:0]dly_cnt;
+wire sample_fire;
 reg [7:0] sample_cnt;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -83,10 +83,9 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			S_IDLE : 			st_ad_p1 <= S_AD_RESET;
 			S_AD_RESET : 	st_ad_p1 <= (rst_cnt == 6'd60) ? S_AD_CONFIG : S_AD_RESET;
 			S_AD_CONFIG : st_ad_p1 <= (config_cnt > 8'd190) ? S_AD_RESET_DLY : S_AD_CONFIG;
-			S_AD_RESET_DLY : st_ad_p1 <= ((dly_cnt == 16'd20000)&(~ad_din))? S_AD_SAMPLE : S_AD_RESET_DLY;
+			S_AD_RESET_DLY : st_ad_p1 <= sample_fire ? S_AD_SAMPLE : S_AD_RESET_DLY;
 			S_AD_SAMPLE : st_ad_p1 <= (sample_cnt == 240)? S_DATA_PUSH : S_AD_SAMPLE;
 			S_DATA_PUSH : st_ad_p1 <= S_AD_RESET_DLY;
-			S_DONE : st_ad_p1 <= S_IDLE;
 			default : st_ad_p1 <= S_IDLE;
 		endcase
 	end
@@ -105,17 +104,18 @@ always @(posedge clk_sys or negedge rst_n)	begin
 end
 assign finish_init = (cnt_init == 20'hfffff) ? 1'b1 : 1'b0;
 
-
+reg [15:0]dly_cnt;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		dly_cnt <= 16'd0;
-	else if((dly_cnt < 16'd20000)&&(st_ad_p1 == S_AD_RESET_DLY))
-		dly_cnt <= dly_cnt + 16'd1;
-	else if(st_ad_p1 == S_AD_SAMPLE)
+	else if(sample_fire)
 		dly_cnt <= 16'd0;
-	else ;
+	else if((st_ad_p1 == S_AD_RESET_DLY) | (st_ad_p1 == S_AD_SAMPLE) | (st_ad_p1 == S_DATA_PUSH))
+		dly_cnt <= dly_cnt + 16'd1;
+	else 
+		dly_cnt <= 16'd0;
 end
-
+assign sample_fire = (dly_cnt == 16'd49999) ? 1'b1 : 1'b0;
 
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -302,7 +302,6 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 				end
 			
 			S_DATA_PUSH : ad_cfg = 1'b0;
-			S_DONE :  ad_cfg = 1'b0;
 			default : ad_cfg = 1'b1;
 		endcase
 	end
@@ -317,7 +316,7 @@ end
 wire ad_clk;
 
 assign ad_clk = ad_clk_in | ad_clk_vld; //enable ad_clk 
-assign ad_vld = clk_2kHz_falling;
+assign ad_vld = (st_ad_p1 == S_DATA_PUSH) ? 1'b1 :1'b0;
 assign ad_data = ret_reg24 + got_ad_value;
 assign ad_sync = 1'b1;
 
