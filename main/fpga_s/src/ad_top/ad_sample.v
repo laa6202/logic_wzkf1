@@ -60,21 +60,24 @@ wire clk_2kHz_falling = ( ~clk_2kHz_r[1] ) && clk_2kHz_r[2];
 //------------- main FSM --------------
 
 //main STATE 
-parameter S_IDLE = 3'h0;
-parameter S_INIT = 3'h7;
-parameter S_AD_RESET = 3'h1;
-parameter S_AD_RESET_DLY = 3'h6;
-parameter S_AD_CONFIG = 3'h2;
-parameter S_AD_SAMPLE = 3'h3;
-parameter S_DATA_PUSH = 3'h4;
+parameter S_INIT = 4'h0;
+parameter S_IDLE = 4'h8;
+parameter S_AD_RESET = 4'h1;
+parameter S_AD_UNRST = 4'h9;
+parameter S_AD_RESET_DLY = 4'h6;
+parameter S_AD_CONFIG = 4'h2;
+parameter S_AD_SAMPLE = 4'h3;
+parameter S_DATA_PUSH = 4'h4;
 
 wire finish_init;
 wire finish_rst;
-reg [2:0] st_ad_p1;
-reg [5:0]rst_cnt;
-reg [7:0] config_cnt;
+wire finish_unrst;
+wire finish_sample;
+reg [3:0] st_ad_p1;
+
+reg [7:0] cnt_config;
 wire sample_fire;
-reg [7:0] sample_cnt;
+reg [7:0] cnt_sample;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		st_ad_p1 <= S_INIT;
@@ -82,10 +85,11 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		case(st_ad_p1)
 			S_INIT : 			st_ad_p1 <= finish_init ? S_IDLE : S_INIT;		
 			S_IDLE : 			st_ad_p1 <= S_AD_RESET;
-			S_AD_RESET : 	st_ad_p1 <= finish_rst ? S_AD_CONFIG : S_AD_RESET;
-			S_AD_CONFIG : st_ad_p1 <= (config_cnt > 8'd190) ? S_AD_RESET_DLY : S_AD_CONFIG;
-			S_AD_RESET_DLY : st_ad_p1 <= sample_fire & (~ad_din) ? S_AD_SAMPLE : S_AD_RESET_DLY;
-			S_AD_SAMPLE : st_ad_p1 <= (sample_cnt == 240)? S_DATA_PUSH : S_AD_SAMPLE;
+			S_AD_RESET : 	st_ad_p1 <= finish_rst ? S_AD_UNRST : S_AD_RESET;
+			S_AD_UNRST :  st_ad_p1 <= finish_unrst ? S_AD_CONFIG : S_AD_UNRST;
+			S_AD_CONFIG : st_ad_p1 <= (cnt_config > 8'd250) ? S_AD_RESET_DLY : S_AD_CONFIG;
+			S_AD_RESET_DLY : st_ad_p1 <= sample_fire ? S_AD_SAMPLE : S_AD_RESET_DLY;
+			S_AD_SAMPLE : st_ad_p1 <= finish_sample ? S_DATA_PUSH : S_AD_SAMPLE;
 			S_DATA_PUSH : st_ad_p1 <= S_AD_RESET_DLY;
 			default : st_ad_p1 <= S_IDLE;
 		endcase
@@ -120,38 +124,71 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else 
 		dly_cnt <= 16'd0;
 end
+`ifdef SIM
+assign sample_fire = (dly_cnt == 16'd499) ? 1'b1 : 1'b0;
+`else
 assign sample_fire = (dly_cnt == 16'd49999) ? 1'b1 : 1'b0;
+`endif
 
+reg [19:0] cnt_reset;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		rst_cnt <= 6'd0;
+		cnt_reset <= 20'd0;
 	else if((ad_clk_in_rising)&&(st_ad_p1 == S_AD_RESET))
-		rst_cnt <= rst_cnt + 6'd1;
+		cnt_reset <= cnt_reset + 20'd1;
 	else ;
 end
 `ifdef SIM
-assign finish_rst = (rst_cnt == 6'd10) ? 1'b1 : 1'b0;
+assign finish_rst = (cnt_reset == 20'd10) ? 1'b1 : 1'b0;
 `else 
-assign finish_rst = (rst_cnt == 6'd600) ?  1'b1 : 1'b0;
+assign finish_rst = (cnt_reset == 20'd600) ?  1'b1 : 1'b0;
+`endif
+
+reg [31:0] cnt_unrst;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_unrst <= 32'd0;
+	else if(st_ad_p1 == S_AD_UNRST)
+		cnt_unrst <= cnt_unrst + 32'd1;
+	else 
+		cnt_unrst <= 32'h0;
+end
+`ifdef SIM
+assign finish_unrst = (cnt_unrst == 32'd10_00) ? 1'b1 : 1'b0;
+`else 
+assign finish_unrst = (cnt_unrst == 32'd10_000_00) ?  1'b1 : 1'b0;
 `endif
 
 
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		config_cnt <= 8'd0;
-	else if((config_cnt < 8'd252)&&(ad_clk_in_rising)&&(st_ad_p1 == S_AD_CONFIG))
-		config_cnt <= config_cnt + 8'd1;
+		cnt_config <= 8'd0;
+	else if((ad_clk_in_rising)&&(st_ad_p1 == S_AD_CONFIG))
+		cnt_config <= cnt_config + 8'd1;
 	else ;
 end
 
 
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		sample_cnt <= 8'd0;
-	else if((sample_cnt < 8'd240)&&(ad_clk_in_rising)&&(st_ad_p1 == S_AD_SAMPLE))
-		sample_cnt <= sample_cnt + 8'd1;
-	else if(sample_cnt == 8'd240)
-		sample_cnt <= 8'd0;
+		cnt_sample <= 8'd0;
+	else if(st_ad_p1 == S_AD_SAMPLE)
+		cnt_sample <= ad_clk_in_rising ? (cnt_sample + 8'd1) : cnt_sample;
+	else 
+		cnt_sample <= 8'd0;
+end
+assign finish_sample = (cnt_sample == 8'd40) ? 1'b1 :1'b0;
+
+
+//--------- handle unexpect --------
+reg bypass_sample;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		bypass_sample <= 1'b0;
+	else if(st_ad_p1 == S_DATA_PUSH)
+		bypass_sample <= 1'b0;
+	else if(sample_fire & ad_din)
+		bypass_sample <= 1'b1;
 	else ;
 end
 
@@ -164,59 +201,65 @@ reg [23:0]ret_reg24;
 reg [23:0]got_ad_value;
 reg [23:0]cfg_reg24;
 always @ (posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
+	if(~rst_n) begin
 		ad_clk_vld <= 1'b1;
-	else
-	begin
+		ad_cfg <= 1'b1;
+		got_ad_value <= 24'h0;
+		ret_reg24 <= 24'h0;
+		cfg_reg8 <= 8'h0;
+		cfg_reg24 <= 24'h0;
+	end
+	else	begin
 		case(st_ad_p1)
 			S_INIT : 	  begin ad_cfg <= 1'b1; ad_clk_vld <= 1'b1;end
 			S_IDLE : 	  begin ad_cfg <= 1'b1; ad_clk_vld <= 1'b1;end
-			S_AD_RESET :  begin ad_cfg <= 1'b1; ad_clk_vld <= 1'b0;end
-			S_AD_RESET_DLY : begin ad_clk_vld <= 1'b1; ad_cfg <= 1'b0;end
+			S_AD_RESET : begin ad_cfg <= 1'b1; ad_clk_vld <= 1'b0;end
+			S_AD_UNRST : begin ad_cfg <= 1'b0; ad_clk_vld <= 1'b1;end
+			S_AD_RESET_DLY : begin ad_cfg <= 1'b0; ad_clk_vld <= 1'b1; end
 			S_AD_CONFIG : 
 			begin
-				if(config_cnt == 8'd0) begin
-					ad_cfg <= 1'b1;
+				if(cnt_config == 8'd0) begin
+					ad_cfg <= 1'b0;
 					ad_clk_vld <= 1'b1;
 				end
-				else if(config_cnt == 8'd61) 
+				else if(cnt_config == 8'd61) 
 					cfg_reg8 <= 8'h10;
-				else if((config_cnt == 8'd70)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd70)&(ad_clk_in_falling))
 				begin
 					ad_clk_vld <= 1'b0;
 					ad_cfg <= cfg_reg8[7];
 				end
-				else if((config_cnt >8'd70)&(config_cnt < 8'd77)&(ad_clk_in_falling))
+				else if((cnt_config >8'd70)&(cnt_config < 8'd77)&(ad_clk_in_falling))
 				begin
-					ad_cfg <= cfg_reg8[8'd77-config_cnt];
+					ad_cfg <= cfg_reg8[8'd77-cnt_config];
 				end
-				else if((config_cnt == 8'd77)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd77)&(ad_clk_in_rising))
 				begin
 				   ad_clk_vld <= 1'b1;
 				   ad_cfg <= cfg_reg8[0];
 				end
-				else if((config_cnt == 8'd78)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd78)&(ad_clk_in_rising))
 				begin  
 						ad_cfg <= 1'b0;
 				end
 				    //writing 1 byte end
 		 
-				else if(config_cnt == 8'd81)//writing 3 byte begin 
+				else if(cnt_config == 8'd81)//writing 3 byte begin 
 					cfg_reg24 <= 24'h000110;
-				else if((config_cnt == 8'd90)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd90)&(ad_clk_in_falling))
 				begin
 					ad_clk_vld <= 1'b0;
 					ad_cfg <= cfg_reg24[23];
 				end
-				else if((config_cnt >8'd90)&(config_cnt < 8'd113)&(ad_clk_in_falling))
+				else if((cnt_config >8'd90)&(cnt_config < 8'd113)&(ad_clk_in_falling))
 				begin
-					ad_cfg <= cfg_reg24[8'd113-config_cnt];
+					ad_cfg <= cfg_reg24[8'd113-cnt_config];
 				end
-				else if((config_cnt == 8'd113)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd113)&(ad_clk_in_rising))
 			    ad_clk_vld <= 1'b1;
-				else if((config_cnt == 8'd113)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd113)&(ad_clk_in_falling))
 				  ad_cfg <= cfg_reg24[0];
-				else if((config_cnt == 8'd114)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd114)&(ad_clk_in_falling))
 					ad_cfg <= 1'b0;
 				    //writing 3 byte end
 				
@@ -224,23 +267,23 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 				
 				
 				//writing 1 byte begin
-				else if(config_cnt == 8'd121) 
+				else if(cnt_config == 8'd121) 
 					cfg_reg8 <= 8'h50;
-				else if((config_cnt == 8'd130)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd130)&(ad_clk_in_falling))
 				begin
 					ad_clk_vld <= 1'b0;
 					ad_cfg <= cfg_reg8[7];
 				end
-				else if((config_cnt >8'd130)&(config_cnt < 8'd137)&(ad_clk_in_falling))
+				else if((cnt_config >8'd130)&(cnt_config < 8'd137)&(ad_clk_in_falling))
 				begin
-					ad_cfg <= cfg_reg8[8'd137-config_cnt];
+					ad_cfg <= cfg_reg8[8'd137-cnt_config];
 				end
-				else if((config_cnt == 8'd137)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd137)&(ad_clk_in_rising))
 				begin
 				   ad_clk_vld <= 1'b1;
 				   ad_cfg <= cfg_reg8[0];
 				end
-				else if((config_cnt == 8'd138)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd138)&(ad_clk_in_rising))
 				begin  
 						ad_cfg <= 1'b0;
 				end
@@ -248,76 +291,80 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 				
 				
 				// reading 3 bytes begin	
-				else if((config_cnt == 8'd140)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd170)&(ad_clk_in_falling))
 				begin
 						ad_clk_vld <= 1'b0;
 				end
-				else if((config_cnt == 8'd140)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd170)&(ad_clk_in_rising))
 					 ret_reg24[23] <= ad_din;
-				else if((config_cnt == 8'd141)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd171)&(ad_clk_in_falling))
 				begin
 					 ret_reg24[22] <= ad_din;
 				end
-				else if((8'd141 < config_cnt )&(config_cnt <8'd164)&(ad_clk_in_falling))
+				else if((8'd171 < cnt_config )&(cnt_config <8'd194)&(ad_clk_in_falling))
 				begin
-					 ret_reg24[8'd163-config_cnt] <= ad_din;
+					 ret_reg24[8'd193-cnt_config] <= ad_din;
 				end
-				else if((config_cnt == 8'd163)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd193)&(ad_clk_in_rising))
 				begin
 					ad_clk_vld <= 1'b1;
+					// if disable output 
+					ret_reg24 <= 24'h0;
 				end
 				
 				
 				//writing 1 byte begin
-				else if(config_cnt == 8'd171) 
+				else if(cnt_config == 8'd221) 
 					cfg_reg8 <= 8'h5C;
-				else if((config_cnt == 8'd180)&(ad_clk_in_falling))
+				else if((cnt_config == 8'd230)&(ad_clk_in_falling))
 				begin
 					ad_clk_vld <= 1'b0;
 					ad_cfg <= cfg_reg8[7];
 				end
-				else if((config_cnt >8'd180)&(config_cnt < 8'd187)&(ad_clk_in_falling))
+				else if((cnt_config >8'd230)&(cnt_config < 8'd237)&(ad_clk_in_falling))
 				begin
-					ad_cfg <= cfg_reg8[8'd187-config_cnt];
+					ad_cfg <= cfg_reg8[8'd237-cnt_config];
 				end
-				else if((config_cnt == 8'd187)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd237)&(ad_clk_in_rising))
 				begin
-				   ad_clk_vld <= 1'b1;
-				   ad_cfg <= cfg_reg8[0];
+					ad_clk_vld <= 1'b1;
+					ad_cfg <= cfg_reg8[0];
 				end
-				else if((config_cnt == 8'd188)&(ad_clk_in_rising))
+				else if((cnt_config == 8'd238)&(ad_clk_in_rising))
 				begin  
-						ad_cfg <= 1'b0;
+					ad_cfg <= 1'b0;
+					ad_clk_vld <= 1'b1;
 				end
 				    //writing 1 byte end
-					 
-					 
 			end
-			S_AD_SAMPLE : 
-				begin
+			
+			S_AD_SAMPLE : begin
+				if(~bypass_sample) begin
 						// reading 3 bytes begin	
-					if((sample_cnt == 8'd210)&(ad_clk_in_falling))
+					if((cnt_sample == 8'd10)&(ad_clk_in_falling))
+						ad_clk_vld <= 1'b0;
+					else if((cnt_sample == 8'd10)&(ad_clk_in_rising))
+						got_ad_value[23] <= ad_din;
+					else if((cnt_sample == 8'd11)&(ad_clk_in_falling))
 					begin
-							ad_clk_vld <= 1'b0;
+						got_ad_value[22] <= ad_din;
 					end
-					else if((sample_cnt == 8'd210)&(ad_clk_in_rising))
-						 got_ad_value[23] <= ad_din;
-					else if((sample_cnt == 8'd211)&(ad_clk_in_falling))
+					else if((8'd11 < cnt_sample )&(cnt_sample <8'd34)&(ad_clk_in_falling))
 					begin
-						 got_ad_value[22] <= ad_din;
+						 got_ad_value[8'd33-cnt_sample] <= ad_din;
 					end
-					else if((8'd211 < sample_cnt )&(sample_cnt <8'd234)&(ad_clk_in_falling))
-					begin
-						 got_ad_value[8'd233-sample_cnt] <= ad_din;
-					end
-					else if((sample_cnt == 8'd233)&(ad_clk_in_rising))
+					else if((cnt_sample == 8'd33)&(ad_clk_in_rising))
 					begin
 						ad_clk_vld <= 1'b1;
+						//if enable output
+						//got_ad_value <= 24'h0;
 					end
 				end
+			else ;
+			end
 			
-			S_DATA_PUSH : ad_cfg = 1'b0;
-			default : ad_cfg = 1'b1;
+			S_DATA_PUSH :  begin ad_cfg <= 1'b0; ad_clk_vld <= 1'b1;end
+			default :  begin ad_cfg <= 1'b0; ad_clk_vld <= 1'b1;end
 		endcase
 	end
 end
@@ -327,12 +374,11 @@ end
 
 
 
-
 wire ad_clk;
 
-assign ad_clk = ad_clk_in | ad_clk_vld; //enable ad_clk 
+assign ad_clk = ad_clk_in | ad_clk_vld | bypass_sample; //enable ad_clk 
 assign ad_vld = (st_ad_p1 == S_DATA_PUSH) ? 1'b1 :1'b0;
-assign ad_data = ret_reg24 + got_ad_value;
+assign ad_data = ret_reg24 | got_ad_value;
 assign ad_sync = 1'b1;
 
 
