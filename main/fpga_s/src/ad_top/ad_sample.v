@@ -125,14 +125,14 @@ assign sample_fire = (dly_cnt == 16'd49999) ? 1'b1 : 1'b0;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		rst_cnt <= 6'd0;
-	else if((rst_cnt < 6'd60)&&(ad_clk_in_rising)&&(st_ad_p1 == S_AD_RESET))
+	else if((ad_clk_in_rising)&&(st_ad_p1 == S_AD_RESET))
 		rst_cnt <= rst_cnt + 6'd1;
 	else ;
 end
 `ifdef SIM
 assign finish_rst = (rst_cnt == 6'd10) ? 1'b1 : 1'b0;
 `else 
-assign finish_rst = (rst_cnt == 6'd60) ?  1'b1 : 1'b0;
+assign finish_rst = (rst_cnt == 6'd600) ?  1'b1 : 1'b0;
 `endif
 
 
