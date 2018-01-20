@@ -25,7 +25,7 @@ hrst_n
 //adc interface
 output ad_mclk;
 output ad_clk;
-input   ad_din;
+input ad_din;
 output ad_cfg;
 output ad_sync;
 //485 line

@@ -69,6 +69,7 @@ parameter S_AD_SAMPLE = 3'h3;
 parameter S_DATA_PUSH = 3'h4;
 
 wire finish_init;
+wire finish_rst;
 reg [2:0] st_ad_p1;
 reg [5:0]rst_cnt;
 reg [7:0] config_cnt;
@@ -81,9 +82,9 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		case(st_ad_p1)
 			S_INIT : 			st_ad_p1 <= finish_init ? S_IDLE : S_INIT;		
 			S_IDLE : 			st_ad_p1 <= S_AD_RESET;
-			S_AD_RESET : 	st_ad_p1 <= (rst_cnt == 6'd60) ? S_AD_CONFIG : S_AD_RESET;
+			S_AD_RESET : 	st_ad_p1 <= finish_rst ? S_AD_CONFIG : S_AD_RESET;
 			S_AD_CONFIG : st_ad_p1 <= (config_cnt > 8'd190) ? S_AD_RESET_DLY : S_AD_CONFIG;
-			S_AD_RESET_DLY : st_ad_p1 <= sample_fire ? S_AD_SAMPLE : S_AD_RESET_DLY;
+			S_AD_RESET_DLY : st_ad_p1 <= sample_fire & (~ad_din) ? S_AD_SAMPLE : S_AD_RESET_DLY;
 			S_AD_SAMPLE : st_ad_p1 <= (sample_cnt == 240)? S_DATA_PUSH : S_AD_SAMPLE;
 			S_DATA_PUSH : st_ad_p1 <= S_AD_RESET_DLY;
 			default : st_ad_p1 <= S_IDLE;
@@ -102,7 +103,11 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_init <= 20'h0;
 end
+`ifdef SIM
+assign finish_init = (cnt_init == 20'hf) ? 1'b1 : 1'b0;
+`else 
 assign finish_init = (cnt_init == 20'hfffff) ? 1'b1 : 1'b0;
+`endif
 
 reg [15:0]dly_cnt;
 always @ (posedge clk_sys or negedge rst_n)	begin
@@ -124,6 +129,11 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		rst_cnt <= rst_cnt + 6'd1;
 	else ;
 end
+`ifdef SIM
+assign finish_rst = (rst_cnt == 6'd10) ? 1'b1 : 1'b0;
+`else 
+assign finish_rst = (rst_cnt == 6'd60) ?  1'b1 : 1'b0;
+`endif
 
 
 always @ (posedge clk_sys or negedge rst_n)	begin
@@ -159,12 +169,17 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else
 	begin
 		case(st_ad_p1)
+			S_INIT : 	  begin ad_cfg <= 1'b1; ad_clk_vld <= 1'b1;end
 			S_IDLE : 	  begin ad_cfg <= 1'b1; ad_clk_vld <= 1'b1;end
 			S_AD_RESET :  begin ad_cfg <= 1'b1; ad_clk_vld <= 1'b0;end
 			S_AD_RESET_DLY : begin ad_clk_vld <= 1'b1; ad_cfg <= 1'b0;end
 			S_AD_CONFIG : 
 			begin
-				if(config_cnt == 8'd61) 
+				if(config_cnt == 8'd0) begin
+					ad_cfg <= 1'b1;
+					ad_clk_vld <= 1'b1;
+				end
+				else if(config_cnt == 8'd61) 
 					cfg_reg8 <= 8'h10;
 				else if((config_cnt == 8'd70)&(ad_clk_in_falling))
 				begin
