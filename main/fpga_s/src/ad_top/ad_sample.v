@@ -113,21 +113,21 @@ assign finish_init = (cnt_init == 20'hf) ? 1'b1 : 1'b0;
 assign finish_init = (cnt_init == 20'hfffff) ? 1'b1 : 1'b0;
 `endif
 
-reg [15:0]dly_cnt;
+reg [31:0]cnt_period;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		dly_cnt <= 16'd0;
+		cnt_period <= 32'd0;
 	else if(sample_fire)
-		dly_cnt <= 16'd0;
+		cnt_period <= 32'd0;
 	else if((st_ad_p1 == S_AD_RESET_DLY) | (st_ad_p1 == S_AD_SAMPLE) | (st_ad_p1 == S_DATA_PUSH))
-		dly_cnt <= dly_cnt + 16'd1;
+		cnt_period <= cnt_period + 32'd1;
 	else 
-		dly_cnt <= 16'd0;
+		cnt_period <= 32'd0;
 end
 `ifdef SIM
-assign sample_fire = (dly_cnt == 16'd499) ? 1'b1 : 1'b0;
+assign sample_fire = (cnt_period == 32'd499) ? 1'b1 : 1'b0;
 `else
-assign sample_fire = (dly_cnt == 16'd49999) ? 1'b1 : 1'b0;
+assign sample_fire = (cnt_period == 32'd19_999_99) ? 1'b1 : 1'b0;
 `endif
 
 reg [19:0] cnt_reset;
