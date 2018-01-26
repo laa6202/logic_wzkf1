@@ -17,6 +17,8 @@ dv/tx_ctrl/sim_ctrl_top.v
 dv/tx_ctrl/sim_ctrl_mac.v
 dv/tx_ctrl/sim_ctrl_phy.v
 dv/arm_ctrl/arm_ctrl_top.v
+dv/arm_ctrl/arm_ctrl_phy.v
+dv/arm_ctrl/arm_ctrl_mac.v
 dv/gps_source.v
 
 tb.v
