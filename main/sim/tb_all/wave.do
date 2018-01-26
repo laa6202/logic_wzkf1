@@ -1,16 +1,14 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_clk_in
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/clk_2kHz
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_din
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_sync
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/st_ad_p1
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_clk
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_clk_vld
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_cfg
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/cnt_config
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_data
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_sample/ad_vld
+add wave -noupdate /tb/u_arm_ctrl/cspi_csn
+add wave -noupdate /tb/u_arm_ctrl/cspi_sck
+add wave -noupdate /tb/u_arm_ctrl/cspi_miso
+add wave -noupdate /tb/u_arm_ctrl/cspi_mosi
+add wave -noupdate /tb/u_arm_ctrl/dev_id
+add wave -noupdate /tb/u_arm_ctrl/mod_id
+add wave -noupdate /tb/u_arm_ctrl/cmd_addr
+add wave -noupdate /tb/u_arm_ctrl/cmd_data
+add wave -noupdate /tb/u_arm_ctrl/cmd_vld
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {89718 ns} 0}
 quietly wave cursor active 1

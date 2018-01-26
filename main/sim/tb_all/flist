@@ -16,6 +16,7 @@ dv/arm_spi.v
 dv/tx_ctrl/sim_ctrl_top.v
 dv/tx_ctrl/sim_ctrl_mac.v
 dv/tx_ctrl/sim_ctrl_phy.v
+dv/arm_ctrl/arm_ctrl_top.v
 dv/gps_source.v
 
 tb.v
@@ -82,6 +83,8 @@ tb.v
 //../../fpga_m/src/clk_rst_top/pluse_us_gen.v
 ../../fpga_m/src/master_top/master_top.v
 ../../fpga_m/src/master_top/cspi_inf.v
+../../fpga_m/src/master_top/cspi_codec.v
+../../fpga_m/src/master_top/cmd_factory.v
 ../../fpga_m/src/master_top/fx_bc_m.v
 ../../fpga_m/src/syn_m_top/syn_m_top.v
 ../../fpga_m/src/syn_m_top/syn_m_main.v

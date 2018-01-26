@@ -49,6 +49,14 @@ input rst_n;
 wire cspi_miso = arm_int_n;
 
 
+
+wire [7:0]	cmdl_mod;
+wire [7:0]	cmdl_addr;
+wire [7:0]	cmdl_data;
+wire				cmdl_vld;
+wire  [7:0]	cmdl_q;
+
+
 //----------- fx_bc -----------
 fx_bc_m u_fx_bc(
 .cmdl_mod(cmdl_mod),

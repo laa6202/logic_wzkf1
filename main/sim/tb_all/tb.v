@@ -24,9 +24,25 @@ wire [7:0]	mod_id;
 wire [7:0] 	cmd_addr;
 wire [7:0]	cmd_data;
 wire				cmd_vld;
-wire tx_ctrl;
-sim_ctrl_top u_tx_ctrl(
-.tx_ctrl(tx_ctrl),
+
+cmd_gen u_cmd_gen(
+.dev_id(dev_id),
+.mod_id(mod_id),
+.cmd_addr(cmd_addr),
+.cmd_data(cmd_data),
+.cmd_vld(cmd_vld)
+);
+
+
+wire cspi_csn;
+wire cspi_sck;
+wire cspi_miso;
+wire cspi_mosi;
+arm_ctrl_top u_arm_ctrl(
+.cspi_csn(cspi_csn),
+.cspi_sck(cspi_sck),
+.cspi_miso(cspi_miso),
+.cspi_mosi(cspi_mosi),
 //configuration
 .dev_id(dev_id),
 .mod_id(mod_id),
@@ -38,26 +54,32 @@ sim_ctrl_top u_tx_ctrl(
 .rst_n(rst_n)
 );
 
-cmd_gen u_cmd_gen(
+sim_ctrl_top u_tx_ctrl(
+.tx_ctrl(),
+//configuration
 .dev_id(dev_id),
 .mod_id(mod_id),
 .cmd_addr(cmd_addr),
 .cmd_data(cmd_data),
-.cmd_vld(cmd_vld)
+.cmd_vld(cmd_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
 );
 
 
-//------------ arm spi --------------
-wire spi_csn;
-wire spi_sck;
-wire spi_miso;
-wire spi_mosi;
+
+//------------ arm data spi --------------
+wire pspi_csn;
+wire pspi_sck;
+wire pspi_miso;
+wire pspi_mosi;
 arm_spi u_arm_spi(
 //arm spi
-.spi_csn(spi_csn),
-.spi_sck(spi_sck),
-.spi_miso(spi_miso),
-.spi_mosi(spi_mosi),
+.spi_csn(pspi_csn),
+.spi_sck(pspi_sck),
+.spi_miso(pspi_miso),
+.spi_mosi(pspi_mosi),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -77,8 +99,9 @@ gps_source u_gps_source(
 
 
 //---------- DUT -----------
+wire tx_ctrl;
 wire ctrl_0_1 = tx_ctrl;
-wire ctrl_1_2;
+wire ctrl_0_2 = tx_ctrl;
 wire syn_0_1;
 wire syn_0_2 = syn_0_1;
 wire rx_a;
@@ -86,17 +109,17 @@ wire rx_b;
 
 top_m u_top_m(
 //arm spi
-.pspi_csn(spi_csn),
-.pspi_sck(spi_sck),
+.pspi_csn(pspi_csn),
+.pspi_sck(pspi_sck),
 .pspi_miso(),
-.pspi_mosi(spi_mosi),
-.cspi_csn(spi_csn),
-.cspi_sck(spi_sck),
+.pspi_mosi(pspi_mosi),
+.cspi_csn(cspi_csn),
+.cspi_sck(cpi_sck),
 .cspi_miso(),
-.cspi_mosi(spi_mosi),
+.cspi_mosi(cpi_mosi),
 
 //485 line
-.tx_ctrl(),
+.tx_ctrl(tx_ctrl),
 .tx_syn(syn_0_1),
 .rx_a(rx_a),
 .rx_b(rx_b),
@@ -121,7 +144,6 @@ top_s top_s1(
 .ad_sync(ad_sync),
 //485 line
 .rx_ctrl(ctrl_0_1),
-.tx_ctrl(ctrl_1_2),
 .rx_syn(syn_0_1),
 .tx_a(tx_a0),
 .de_a(de_a0),
@@ -143,8 +165,7 @@ top_s top_s2(
 .ad_cfg(),
 .ad_sync(),
 //485 line
-.rx_ctrl(ctrl_1_2),
-.tx_ctrl(),
+.rx_ctrl(ctrl_0_2),
 .rx_syn(syn_0_2),
 .tx_a(),
 .de_a(),

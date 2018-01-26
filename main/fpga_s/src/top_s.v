@@ -10,7 +10,6 @@ ad_cfg,
 ad_sync,
 //485 line
 rx_ctrl,
-tx_ctrl,
 rx_syn,
 tx_a,
 de_a,
@@ -30,7 +29,6 @@ output ad_cfg;
 output ad_sync;
 //485 line
 input		rx_ctrl;
-output	tx_ctrl;
 input		rx_syn;
 output	tx_a;
 output	de_a;
@@ -72,7 +70,7 @@ wire  [7:0]	fx_q;
 wire [7:0]	dev_id;
 control_top u_control_top(
 //485 line
-.tx_ctrl(tx_ctrl),
+.tx_ctrl(),
 .rx_ctrl(rx_ctrl),
 //fx bus
 .fx_waddr(fx_waddr),
