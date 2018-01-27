@@ -1,17 +1,13 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -radix unsigned /tb/u_arm_ctrl/u_actrl_mac/st_actrl_mac
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/fire_cspi
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/done_cspi
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/cspi_csn
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/cspi_sck
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/cspi_miso
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/cspi_mosi
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/set_data
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/set_vld
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/get_q
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/get_vld
-add wave -noupdate /tb/u_arm_ctrl/u_actrl_phy/st_actrl_phy
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/cspi_csn
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/cspi_sck
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/cspi_miso
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/cspi_mosi
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_data
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_dvld
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_q
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_qvld
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {19961 ns} 0}
 quietly wave cursor active 1

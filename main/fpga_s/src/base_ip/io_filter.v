@@ -24,6 +24,9 @@ always @(posedge clk_sys or negedge rst_n)	begin
 end
 
 
+`ifdef SIM
+wire io_real = io_in;
+`else
 reg io_real;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -34,6 +37,7 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		io_real <= 1'b1;
 	else ;
 end
+`endif
 
 
 endmodule

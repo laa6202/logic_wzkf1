@@ -111,12 +111,12 @@ top_m u_top_m(
 //arm spi
 .pspi_csn(pspi_csn),
 .pspi_sck(pspi_sck),
-.pspi_miso(),
+.pspi_miso(pspi_miso),
 .pspi_mosi(pspi_mosi),
 .cspi_csn(cspi_csn),
-.cspi_sck(cpi_sck),
-.cspi_miso(),
-.cspi_mosi(cpi_mosi),
+.cspi_sck(cspi_sck),
+.cspi_miso(cspi_miso),
+.cspi_mosi(cspi_mosi),
 
 //485 line
 .tx_ctrl(tx_ctrl),

@@ -45,9 +45,28 @@ input rst_n;
 //----------------------------------------
 //----------------------------------------
 
-// no logic
-wire cspi_miso = arm_int_n;
 
+//wire cspi_miso = arm_int_n;
+//internal control path
+wire [7:0]	ctrl_data;
+wire				ctrl_dvld;
+wire  [7:0]	ctrl_q;
+wire				ctrl_qvld;
+cspi_inf ucspi_inf(
+//arm control spi
+.cspi_csn(cspi_csn),
+.cspi_sck(cspi_sck),
+.cspi_miso(cspi_miso),
+.cspi_mosi(cspi_mosi),
+//internal control path
+.ctrl_data(ctrl_data),
+.ctrl_dvld(ctrl_dvld),
+.ctrl_q(ctrl_q),
+.ctrl_qvld(ctrl_qvld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 wire [7:0]	cmdl_mod;
