@@ -72,5 +72,34 @@ edge_det u_edge_sck(
 );
 
 
+//--------- input path -----------
+reg [2:0] cnt_sck;
+wire wd_sck;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_sck <= 3'h0;
+	else if(csn)
+		cnt_sck <= 3'h0;
+	else if(wd_sck)
+		cnt_sck <= 3'h0;
+	else if(sck_r)
+		cnt_sck <= cnt_sck + 3'h1;
+	else ;
+end
+
+reg [7:0] lock_mset;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		lock_mset <= 8'h0;
+	else if(sck_r)
+		lock_mset <= {lock_mset[6:0],cspi_mosi};
+	else ;
+end
+
+wire [7:0]	ctrl_data;
+wire				ctrl_dvld;
+assign ctrl_data = lock_mset;
+assign ctrl_dvld = 1'b0;
+		
 
 endmodule
