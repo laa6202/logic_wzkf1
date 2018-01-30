@@ -46,8 +46,7 @@ input rst_n;
 //----------------------------------------
 
 
-//wire cspi_miso = arm_int_n;
-//internal control path
+//----------- cspi_inf ------------
 wire [7:0]	ctrl_data;
 wire				ctrl_dvld;
 wire  [7:0]	ctrl_q;
@@ -68,6 +67,8 @@ cspi_inf u_cspi_inf(
 .rst_n(rst_n)
 );
 
+
+//----------- cspi_codec ---------
 wire [7:0]	cmd_dev;
 wire [7:0]	cmd_mod;
 wire [7:0]	cmd_addr;
@@ -95,12 +96,43 @@ cspi_codec u_cspi_codec(
 );
 
 
-
+//---------- cmd_factory ----------
+wire [7:0]	cmdr_dev;
+wire [7:0]	cmdr_mod;
+wire [7:0]	cmdr_addr;
+wire [7:0]	cmdr_data;
+wire				cmdr_vld;
 wire [7:0]	cmdl_mod;
 wire [7:0]	cmdl_addr;
 wire [7:0]	cmdl_data;
 wire				cmdl_vld;
 wire  [7:0]	cmdl_q;
+cmd_factory u_cmd_factory(
+//all cmd path
+.cmd_dev(cmd_dev),
+.cmd_mod(cmd_mod),
+.cmd_addr(cmd_addr),
+.cmd_data(cmd_data),
+.cmd_vld(cmd_vld),
+.cmd_q(cmd_q),
+.cmd_qvld(cmd_qvld),
+//cmd remote path
+.cmdr_dev(cmdr_dev),
+.cmdr_mod(cmdr_mod),
+.cmdr_addr(cmdr_addr),
+.cmdr_data(cmdr_data),
+.cmdr_vld(cmdr_vld),
+//cmd local path
+.cmdl_mod(cmdl_mod),
+.cmdl_addr(cmdl_addr),
+.cmdl_data(cmdl_data),
+.cmdl_vld(cmdl_vld),
+.cmdl_q(cmdl_q),
+.cmdl_qvld(cmdl_qvld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 //----------- fx_bc -----------
