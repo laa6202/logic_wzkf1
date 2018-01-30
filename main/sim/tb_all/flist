@@ -89,6 +89,9 @@ tb.v
 ../../fpga_m/src/master_top/cspi_codec.v
 ../../fpga_m/src/master_top/cmd_factory.v
 ../../fpga_m/src/master_top/fx_bc_m.v
+//../../fpga_m/src/master_top/tx_ctrl/tx_ctrl_top.v
+//../../fpga_m/src/master_top/tx_ctrl/tx_ctrl_phy.v
+//../../fpga_m/src/master_top/tx_ctrl/tx_ctrl_enc.v
 ../../fpga_m/src/syn_m_top/syn_m_top.v
 ../../fpga_m/src/syn_m_top/syn_m_main.v
 ../../fpga_m/src/syn_m_top/syn_m_sync.v

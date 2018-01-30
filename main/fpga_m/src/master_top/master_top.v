@@ -156,4 +156,20 @@ fx_bc_m u_fx_bc(
 );
 
 
+//------------ tx_ctrl -----------
+tx_ctrl_top u_mctrl_tx(
+//485 line
+.tx_ctrl(tx_ctrl),
+//cmd transmit
+.cmdt_dev(cmdr_dev),
+.cmdt_mod(cmdr_mod),
+.cmdt_addr(cmdr_addr),
+.cmdt_data(cmdr_data),
+.cmdt_vld(cmdr_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 endmodule

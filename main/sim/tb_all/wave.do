@@ -9,6 +9,12 @@ add wave -noupdate /tb/u_top_m/cspi_csn
 add wave -noupdate /tb/u_top_m/cspi_sck
 add wave -noupdate /tb/u_top_m/cspi_miso
 add wave -noupdate /tb/u_top_m/cspi_mosi
+add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/tx_ctrl
+add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_dev
+add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_mod
+add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_addr
+add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_data
+add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_vld
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {18594 ns} 0}
 quietly wave cursor active 1
