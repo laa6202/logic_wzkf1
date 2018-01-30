@@ -100,7 +100,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_wd <= 20'h0;
 end
-assign wd_sck= (cnt_wd == 20'd10_000_00) ? 1'b1 : 1'b0;
+assign wd_sck= (cnt_wd == 20'd10_000_00) ? 1'b1 : 1'b0;		//10ms
 
 
 //-------- mosi path ---------

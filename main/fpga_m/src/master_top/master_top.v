@@ -50,9 +50,9 @@ input rst_n;
 //internal control path
 wire [7:0]	ctrl_data;
 wire				ctrl_dvld;
-wire  [7:0]	ctrl_q = 8'h57;
-wire				ctrl_qvld = 1'b0;
-cspi_inf ucspi_inf(
+wire  [7:0]	ctrl_q;
+wire				ctrl_qvld;
+cspi_inf u_cspi_inf(
 //arm control spi
 .cspi_csn(cspi_csn),
 .cspi_sck(cspi_sck),
@@ -67,6 +67,33 @@ cspi_inf ucspi_inf(
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
+
+wire [7:0]	cmd_dev;
+wire [7:0]	cmd_mod;
+wire [7:0]	cmd_addr;
+wire [7:0]	cmd_data;
+wire				cmd_vld;
+wire  [7:0]	cmd_q;
+wire				cmd_qvld;
+cspi_codec u_cspi_codec(
+//all cmd path
+.cmd_dev(cmd_dev),
+.cmd_mod(cmd_mod),
+.cmd_addr(cmd_addr),
+.cmd_data(cmd_data),
+.cmd_vld(cmd_vld),
+.cmd_q(cmd_q),
+.cmd_qvld(cmd_qvld),
+//internal control path
+.ctrl_data(ctrl_data),
+.ctrl_dvld(ctrl_dvld),
+.ctrl_q(ctrl_q),
+.ctrl_qvld(ctrl_qvld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 
 
 wire [7:0]	cmdl_mod;

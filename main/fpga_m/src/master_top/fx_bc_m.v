@@ -6,6 +6,7 @@ cmdl_addr,
 cmdl_data,
 cmdl_vld,
 cmdl_q,
+cmdl_qvld,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -22,6 +23,7 @@ input [7:0] cmdl_addr;
 input [7:0] cmdl_data;
 input 			cmdl_vld;
 output[7:0]	cmdl_q;
+output			cmdl_qvld;
 //fx bus
 output [15:0]	fx_waddr;
 output 				fx_wr;
