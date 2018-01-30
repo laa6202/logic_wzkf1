@@ -53,7 +53,47 @@ input rst_n;
 //----------------------------------------
 //----------------------------------------
 
+wire hit_l = (cmd_dev == 8'h00) & cmd_vld;
+wire hit_r = (cmd_dev != 8'h00) & cmd_vld;
 
+//--------- remote path ---------
+wire [7:0]	cmdr_dev;
+wire [7:0]	cmdr_mod;
+wire [7:0]	cmdr_addr;
+wire [7:0]	cmdr_data;
+wire				cmdr_vld;
+assign cmdr_dev = hit_r ? cmd_dev : 8'h0;
+assign cmdr_mod = hit_r ? cmd_mod : 8'h0;
+assign cmdr_addr = hit_r ? cmd_addr : 8'h0;
+assign cmdr_data = hit_r ? cmd_data : 8'h0;
+assign cmdr_vld = hit_r;
+
+
+//----------- local path -----------
+wire [7:0]	cmdl_mod;
+wire [7:0]	cmdl_addr;
+wire [7:0]	cmdl_data;
+wire				cmdl_vld;
+//assign cmdl_mod = hit_l ? cmd_mod : 8'h0;
+//assign cmdl_addr = hit_l ? cmd_addr : 8'h0;
+//assign cmdl_data = hit_l ? cmd_data : 8'h0;
+assign cmdl_mod =  cmd_mod ;
+assign cmdl_addr = cmd_addr ;
+assign cmdl_data = cmd_data ;
+assign cmdl_vld = hit_l;
+
+
+//----------- q path ---------
+reg [1:0]	cmdr_vld_reg;
+always @(posedge clk_sys)
+	cmdr_vld_reg <= {cmdr_vld_reg[0],cmdr_vld};
+
+wire cmdr_qvld = cmdr_vld_reg[1];
+
+wire[7:0]	cmd_q;
+wire			cmd_qvld;
+assign cmd_q = cmdl_qvld ? cmdl_q : 8'h0;
+assign cmd_qvld = cmdl_qvld | cmdr_qvld;;
 
 
 endmodule

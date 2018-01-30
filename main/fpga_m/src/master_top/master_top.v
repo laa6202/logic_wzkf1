@@ -142,6 +142,7 @@ fx_bc_m u_fx_bc(
 .cmdl_data(cmdl_data),
 .cmdl_vld(cmdl_vld),
 .cmdl_q(cmdl_q),
+.cmdl_qvld(cmdl_qvld),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),

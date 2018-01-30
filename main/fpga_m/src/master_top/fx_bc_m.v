@@ -44,7 +44,8 @@ wire en_rd = (cmdl_mod[7:6] == 2'b00) ? 1'b1 : 1'b0;
 wire [5:0] mod_id = cmdl_mod[5:0];
 wire [15:0] waddr = en_wr ? {2'h0,mod_id,cmdl_addr} : 16'h0;
 wire [15:0] raddr = en_rd ? {2'h0,mod_id,cmdl_addr} : 16'h0;
-wire [7:0]	data = en_wr ? cmdl_data : 8'h0;
+//wire [7:0]	data = en_wr ? cmdl_data : 8'h0;
+wire [7:0]	data = cmdl_data ;
 
 reg [15:0]	fx_waddr;
 reg 				fx_wr;
@@ -67,5 +68,13 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		fx_data <= cmdl_vld ? data : 8'h0;
 	end
 end
+
+
+//--------- data return -------
+reg cmdl_qvld;
+always @ (posedge clk_sys)
+	cmdl_qvld <= fx_rd | fx_wr;
+wire [7:0]	cmdl_q = fx_q;
+
 
 endmodule
