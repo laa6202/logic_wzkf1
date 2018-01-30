@@ -42,6 +42,15 @@ input rst_n;
 //---------------------------------------
 
 
+//---------- dev_id ----------
+wire [7:0]	dev_id;
+devid_gen u_devid(
+.dev_id(dev_id),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 //---------- rx_ctrl ----------
 wire [7:0]	cmdr_dev;
 wire [7:0]	cmdr_mod;
@@ -75,7 +84,7 @@ wire [7:0]	cmdl_mod;
 wire [7:0]	cmdl_addr;
 wire [7:0]	cmdl_data;
 wire				cmdl_vld;
-wire [7:0]	dev_id;
+
 factory_ctrl u_factory_ctrl(
 //cmd receive
 .cmdr_dev(cmdr_dev),

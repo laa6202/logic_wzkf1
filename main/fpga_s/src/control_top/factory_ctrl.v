@@ -45,7 +45,7 @@ output [7:0]	cmdl_addr;
 output [7:0]	cmdl_data;
 output 				cmdl_vld;
 //configuration
-output [7:0]	dev_id;
+input [7:0]	dev_id;
 //clk rst
 input clk_sys;
 input pluse_us;
@@ -53,19 +53,12 @@ input rst_n;
 //---------------------------------------
 //---------------------------------------
 
-reg [7:0] dev_id;
+
 wire broadcast = (cmdr_dev == 8'hff) ? 1'b1 : 1'b0;
 wire localhost = (cmdr_dev == dev_id) ? 1'b1 : 1'b0;
 wire cmd_setid = broadcast & (cmdr_mod == 8'h0) & (cmdr_addr == 8'h0) ;
 
-//----------set dev id ---------
-always @ (posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		dev_id <= 8'h1;
-	else if(cmdr_vld & cmd_setid)
-		dev_id <= cmdr_data + 8'h1;
-	else ;
-end
+
 
 
 //----------- output --------
