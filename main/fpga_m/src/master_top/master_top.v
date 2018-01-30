@@ -50,8 +50,8 @@ input rst_n;
 //internal control path
 wire [7:0]	ctrl_data;
 wire				ctrl_dvld;
-wire  [7:0]	ctrl_q;
-wire				ctrl_qvld;
+wire  [7:0]	ctrl_q = 8'h57;
+wire				ctrl_qvld = 1'b0;
 cspi_inf ucspi_inf(
 //arm control spi
 .cspi_csn(cspi_csn),

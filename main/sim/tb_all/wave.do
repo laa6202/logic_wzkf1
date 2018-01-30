@@ -8,8 +8,9 @@ add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_data
 add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_dvld
 add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_q
 add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/ctrl_qvld
+add wave -noupdate /tb/u_top_m/u_master_top/ucspi_inf/lock_mget
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {19961 ns} 0}
+WaveRestoreCursors {{Cursor 1} {2758 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 309
 configure wave -valuecolwidth 100
@@ -25,4 +26,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {21 us}
+WaveRestoreZoom {2722 ns} {4036 ns}
