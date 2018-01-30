@@ -129,11 +129,11 @@ assign ctrl_dvld = sck_byte_reg[1];
 reg [7:0] lock_mget;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		lock_mget <= 8'ha4;
+		lock_mget <= 8'hff;
 	else if(ctrl_qvld)
 		lock_mget <= ctrl_q;
 	else if(sck_f)
-		lock_mget <= {lock_mget[6:0],1'b0};
+		lock_mget <= {lock_mget[6:0],1'b1};
 	else ;
 end
 reg miso;

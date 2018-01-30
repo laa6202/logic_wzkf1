@@ -47,4 +47,21 @@ wire				repk_vld = pkg_vld;
 wire				repk_frm = pkg_frm;
 
 
+//register  
+repkg_reg u_repkg_reg(
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q),
+.mod_id(mod_id),
+//configuration
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 endmodule

@@ -100,6 +100,7 @@ tb.v
 ../../fpga_m/src/fetch_top/fetch_rx_inf.v
 ../../fpga_m/src/fetch_top/fetch_pkg.v
 ../../fpga_m/src/repkg_top/repkg_top.v
+../../fpga_m/src/repkg_top/repkg_reg.v
 ../../fpga_m/src/commu_m_top/commu_m_top.v
 ../../fpga_m/src/commu_m_top/commu_m_reg.v
 ../../fpga_m/src/commu_m_top/commu_m_main.v

@@ -23,9 +23,9 @@ initial begin
 	cmd_vld <= 1'b0;
 	#3000
 	dev_id <= 8'h0;
-	mod_id <= 8'h12;
-	cmd_addr <= 8'h34;
-	cmd_data <= 8'h56;
+	mod_id <= 8'h33;
+	cmd_addr <= 8'h10;
+	cmd_data <= 8'h0;
 	cmd_vld <= 1'b1;
 	#100 
 	cmd_vld <= 1'b0;
