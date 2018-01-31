@@ -171,6 +171,16 @@ ad_top ad1_top(
 );
 
 
+//----------- ex_top -------
+wire [127:0] exp_data;
+ex_top u_ex_top(
+.exp_data(exp_data),
+//clk rst
+.clk_sys(),
+.rst_n()
+);
+
+
 //----------- dsp_top ------------
 wire [23:0]	dp_data;
 wire				dp_vld;
@@ -205,6 +215,8 @@ dsp_top u_dsp_top(
 );
 
 
+
+
 //----------- pack_top ------------
 wire [7:0]	pk_data;
 wire				pk_vld;
@@ -218,7 +230,7 @@ pack_top u_pack_top(
 //bm and exp data
 .bm_data(bm_data),
 .bm_vld(bm_vld),
-.exp_data(128'h1234567890abcdef55aa55aa55aa55aa),
+.exp_data(exp_data),
 //pack data output
 .pk_data(pk_data),
 .pk_vld(pk_vld),
