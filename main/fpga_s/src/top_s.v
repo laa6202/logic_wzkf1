@@ -218,7 +218,7 @@ pack_top u_pack_top(
 //bm and exp data
 .bm_data(bm_data),
 .bm_vld(bm_vld),
-.exp_data(128'h0),
+.exp_data(128'h1234567890abcdef55aa55aa55aa55aa),
 //pack data output
 .pk_data(pk_data),
 .pk_vld(pk_vld),

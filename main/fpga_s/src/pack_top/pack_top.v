@@ -109,6 +109,19 @@ pack_buf u_pack_buf(
 );
 
 
+//---------- bm buf -----------
+wire [7:0]	bm_q;
+wire				bm_req;
+bm_buf u_bm_buf(
+.bm_data(bm_data),
+.bm_vld(bm_vld),
+.bm_q(bm_q),
+.bm_req(bm_req),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 //------------ pack_base -----------
 wire [11:0] len_load;
 pack_base u_pack_base(
@@ -201,6 +214,9 @@ pack_tail u_pack_tail(
 .fire_tail(fire_tail),
 .done_tail(done_tail),
 //data path
+.bm_q(bm_q),
+.bm_req(bm_req),
+.exp_data(exp_data),
 .tail_data(tail_data),
 .tail_vld(tail_vld),
 //clk rst
