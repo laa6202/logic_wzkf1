@@ -6,8 +6,12 @@ add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_data
 add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_rd
 add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_raddr
 add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_q
+add wave -noupdate /tb/top_s1/u_control_top/bm_data
+add wave -noupdate /tb/top_s1/u_control_top/bm_vld
+add wave -noupdate /tb/top_s1/u_pack_top/bm_data
+add wave -noupdate /tb/top_s1/u_pack_top/bm_vld
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {32813 ns} 0}
+WaveRestoreCursors {{Cursor 1} {53375 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 318
 configure wave -valuecolwidth 100

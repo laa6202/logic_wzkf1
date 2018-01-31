@@ -33,5 +33,29 @@ input rst_n;
 //--------------------------------------
 
 
+//---------- bm_vld ------
+wire fx_op = fx_wr | fx_rd;
+reg  fx_op_reg;
+reg  bm_vld;
+always @(posedge clk_sys)	begin
+	fx_op_reg <= fx_op;
+	bm_vld <= fx_op_reg;
+end
+
+
+//--------- bm_data ---------
+reg [31:0] bm_data;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		bm_data <= 32'h0;
+	else if(fx_op_reg)
+		bm_data[7:0] <= fx_q;
+	else if(fx_op)	begin
+		bm_data[15:8] <= fx_data;
+		bm_data[31:16] <= fx_wr ? (fx_waddr | 16'h8000) : fx_raddr;
+	end
+	else ;
+end
+	
 
 endmodule
