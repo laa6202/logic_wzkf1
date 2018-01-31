@@ -83,9 +83,24 @@ wire bm_req = (st_pack_tail == S_RDBM) ? 1'b1 : 1'b0;
 wire done_tail = (st_pack_tail == S_DONE) ? 1'b1 : 1'b0;
 
 
-//---------- data output ------------
-wire [7:0] 	tail_data = 8'h0;
-wire 				tail_vld = 1'b0;
+//---------- prepare swift register -------
+reg [127:0] lock_ep;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		lock_ep <= 128'h0;
+	else if(st_pack_tail == S_PREP)
+		lock_ep <= exp_data;
+	else if(st_pack_tail == S_RDEP)
+		lock_ep <= {lock_ep[119:0],8'h0};
+	else ;
+end
 
+
+//---------- data output ------------
+wire [7:0] 	tail_data;
+wire 				tail_vld = 	(st_pack_tail == S_RDBM) | 
+												(st_pack_tail == S_RDEP);
+assign tail_data = 	(st_pack_tail == S_RDEP) ? lock_ep[127:120] :
+										(st_pack_tail == S_RDBM) ? bm_q : 8'h0;
 endmodule
 

@@ -1,15 +1,15 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_waddr
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_wr
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_data
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_rd
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_raddr
-add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_q
-add wave -noupdate /tb/top_s1/u_control_top/bm_data
-add wave -noupdate /tb/top_s1/u_control_top/bm_vld
-add wave -noupdate /tb/top_s1/u_pack_top/bm_data
-add wave -noupdate /tb/top_s1/u_pack_top/bm_vld
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/fire_tail
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/done_tail
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/bm_q
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/bm_req
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/exp_data
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/tail_data
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/tail_vld
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/st_pack_tail
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/cnt_bm
+add wave -noupdate /tb/top_s1/u_pack_top/u_pack_tail/cnt_ep
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {53375 ns} 0}
 quietly wave cursor active 1
