@@ -7,6 +7,10 @@ dp_data,
 dp_vld,
 dp_utc,
 dp_ns,
+//bm and exp data
+bm_data,
+bm_vld,
+exp_data,
 //pack data output
 pk_data,
 pk_vld,
@@ -32,6 +36,10 @@ input [23:0]	dp_data;
 input					dp_vld;
 input [31:0]	dp_utc;
 input [31:0]	dp_ns;
+//bm and exp data
+input [31:0]	bm_data;
+input					bm_vld;
+input [127:0]	exp_data;
 //pack data output
 output [7:0]	pk_data;
 output				pk_vld;

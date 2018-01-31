@@ -68,6 +68,8 @@ wire				fx_rd;
 wire [15:0]	fx_raddr;
 wire  [7:0]	fx_q;
 wire [7:0]	dev_id;
+wire [31:0]	bm_data;
+wire				bm_vld;
 control_top u_control_top(
 //485 line
 .tx_ctrl(),
@@ -79,6 +81,9 @@ control_top u_control_top(
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
 .fx_q(fx_q),
+//bm data
+.bm_data(bm_data),
+.bm_vld(bm_vld),
 //global
 .dev_id(dev_id),
 .mod_id(6'h1),
@@ -210,6 +215,10 @@ pack_top u_pack_top(
 .dp_vld(dp_vld),
 .dp_utc(dp_utc),
 .dp_ns(dp_ns),
+//bm and exp data
+.bm_data(bm_data),
+.bm_vld(bm_vld),
+.exp_data(exp_data),
 //pack data output
 .pk_data(pk_data),
 .pk_vld(pk_vld),

@@ -31,17 +31,17 @@ initial begin
 	cmd_vld <= 1'b0;
 	#17000
 	dev_id <= 8'h01;
-	mod_id <= 8'h91;
-	cmd_addr <= 8'h47;
-	cmd_data <= 8'h02;
+	mod_id <= 8'h11;
+	cmd_addr <= 8'h20;
+	cmd_data <= 8'h10;
 	cmd_vld <= 1'b1;
 	#100
 	cmd_vld <= 1'b0;
 	#17000
-	dev_id <= 8'h02;
-	mod_id <= 8'h91;
-	cmd_addr <= 8'h78;
-	cmd_data <= 8'h90;
+	dev_id <= 8'h01;
+	mod_id <= 8'h11;
+	cmd_addr <= 8'h47;
+	cmd_data <= 8'h00;
 	cmd_vld <= 1'b1;
 	#100
 	cmd_vld <= 1'b0;

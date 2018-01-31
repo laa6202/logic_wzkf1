@@ -1,22 +1,13 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/u_top_m/u_master_top/u_cspi_codec/cmd_dev
-add wave -noupdate /tb/u_top_m/u_master_top/u_cspi_codec/cmd_mod
-add wave -noupdate /tb/u_top_m/u_master_top/u_cspi_codec/cmd_addr
-add wave -noupdate /tb/u_top_m/u_master_top/u_cspi_codec/cmd_data
-add wave -noupdate /tb/u_top_m/u_master_top/u_cspi_codec/cmd_vld
-add wave -noupdate /tb/u_top_m/cspi_csn
-add wave -noupdate /tb/u_top_m/cspi_sck
-add wave -noupdate /tb/u_top_m/cspi_miso
-add wave -noupdate /tb/u_top_m/cspi_mosi
-add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/tx_ctrl
-add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_dev
-add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_mod
-add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_addr
-add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_data
-add wave -noupdate /tb/u_top_m/u_master_top/u_mctrl_tx/cmdt_vld
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_waddr
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_wr
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_data
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_rd
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_raddr
+add wave -noupdate /tb/top_s1/u_control_top/u_fx_bm/fx_q
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {18594 ns} 0}
+WaveRestoreCursors {{Cursor 1} {32813 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 318
 configure wave -valuecolwidth 100

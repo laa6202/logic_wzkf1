@@ -11,6 +11,9 @@ fx_data,
 fx_rd,
 fx_raddr,
 fx_q,
+//bm path
+bm_data,
+bm_vld,
 //global
 dev_id,
 mod_id,
@@ -29,6 +32,9 @@ output [7:0]	fx_data;
 output				fx_rd;
 output [15:0]	fx_raddr;
 input  [7:0]	fx_q;
+//bm path
+output [31:0]	bm_data;
+output 				bm_vld;
 //global
 output [7:0]	dev_id;
 input  [5:0]	mod_id;
@@ -158,6 +164,9 @@ fx_bm u_fx_bm(
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
 .fx_q(fx_q_all),
+//bm data 
+.bm_data(bm_data),
+.bm_vld(bm_vld),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
