@@ -42,6 +42,21 @@ input rst_n;
 //--------------------------------------
 
 
+//-------------- ex_reg ---------
+ex_reg u_ex_reg(
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q),
+.mod_id(mod_id),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 //------------ mcu spi ---------
 wire [7:0]	spi_data;
 wire 				spi_vld;
