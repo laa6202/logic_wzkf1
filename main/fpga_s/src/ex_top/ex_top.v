@@ -74,7 +74,16 @@ mcuspi_inf u_mcuspi_inf(
 );
 
 
-
+//------------ ex_push -----------
+ex_push u_ex_push(
+.exp_data(exp_data),
+.spi_data(spi_data),
+.spi_vld(spi_vld),
+.mcu_sel(mcu_sel),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 

@@ -53,6 +53,7 @@ tb.v
 ../../fpga_s/src/ad_top/ad_mux.v
 ../../fpga_s/src/ex_top/ex_top.v
 ../../fpga_s/src/ex_top/ex_reg.v
+../../fpga_s/src/ex_top/ex_push.v
 ../../fpga_s/src/ex_top/mcuspi_inf.v
 ../../fpga_s/src/dsp_top/dsp_top.v
 ../../fpga_s/src/dsp_top/dsp_reg.v
