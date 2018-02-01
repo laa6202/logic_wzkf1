@@ -172,7 +172,7 @@ ad_top ad1_top(
 
 
 //----------- ex_top -------
-wire [127:0] exp_data;
+wire [255:0] exp_data;
 ex_top u_ex_top(
 .exp_data(exp_data),
 //clk rst

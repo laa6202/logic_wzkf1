@@ -44,7 +44,7 @@ always @ (posedge clk_sys)	begin
 `endif
 end
 wire [15:0] len_head = 16'd12;
-wire [15:0] len_tail = 16'd0;
+wire [15:0] len_tail = 16'd48;
 wire [15:0] len_crc  = 16'h2;
 reg [15:0] len_pkg;
 always @ (posedge clk_sys)	begin
