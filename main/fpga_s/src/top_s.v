@@ -175,6 +175,14 @@ ad_top ad1_top(
 wire [255:0] exp_data;
 ex_top u_ex_top(
 .exp_data(exp_data),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_dsp),
+.mod_id(6'h1E),
 //clk rst
 .clk_sys(),
 .rst_n()
