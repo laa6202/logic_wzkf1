@@ -32,8 +32,10 @@ input rst_n;
 //----------- main FSM ---------
 parameter S_IDLE = 3'h0;
 parameter S_PREP = 3'h1;
-parameter S_RDBM = 3'h2;
-parameter S_RDEP = 3'h3;
+parameter S_RBMF = 3'h2;	//read bm first
+parameter S_RDBM = 3'h3;	//read bm
+parameter S_RBML = 3'h4;	//read bm last
+parameter S_RDEP = 3'h6;
 parameter S_DONE = 3'h7;
 reg [2:0] st_pack_tail;
 wire finish_bm;
@@ -44,8 +46,10 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else begin
 		case(st_pack_tail)
 			S_IDLE : st_pack_tail <= fire_tail ? S_PREP : S_IDLE ;
-			S_PREP : st_pack_tail <= S_RDBM;
-			S_RDBM : st_pack_tail <= finish_bm ? S_RDEP : S_RDBM;
+			S_PREP : st_pack_tail <= S_RBMF;
+			S_RBMF : st_pack_tail <= S_RDBM;
+			S_RDBM : st_pack_tail <= finish_bm ? S_RBML : S_RDBM;
+			S_RBML : st_pack_tail <= S_RDEP;
 			S_RDEP : st_pack_tail <= finish_ep ? S_DONE : S_RDEP;
 			S_DONE : st_pack_tail <= S_IDLE;
 			default : st_pack_tail <= S_IDLE;
@@ -64,7 +68,7 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_bm <= 5'h0;
 end
-assign finish_bm = (cnt_bm == 5'd15) ? 1'b1 : 1'b0;
+assign finish_bm = (cnt_bm == 5'd14) ? 1'b1 : 1'b0;
 reg [7:0] cnt_ep;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -79,7 +83,7 @@ assign finish_ep = (cnt_ep == 8'd15) ? 1'b1 : 1'b0;
 
 
 //---------- control signal -----------
-wire bm_req = (st_pack_tail == S_RDBM) ? 1'b1 : 1'b0;
+wire bm_req = (st_pack_tail == S_RDBM) | (st_pack_tail == S_RBMF);
 wire done_tail = (st_pack_tail == S_DONE) ? 1'b1 : 1'b0;
 
 
@@ -99,6 +103,7 @@ end
 //---------- data output ------------
 wire [7:0] 	tail_data;
 wire 				tail_vld = 	(st_pack_tail == S_RDBM) | 
+												(st_pack_tail == S_RBML) |
 												(st_pack_tail == S_RDEP);
 assign tail_data = 	(st_pack_tail == S_RDEP) ? lock_ep[127:120] :
 										(st_pack_tail == S_RDBM) ? bm_q : 8'h0;
