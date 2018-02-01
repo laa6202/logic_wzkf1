@@ -17,7 +17,7 @@ input	rst_n;
 reg [7:0]	dev_id;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		dev_id <= 8'h1;
+		dev_id <= 8'hff;
 	else 
 		dev_id <= 8'h1;
 end

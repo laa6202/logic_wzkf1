@@ -15,6 +15,13 @@ tx_a,
 de_a,
 tx_b,
 de_b,
+//mcu port
+mcu_csn,
+mcu_sck,
+mcu_miso,
+mcu_mosi,
+mcu_sel,
+cfg_id,
 //clk rst
 mclk0,
 mclk1,
@@ -34,6 +41,13 @@ output	tx_a;
 output	de_a;
 output	tx_b;
 output	de_b;
+//mcu port
+input mcu_csn;
+input mcu_sck;
+output mcu_miso;
+input mcu_mosi;
+input mcu_sel;
+input cfg_id;
 //clk rst
 input mclk0;
 input mclk1;

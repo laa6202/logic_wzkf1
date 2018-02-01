@@ -86,6 +86,25 @@ arm_spi u_arm_spi(
 );
 
 
+//--------- salve mcu --------
+wire mcu_csn;
+wire mcu_sck;
+wire mcu_miso;
+wire mcu_mosi;
+wire mcu_sel;
+wire cfg_id;
+smcu u_smcu(
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_miso(mcu_miso),
+.mcu_mosi(mcu_mosi),
+.mcu_sel(mcu_sel),
+.cfg_id(cfg_id),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 
 //------------ gps source ------------
 wire gps_pluse;
@@ -149,6 +168,13 @@ top_s top_s1(
 .de_a(de_a0),
 .tx_b(),
 .de_b(),
+//mcu port
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_miso(mcu_miso),
+.mcu_mosi(mcu_mosi),
+.mcu_sel(mcu_sel),
+.cfg_id(cfg_id),
 //clk rst 
 .mclk0(mclk0),
 .mclk1(mclk1),
@@ -171,6 +197,13 @@ top_s top_s2(
 .de_a(),
 .tx_b(),
 .de_b(),
+//mcu port
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_miso(),
+.mcu_mosi(mcu_mosi),
+.mcu_sel(mcu_sel),
+.cfg_id(cfg_id),
 //clk rst 
 .mclk0(mclk0),
 .mclk1(mclk1),
