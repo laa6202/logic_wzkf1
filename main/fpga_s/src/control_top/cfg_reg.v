@@ -9,6 +9,7 @@ fx_rd,
 fx_raddr,
 fx_q,
 mod_id,
+dev_id,
 //clk rst
 clk_sys,
 rst_n
@@ -20,7 +21,8 @@ input [15:0]	fx_waddr;
 input [15:0]	fx_raddr;
 input 				fx_rd;
 output  [7:0]	fx_q;
-input [5:0] mod_id;
+input  [5:0]	mod_id;
+input  [7:0]	dev_id;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -85,6 +87,7 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else if(now_rd) begin
 		case(fx_raddr[7:0])
 			8'h0  : q0 <= mod_id;
+			8'h10 : q0 <= dev_id;
 			8'h80 : q0 <= cfg_dbg0;
 			8'h81 : q0 <= cfg_dbg1;
 			8'h82 : q0 <= cfg_dbg2;

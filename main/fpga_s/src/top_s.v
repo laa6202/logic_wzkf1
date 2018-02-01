@@ -95,6 +95,11 @@ control_top u_control_top(
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
 .fx_q(fx_q),
+//mcu spi
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_mosi(mcu_mosi),
+.mcu_sel(mcu_sel),
 //bm data
 .bm_data(bm_data),
 .bm_vld(bm_vld),

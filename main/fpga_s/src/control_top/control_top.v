@@ -11,6 +11,11 @@ fx_data,
 fx_rd,
 fx_raddr,
 fx_q,
+//mcu spi
+mcu_csn,
+mcu_sck,
+mcu_mosi,
+mcu_sel,
 //bm path
 bm_data,
 bm_vld,
@@ -32,6 +37,11 @@ output [7:0]	fx_data;
 output				fx_rd;
 output [15:0]	fx_raddr;
 input  [7:0]	fx_q;
+//mcu port
+input mcu_csn;
+input mcu_sck;
+input mcu_mosi;
+input mcu_sel;
 //bm path
 output [31:0]	bm_data;
 output 				bm_vld;
@@ -47,11 +57,36 @@ input rst_n;
 //---------------------------------------
 //---------------------------------------
 
+//------------ mcu spi ---------
+wire [7:0]	spi_data;
+wire 				spi_vld;
+mcuspi_inf u_mcuspi_inf(
+//mcu spi
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_mosi(mcu_mosi),
+//internal control path
+.spi_data(spi_data),
+.spi_vld(spi_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 
 //---------- dev_id ----------
 wire [7:0]	dev_id;
 devid_gen u_devid(
 .dev_id(dev_id),
+//fx bus 
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+//mcu spi path
+.spi_data(spi_data),
+.spi_vld(spi_vld),
+.mcu_sel(mcu_sel),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -183,6 +218,7 @@ cfg_reg u_ctrl_reg(
 .fx_raddr(fx_raddr),
 .fx_q(fx_q_ctrl),
 .mod_id(mod_id),
+.dev_id(dev_id),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
