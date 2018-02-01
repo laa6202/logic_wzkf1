@@ -93,7 +93,7 @@ wire cmdr_qvld = cmdr_vld_reg[1];
 wire[7:0]	cmd_q;
 wire			cmd_qvld;
 assign cmd_q = cmdl_qvld ? cmdl_q : 8'h0;
-assign cmd_qvld = cmdl_qvld | cmdr_qvld;;
+assign cmd_qvld = cmdl_qvld | cmdr_qvld;
 
 
 endmodule
