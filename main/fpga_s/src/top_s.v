@@ -189,6 +189,12 @@ ad_top ad1_top(
 wire [255:0] exp_data;
 ex_top u_ex_top(
 .exp_data(exp_data),
+//mcu spi
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_mosi(mcu_mosi),
+.mcu_sel(mcu_sel),
+.cfg_id(cfg_id),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),
@@ -198,8 +204,8 @@ ex_top u_ex_top(
 .fx_q(fx_q_dsp),
 .mod_id(6'h1E),
 //clk rst
-.clk_sys(),
-.rst_n()
+.clk_sys(clk_sys),
+.rst_n(rst_n)
 );
 
 

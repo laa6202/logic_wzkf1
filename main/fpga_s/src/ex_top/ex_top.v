@@ -2,6 +2,12 @@
 
 module ex_top(
 exp_data,
+//mcu spi
+mcu_csn,
+mcu_sck,
+mcu_mosi,
+mcu_sel,
+cfg_id,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -15,6 +21,12 @@ clk_sys,
 rst_n
 );
 output [255:0]	exp_data;
+//mcu port
+input mcu_csn;
+input mcu_sck;
+input mcu_mosi;
+input mcu_sel;
+input cfg_id;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
@@ -29,8 +41,26 @@ input rst_n;
 //--------------------------------------
 //--------------------------------------
 
-//no logic
-wire [255:0]	exp_data = 255'h1234567890abcdef55aa55aa55aa55aa;
+
+//------------ mcu spi ---------
+wire [7:0]	spi_data;
+wire 				spi_vld;
+mcuspi_inf u_mcuspi_inf(
+//mcu spi
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_mosi(mcu_mosi),
+//internal control path
+.spi_data(spi_data),
+.spi_vld(spi_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+
+
 
 
 endmodule
