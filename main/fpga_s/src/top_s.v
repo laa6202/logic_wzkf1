@@ -118,6 +118,9 @@ wire [7:0] fx_q_ad1;
 wire [7:0] fx_q_ad2 = 8'h0;
 wire [7:0] fx_q_ad3 = 8'h0;
 wire [7:0] fx_q_dsp;
+wire [7:0] fx_q_pack;
+wire [7:0] fx_q_ep;
+wire [7:0] fx_q_commu;
 fx_bus u_fx_bus(
 .fx_q(fx_q),
 .fx_q_syn(fx_q_syn),
@@ -206,7 +209,7 @@ ex_top u_ex_top(
 .fx_data(fx_data),
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
-.fx_q(fx_q_dsp),
+.fx_q(fx_q_ep),
 .mod_id(6'h1E),
 //clk rst
 .clk_sys(clk_sys),
@@ -274,7 +277,7 @@ pack_top u_pack_top(
 .fx_data(fx_data),
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
-.fx_q(fx_q_dsp),
+.fx_q(fx_q_pack),
 .mod_id(6'h21),
 //configuration
 .cfg_sample(cfg_sample),
@@ -302,7 +305,7 @@ commu_top u_commu_top(
 .fx_data(fx_data),
 .fx_rd(fx_rd),
 .fx_raddr(fx_raddr),
-.fx_q(fx_q_dsp),
+.fx_q(fx_q_commu),
 .mod_id(6'h22),
 //configuration
 .cfg_sample(cfg_sample),

@@ -1,5 +1,7 @@
 //cspi_inf.v
 
+`define NO_SPI_CSN
+
 module mcuspi_inf(
 //mcu spi
 mcu_csn,
@@ -72,8 +74,10 @@ wire wd_sck;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_sck <= 3'h0;
+`ifndef NO_SPI_CSN
 	else if(csn)
 		cnt_sck <= 3'h0;
+`endif
 	else if(wd_sck)
 		cnt_sck <= 3'h0;
 	else if(sck_r)
