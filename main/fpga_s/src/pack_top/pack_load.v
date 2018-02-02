@@ -113,8 +113,12 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		if(st_pack_load == S_IDLE)
 			buf_raddr <= addr_ov ? 	(buf_waddr + 12'd4000 - len_load) : 
 															(buf_waddr - len_load) ;
-		else if(st_pack_load == S_CHECK)
-			buf_raddr <= buf_raddr + 12'h1;
+		else if(st_pack_load == S_CHECK)	begin
+			if(buf_raddr == 12'd3999)
+				buf_raddr <= 12'h0;
+			else 
+				buf_raddr <= buf_raddr + 12'h1;
+		end
 		else ;
 	end
 end
