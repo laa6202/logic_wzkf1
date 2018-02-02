@@ -28,8 +28,11 @@ input rst_n;
 wire [15:0]	lenw_pkg = {1'b0,len_pkg[15:1]};
 
 reg [15:0] cnt_rx;
+wire wd_cnt_idle;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
+		cnt_rx <= 16'h0;
+	else if(wd_cnt_idle)
 		cnt_rx <= 16'h0;
 	else 	if(cnt_rx == lenw_pkg)
 		cnt_rx <= 16'h0;
@@ -38,11 +41,24 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 
+reg [19:0] cnt_idle;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_idle <= 20'h0;
+	else if(rx_vld)
+		cnt_idle <= 20'h0;
+	else if(cnt_idle == 20'hfffff)
+		cnt_idle <= 20'hfffff;
+	else 
+		cnt_idle <= cnt_idle + 20'h1;
+end
+assign wd_cnt_idle = (cnt_idle == 20'd1_000_00) ? 1'b1 : 1'b0;
+
 
 wire pkg_sop;
 wire pkg_eop;
 assign pkg_sop = (cnt_rx == 16'h0) & rx_vld;
-assign pkg_eop = (cnt_rx == lenw_pkg) ? 1'b1 : 1'b0;
+assign pkg_eop = (cnt_rx == lenw_pkg) | wd_cnt_idle;
 
 
 //------------ pkg output -----------
