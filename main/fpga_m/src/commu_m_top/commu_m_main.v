@@ -3,18 +3,22 @@
 module commu_m_main(
 fire_push,
 done_push,
-arm_int_n,
 repk_frm,
 buf_frm,
+//configuration
+arm_int_n,
+stu_buf_rdy,
 //clk rst
 clk_sys,
 rst_n
 );
 output	fire_push;
 input		done_push;
-output 	arm_int_n;
 input		repk_frm;
 input 	buf_frm;
+//configuration
+output 	arm_int_n;
+output [7:0] stu_buf_rdy;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -42,5 +46,9 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		arm_int_n <= 1'b0;
 	else ;
 end
+
+
+wire [7:0] stu_buf_rdy;
+assign stu_buf_rdy = arm_int_n ? 8'h0 : 8'hff;
 
 endmodule

@@ -52,6 +52,7 @@ input rst_n;
 
 //------------ commu_m_reg ---------
 wire [7:0] cfg_tp;
+wire [7:0] stu_buf_rdy;
 commu_m_reg u_commu_m_reg(
 //fx bus
 .fx_waddr(fx_waddr),
@@ -63,6 +64,7 @@ commu_m_reg u_commu_m_reg(
 .mod_id(mod_id),
 //configuration
 .cfg_tp(cfg_tp),
+.stu_buf_rdy(stu_buf_rdy),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -95,8 +97,10 @@ commu_m_main u_commu_m_main(
 .fire_push(fire_push),
 .done_push(done_push),
 .repk_frm(repk_frm),
-.arm_int_n(arm_int_n),
 .buf_frm(buf_frm),
+//configuration
+.arm_int_n(arm_int_n),
+.stu_buf_rdy(stu_buf_rdy),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

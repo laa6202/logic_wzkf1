@@ -11,6 +11,7 @@ fx_q,
 mod_id,
 //configuration
 cfg_tp,
+stu_buf_rdy,
 //clk rst
 clk_sys,
 rst_n
@@ -25,6 +26,7 @@ output  [7:0]	fx_q;
 input [5:0] mod_id;
 //configuration
 output [7:0] cfg_tp;
+input [7:0]	stu_buf_rdy;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -92,6 +94,7 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	else if(now_rd) begin
 		case(fx_raddr[7:0])
 			8'h0  : q0 <= mod_id;
+			8'h30 : q0 <= stu_buf_rdy;
 			8'h40 : q0 <= cfg_tp;
 			8'h80 : q0 <= cfg_dbg0;
 			8'h81 : q0 <= cfg_dbg1;
