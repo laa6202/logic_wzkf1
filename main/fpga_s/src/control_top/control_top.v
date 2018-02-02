@@ -15,6 +15,7 @@ fx_q,
 mcu_csn,
 mcu_sck,
 mcu_mosi,
+mcu_miso,
 mcu_sel,
 //bm path
 bm_data,
@@ -41,6 +42,7 @@ input  [7:0]	fx_q;
 input mcu_csn;
 input mcu_sck;
 input mcu_mosi;
+output mcu_miso;
 input mcu_sel;
 //bm path
 output [31:0]	bm_data;
@@ -60,14 +62,16 @@ input rst_n;
 //------------ mcu spi ---------
 wire [7:0]	spi_data;
 wire 				spi_vld;
-mcuspi_inf u_mcuspi_inf(
+mcu_inf u_mcu_inf(
 //mcu spi
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
 .mcu_mosi(mcu_mosi),
+.mcu_miso(mcu_miso),
 //internal control path
 .spi_data(spi_data),
 .spi_vld(spi_vld),
+.dev_id(dev_id),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

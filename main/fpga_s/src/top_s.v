@@ -99,6 +99,7 @@ control_top u_control_top(
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
 .mcu_mosi(mcu_mosi),
+.mcu_miso(mcu_miso),
 .mcu_sel(mcu_sel),
 //bm data
 .bm_data(bm_data),
@@ -128,6 +129,9 @@ fx_bus u_fx_bus(
 .fx_q_ad2(fx_q_ad2),
 .fx_q_ad3(fx_q_ad3),
 .fx_q_dsp(fx_q_dsp),
+.fx_q_ep(fx_q_ep),
+.fx_q_pack(fx_q_pack),
+.fx_q_commu(fx_q_commu),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
