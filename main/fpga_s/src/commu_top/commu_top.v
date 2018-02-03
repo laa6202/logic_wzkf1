@@ -6,9 +6,8 @@ pk_data,
 pk_vld,
 pk_frm,
 tx_a,
-de_a,
-tx_b,
-de_b,
+te_a,
+re_a,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -32,9 +31,8 @@ input [7:0]	pk_data;
 input				pk_vld;
 input 			pk_frm;
 output	tx_a;
-output	de_a;
-output	tx_b;
-output	de_b;
+output	te_a;
+output	re_a;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
@@ -53,6 +51,10 @@ input clk_sys;
 input rst_n;
 //--------------------------------------
 //--------------------------------------
+
+
+wire te_a = 1'b1;
+wire re_a = 1'b1;
 
 
 //--------- commu_reg ---------
@@ -126,6 +128,7 @@ wire done_push;
 wire done_tail;
 wire slot_begin;
 wire slot_rdy;
+wire de_a;
 commu_main u_commu_main(
 .de_a(de_a),
 //control signal

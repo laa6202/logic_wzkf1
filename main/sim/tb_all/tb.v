@@ -141,7 +141,7 @@ top_m u_top_m(
 .tx_ctrl(tx_ctrl),
 .tx_syn(syn_0_1),
 .rx_a(rx_a),
-.rx_b(rx_b),
+.rx_b(),
 //gps inf
 .gps_pluse(gps_pluse),		
 //clk rst
@@ -165,9 +165,8 @@ top_s top_s1(
 .rx_ctrl(ctrl_0_1),
 .rx_syn(syn_0_1),
 .tx_a(tx_a0),
-.de_a(de_a0),
-.tx_b(),
-.de_b(),
+.te_a(),
+.re_a(),
 //mcu port
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
@@ -194,9 +193,8 @@ top_s top_s2(
 .rx_ctrl(ctrl_0_2),
 .rx_syn(syn_0_2),
 .tx_a(),
-.de_a(),
-.tx_b(),
-.de_b(),
+.te_a(),
+.re_a(),
 //mcu port
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
@@ -211,7 +209,7 @@ top_s top_s2(
 .hrst_n(rst_n)
 );
 
-assign rx_a = de_a0 ? tx_a0 :
-							 1'b1;
+assign rx_a = tx_a0 ;
+							 
 
 endmodule

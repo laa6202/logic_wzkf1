@@ -36,6 +36,7 @@ input rst_n;
 `ifdef SIM
 wire rx_syn_real = rx_syn;
 `else
+wire rx_syn_real;
 io_filter syn_filter(
 .io_in(rx_syn),
 .io_real(rx_syn_real),

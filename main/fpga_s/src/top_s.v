@@ -12,9 +12,8 @@ ad_sync,
 rx_ctrl,
 rx_syn,
 tx_a,
-de_a,
-tx_b,
-de_b,
+te_a,
+re_a,
 //mcu port
 mcu_csn,
 mcu_sck,
@@ -38,9 +37,8 @@ output ad_sync;
 input		rx_ctrl;
 input		rx_syn;
 output	tx_a;
-output	de_a;
-output	tx_b;
-output	de_b;
+output	te_a;
+output	re_a;
 //mcu port
 input mcu_csn;
 input mcu_sck;
@@ -300,9 +298,8 @@ commu_top u_commu_top(
 .pk_vld(pk_vld),
 .pk_frm(pk_frm),
 .tx_a(tx_a),
-.de_a(de_a),
-.tx_b(tx_b),
-.de_b(de_b),
+.te_a(te_a),
+.re_a(re_a),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),

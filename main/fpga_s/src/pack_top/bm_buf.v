@@ -61,10 +61,10 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		waddr <= waddr + 15'h1;
 	else ;
 end
-assign data = vld_reg[0] ? bm_data[31:24] :
-							vld_reg[1] ? bm_data[23:16] :
-							vld_reg[2] ? bm_data[15:8] :
-							vld_reg[3] ? bm_data[7:0] : 8'h0;
+assign data = vld_reg[0] ? data_reg[31:24] :
+							vld_reg[1] ? data_reg[23:16] :
+							vld_reg[2] ? data_reg[15:8] :
+							vld_reg[3] ? data_reg[7:0] : 8'h0;
 
 							
 //---------- read path ---------

@@ -71,7 +71,7 @@ end
 `ifdef EN_SIG_DEBUG
 assign timeout_rx = 1'b0;
 `else 
-assign timeout_rx = (cnt_cycle == 16'd1_000_00) ? 1'b1 : 1'b0;
+assign timeout_rx = (cnt_cycle == 20'd1_000_00) ? 1'b1 : 1'b0;
 `endif
 
 //--------- output data ---------
