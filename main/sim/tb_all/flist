@@ -81,6 +81,7 @@ tb.v
 ../../fpga_s/src/commu_top/commu_tail.v
 ../../fpga_s/src/commu_top/commu_mux.v
 ../../fpga_s/src/commu_top/commu_tx_inf.v
+../../fpga_s/src/commu_top/dir_gen.v
 
 ../../fpga_s/ip/ram/ram32x4k.v
 ../../fpga_s/ip/ram/ram8x32k.v

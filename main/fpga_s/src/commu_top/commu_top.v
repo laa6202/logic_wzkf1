@@ -53,10 +53,6 @@ input rst_n;
 //--------------------------------------
 
 
-wire te_a = 1'b1;
-wire re_a = 1'b1;
-
-
 //--------- commu_reg ---------
 wire [7:0]	cfg_numDev;
 wire [7:0]  cfg_sendEn;
@@ -245,14 +241,30 @@ commu_mux u_commu_mux(
 
 
 //---------- commu_tx_inf -----------
+wire tx_commu;
 commu_tx_inf u_commu_tx_inf(
-.tx(tx_a),
+.tx(tx_commu),
 //control 
 .fire_tx(fire_tx),
 .done_tx(done_tx),
 .data_tx(data_tx),
 .tbit_period(tbit_period),
 //clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//------------ dir gen -----------
+dir_gen u_dir_gen(
+//data path
+.te_a(te_a),
+.re_a(re_a),
+.tx_a(tx_a),
+.de_a(de_a),
+.tx_commu(tx_commu),
+//clk rst
+.dev_id(dev_id),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
