@@ -47,6 +47,8 @@ parameter S_S1 = 4'h8;
 parameter S_S0 = 4'h9;
 parameter S_STOP = 4'ha;
 parameter S_STOP2 = 4'hb;
+parameter S_STOP3 = 4'hc;
+parameter S_STOP4 = 4'hd;
 parameter S_DONE = 4'hf;
 reg [3:0] st_tx_phy;
 wire finish_bit;
@@ -66,7 +68,9 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			S_S1   : st_tx_phy <= finish_bit ? S_S0 : S_S1;
 			S_S0   : st_tx_phy <= finish_bit ? S_STOP : S_S0;
 			S_STOP : st_tx_phy <= finish_bit ? S_STOP2 : S_STOP;
-			S_STOP2: st_tx_phy <= finish_bit ? S_DONE : S_STOP2;
+			S_STOP2: st_tx_phy <= finish_bit ? S_STOP3 : S_STOP2;
+			S_STOP3: st_tx_phy <= finish_bit ? S_STOP4 : S_STOP3;
+			S_STOP4: st_tx_phy <= finish_bit ? S_DONE : S_STOP4;
 			S_DONE : st_tx_phy <= S_IDLE;
 			default : st_tx_phy <= S_IDLE;
 		endcase

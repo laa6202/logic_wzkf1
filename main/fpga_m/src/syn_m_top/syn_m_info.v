@@ -74,13 +74,26 @@ end
 
 
 //---------- enc and phy ----------
-wire fire_tx = 	(st_tx_info == S_FS1) | (st_tx_info == S_FS2) |
+reg fire_tx ;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		fire_tx <= 1'b0;
+	else 
+		fire_tx <= 	(st_tx_info == S_FS1) | (st_tx_info == S_FS2) |
 								(st_tx_info == S_FS3) | (st_tx_info == S_FS4) ;
-wire [7:0]	data_tx;
-assign data_tx = 	(st_tx_info == S_FS1) ? utc_sec[31:24] :
-									(st_tx_info == S_FS2) ? utc_sec[23:16] :
-									(st_tx_info == S_FS3) ? utc_sec[15:8] :
-									(st_tx_info == S_FS4) ? utc_sec[7:0] : 8'h0;
+end
+
+reg [7:0]	data_tx;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		data_tx <= 8'h0;
+	else 
+		data_tx <= 	(st_tx_info == S_FS1) ? utc_sec[31:24] :
+								(st_tx_info == S_FS2) ? utc_sec[23:16] :
+								(st_tx_info == S_FS3) ? utc_sec[15:8] :
+								(st_tx_info == S_FS4) ? utc_sec[7:0] : 
+								(st_tx_info == S_DONE) ? 8'h0 : data_tx;
+end
 									
 tx_info_phy u_tx_syn_phy(
 .tx(tx_info),

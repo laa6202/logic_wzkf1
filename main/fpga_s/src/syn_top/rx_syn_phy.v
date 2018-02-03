@@ -23,20 +23,21 @@ input rst_n;
 //----------------------------------
 
 //--------- rx prepare ---------
-reg [7:0]	rx_reg;
-always @ (posedge clk_sys) 
-	rx_reg <= {rx_reg[6:0],rx};
+// reg [7:0]	rx_reg;
+// always @ (posedge clk_sys) 
+	// rx_reg <= {rx_reg[6:0],rx};
 
-reg rx_real;
-always @ (posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		rx_real <= 1'b1;
-	else if(rx_reg == 8'hff)
-		rx_real <= 1'b1;
-	else if(rx_reg == 8'h0)
-		rx_real <= 1'b0;
-	else ;
-end
+// reg rx_real;
+// always @ (posedge clk_sys or negedge rst_n)	begin
+	// if(~rst_n)
+		// rx_real <= 1'b1;
+	// else if(rx_reg == 8'hff)
+		// rx_real <= 1'b1;
+	// else if(rx_reg == 8'h0)
+		// rx_real <= 1'b0;
+	// else ;
+// end
+wire rx_real = rx;
 reg rx_real_reg;
 always @(posedge clk_sys)
 	rx_real_reg <= rx_real;
@@ -54,6 +55,7 @@ parameter S_S2 = 4'h7;
 parameter S_S1 = 4'h8;
 parameter S_S0 = 4'h9;
 parameter S_STOP = 4'ha;
+parameter S_STOP2 = 4'hb;
 parameter S_DONE = 4'hf;
 reg [3:0] st_rx_phy;
 wire rx_falling;
@@ -73,7 +75,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			S_S2	 : st_rx_phy <= finish_bit ? S_S1 : S_S2;
 			S_S1	 : st_rx_phy <= finish_bit ? S_S0 : S_S1;
 			S_S0	 : st_rx_phy <= finish_bit ? S_STOP : S_S0;
-			S_STOP : st_rx_phy <= finish_bit ? S_DONE : S_STOP;
+			S_STOP : st_rx_phy <= finish_bit ? S_STOP2 : S_STOP;
+			S_STOP2: st_rx_phy <= finish_bit ? S_DONE : S_STOP2;
 			S_DONE : st_rx_phy <= S_IDLE;
 			default : st_rx_phy <= S_IDLE;
 		endcase
@@ -126,7 +129,7 @@ always @ (posedge clk_sys or negedge rst_n) begin
 	if(~rst_n)
 		stop_bit <= 1'b1;
 	else if(cnt_cycle == point_get)	
-		stop_bit <= (st_rx_phy == S_STOP) ? rx_real : stop_bit;
+		stop_bit <= (st_rx_phy == S_STOP2) ? rx_real : stop_bit;
 	else ;
 end
 	
