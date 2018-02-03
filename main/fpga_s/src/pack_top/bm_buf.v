@@ -71,10 +71,18 @@ assign data = vld_reg[0] ? bm_data[31:24] :
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		raddr <= 15'h0;
-	else if(bm_req)
+	else if(~bm_req)
+		raddr <= {(waddr[14:2]-13'h4),2'h0};
+	else
 		raddr <= (raddr != waddr) ? (raddr + 15'h1) : raddr;
-	else;
 end
+// always @(posedge clk_sys or negedge rst_n)	begin
+	// if(~rst_n)
+		// raddr <= 15'h0;
+	// else if(bm_req)
+		// raddr <= (raddr != waddr) ? (raddr + 15'h1) : raddr;
+	// else;
+// end
 wire [7:0] bm_q = q;
 
 

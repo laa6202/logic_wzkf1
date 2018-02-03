@@ -30,7 +30,7 @@ initial begin
 	#100 
 	cmd_vld <= 1'b0;
 	#17000
-	dev_id <= 8'h01;
+	dev_id <= 8'hff;
 	mod_id <= 8'h11;
 	cmd_addr <= 8'h20;
 	cmd_data <= 8'h10;

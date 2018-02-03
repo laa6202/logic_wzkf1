@@ -1,6 +1,6 @@
 //rx_ctrl_dec.v
 
-`define EN_SIG_DEBUG		//no timeout 
+//`define EN_SIG_DEBUG		//no timeout 
 
 module rx_ctrl_dec(
 //cmd decode

@@ -35,6 +35,7 @@ parameter S_PREP = 3'h1;
 parameter S_RBMF = 3'h2;	//read bm first
 parameter S_RDBM = 3'h3;	//read bm
 parameter S_RBML = 3'h4;	//read bm last
+parameter S_PNOP = 3'h5;	// push nop for debug
 parameter S_RDEP = 3'h6;
 parameter S_DONE = 3'h7;
 reg [2:0] st_pack_tail;
@@ -49,7 +50,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			S_PREP : st_pack_tail <= S_RBMF;
 			S_RBMF : st_pack_tail <= S_RDBM;
 			S_RDBM : st_pack_tail <= finish_bm ? S_RBML : S_RDBM;
-			S_RBML : st_pack_tail <= S_RDEP;
+			S_RBML : st_pack_tail <= S_PNOP;
+			S_PNOP : st_pack_tail <= S_RDEP;
 			S_RDEP : st_pack_tail <= finish_ep ? S_DONE : S_RDEP;
 			S_DONE : st_pack_tail <= S_IDLE;
 			default : st_pack_tail <= S_IDLE;
@@ -106,6 +108,7 @@ wire 				tail_vld = 	(st_pack_tail == S_RDBM) |
 												(st_pack_tail == S_RBML) |
 												(st_pack_tail == S_RDEP);
 assign tail_data = 	(st_pack_tail == S_RDEP) ? lock_ep[255:248] :
-										(st_pack_tail == S_RDBM) ? bm_q : 8'h0;
+										(st_pack_tail == S_RDBM) ? bm_q : 
+										(st_pack_tail == S_RBML) ? bm_q : 8'h0;
 endmodule
 
