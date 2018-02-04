@@ -107,6 +107,7 @@ wire [7:0]	cmdl_addr;
 wire [7:0]	cmdl_data;
 wire				cmdl_vld;
 wire  [7:0]	cmdl_q;
+wire 				cmdl_qvld;
 cmd_factory u_cmd_factory(
 //all cmd path
 .cmd_dev(cmd_dev),
