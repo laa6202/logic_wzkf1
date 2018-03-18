@@ -21,8 +21,12 @@ gps_pluse,
 mclk0,
 mclk1,
 mclk2,
-hrst_n
+hrst_n,
+
+led1
 );
+
+output led1;
 //arm spi
 input 	pspi_csn;
 input 	pspi_sck;
@@ -51,6 +55,16 @@ wire clk_sys;
 wire clk_slow;
 wire pluse_us;
 wire rst_n;
+
+led_flash flash_inst(
+.mclk0(mclk0),
+.hrst_n(hrst_n),
+
+.led1(led1),
+.led2( ),
+.led3( )
+);
+
 clk_rst_top u_clk_rst(
 .hrst_n(hrst_n),
 .mclk0(mclk0),

@@ -1,0 +1,201 @@
+//spi_inf.v
+
+module spi_inf(
+//arm rd
+req_rd,
+req_q,
+//arm spi
+spi_csn,
+spi_sck,
+spi_miso,
+spi_mosi,
+//clk rst
+clk_sys,
+rst_n
+);
+//arm rd
+output req_rd;
+input [7:0]	req_q;
+//arm spi
+input spi_csn;
+input spi_sck;
+output	spi_miso;
+input		spi_mosi;
+//clk rst
+input clk_sys;
+input rst_n;
+//-----------------------------------
+//-----------------------------------
+
+reg [2:0] SCKr;  
+always @(posedge clk_sys) 
+	SCKr <= {SCKr[1:0], spi_sck};
+
+wire SCK_risingedge = (SCKr[2:1]==2'b01);  // now we can detect SCK rising edges
+wire SCK_fallingedge = (SCKr[2:1]==2'b10);  // and falling edges
+
+reg [3:0]  cnt_spi_bit;
+always @(negedge spi_sck or negedge rst_n)
+begin
+	if(~rst_n)	
+		 cnt_spi_bit <= 4'h0;
+
+	else if(cnt_spi_bit == 4'h7)
+	    cnt_spi_bit <= 4'h0;
+	else 
+			cnt_spi_bit <= cnt_spi_bit + 4'h1;
+
+end
+
+assign spi_miso = reg_q_lock[7];
+
+reg [7:0] reg_q_lock;
+
+always @(negedge spi_sck)
+begin
+   if(~rst_n)
+		reg_q_lock <= 8'h0;
+	else if(cnt_spi_bit == 4'h7)	
+	  begin
+		   reg_q_lock <= test_data_cnt; 
+			//reg_q_lock <= {reg_q_lock[6:0],1'b0};
+		end
+	else	
+	   begin
+			reg_q_lock <= {reg_q_lock[6:0],1'b0};
+		end
+end
+
+
+reg [7:0]test_data_cnt;
+always @(posedge spi_sck or negedge rst_n)
+begin
+	if(~rst_n)	
+		test_data_cnt <= 8'd0;
+	else if(cnt_spi_bit == 8'd0)
+	   test_data_cnt <= test_data_cnt + 8'd1;
+		
+end
+
+/*
+//---------- spi_filter ---------
+wire spi_csn_real;
+io_filter spi_cs_filter(
+.io_in(spi_csn),
+.io_real(spi_csn_real),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//--------- spi sck cap ---------
+reg spi_csn_reg;
+reg spi_sck_reg;
+reg spi_sck_reg2;
+always @ (posedge clk_sys)	begin
+	spi_csn_reg <= spi_csn_real;
+	spi_sck_reg <= spi_sck;
+	spi_sck_reg2 <= spi_sck_reg;
+end
+wire spi_csn_falling = spi_csn_reg & (~spi_csn_real);
+wire spi_sck_rasing = (~spi_sck_reg2) & spi_sck_reg & (~spi_csn_real);
+wire spi_sck_falling = spi_sck_reg2 & (~spi_sck_reg) & (~spi_csn_real);
+
+reg [3:0]  cnt_spi_bit;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)	
+		cnt_spi_bit <= 4'h0;
+	else if(spi_csn_real)
+		cnt_spi_bit <= 4'h0;
+	else if(spi_sck_rasing)	begin
+		if(cnt_spi_bit == 4'h7)
+			cnt_spi_bit <= 4'h0;
+		else 
+			cnt_spi_bit <= cnt_spi_bit + 4'h1;
+	end
+	else ;
+end
+	
+		
+//----------- req read -------------
+reg req_rd;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		req_rd <= 1'b0;
+	else 
+		req_rd <= (cnt_spi_bit == 4'h0) & spi_sck_falling;
+end
+
+reg req_rd_dly0;
+reg req_rd_dly1;
+reg req_rd_dly2;
+always @(posedge clk_sys) begin
+	req_rd_dly0 <= req_rd;
+	req_rd_dly1 <= req_rd_dly0;
+	req_rd_dly2 <= req_rd_dly1;
+end
+
+reg spi_sck_rasing_dly;
+
+always @(posedge clk_sys)	
+	spi_sck_rasing_dly <= spi_sck_rasing;
+
+
+reg [7:0] req_q_lock;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		req_q_lock <= 8'h0;
+	else if(req_rd_dly1 | spi_csn_falling)
+		req_q_lock <= req_q;
+	else ;
+end
+
+
+//------------- output miso -------------
+reg spi_csn_falling_dly;
+always @ (posedge clk_sys)
+	spi_csn_falling_dly <= spi_csn_falling;
+	
+reg miso;
+wire [2:0] next_spi_bit = cnt_spi_bit[2:0] + 3'h1;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		miso <= 1'b1;
+	else if( spi_csn_falling_dly | req_rd_dly2)	begin
+		case(cnt_spi_bit[2:0])
+			3'h0 : miso <= req_q_lock[7];
+			3'h1 : miso <= req_q_lock[6];
+			3'h2 : miso <= req_q_lock[5];
+			3'h3 : miso <= req_q_lock[4];
+			3'h4 : miso <= req_q_lock[3];
+			3'h5 : miso <= req_q_lock[2];
+			3'h6 : miso <= req_q_lock[1];
+			3'h7 : miso <= req_q_lock[0];
+			default :;
+		endcase		
+	end
+	else if(spi_sck_rasing)	begin
+		case(next_spi_bit)
+			3'h0 : miso <= req_q_lock[7];
+			3'h1 : miso <= req_q_lock[6];
+			3'h2 : miso <= req_q_lock[5];
+			3'h3 : miso <= req_q_lock[4];
+			3'h4 : miso <= req_q_lock[3];
+			3'h5 : miso <= req_q_lock[2];
+			3'h6 : miso <= req_q_lock[1];
+			3'h7 : miso <= req_q_lock[0];
+			default :;
+		endcase
+	end 
+	else ;
+end
+
+
+reg spi_miso;
+always @(posedge clk_sys)
+	spi_miso <= miso;
+*/
+
+endmodule
+
