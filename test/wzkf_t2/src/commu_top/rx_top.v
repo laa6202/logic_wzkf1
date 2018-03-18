@@ -3,6 +3,7 @@
 module rx_top(
 rx,
 rx_total,
+rx_error,
 tbit_period,
 tx_pattern,
 //clk rst
@@ -12,6 +13,7 @@ rst_n
 );
 input 				rx;
 output [31:0]	rx_total;
+output 				rx_error;
 input  [19:0]	tbit_period;
 input 				tx_pattern;
 //clk rst
@@ -34,6 +36,7 @@ rx_inf u_rx_phy(
 
 rx_ctrl u_rx_ctrl(
 .rx_total(rx_total),
+.rx_error(rx_error),
 .tx_pattern(tx_pattern),
 .rx_data(rx_data),
 .rx_vld(rx_vld),

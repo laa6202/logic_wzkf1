@@ -27,10 +27,12 @@ input rst_n;
 reg [15:0] data;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		data <= 16'h0;
-	else if(fire_tx)
-		data <= data_tx;
-	else ;
+		data <= 16'h1;
+	else if(fire_tx) begin
+//		data <= data_tx;
+		data[15:8] <= data[15:8] + 16'h2;
+		data[7:0]  <= data[7:0]	 + 16'h2;
+	end else ;
 end
 
 //---------- main FSM -----------
@@ -127,4 +129,5 @@ assign tx = (st_tx_phy == S_SF) ? data[15] :
 						(st_tx_phy == S_START ) ? 1'b0 : 1'b1;
 
 endmodule
+
 

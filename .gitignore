@@ -21,3 +21,10 @@
 /main/fpga_s/dev/greybox_tmp
 /ref/WZ_PCB/Project Logs for PCB_Project1
 /main/sim/tb_all/compile.log
+/test/wzkf_t2/dev/output_files/*.summary
+/test/wzkf_t2/dev/output_files/*.rpt
+/test/wzkf_t2/dev/output_files/*.smsg
+/test/wzkf_t2/dev/incremental_db
+/test/wzkf_t2/dev/db
+/test/wzkf_t2/dev/output_files/wzkf_t2.sld
+/test/wzkf_t2/dev/output_files/wzkf_t2.jdi

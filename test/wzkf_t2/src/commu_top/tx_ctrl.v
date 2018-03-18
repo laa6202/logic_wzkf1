@@ -1,5 +1,5 @@
 //tx_ctrl.v
-`define T_INIT 20'd100
+`define T_INIT 24'd100_000_00
 
 module tx_ctrl(
 fire_tx,
@@ -53,14 +53,14 @@ end
 
 
 //------- FSM init -----------
-reg [19:0] cnt_init;
+reg [23:0] cnt_init;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		cnt_init <= 20'h0;
+		cnt_init <= 24'h0;
 	else if(st_tx_mac == S_INIT)
-		cnt_init <= cnt_init + 20'h1;
+		cnt_init <= cnt_init + 24'h1;
 	else 
-		cnt_init <= 20'h0;
+		cnt_init <= 24'h0;
 end
 assign finish_init = (cnt_init == `T_INIT) ? 1'b1 : 1'b0;
 		

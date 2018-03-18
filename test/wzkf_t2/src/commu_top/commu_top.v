@@ -10,6 +10,7 @@ tbit_fre,
 tx_total,
 tx_pattern,
 rx_total,
+rx_error,
 now_send,
 //clk rst
 clk_sys,
@@ -22,6 +23,7 @@ input [15:0]	tbit_fre;
 input [31:0]	tx_total;
 input					tx_pattern;
 output[31:0]  rx_total;
+output rx_error;
 output now_send;
 //clk rst
 input clk_sys;
@@ -51,6 +53,7 @@ tx_top u_tx_top(
 rx_top u_rx_top(
 .rx(rx),
 .rx_total(rx_total),
+.rx_error(rx_error),
 .tbit_period(tbit_period),
 .tx_pattern(tx_pattern),
 //clk rst
