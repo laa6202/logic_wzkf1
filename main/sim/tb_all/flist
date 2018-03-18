@@ -89,6 +89,7 @@ tb.v
 //------------------------------------------------
 ../../fpga_m/src/top_m.v
 ../../fpga_m/src/fx_bus_m.v
+../../fpga_m/src/led_flash.v
 ../../fpga_m/src/base_ip/io_filter.v
 ../../fpga_m/src/base_ip/edge_det.v
 //../../fpga_m/src/clk_rst_top/clk_rst_top.v

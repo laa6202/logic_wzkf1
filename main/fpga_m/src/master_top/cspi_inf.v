@@ -1,5 +1,7 @@
 //cspi_inf.v
 
+`define NO_CSN
+
 module cspi_inf(
 //arm control spi
 cspi_csn,
@@ -78,8 +80,10 @@ wire wd_sck;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_sck <= 3'h0;
+`ifndef NO_CSN		
 	else if(csn)
 		cnt_sck <= 3'h0;
+`endif
 	else if(wd_sck)
 		cnt_sck <= 3'h0;
 	else if(sck_r)
@@ -145,6 +149,10 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 
+`ifndef NO_CSN		
 wire cspi_miso = csn | miso;
+`else
+wire cspi_miso = miso;
+`endif
 
 endmodule

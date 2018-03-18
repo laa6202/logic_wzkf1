@@ -145,6 +145,7 @@ top_m u_top_m(
 //gps inf
 .gps_pluse(gps_pluse),		
 //clk rst
+.led1(),
 .mclk0(mclk0),
 .mclk1(mclk1),
 .mclk2(mclk2),

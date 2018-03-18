@@ -78,7 +78,7 @@ set_location_assignment PIN_C22 -to pspi_sck
 #set_location_assignment PIN_B22 -to cspi_miso
 #set_location_assignment PIN_C21 -to cspi_mosi
 #set_location_assignment PIN_C22 -to cspi_sck
-set_location_assignment PIN_AA6 -to tx_syn
+set_location_assignment PIN_M1 -to tx_syn
 set_location_assignment PIN_AB5 -to rx_a
 set_location_assignment PIN_AB7 -to tx_ctrl
 set_location_assignment PIN_AA1 -to led1

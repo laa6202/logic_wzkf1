@@ -1,5 +1,9 @@
 //arm_ctrl_phy.v
 
+`define NO_CSN
+
+
+
 module arm_ctrl_phy(
 fire_cspi,
 done_cspi,
@@ -119,8 +123,13 @@ wire done_cspi = (st_actrl_phy == S_DONE) ? 1'b1 : 1'b0;
 
 	
 //--------- output spi bus --------
+`ifndef NO_CSN
 wire cspi_csn = (st_actrl_phy == S_IDLE) | (st_actrl_phy == S_DELAY) |
 								(st_actrl_phy == S_DONE);
+`else
+wire cspi_csn	= 1'b1;
+`endif
+
 wire cspi_sck = (st_actrl_phy != S_BIT) & (st_actrl_phy != S_LOW);
 
 reg [7:0] lock_set;
