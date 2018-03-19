@@ -20,7 +20,7 @@ mcu_sck,
 mcu_miso,
 mcu_mosi,
 mcu_sel,
-cfg_id,
+mcu_a,
 //clk rst
 mclk0,
 mclk1,
@@ -45,7 +45,7 @@ input mcu_sck;
 output mcu_miso;
 input mcu_mosi;
 input mcu_sel;
-input cfg_id;
+output [2:0]	mcu_a;
 //clk rst
 input mclk0;
 input mclk1;
@@ -99,6 +99,7 @@ control_top u_control_top(
 .mcu_mosi(mcu_mosi),
 .mcu_miso(mcu_miso),
 .mcu_sel(mcu_sel),
+.mcu_a(mcu_a),
 //bm data
 .bm_data(bm_data),
 .bm_vld(bm_vld),

@@ -29,9 +29,9 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		data <= 16'h1;
 	else if(fire_tx) begin
-//		data <= data_tx;
-		data[15:8] <= data[15:8] + 16'h2;
-		data[7:0]  <= data[7:0]	 + 16'h2;
+		data <= data_tx;
+//		data[15:8] <= data[15:8] + 16'h2;
+//		data[7:0]  <= data[7:0]	 + 16'h2;
 	end else ;
 end
 

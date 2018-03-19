@@ -17,6 +17,7 @@ mcu_sck,
 mcu_mosi,
 mcu_miso,
 mcu_sel,
+mcu_a,
 //bm path
 bm_data,
 bm_vld,
@@ -44,6 +45,7 @@ input mcu_sck;
 input mcu_mosi;
 output mcu_miso;
 input mcu_sel;
+output [2:0]	mcu_a;
 //bm path
 output [31:0]	bm_data;
 output 				bm_vld;
@@ -91,6 +93,7 @@ devid_gen u_devid(
 .spi_data(spi_data),
 .spi_vld(spi_vld),
 .mcu_sel(mcu_sel),
+.mcu_a(mcu_a),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
