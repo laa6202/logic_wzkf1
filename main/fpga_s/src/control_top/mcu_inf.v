@@ -131,15 +131,24 @@ assign spi_vld = sck_byte_reg[1];
 
 //---------- miso path -------------
 reg [7:0] lock_gset;
+wire dev_id_change;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		lock_gset <= 8'hff;
 	else if(spi_vld)
 		lock_gset <= dev_id;
+	else if(dev_id_change)
+		lock_gset <= dev_id;
 	else if(sck_f)
 		lock_gset <= {lock_gset[6:0],1'b0};
 	else ;
 end
+
+reg [7:0] dev_id_old;
+always @ (posedge clk_sys)
+	dev_id_old <= dev_id;
+assign dev_id_change = (dev_id_old != dev_id) ? 1'b1 : 1'b0;
+
 reg mcu_miso;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)

@@ -55,7 +55,7 @@ end
 reg [2:0] mcu_a;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		mcu_a <= 3'h7;
+		mcu_a <= 3'h4;
 	else if(case1)
 		mcu_a <= 3'h1;
 	else if(case2)
