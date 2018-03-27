@@ -1,4 +1,6 @@
 [ProjectGroup]
 Version=1.0
 [Project1]
-ProjectPath=PCB_Project1.PrjPCB
+ProjectPath=..\WZ_sPCB_1803xx\PCB_Project1.PrjPCB
+[Project2]
+ProjectPath=..\WZ_mPCB_1803xx\WZ_mBoard.PrjPcb
