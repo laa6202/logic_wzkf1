@@ -28,3 +28,6 @@
 /test/wzkf_t2/dev/db
 /test/wzkf_t2/dev/output_files/wzkf_t2.sld
 /test/wzkf_t2/dev/output_files/wzkf_t2.jdi
+/ref/WZ_sPCB_1803xx/History
+/ref/WZ_sPCB_1803xx/*.SchDocPreview
+/ref/WZ_mPCB_1803xx/History
