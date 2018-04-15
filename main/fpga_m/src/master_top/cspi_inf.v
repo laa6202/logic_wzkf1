@@ -1,6 +1,6 @@
 //cspi_inf.v
 
-`define NO_CSN
+//`define NO_CSN
 
 module cspi_inf(
 //arm control spi

@@ -9,6 +9,7 @@ buf_frm,
 arm_int_n,
 stu_buf_rdy,
 //clk rst
+debug,
 clk_sys,
 rst_n
 );
@@ -20,6 +21,7 @@ input 	buf_frm;
 output 	arm_int_n;
 output [7:0] stu_buf_rdy;
 //clk rst
+output debug;
 input clk_sys;
 input rst_n;
 //------------------------------------------
@@ -36,19 +38,35 @@ wire repk_frm_falling = repk_frm_reg & (~repk_frm);
 wire buf_frm_falling = buf_frm_reg & (~buf_frm);
 
 
-reg arm_int_n;
+reg arm_int;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		arm_int_n <= 1'b1;
+		arm_int <= 1'b0;
 	else if(buf_frm_falling)
-		arm_int_n <= 1'b1;
+		arm_int <= 1'b0;
 	else if(repk_frm_falling)
-		arm_int_n <= 1'b0;
+		arm_int <= 1'b1;
 	else ;
 end
+
+wire arm_int_n = ~arm_int;
 
 
 wire [7:0] stu_buf_rdy;
 assign stu_buf_rdy = arm_int_n ? 8'h0 : 8'hff;
+
+
+//----------- for debug ------------
+reg [9:0] cnt_repk_frm;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_repk_frm <= 10'h0;
+	else if(cnt_repk_frm  == 10'h3ff)
+		;
+	else if(buf_frm_falling)
+		cnt_repk_frm <= cnt_repk_frm + 10'h1;
+	else ;
+end
+wire debug = ^cnt_repk_frm;
 
 endmodule

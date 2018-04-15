@@ -28,7 +28,7 @@ always @ (posedge clk_sys)
 reg rx_real;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		rx_real <= 1'b1;
+		rx_real <= rx;	//maybe 0 or 1
 	else if(rx_reg == 8'hff)
 		rx_real <= 1'b1;
 	else if(rx_reg == 8'h0)

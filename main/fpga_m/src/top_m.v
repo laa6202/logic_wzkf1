@@ -10,6 +10,7 @@ cspi_csn,
 cspi_sck,
 cspi_miso,
 cspi_mosi,
+arm_int_n,
 //485 line
 tx_ctrl,
 tx_syn,
@@ -36,6 +37,7 @@ input 	cspi_csn;
 input 	cspi_sck;
 output	cspi_miso;
 input		cspi_mosi;
+output  arm_int_n;
 //485 line
 output 	tx_ctrl;
 output 	tx_syn;
