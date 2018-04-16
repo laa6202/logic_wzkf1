@@ -7,9 +7,11 @@ tp_vld,
 //configuration
 cfg_sample,
 cfg_ad_tp,
+cfg_ad_fix,
 cfg_tp_base,
 cfg_tp_step,
 //clk rst
+mod_id,
 clk_sys,
 rst_n
 );
@@ -18,9 +20,11 @@ output				tp_vld;
 //configuration
 input [7:0]	cfg_sample;
 input [7:0]	cfg_ad_tp;
+input [23:0]cfg_ad_fix;
 input [23:0]cfg_tp_base;
 input [7:0]	cfg_tp_step;
 //clk rst
+input [5:0] mod_id;
 input clk_sys;
 input rst_n;
 //--------------------------------------
@@ -67,7 +71,10 @@ wire period_vld = (cnt_cycle == (tp_period - 24'h1)) ? 1'b1 : 1'b0;
 
 
 //----------- test pattern output -----------
-wire [23:0] tp1_data = 24'h111111;
+wire [23:0] tp1_data = 	(mod_id[1:0] == 2'h1) ? 24'h111111 :
+												(mod_id[1:0] == 2'h2) ? 24'h222222 :
+												(mod_id[1:0] == 2'h3) ? 24'h333333 : 24'h999999;
+wire [23:0] tp3_data = cfg_ad_fix;
 reg [23:0] tp2_data;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -87,7 +94,8 @@ always @(posedge clk_sys or negedge rst_n)	begin
 end
 wire [23:0] tp_data;
 assign tp_data = 	(cfg_ad_tp == 8'h1) ? tp1_data :
-									(cfg_ad_tp == 8'h2) ? tp2_data : 24'h555555;
+									(cfg_ad_tp == 8'h2) ? tp2_data : 
+									(cfg_ad_tp == 8'h3) ? tp3_data : 24'h555555;
 
 
 endmodule

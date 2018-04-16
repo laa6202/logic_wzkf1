@@ -24,9 +24,7 @@ ad_vld,
 ad_sync_in,//每隔1s输入一个负脉冲同步信号，此信号用于同步所有的AD7195芯片
 //clk rst
 clk_sys,
-rst_n,
-//debug
-debug
+rst_n
 );
 
 //adc interface
@@ -43,8 +41,7 @@ input ad_sync_in;
 //clk rst
 input clk_sys;
 input rst_n;
-//debug
-output debug;
+
 
 //--------------------------------------------------------
 //--------------------------------------------------------
@@ -105,6 +102,7 @@ reg [3:0] st_ad_p1;
 reg [15:0] cnt_config;
 wire sample_fire;
 reg [7:0] cnt_sample;
+reg [15:0]ad_vld_cnt;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		st_ad_p1 <= S_INIT;
@@ -477,7 +475,7 @@ end
 
 
 
-reg [15:0]ad_vld_cnt;
+//reg [15:0]ad_vld_cnt;
 always @(posedge clk_sys or negedge rst_n)
 begin
 	if(~rst_n)

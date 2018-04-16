@@ -86,6 +86,7 @@ assign ad_mclk   = clk_2M;
 
 wire [7:0]	cfg_sample;
 wire [7:0]	cfg_ad_tp;
+wire [23:0] cfg_ad_fix;
 wire [23:0]	cfg_tp_base;
 wire [7:0]	cfg_tp_step;
 ad_reg u_ad_reg(
@@ -100,6 +101,7 @@ ad_reg u_ad_reg(
 //configuration
 .cfg_sample(cfg_sample),
 .cfg_ad_tp(cfg_ad_tp),
+.cfg_ad_fix(cfg_ad_fix),
 .cfg_tp_base(cfg_tp_base),
 .cfg_tp_step(cfg_tp_step),
 //clk rst
@@ -130,49 +132,6 @@ ad_sample u_ad_sample(
 );
 
 
-/*
-//测试每秒同步一次ad_sample 模块
-reg [15:0]cnt_sync;
-always @(posedge clk_sys or negedge rst_n)
-begin
-	if(~rst_n)
-		cnt_sync <= 16'd0;
-	else if(cnt_sync < 16'd1999)
-	begin
-		if(real_vld)
-			cnt_sync <= cnt_sync + 16'd1;
-	end
-	else
-		cnt_sync <= 16'd0;
-end
-
-
-always @ (posedge clk_sys or negedge rst_n)
-begin
-	if(~rst_n)
-		ad_sync_1s <= 1'b1;
-	else 
-	begin
-	if(cnt_sync == 16'd1999)
-		ad_sync_1s <= 1'b0;
-	if(cnt_dly > 16'd1000)
-		ad_sync_1s <= 1'b1;
-	end
-end
-
-reg [15:0]cnt_dly;
-always @ (posedge clk_sys or negedge rst_n)
-begin
-	if(~rst_n)
-		cnt_dly <= 16'd0;
-	else if(~ad_sync_1s)
-		cnt_dly <= cnt_dly + 16'd1;
-	else
-	    cnt_dly <= 16'd0;
-end
-
-//测试每秒同步一次ad_sample 模块结束
-*/
 
 //----------- ad_tp --------
 wire [23:0]	tp_data;
@@ -183,9 +142,11 @@ ad_tp u_ad_tp(
 //configuration
 .cfg_sample(cfg_sample),
 .cfg_ad_tp(cfg_ad_tp),
+.cfg_ad_fix(cfg_ad_fix),
 .cfg_tp_base(cfg_tp_base),
 .cfg_tp_step(cfg_tp_step),
 //clk rst
+.mod_id(mod_id),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
