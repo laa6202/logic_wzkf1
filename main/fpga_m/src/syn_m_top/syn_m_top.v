@@ -5,6 +5,9 @@ tx_syn,
 fire_sync,
 //gps inf
 gps_pluse,
+mcu_csn,
+mcu_sck,
+mcu_mosi,
 //clk rst
 clk_sys,
 pluse_us,
@@ -14,12 +17,31 @@ output	tx_syn;
 output 	fire_sync;
 //gps inf
 input		gps_pluse;
+input 	mcu_csn;
+input 	mcu_sck;
+input 	mcu_mosi;
 //clk rst
 input clk_sys;
 input pluse_us;
 input rst_n;
 //-------------------------------------------
 //-------------------------------------------
+
+wire [7:0] 	spi_data;
+wire 				spi_vld;
+mcuspi_inf u_gps_spi(
+//mcu spi
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_mosi(mcu_mosi),
+//internal control path
+.spi_data(spi_data),
+.spi_vld(spi_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
 
 wire fire_sync;
 wire fire_info;

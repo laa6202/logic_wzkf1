@@ -1,5 +1,9 @@
 //commu_m_main.v
 
+//3秒ARM无响应，清理一次缓存的包，再发一次边沿中断
+`define WD_ARM_HIGH 32'd3_000_000_00
+
+
 module commu_m_main(
 fire_push,
 done_push,
@@ -39,15 +43,45 @@ wire buf_frm_falling = buf_frm_reg & (~buf_frm);
 
 
 reg arm_int;
+wire rst_delay_now;
+wire wd_arm_high;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
+		arm_int <= 1'b0;
+	else if(rst_delay_now)
 		arm_int <= 1'b0;
 	else if(buf_frm_falling)
 		arm_int <= 1'b0;
 	else if(repk_frm_falling)
 		arm_int <= 1'b1;
+	else if(wd_arm_high)
+		arm_int <= 1'b0;
 	else ;
 end
+
+
+//---------- protect for por and wd ---------
+reg [31:0] cnt_por;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_por <= 32'h0;
+	else if(cnt_por == 32'hffff_ffff)
+		cnt_por <= 32'hffff_ffff;
+	else 
+		cnt_por <= cnt_por + 32'h1;
+end
+assign rst_delay_now = (cnt_por < 32'd100_000_00) ? 1'b1 :1'b0;
+reg [31:0] cnt_wd;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_wd <= 32'b0;
+	else if(arm_int == 1'b1)
+		cnt_wd <= cnt_wd + 32'h1;
+	else 
+		cnt_wd <= 32'h0;
+end
+assign wd_arm_high = (cnt_wd == 32'd3_140_000_00) ? 1'b1 :1'b0;
+
 
 wire arm_int_n = ~arm_int;
 

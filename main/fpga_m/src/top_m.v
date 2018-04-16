@@ -18,6 +18,9 @@ rx_a,
 rx_b,
 //syn pluse from GPS
 gps_pluse,
+mcu_csn,
+mcu_sck,
+mcu_mosi,
 //clk rst
 mclk0,
 mclk1,
@@ -45,7 +48,9 @@ input 	rx_a;
 input		rx_b;
 //syn pluse from GPS
 input gps_pluse;
-
+input 	mcu_csn;
+input 	mcu_sck;
+input 	mcu_mosi;
 //clk rst
 input	mclk0;
 input	mclk1;
@@ -135,6 +140,9 @@ syn_m_top u_syn_m(
 .fire_sync(fire_sync),
 //gps inf
 .gps_pluse(gps_pluse),
+.mcu_csn(mcu_csn),
+.mcu_sck(mcu_sck),
+.mcu_mosi(mcu_mosi),
 //clk rst
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
