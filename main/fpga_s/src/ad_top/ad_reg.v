@@ -65,7 +65,7 @@ reg [7:0] cfg_dbg7;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)	begin
 		cfg_sample <= 8'd20;
-		cfg_ad_tp <= 8'd2;
+		cfg_ad_tp <= 8'd0;
 		cfg_tp_base <= 24'h0;
 		cfg_tp_step <= 8'h1;
 		cfg_dbg0 <= 8'h80;

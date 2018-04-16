@@ -21,6 +21,7 @@ mod_id,
 //configuration
 cfg_sample,
 //clk rst
+syn_vld,
 clk_sys,
 pluse_us,
 rst_n
@@ -46,6 +47,7 @@ input [5:0]		mod_id;
 //configuration
 output [7:0]	cfg_sample;
 //clk rst
+input syn_vld;
 input clk_sys;
 input pluse_us;
 input rst_n;
@@ -56,15 +58,18 @@ input rst_n;
 //---------- ad_clk_gen ----------
 wire clk_2kHz;
 wire clk_2_5M;
+wire clk_5M;
 ad_clk_gen   u_ad_clk_gen(
 //clk rst
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
 .rst_n(rst_n),
+.clk_2M(clk_2M),
 .clk_2_5M(clk_2_5M),
+.clk_5M(clk_5M),
 .clk_2kHz(clk_2kHz)
 );
-assign ad_mclk   = clk_2_5M;
+assign ad_mclk   = clk_2M;
 
 
 wire [7:0]	cfg_sample;
@@ -93,24 +98,69 @@ ad_reg u_ad_reg(
 
 //---------- ad_sample ----------
 wire [23:0]	real_data;
-wire				real_vld;
+wire	real_vld;
+reg ad_sync_1s;
 ad_sample u_ad_sample(
 //adc interface
-.ad_clk_in(clk_2_5M),
-.ad_clk(ad_clk),
-.clk_2kHz(clk_2kHz),
-.ad_din(ad_din),
-.ad_cfg(ad_cfg),
-.ad_sync(ad_sync),
+.ad_clk_in(clk_2_5M),//系统产生2.5M时钟，输入到此模块
+.ad_clk(ad_clk),//ad_clk = ad_clk_in | ad_clk_vld ,//将系统产生的2.5M信号定时送到AD7195的clk引脚
+.clk_2kHz(clk_2kHz),//no use
+.ad_din(ad_din),//AD7195的串行数据输出引脚
+.ad_cfg(ad_cfg),//AD7195的串行配置引脚
+.ad_sync(ad_sync),//AD7195的同步引脚
 //data path
 .ad_data(real_data),
 .ad_vld(real_vld),
+.ad_sync_in(ad_sync_1s),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
 
 
+/*
+//测试每秒同步一次ad_sample 模块
+reg [15:0]cnt_sync;
+always @(posedge clk_sys or negedge rst_n)
+begin
+	if(~rst_n)
+		cnt_sync <= 16'd0;
+	else if(cnt_sync < 16'd1999)
+	begin
+		if(real_vld)
+			cnt_sync <= cnt_sync + 16'd1;
+	end
+	else
+		cnt_sync <= 16'd0;
+end
+
+
+always @ (posedge clk_sys or negedge rst_n)
+begin
+	if(~rst_n)
+		ad_sync_1s <= 1'b1;
+	else 
+	begin
+	if(cnt_sync == 16'd1999)
+		ad_sync_1s <= 1'b0;
+	if(cnt_dly > 16'd1000)
+		ad_sync_1s <= 1'b1;
+	end
+end
+
+reg [15:0]cnt_dly;
+always @ (posedge clk_sys or negedge rst_n)
+begin
+	if(~rst_n)
+		cnt_dly <= 16'd0;
+	else if(~ad_sync_1s)
+		cnt_dly <= cnt_dly + 16'd1;
+	else
+	    cnt_dly <= 16'd0;
+end
+
+//测试每秒同步一次ad_sample 模块结束
+*/
 
 //----------- ad_tp --------
 wire [23:0]	tp_data;

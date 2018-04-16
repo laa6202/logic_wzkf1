@@ -3,11 +3,21 @@
 
 module top_s(
 //adc interface
-ad_mclk,
-ad_clk,
-ad_din,
-ad_cfg,
-ad_sync,
+ad1_mclk,
+ad1_clk,
+ad1_din,
+ad1_cfg,
+ad1_sync,
+ad2_mclk,
+ad2_clk,
+ad2_din,
+ad2_cfg,
+ad2_sync,
+ad3_mclk,
+ad3_clk,
+ad3_din,
+ad3_cfg,
+ad3_sync,
 //485 line
 rx_ctrl,
 rx_syn,
@@ -28,11 +38,21 @@ mclk2,
 hrst_n
 );
 //adc interface
-output ad_mclk;
-output ad_clk;
-input ad_din;
-output ad_cfg;
-output ad_sync;
+output ad1_mclk;
+output ad1_clk;
+input  ad1_din;
+output ad1_cfg;
+output ad1_sync;
+output ad2_mclk;
+output ad2_clk;
+input  ad2_din;
+output ad2_cfg;
+output ad2_sync;
+output ad3_mclk;
+output ad3_clk;
+input  ad3_din;
+output ad3_cfg;
+output ad3_sync;
 //485 line
 input		rx_ctrl;
 input		rx_syn;
@@ -115,8 +135,8 @@ control_top u_control_top(
 
 wire [7:0] fx_q_syn;
 wire [7:0] fx_q_ad1;
-wire [7:0] fx_q_ad2 = 8'h0;
-wire [7:0] fx_q_ad3 = 8'h0;
+wire [7:0] fx_q_ad2;
+wire [7:0] fx_q_ad3;
 wire [7:0] fx_q_dsp;
 wire [7:0] fx_q_pack;
 wire [7:0] fx_q_ep;
@@ -142,11 +162,12 @@ fx_bus u_fx_bus(
 wire [31:0] utc_sec;
 wire [31:0]	now_ns;
 wire [7:0] stu_err_syn;
-
+wire				syn_vld;
 syn_top u_syn_top(
 .rx_syn(rx_syn),
 .utc_sec(utc_sec),
 .now_ns(now_ns),
+.syn_vld(syn_vld),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),
@@ -165,20 +186,20 @@ syn_top u_syn_top(
 wire [7:0]	cfg_sample;
 wire [23:0]	ad1_data;
 wire				ad1_vld; 
-wire [23:0]	ad2_data = 24'h222222;
-wire				ad2_vld = ad1_vld;  
-wire [23:0]	ad3_data = 24'h333333;
-wire				ad3_vld = ad1_vld;  
+wire [23:0]	ad2_data;
+wire				ad2_vld;  
+wire [23:0]	ad3_data;
+wire				ad3_vld;  
 ad_top ad1_top(
 //data path output
 .ad_data(ad1_data),		
 .ad_vld(ad1_vld),
 //adc interface
-.ad_mclk(ad_mclk),
-.ad_clk(ad_clk),
-.ad_din(ad_din),
-.ad_cfg(ad_cfg),
-.ad_sync(ad_sync),
+.ad_mclk(ad1_mclk),
+.ad_clk(ad1_clk),
+.ad_din(ad1_din),
+.ad_cfg(ad1_cfg),
+.ad_sync(ad1_sync),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),
@@ -190,6 +211,61 @@ ad_top ad1_top(
 //configuration
 .cfg_sample(cfg_sample),
 //clk rst
+.syn_vld(syn_vld),
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
+);
+
+ad_top ad2_top(
+//data path output
+.ad_data(ad2_data),		
+.ad_vld(ad2_vld),
+//adc interface
+.ad_mclk(ad2_mclk),
+.ad_clk(ad2_clk),
+.ad_din(ad2_din),
+.ad_cfg(ad2_cfg),
+.ad_sync(ad2_sync),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_ad2),
+.mod_id(6'h12),
+//configuration
+.cfg_sample(),
+//clk rst
+.syn_vld(syn_vld),
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
+);
+
+ad_top ad3_top(
+//data path output
+.ad_data(ad3_data),		
+.ad_vld(ad3_vld),
+//adc interface
+.ad_mclk(ad3_mclk),
+.ad_clk(ad3_clk),
+.ad_din(ad3_din),
+.ad_cfg(ad3_cfg),
+.ad_sync(ad3_sync),
+//fx bus
+.fx_waddr(fx_waddr),
+.fx_wr(fx_wr),
+.fx_data(fx_data),
+.fx_rd(fx_rd),
+.fx_raddr(fx_raddr),
+.fx_q(fx_q_ad3),
+.mod_id(6'h13),
+//configuration
+.cfg_sample(),
+//clk rst
+.syn_vld(syn_vld),
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
 .rst_n(rst_n)

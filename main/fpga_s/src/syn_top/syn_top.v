@@ -4,6 +4,7 @@ module syn_top(
 rx_syn,
 utc_sec,
 now_ns,
+syn_vld,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -19,6 +20,7 @@ rst_n
 input	rx_syn;
 output [31:0]	utc_sec;
 output [31:0]	now_ns;
+output 				syn_vld;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
