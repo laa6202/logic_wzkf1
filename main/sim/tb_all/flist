@@ -48,6 +48,7 @@ tb.v
 ../../fpga_s/src/syn_top/syn_reg.v
 ../../fpga_s/src/ad_top/ad_top.v
 ../../fpga_s/src/ad_top/ad_clk_gen.v
+../../fpga_s/src/ad_top/ad_syn_gen.v
 ../../fpga_s/src/ad_top/ad_reg.v
 ../../fpga_s/src/ad_top/ad_sample.v
 ../../fpga_s/src/ad_top/ad_tp.v

@@ -1,14 +1,21 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_main/cnt_repk_frm
-add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_main/repk_frm
-add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_main/buf_frm
-add wave -noupdate /tb/u_top_m/u_commu_m/u_commu_m_main/rst_n
-add wave -noupdate /tb/u_top_m/u_fetch_top/u_fetch_inf/rx
-add wave -noupdate /tb/u_top_m/u_fetch_top/u_fetch_inf/rx_vld
-add wave -noupdate /tb/u_top_m/u_fetch_top/u_fetch_inf/rx_data
+add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/ad_sync_1sn
+add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/syn_vld
+add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/clk_sys
+add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/rst_n
+add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/st_ad_syn
+add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/finish_syn
+add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/cnt_syn
+add wave -noupdate /tb/top_s1/u_syn_top/rx_syn
+add wave -noupdate /tb/top_s1/u_syn_top/utc_sec
+add wave -noupdate /tb/top_s1/u_syn_top/now_ns
+add wave -noupdate /tb/top_s1/u_syn_top/syn_vld
+add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/st_rx_phy
+add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/rx_falling
+add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/finish_bit
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {5806 ns} 0}
+WaveRestoreCursors {{Cursor 1} {23364 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 318
 configure wave -valuecolwidth 100
@@ -24,4 +31,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {10500 ns}
+WaveRestoreZoom {15333 ns} {28305 ns}

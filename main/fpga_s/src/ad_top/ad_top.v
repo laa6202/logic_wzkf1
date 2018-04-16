@@ -55,6 +55,18 @@ input rst_n;
 //--------------------------------------
 
 
+
+//---------- ad_syn -------------
+wire ad_syn_1sn;
+ad_syn_gen u_ad_syn_gen(
+.ad_sync_1sn(ad_syn_1sn),
+//clk rst
+.syn_vld(syn_vld),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
 //---------- ad_clk_gen ----------
 wire clk_2kHz;
 wire clk_2_5M;
@@ -99,7 +111,7 @@ ad_reg u_ad_reg(
 //---------- ad_sample ----------
 wire [23:0]	real_data;
 wire	real_vld;
-reg ad_sync_1s;
+wire ad_sync_1s = ad_syn_1sn;
 ad_sample u_ad_sample(
 //adc interface
 .ad_clk_in(clk_2_5M),//系统产生2.5M时钟，输入到此模块

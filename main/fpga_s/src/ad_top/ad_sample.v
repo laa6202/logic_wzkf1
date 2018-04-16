@@ -8,7 +8,7 @@
 
 `define CFG_REG8D		8'h08
 `define CFG_REG8E		8'h48
-`define CFG_REG24B	24'h088002 //24'h088001--4.8KHz  24'h088002--2.4KHz 24'h088004--1.2kHz
+`define CFG_REG24B	24'h088004 //24'h088001--4.8KHz  24'h088002--2.4KHz 24'h088004--1.2kHz
 
 module ad_sample(
 //adc interface
@@ -115,7 +115,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 			S_AD_RESET : 	st_ad_p1 <= finish_rst ? S_AD_UNRST : S_AD_RESET;
 			S_AD_UNRST :  st_ad_p1 <= finish_unrst ? S_AD_CONFIG : S_AD_UNRST;
 			S_AD_CONFIG : st_ad_p1 <= (cnt_config > 16'd1250) ? S_AD_RESET_DLY : S_AD_CONFIG;
-			S_AD_RESET_DLY : st_ad_p1 <= ad_din_falling ? S_AD_SAMPLE : S_AD_RESET_DLY;
+			S_AD_RESET_DLY : st_ad_p1 <= (ad_din_falling & (ad_vld_cnt<16'd3000))? S_AD_SAMPLE : S_AD_RESET_DLY;
 			S_AD_SAMPLE : st_ad_p1 <= finish_sample ? S_DATA_PUSH : S_AD_SAMPLE;
 			S_DATA_PUSH : st_ad_p1 <= S_AD_RESET_DLY;
 			default : st_ad_p1 <= S_IDLE;
@@ -476,6 +476,20 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 
 
+
+reg [15:0]ad_vld_cnt;
+always @(posedge clk_sys or negedge rst_n)
+begin
+	if(~rst_n)
+		ad_vld_cnt <= 16'd0;
+	else if(~ad_sync_in)
+		ad_vld_cnt <= 16'd0;
+	else if((ad_vld)&(ad_vld_cnt < 16'd3000))
+		ad_vld_cnt <= ad_vld_cnt + 16'd1;
+	else 
+	    ;
+		
+end
 
 
 
