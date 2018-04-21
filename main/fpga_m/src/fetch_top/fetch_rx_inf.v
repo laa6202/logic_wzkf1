@@ -145,8 +145,10 @@ end
 
 reg [15:0] rx_data;
 reg rx_vld;
-always @ (posedge clk_sys)	
-	rx_vld <= (st_rx_phy == S_DONE) ? 1'b1 : 1'b0;
+always @ (posedge clk_sys)	begin
+	//rx_vld <= (st_rx_phy == S_DONE) ? 1'b1 : 1'b0;
+	rx_vld <= (st_rx_phy == S_DONE) ? rx_real : 1'b0;
+end
 	
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
