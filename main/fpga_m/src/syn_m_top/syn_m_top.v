@@ -27,6 +27,8 @@ input rst_n;
 //-------------------------------------------
 //-------------------------------------------
 
+
+//---------- mcuspi ----------
 wire [7:0] 	spi_data;
 wire 				spi_vld;
 mcuspi_inf u_gps_spi(
@@ -42,7 +44,18 @@ mcuspi_inf u_gps_spi(
 .rst_n(rst_n)
 );
 
+wire [31:0] utc_sec_gps;
+mcuspi_mac u_spi_mac(
+.utc_sec_gps(utc_sec_gps),
+.spi_data(spi_data),
+.spi_vld(spi_vld),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
+
+//---------- syn ----------
 wire fire_sync;
 wire fire_info;
 syn_m_main u_syn_m_main(
@@ -72,6 +85,7 @@ syn_m_info u_syn_m_info(
 .tx_info(tx_info),
 .fire_sync(fire_sync),
 .fire_info(fire_info),
+.utc_sec_gps(utc_sec_gps),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)

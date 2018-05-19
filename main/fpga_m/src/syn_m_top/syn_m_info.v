@@ -4,6 +4,7 @@ module syn_m_info(
 tx_info,
 fire_sync,
 fire_info,
+utc_sec_gps,
 //clk rst
 clk_sys,
 rst_n
@@ -12,12 +13,22 @@ rst_n
 output	tx_info;
 input		fire_sync;
 input 	fire_info;
+input [31:0]	utc_sec_gps;
 //clk rst
 input clk_sys;
 input rst_n;
 //------------------------------------------
 //------------------------------------------
 
+
+reg utc_sec_gps_old;
+always @ (posedge clk_sys)	begin
+	if(fire_sync)
+		utc_sec_gps_old <= utc_sec_gps;
+	else ;
+end
+wire utc_sec_gps_change = (utc_sec_gps != utc_sec_gps_old) ? 1'b1 : 1'b0;	
+		
 
 //----------- utc secord register --------
 reg [31:0]	utc_sec;
@@ -28,9 +39,12 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 `else
 		utc_sec <= 32'h0;
 `endif
-	//else if()			//update from gps_setting
-	else if(fire_sync)
-		utc_sec <= utc_sec + 32'h1;
+	else if(fire_sync) begin
+		if((utc_sec_gps > 32'h00B70000) & utc_sec_gps_change)
+			utc_sec <= utc_sec_gps + 32'h1;		//modify 1s as mac delay 1s
+		else 
+			utc_sec <= utc_sec + 32'h1;
+	end
 	else ;
 end
 
