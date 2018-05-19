@@ -8,7 +8,7 @@
 
 `define CFG_REG8D		8'h08
 `define CFG_REG8E		8'h48
-`define CFG_REG24B	24'h088004 //24'h088001--4.8KHz  24'h088002--2.4KHz 24'h088004--1.2kHz
+`define CFG_REG24B	24'h040001 //24'h088001--4.8KHz  24'h088002--2.4KHz 24'h088004--1.2kHz
 
 module ad_sample(
 //adc interface
