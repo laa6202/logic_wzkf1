@@ -24,6 +24,9 @@ rx_syn,
 tx_a,
 te_a,
 re_a,
+tx_b,
+te_b,
+re_b,
 //mcu port
 mcu_csn,
 mcu_sck,
@@ -59,6 +62,9 @@ input		rx_syn;
 output	tx_a;
 output	te_a;
 output	re_a;
+output	tx_b;
+output	te_b;
+output	re_b;
 //mcu port
 input mcu_csn;
 input mcu_sck;
@@ -377,6 +383,9 @@ commu_top u_commu_top(
 .tx_a(tx_a),
 .te_a(te_a),
 .re_a(re_a),
+.tx_b(tx_b),
+.te_b(te_b),
+.re_b(re_b),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),

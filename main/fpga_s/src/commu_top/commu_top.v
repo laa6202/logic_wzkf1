@@ -8,6 +8,9 @@ pk_frm,
 tx_a,
 te_a,
 re_a,
+tx_b,
+te_b,
+re_b,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -33,6 +36,9 @@ input 			pk_frm;
 output	tx_a;
 output	te_a;
 output	re_a;
+output	tx_b;
+output	te_b;
+output	re_b;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;
@@ -269,6 +275,9 @@ dir_gen u_dir_gen(
 .rst_n(rst_n)
 );
 
+wire te_b = 1'b0;
+wire re_b = 1'b1;
+wire tx_b = 1'bz;
 
 
 endmodule
