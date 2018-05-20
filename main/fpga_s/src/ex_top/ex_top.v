@@ -7,6 +7,7 @@ mcu_csn,
 mcu_sck,
 mcu_mosi,
 mcu_sel,
+mcu_csn2,
 cfg_id,
 //fx bus
 fx_waddr,
@@ -26,6 +27,7 @@ input mcu_csn;
 input mcu_sck;
 input mcu_mosi;
 input mcu_sel;
+input mcu_csn2;
 input cfg_id;
 //fx_bus
 input 				fx_wr;
@@ -80,6 +82,7 @@ ex_push u_ex_push(
 .spi_data(spi_data),
 .spi_vld(spi_vld),
 .mcu_sel(mcu_sel),
+.mcu_csn2(mcu_csn2),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
