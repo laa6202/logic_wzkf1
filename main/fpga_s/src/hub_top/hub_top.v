@@ -22,10 +22,14 @@ input rst_n;
 wire tx_recovry;
 wire [19:0] tbit_period = 20'd20;
 
+reg rx;
+always @(posedge clk_sys)
+	rx <= rx_a;
+
 wire [15:0]	rx_data;
 wire				rx_vld;
 fetch_rx_inf u_hub_rx(
-.rx(rx_a),
+.rx(rx),
 .tbit_period(tbit_period),
 .rx_vld(rx_vld),
 .rx_data(rx_data),
