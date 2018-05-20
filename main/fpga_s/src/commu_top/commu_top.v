@@ -254,6 +254,7 @@ commu_tx_inf u_commu_tx_inf(
 .fire_tx(fire_tx),
 .done_tx(done_tx),
 .data_tx(data_tx),
+//.data_tx(16'hff00),
 .tbit_period(tbit_period),
 //clk rst
 .clk_sys(clk_sys),

@@ -1,21 +1,26 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/ad_sync_1sn
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/syn_vld
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/clk_sys
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/rst_n
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/st_ad_syn
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/finish_syn
-add wave -noupdate /tb/top_s1/ad1_top/u_ad_syn_gen/cnt_syn
-add wave -noupdate /tb/top_s1/u_syn_top/rx_syn
-add wave -noupdate /tb/top_s1/u_syn_top/utc_sec
-add wave -noupdate /tb/top_s1/u_syn_top/now_ns
-add wave -noupdate /tb/top_s1/u_syn_top/syn_vld
-add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/st_rx_phy
-add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/rx_falling
-add wave -noupdate /tb/top_s1/u_syn_top/u_rx_syn_phy/finish_bit
+add wave -noupdate /tb/top_s1/u_commu_top/pk_data
+add wave -noupdate /tb/top_s1/u_commu_top/pk_vld
+add wave -noupdate /tb/top_s1/u_commu_top/pk_frm
+add wave -noupdate /tb/top_s1/u_commu_top/tx_commu
+add wave -noupdate /tb/top_s1/u_hub_top/tx_a
+add wave -noupdate /tb/top_s1/u_hub_top/rx_a
+add wave -noupdate /tb/top_s1/u_hub_top/re_a
+add wave -noupdate /tb/top_s1/u_hub_top/tx_a_local
+add wave -noupdate /tb/top_s1/u_hub_top/clk_sys
+add wave -noupdate /tb/top_s1/u_hub_top/rst_n
+add wave -noupdate /tb/top_s2/u_commu_top/tx_a
+add wave -noupdate /tb/top_s1/u_hub_top/rx_data
+add wave -noupdate /tb/top_s1/u_hub_top/rx_vld
+add wave -noupdate /tb/top_s1/u_hub_top/u_hub_tx/tx
+add wave -noupdate /tb/top_s1/u_hub_top/u_hub_tx/fire_tx
+add wave -noupdate /tb/top_s1/u_hub_top/u_hub_tx/done_tx
+add wave -noupdate /tb/top_s1/u_hub_top/u_hub_tx/data_tx
+add wave -noupdate /tb/top_s1/u_hub_top/tx_recovry
+add wave -noupdate /tb/top_s2/u_hub_top/tx_recovry
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {23364 ns} 0}
+WaveRestoreCursors {{Cursor 1} {132757 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 318
 configure wave -valuecolwidth 100
@@ -31,4 +36,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {15333 ns} {28305 ns}
+WaveRestoreZoom {123177 ns} {134768 ns}

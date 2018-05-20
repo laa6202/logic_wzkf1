@@ -42,7 +42,11 @@ assign case2 = fx_wr & (fx_waddr == 16'h0);
 reg [7:0]	dev_id;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
+`ifdef SIM
+		dev_id <= 8'h1;
+`else
 		dev_id <= 8'hff;
+`endif
 	else if(spi_vld & (~mcu_sel))
 		dev_id <= spi_data;
 	else if(fx_wr & (fx_waddr == 16'h0))

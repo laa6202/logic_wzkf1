@@ -24,9 +24,11 @@ rx_syn,
 tx_a,
 te_a,
 re_a,
+rx_a,
 tx_b,
 te_b,
 re_b,
+rx_b,
 //mcu port
 mcu_csn,
 mcu_sck,
@@ -62,9 +64,11 @@ input		rx_syn;
 output	tx_a;
 output	te_a;
 output	re_a;
+input		rx_a;
 output	tx_b;
 output	te_b;
 output	re_b;
+input		rx_b;
 //mcu port
 input mcu_csn;
 input mcu_sck;
@@ -375,15 +379,17 @@ pack_top u_pack_top(
 
 
 //----------- commu_top ----------
+wire tx_a_local;
+wire tx_b_local;
 commu_top u_commu_top(
 //data path
 .pk_data(pk_data),
 .pk_vld(pk_vld),
 .pk_frm(pk_frm),
-.tx_a(tx_a),
+.tx_a(tx_a_local),
 .te_a(te_a),
 .re_a(re_a),
-.tx_b(tx_b),
+.tx_b(tx_b_local),
 .te_b(te_b),
 .re_b(re_b),
 //fx bus
@@ -405,6 +411,16 @@ commu_top u_commu_top(
 );
 
 
+//------------ hub_top -------------
+hub_top u_hub_top(
+.tx_a(tx_a),
+.re_a(re_a),
+.rx_a(rx_a),
+.tx_a_local(tx_a_local),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule

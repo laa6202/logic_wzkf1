@@ -155,8 +155,8 @@ top_m u_top_m(
 );
 
 
-wire tx_a0,tx_a1;
-wire de_a0,de_a1;
+wire tx_a0,rx_a0;
+wire de_a0;
 top_s top_s1(
 //adc interface
 .ad1_mclk(ad_mclk),
@@ -180,6 +180,11 @@ top_s top_s1(
 .tx_a(tx_a0),
 .te_a(),
 .re_a(),
+.rx_a(rx_a0),
+.tx_b(),
+.te_b(),
+.re_b(),
+.rx_b(),
 //mcu port
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
@@ -195,6 +200,8 @@ top_s top_s1(
 );
 
 
+wire tx_a1,rx_a1;
+wire de_a1;
 top_s top_s2(
 //adc interface
 .ad1_mclk(),
@@ -215,9 +222,12 @@ top_s top_s2(
 //485 line
 .rx_ctrl(ctrl_0_2),
 .rx_syn(syn_0_2),
-.tx_a(),
+.tx_a(tx_a1),
 .te_a(),
-.re_a(),
+.re_a(rx_a1),
+.tx_b(),
+.te_b(),
+.re_b(),
 //mcu port
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
@@ -232,7 +242,18 @@ top_s top_s2(
 .hrst_n(rst_n)
 );
 
+
+//---------- trans_wire for data commu ----------
+trans_wire wire_s2_s1(
+.din(tx_a1),
+.dout(rx_a0),
+//clk
+.clk_sys(mclk1)
+);
+
 assign rx_a = tx_a0 ;
-							 
+//assign rx_a0 = tx_a1 ;
+assign rx_a1 = 1'b1;
+
 
 endmodule

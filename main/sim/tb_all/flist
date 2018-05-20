@@ -21,6 +21,7 @@ dv/arm_ctrl/arm_ctrl_top.v
 dv/arm_ctrl/arm_ctrl_phy.v
 dv/arm_ctrl/arm_ctrl_mac.v
 dv/gps_source.v
+dv/trans_wire.v
 
 tb.v
 
@@ -83,6 +84,9 @@ tb.v
 ../../fpga_s/src/commu_top/commu_mux.v
 ../../fpga_s/src/commu_top/commu_tx_inf.v
 ../../fpga_s/src/commu_top/dir_gen.v
+../../fpga_s/src/hub_top/hub_top.v
+//../../fpga_s/src/hub_top/fetch_rx_inf.v
+
 
 ../../fpga_s/ip/ram/ram32x4k.v
 ../../fpga_s/ip/ram/ram8x32k.v
@@ -108,6 +112,8 @@ tb.v
 ../../fpga_m/src/syn_m_top/syn_m_sync.v
 ../../fpga_m/src/syn_m_top/syn_m_info.v
 ../../fpga_m/src/syn_m_top/tx_info_phy.v
+//../../fpga_m/src/syn_m_top/mcuspi_inf.v
+../../fpga_m/src/syn_m_top/mcuspi_mac.v
 ../../fpga_m/src/fetch_top/fetch_top.v
 ../../fpga_m/src/fetch_top/fetch_reg.v
 ../../fpga_m/src/fetch_top/fetch_base.v

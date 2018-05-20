@@ -37,8 +37,8 @@ wire tx_a;
 assign te_a = 1'b1;
 assign re_a = id_error ? 1'b0 :
 							de_a ? 1'b1 : 1'b0;
-assign tx_a = id_error ? 1'bz :
-							de_a ? tx_commu : 1'bz;
+assign tx_a = id_error ? 1'b1 :
+							de_a ? tx_commu : 1'b1;
 /*
 assign te_a = 1'b1;
 assign re_a = 1'b0;
