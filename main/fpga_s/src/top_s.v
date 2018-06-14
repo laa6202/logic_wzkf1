@@ -36,6 +36,11 @@ mcu_miso,
 mcu_mosi,
 mcu_sel,
 mcu_a,
+mcu_csn2,
+//hmi
+led0_n,
+led1_n,
+led2_n,
 //clk rst
 mclk0,
 mclk1,
@@ -76,6 +81,11 @@ output mcu_miso;
 input mcu_mosi;
 input mcu_sel;
 output [2:0]	mcu_a;
+input mcu_csn2;
+//hmi
+output led0_n;
+output led1_n;
+output led2_n;
 //clk rst
 input mclk0;
 input mclk1;
@@ -291,6 +301,7 @@ ex_top u_ex_top(
 .mcu_sck(mcu_sck),
 .mcu_mosi(mcu_mosi),
 .mcu_sel(mcu_sel),
+.mcu_csn2(mcu_csn2),
 .cfg_id(cfg_id),
 //fx bus
 .fx_waddr(fx_waddr),
@@ -422,6 +433,20 @@ hub_top u_hub_top(
 .rst_n(rst_n)
 );
 
+
+//------------ hmi ------------
+hmi u_hmi(
+.led0_n(led0_n),
+.led1_n(led1_n),
+.led2_n(led2_n),
+.syn_vld(syn_vld),
+.pk_frm(pk_frm),
+.rx_a(rx_a),
+.re_a(re_a),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 endmodule
 
