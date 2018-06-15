@@ -85,7 +85,7 @@ wire led2_n = (cnt_rxa != 28'h0) ? 1'b0 : 1'b1;
 
 //----------- w dog output for STM32 --------
 reg [19:0] cnt_us;
-always @ (posedge clk_sys or negedge rst_n)	begin
+always @ (posedge clk_slow or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_us <= 20'h0;
 `ifdef SIM
@@ -98,7 +98,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		cnt_us <= cnt_us + 20'h1;
 end
 reg wdo;
-always @ (posedge clk_sys or negedge rst_n)	begin
+always @ (posedge clk_slow or negedge rst_n)	begin
 	if(~rst_n)
 		wdo <= 1'b1;
 `ifdef SIM
