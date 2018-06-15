@@ -28,6 +28,7 @@ tb.v
 //------------------------------------------------
 ../../fpga_s/src/top_s.v
 ../../fpga_s/src/fx_bus.v
+../../fpga_s/src/hmi.v
 ../../fpga_s/src/clk_rst_top/clk_rst_top.v
 ../../fpga_s/src/clk_rst_top/pluse_us_gen.v
 ../../fpga_s/src/control_top/control_top.v

@@ -1,26 +1,33 @@
 //hmi.v
 
+`define TP_WD 20'd500_000
+`define TP_WD_SIM 20'd500
+
 module hmi(
 led0_n,
 led1_n,
 led2_n,
+wdo,
 syn_vld,
 pk_frm,
 rx_a,
 re_a,
 //clk rst
 clk_sys,
+clk_slow,
 rst_n
 );
 output led0_n;
 output led1_n;
 output led2_n;
+output wdo;
 input pk_frm;
 input rx_a;
 input re_a;
 input syn_vld;
 //clk rst
 input clk_sys;
+input clk_slow;
 input rst_n;
 //---------------------------------------
 //---------------------------------------
@@ -74,6 +81,34 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 wire led2_n = (cnt_rxa != 28'h0) ? 1'b0 : 1'b1;
+
+
+//----------- w dog output for STM32 --------
+reg [19:0] cnt_us;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_us <= 20'h0;
+`ifdef SIM
+	else if(cnt_us == `TP_WD_SIM)
+`else 
+	else if(cnt_us == `TP_WD)
+`endif
+		cnt_us <= 20'h0;
+	else 
+		cnt_us <= cnt_us + 20'h1;
+end
+reg wdo;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		wdo <= 1'b1;
+`ifdef SIM
+	else if(cnt_us == `TP_WD_SIM)
+`else 
+	else if(cnt_us == `TP_WD)
+`endif
+		wdo <= ~wdo;
+	else ;
+end
 
 
 

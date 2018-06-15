@@ -41,6 +41,7 @@ mcu_csn2,
 led0_n,
 led1_n,
 led2_n,
+wdo,
 //clk rst
 mclk0,
 mclk1,
@@ -86,6 +87,7 @@ input mcu_csn2;
 output led0_n;
 output led1_n;
 output led2_n;
+output wdo;
 //clk rst
 input mclk0;
 input mclk1;
@@ -439,12 +441,14 @@ hmi u_hmi(
 .led0_n(led0_n),
 .led1_n(led1_n),
 .led2_n(led2_n),
+.wdo(wdo),
 .syn_vld(syn_vld),
 .pk_frm(pk_frm),
 .rx_a(rx_a),
 .re_a(re_a),
 //clk rst
 .clk_sys(clk_sys),
+.clk_slow(clk_slow),
 .rst_n(rst_n)
 );
 

@@ -192,6 +192,12 @@ top_s top_s1(
 .mcu_mosi(mcu_mosi),
 .mcu_sel(mcu_sel),
 .mcu_a(),
+.mcu_csn2(),
+//hmi
+.led0_n(),
+.led1_n(),
+.led2_n(),
+.wdo(),
 //clk rst 
 .mclk0(mclk0),
 .mclk1(mclk1),
@@ -224,10 +230,12 @@ top_s top_s2(
 .rx_syn(syn_0_2),
 .tx_a(tx_a1),
 .te_a(),
-.re_a(rx_a1),
+.re_a(),
+.rx_a(rx_a1),
 .tx_b(),
 .te_b(),
 .re_b(),
+.rx_b(),
 //mcu port
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
@@ -235,6 +243,12 @@ top_s top_s2(
 .mcu_mosi(mcu_mosi),
 .mcu_sel(mcu_sel),
 .mcu_a(),
+.mcu_csn2(),
+//hmi
+.led0_n(),
+.led1_n(),
+.led2_n(),
+.wdo(),
 //clk rst 
 .mclk0(mclk0),
 .mclk1(mclk1),
