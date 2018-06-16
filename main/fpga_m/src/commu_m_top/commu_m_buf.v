@@ -80,6 +80,7 @@ ram8x32k u_ram8x32k_b(
 
 
 //---------- write path ----------
+wire wd_wr;
 reg [7:0] repk_vld_reg;
 always @(posedge clk_sys)
 	repk_vld_reg <= repk_vld;
@@ -93,6 +94,8 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		waddr <= waddr + 15'h1;
 	else if(~repk_frm)
 		waddr <= 15'h0;
+	else if(wd_wr)
+		waddr <= 15'h0;
 	else ;
 end
 assign wdata = 	repk_vld ? repk_data[15:8] :
@@ -100,6 +103,7 @@ assign wdata = 	repk_vld ? repk_data[15:8] :
 
 
 //---------- read path ----------
+wire wd_rd;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		raddr <= 15'h0;
@@ -107,11 +111,44 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		raddr <= raddr + 15'h1;
 	else if(~buf_frm)
 		raddr <= 15'h0;
+	else if(wd_rd)
+		raddr <= 15'h0;
 	else ;
 end
 
+reg buf_frm_reg;
+always @ (posedge clk_sys) buf_frm_reg <= buf_frm;
+wire buf_frm_falling = (buf_frm_reg) & (~buf_frm);
+		
+
+
+reg read_chip;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		read_chip <= 1'b0;
+	else if(buf_frm_falling)
+		read_chip <= ~read_chip;
+	//else if()  //强制转换
+	else ;
+end
+
+
 wire [7:0] buf_q;
-assign buf_q = whit_chip ? q_b : q_a;
+assign buf_q = read_chip ? q_b : q_a;
+
+
+//---------- wd ----------
+assign wd_wr = 1'b0;
+assign wd_rd = 1'b0;
+/*
+reg [31:0] cnt_wr;
+reg [31:0] cnt_rd;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_wr <= 32'h0;
+	else 
+
+*/
 
 
 

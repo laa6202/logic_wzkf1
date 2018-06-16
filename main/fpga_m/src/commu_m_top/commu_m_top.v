@@ -98,6 +98,7 @@ commu_m_main u_commu_m_main(
 .done_push(done_push),
 .repk_frm(repk_frm),
 .buf_frm(buf_frm),
+.buf_rd(buf_rd),
 //configuration
 .arm_int_n(arm_int_n),
 .stu_buf_rdy(stu_buf_rdy),

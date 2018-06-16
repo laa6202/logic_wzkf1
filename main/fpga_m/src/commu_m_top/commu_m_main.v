@@ -9,6 +9,7 @@ fire_push,
 done_push,
 repk_frm,
 buf_frm,
+buf_rd,
 //configuration
 arm_int_n,
 stu_buf_rdy,
@@ -21,6 +22,7 @@ output	fire_push;
 input		done_push;
 input		repk_frm;
 input 	buf_frm;
+input		buf_rd;
 //configuration
 output 	arm_int_n;
 output [7:0] stu_buf_rdy;
@@ -34,12 +36,16 @@ input rst_n;
 
 reg repk_frm_reg;
 reg buf_frm_reg;
+reg buf_rd_reg;
 always @(posedge clk_sys )	begin
 	repk_frm_reg <= repk_frm;
 	buf_frm_reg <= buf_frm;
+	buf_rd_reg  <= buf_rd;
 end
 wire repk_frm_falling = repk_frm_reg & (~repk_frm);
 wire buf_frm_falling = buf_frm_reg & (~buf_frm);
+wire buf_frm_rasing = (~buf_frm_reg) & (buf_frm);
+wire buf_rd_falling = buf_rd_reg & (~buf_rd);
 
 
 reg arm_int;
@@ -50,7 +56,8 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		arm_int <= 1'b0;
 	else if(rst_delay_now)
 		arm_int <= 1'b0;
-	else if(buf_frm_falling)
+//	else if(buf_frm_falling)
+	else if(buf_frm_rasing)
 		arm_int <= 1'b0;
 	else if(repk_frm_falling)
 		arm_int <= 1'b1;
