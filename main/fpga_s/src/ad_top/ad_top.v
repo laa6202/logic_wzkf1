@@ -147,6 +147,7 @@ ad_tp u_ad_tp(
 .cfg_tp_step(cfg_tp_step),
 //clk rst
 .mod_id(mod_id),
+.syn_vld(syn_vld),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

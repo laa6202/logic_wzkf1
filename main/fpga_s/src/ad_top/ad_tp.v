@@ -12,6 +12,7 @@ cfg_tp_base,
 cfg_tp_step,
 //clk rst
 mod_id,
+syn_vld,
 clk_sys,
 rst_n
 );
@@ -25,6 +26,7 @@ input [23:0]cfg_tp_base;
 input [7:0]	cfg_tp_step;
 //clk rst
 input [5:0] mod_id;
+input syn_vld;
 input clk_sys;
 input rst_n;
 //--------------------------------------
@@ -55,12 +57,14 @@ assign tp_period = 	(cfg_sample == 8'd20) ? 24'd500_00 :			//2K = 500us
 										(cfg_sample == 8'd5) ? 24'd2_000_00 :			//500Hz =	2ms
 										(cfg_sample == 8'd2) ? 24'd5_000_00 : 	//200Hz = 5ms
 										(cfg_sample == 8'd1) ? 24'd10_000_00 : 	//100Hz = 10ms
-										24'd1_000_00;
+										24'd500_00;
 `endif
 
 reg [23:0] cnt_cycle;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
+		cnt_cycle <= 24'h0;
+	else if(syn_vld)
 		cnt_cycle <= 24'h0;
 	else if(cnt_cycle == (tp_period - 24'h1))
 		cnt_cycle <= 24'h0;
