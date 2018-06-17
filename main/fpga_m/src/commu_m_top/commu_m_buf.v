@@ -41,13 +41,16 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		repk_frm_falling_dly <= {repk_frm_falling_dly[6:0],repk_frm_falling};
 end
 	
-reg whit_chip;
+reg[1:0] whit_chip;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		whit_chip <= 1'b0;
-	else if(repk_frm_falling_dly[7])
-		whit_chip <= ~whit_chip;
-	else ;
+		whit_chip <= 2'b0;
+	else if(repk_frm_falling_dly[7])	begin
+//		if(whit_chip == 2'h2)
+//			whit_chip <= 2'h0;
+//		else 
+			whit_chip <= whit_chip + 2'h1;
+	end else ;
 end
 		
 
@@ -58,9 +61,13 @@ wire [7:0] 	wdata;
 reg  [14:0] waddr;
 wire				wren_a;
 wire				wren_b;
+wire				wren_c;
+wire				wren_d;
 reg  [14:0] raddr;
 wire [7:0]	q_a;
 wire [7:0]	q_b;
+wire [7:0]	q_c;
+wire [7:0]	q_d;
 ram8x32k u_ram8x32k_a(
 .clock(clk_sys),
 .data(wdata),
@@ -77,7 +84,22 @@ ram8x32k u_ram8x32k_b(
 .wren(wren_b),
 .q(q_b)
 );
-
+ram8x32k u_ram8x32k_c(
+.clock(clk_sys),
+.data(wdata),
+.rdaddress(raddr),
+.wraddress(waddr),
+.wren(wren_c),
+.q(q_c)
+);
+ram8x32k u_ram8x32k_d(
+.clock(clk_sys),
+.data(wdata),
+.rdaddress(raddr),
+.wraddress(waddr),
+.wren(wren_d),
+.q(q_d)
+);
 
 //---------- write path ----------
 wire wd_wr;
@@ -85,8 +107,10 @@ reg [7:0] repk_vld_reg;
 always @(posedge clk_sys)
 	repk_vld_reg <= repk_vld;
 wire wren = repk_vld | repk_vld_reg;
-assign wren_a = (~whit_chip) & wren;
-assign wren_b = (whit_chip) & wren;
+assign wren_a = (whit_chip == 2'h0) & wren;
+assign wren_b = (whit_chip == 2'h1) & wren;
+assign wren_c = (whit_chip == 2'h2) & wren;
+assign wren_d = (whit_chip == 2'h3) & wren;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		waddr <= 15'h0;
@@ -122,19 +146,25 @@ wire buf_frm_falling = (buf_frm_reg) & (~buf_frm);
 		
 
 
-reg read_chip;
+reg[1:0] read_chip;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		read_chip <= 1'b0;
-	else if(buf_frm_falling)
-		read_chip <= ~read_chip;
+		read_chip <= 2'b0;
+	else if(buf_frm_falling) begin
+//		if(read_chip == 2'h2)
+//			read_chip <= 2'h0;
+//		else 
+			read_chip <= read_chip + 2'h1;
 	//else if()  //强制转换
-	else ;
+	end else ;
 end
 
 
 wire [7:0] buf_q;
-assign buf_q = read_chip ? q_b : q_a;
+assign buf_q = 	(read_chip[1:0] == 2'h0) ? q_a : 
+								(read_chip[1:0] == 2'h1) ? q_b : 
+								(read_chip[1:0] == 2'h2) ? q_c : 
+								(read_chip[1:0] == 2'h3) ? q_d : 8'h0;
 
 
 //---------- wd ----------
