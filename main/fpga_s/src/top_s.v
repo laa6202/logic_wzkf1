@@ -3,6 +3,8 @@
 
 module top_s(
 //adc interface
+
+ex_2_048M_clk,
 ad1_mclk,
 ad1_clk,
 ad1_din,
@@ -49,6 +51,7 @@ mclk2,
 hrst_n
 );
 //adc interface
+input  ex_2_048M_clk;
 output ad1_mclk;
 output ad1_clk;
 input  ad1_din;
@@ -204,6 +207,11 @@ syn_top u_syn_top(
 );
 
 
+
+
+assign ad1_mclk = ex_2_048M_clk;
+assign ad2_mclk = ex_2_048M_clk;
+assign ad3_mclk = ex_2_048M_clk;
 //------------- ad_top ---------------
 wire [7:0]	cfg_sample;
 wire [23:0]	ad1_data;
@@ -217,7 +225,7 @@ ad_top ad1_top(
 .ad_data(ad1_data),		
 .ad_vld(ad1_vld),
 //adc interface
-.ad_mclk(ad1_mclk),
+//.ad_mclk(ad1_mclk),
 .ad_clk(ad1_clk),
 .ad_din(ad1_din),
 .ad_cfg(ad1_cfg),
@@ -244,7 +252,7 @@ ad_top ad2_top(
 .ad_data(ad2_data),		
 .ad_vld(ad2_vld),
 //adc interface
-.ad_mclk(ad2_mclk),
+//.ad_mclk(ad2_mclk),
 .ad_clk(ad2_clk),
 .ad_din(ad2_din),
 .ad_cfg(ad2_cfg),
@@ -271,7 +279,7 @@ ad_top ad3_top(
 .ad_data(ad3_data),		
 .ad_vld(ad3_vld),
 //adc interface
-.ad_mclk(ad3_mclk),
+//.ad_mclk(ad3_mclk),
 .ad_clk(ad3_clk),
 .ad_din(ad3_din),
 .ad_cfg(ad3_cfg),

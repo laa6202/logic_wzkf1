@@ -42,7 +42,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_syn <= 20'h0;
 end
-assign finish_syn = (cnt_syn == 20'd10_00) ? 1'b1 : 1'b0;
+assign finish_syn = (cnt_syn == 20'd100_00) ? 1'b1 : 1'b0;
 
 
 //------------ output -------
