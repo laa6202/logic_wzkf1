@@ -28,6 +28,7 @@ cfg_sample,
 dev_id,
 //clk rst
 utc_sec,
+syn_vld,
 clk_sys,
 rst_n
 );
@@ -57,6 +58,7 @@ input [7:0]	cfg_sample;
 input [7:0]	dev_id;
 //clk rst
 input [31:0]	utc_sec;
+input syn_vld;
 input clk_sys;
 input rst_n;
 //--------------------------------------
@@ -104,6 +106,7 @@ pack_buf u_pack_buf(
 .q_utc(q_utc),
 .q_ns(q_ns),
 //clk rst
+.syn_vld(syn_vld),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
@@ -203,6 +206,7 @@ pack_load u_pack_load(
 .len_load(len_load),
 //clk rst
 .clk_sys(clk_sys),
+.syn_vld(syn_vld),
 .rst_n(rst_n)
 );
 

@@ -394,6 +394,7 @@ pack_top u_pack_top(
 .dev_id(dev_id),
 //clk rst
 .utc_sec(utc_sec),
+.syn_vld(syn_vld),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

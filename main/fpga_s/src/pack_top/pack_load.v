@@ -15,6 +15,7 @@ q_z,
 //configuration
 len_load,
 //clk rst
+syn_vld,
 clk_sys,
 rst_n
 );
@@ -31,6 +32,7 @@ input  [31:0]	q_z;
 //configuration
 input [11:0]	len_load;
 //clk rst
+input syn_vld;
 input clk_sys;
 input rst_n;
 //---------------------------------------
@@ -105,6 +107,7 @@ assign done_load = (st_pack_load == S_DONE) ? 1'b1 : 1'b0;
 wire addr_ov;
 assign addr_ov = (buf_waddr >= len_load) ? 1'b0 : 1'b1;
 
+/*
 reg [11:0]	buf_raddr;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -121,6 +124,26 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		end
 		else ;
 	end
+end
+*/
+// only handle 2000 sample rate
+reg rhit_chip;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		rhit_chip <= 1'b1;
+	else if(syn_vld)
+		rhit_chip <= ~rhit_chip;
+	else ;
+end
+reg [11:0]	buf_raddr;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		buf_raddr <= 12'h0;
+	else if(syn_vld)
+		buf_raddr <= {rhit_chip,11'b0};
+	else if(st_pack_load == S_CHECK)	
+		buf_raddr <= buf_raddr + 12'h1;
+	else ;
 end
 
 

@@ -16,6 +16,7 @@ q_z,
 q_utc,
 q_ns,
 //clk rst
+syn_vld,
 clk_sys,
 rst_n
 );
@@ -33,6 +34,7 @@ output [31:0]	q_z;
 output [31:0]	q_utc;
 output [31:0]	q_ns;
 //clk rst
+input syn_vld;
 input clk_sys;
 input rst_n;
 //--------------------------------------
@@ -51,7 +53,7 @@ always @ (posedge clk_sys) begin
 	wren_z <= wren_y;
 end
 
-
+/*
 reg [11:0] waddr;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -64,7 +66,29 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	end
 	else ;
 end
-
+*/
+// only handle 2000 sample rate
+reg [11:0] waddr;
+reg whit_chip;
+always @ (posedge clk_sys or negedge rst_n)begin
+	if(~rst_n)
+		whit_chip <= 1'b0;
+	else if(syn_vld)
+		whit_chip <= ~whit_chip;
+	else ;
+end
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		waddr <= 12'h0;
+	else if(syn_vld)
+		waddr <= {whit_chip,11'b0};
+	else if(dp_vld_falling)	
+		waddr <= waddr + 12'h1;
+	else ;
+end
+		
+		
+		
 
 wire [11:0]	raddr = buf_raddr; 
 ram32x4k dram_pkX(
