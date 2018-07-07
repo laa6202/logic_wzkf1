@@ -8,6 +8,7 @@ mclk1,
 mclk2,
 clk_sys,
 clk_slow,
+clk_10m,
 pluse_us,
 rst_n
 );
@@ -17,6 +18,7 @@ input mclk1;
 input mclk2;
 output clk_sys;
 output clk_slow;
+output clk_10m;
 output pluse_us;
 output rst_n;
 //---------------------------------
@@ -53,5 +55,33 @@ pluse_us_gen u_pluse_us_gen(
 .rst_n(rst_n)
 );
 
+
+
+
+
+reg [2:0]ad_clk_10M_cnt;
+reg ad_clk_10M;
+always @(posedge clk_sys or negedge rst_n)
+begin
+	if(~rst_n)
+		ad_clk_10M_cnt <= 3'd0;
+	else if(ad_clk_10M_cnt < 3'd4)
+		ad_clk_10M_cnt <= ad_clk_10M_cnt + 3'd1;
+	else 
+		ad_clk_10M_cnt <= 3'd0;
+end
+
+always @(posedge clk_sys or negedge rst_n)
+begin
+	if(~rst_n)
+		ad_clk_10M <= 1'b0;
+	else if(ad_clk_10M_cnt == 3'd0)
+		ad_clk_10M <= ~ad_clk_10M;
+	else 
+		;
+end
+
+
+wire clk_10m = ad_clk_10M;
 
 endmodule

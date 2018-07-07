@@ -22,6 +22,8 @@ mod_id,
 cfg_sample,
 //clk rst
 syn_vld,
+ex_2_048M_clk,
+clk_10m,
 clk_sys,
 pluse_us,
 rst_n
@@ -48,6 +50,8 @@ input [5:0]		mod_id;
 output [7:0]	cfg_sample;
 //clk rst
 input syn_vld;
+input ex_2_048M_clk;
+input clk_10m;
 input clk_sys;
 input pluse_us;
 input rst_n;
@@ -76,12 +80,12 @@ ad_clk_gen   u_ad_clk_gen(
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
 .rst_n(rst_n),
-.clk_2M(clk_2M),
+.clk_2M(),
 .clk_2_5M(clk_2_5M),
 .clk_5M(clk_5M),
 .clk_2kHz(clk_2kHz)
 );
-assign ad_mclk   = clk_2M;
+
 
 
 wire [7:0]	cfg_sample;
@@ -114,6 +118,7 @@ ad_reg u_ad_reg(
 wire [23:0]	real_data;
 wire	real_vld;
 wire ad_sync_1s = ad_syn_1sn;
+wire ad_exclk_change;
 ad_sample u_ad_sample(
 //adc interface
 .ad_clk_in(clk_2_5M),//系统产生2.5M时钟，输入到此模块
@@ -126,6 +131,7 @@ ad_sample u_ad_sample(
 .ad_data(real_data),
 .ad_vld(real_vld),
 .ad_sync_in(ad_sync_1s),
+.ad_exclk_change(ad_exclk_change),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -168,6 +174,6 @@ ad_mux u_ad_mux(
 .rst_n(rst_n)
 );
 
-
+assign ad_mclk = ad_exclk_change?  clk_10m : ex_2_048M_clk;
 
 endmodule

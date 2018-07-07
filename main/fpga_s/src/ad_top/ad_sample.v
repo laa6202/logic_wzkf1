@@ -18,6 +18,7 @@ clk_2kHz, //没有使用
 ad_din,   //AD7195的串行数据输出引脚
 ad_cfg,   //AD7195的串行配置引脚
 ad_sync,  //AD7195的同步引脚，没隔1999个采用数据同步一次，第2000个自动补齐
+ad_exclk_change,//AD7195外部时钟选择
 //data path
 ad_data,
 ad_vld,
@@ -34,6 +35,7 @@ input  clk_2kHz;
 input  ad_din;
 output  ad_cfg;
 output ad_sync;
+output ad_exclk_change;
 //data path
 output [23:0] ad_data;
 output 		  ad_vld;
@@ -489,6 +491,21 @@ begin
 		
 end
 
+reg ad_exclk_change;
+always @(posedge clk_sys or negedge rst_n)
+begin
+	if(~rst_n)
+		ad_exclk_change <= 1'b0;
+	else if(~ad_sync_in)
+		ad_exclk_change <= 1'b1;
+	else if(st_ad_p1 == S_AD_SAMPLE)
+		ad_exclk_change <= 1'b0;
+	else 
+	    ;
+		
+end
+
+
 
 
 
@@ -499,7 +516,6 @@ assign ad_vld = (st_ad_p1 == S_DATA_PUSH) ? 1'b1 :1'b0;
 assign ad_data = got_ad_value;
 assign ad_sync = ad_sync_in;
 
-assign debug = &cnt_period;
 
 
 endmodule

@@ -8,7 +8,6 @@ mcu_sck,
 mcu_mosi,
 mcu_sel,
 mcu_csn2,
-cfg_id,
 //fx bus
 fx_waddr,
 fx_wr,
@@ -28,7 +27,6 @@ input mcu_sck;
 input mcu_mosi;
 input mcu_sel;
 input mcu_csn2;
-input cfg_id;
 //fx_bus
 input 				fx_wr;
 input [7:0]		fx_data;

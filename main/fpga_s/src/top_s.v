@@ -103,6 +103,7 @@ input hrst_n;
 //------------ clk_rst_top -------------
 wire clk_sys;
 wire clk_slow;
+wire clk_10m;
 wire rst_n;
 wire pluse_us;
 clk_rst_top u_clk_rst(
@@ -112,6 +113,7 @@ clk_rst_top u_clk_rst(
 .mclk2(mclk2),
 .clk_sys(clk_sys),
 .clk_slow(clk_slow),
+.clk_10m(clk_10m),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
 );
@@ -209,9 +211,11 @@ syn_top u_syn_top(
 
 
 
-assign ad1_mclk = ex_2_048M_clk;
-assign ad2_mclk = ex_2_048M_clk;
-assign ad3_mclk = ex_2_048M_clk;
+
+
+
+
+
 //------------- ad_top ---------------
 wire [7:0]	cfg_sample;
 wire [23:0]	ad1_data;
@@ -225,7 +229,7 @@ ad_top ad1_top(
 .ad_data(ad1_data),		
 .ad_vld(ad1_vld),
 //adc interface
-//.ad_mclk(ad1_mclk),
+.ad_mclk(ad1_mclk),
 .ad_clk(ad1_clk),
 .ad_din(ad1_din),
 .ad_cfg(ad1_cfg),
@@ -242,6 +246,8 @@ ad_top ad1_top(
 .cfg_sample(cfg_sample),
 //clk rst
 .syn_vld(syn_vld),
+.ex_2_048M_clk(ex_2_048M_clk),
+.clk_10m(clk_10m),
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
@@ -252,7 +258,7 @@ ad_top ad2_top(
 .ad_data(ad2_data),		
 .ad_vld(ad2_vld),
 //adc interface
-//.ad_mclk(ad2_mclk),
+.ad_mclk(ad2_mclk),
 .ad_clk(ad2_clk),
 .ad_din(ad2_din),
 .ad_cfg(ad2_cfg),
@@ -269,6 +275,8 @@ ad_top ad2_top(
 .cfg_sample(),
 //clk rst
 .syn_vld(syn_vld),
+.ex_2_048M_clk(ex_2_048M_clk),
+.clk_10m(clk_10m),
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
@@ -279,7 +287,7 @@ ad_top ad3_top(
 .ad_data(ad3_data),		
 .ad_vld(ad3_vld),
 //adc interface
-//.ad_mclk(ad3_mclk),
+.ad_mclk(ad3_mclk),
 .ad_clk(ad3_clk),
 .ad_din(ad3_din),
 .ad_cfg(ad3_cfg),
@@ -296,6 +304,8 @@ ad_top ad3_top(
 .cfg_sample(),
 //clk rst
 .syn_vld(syn_vld),
+.ex_2_048M_clk(ex_2_048M_clk),
+.clk_10m(clk_10m),
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
 .rst_n(rst_n)
@@ -312,7 +322,6 @@ ex_top u_ex_top(
 .mcu_mosi(mcu_mosi),
 .mcu_sel(mcu_sel),
 .mcu_csn2(mcu_csn2),
-.cfg_id(cfg_id),
 //fx bus
 .fx_waddr(fx_waddr),
 .fx_wr(fx_wr),
