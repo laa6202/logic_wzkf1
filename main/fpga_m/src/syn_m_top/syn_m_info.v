@@ -21,7 +21,7 @@ input rst_n;
 //------------------------------------------
 
 
-reg utc_sec_gps_old;
+reg [31:0]	utc_sec_gps_old;
 always @ (posedge clk_sys)	begin
 	if(fire_sync)
 		utc_sec_gps_old <= utc_sec_gps;
