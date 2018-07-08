@@ -15,6 +15,7 @@ pk_frm,
 cfg_pkg_en,
 //clk rst
 utc_sec,
+syn_vld,
 clk_sys,
 rst_n
 );
@@ -31,6 +32,7 @@ output	pk_frm;
 input [7:0] cfg_pkg_en;
 //clk rst
 input [31:0]	utc_sec;
+input syn_vld;
 input clk_sys;
 input rst_n;
 //-----------------------------------------
@@ -58,7 +60,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		st_pack_main <= S_IDLE;
 	else begin
 		case(st_pack_main)
-			S_IDLE : st_pack_main <= pack_en & utc_sec_change ? 
+//			S_IDLE : st_pack_main <= pack_en & utc_sec_change ? 
+			S_IDLE : st_pack_main <= pack_en & syn_vld ? 
 																S_FIRE_HEAD : S_IDLE;
 			S_FIRE_HEAD : st_pack_main <= S_WAIT_HEAD;
 			S_WAIT_HEAD : st_pack_main <= done_head ? S_FIRE_LOAD : S_WAIT_HEAD;

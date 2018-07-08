@@ -159,6 +159,7 @@ pack_main u_pack_main(
 //configuration
 .cfg_pkg_en(cfg_pkg_en),
 //clk rst
+.syn_vld(syn_vld),
 .utc_sec(utc_sec),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
