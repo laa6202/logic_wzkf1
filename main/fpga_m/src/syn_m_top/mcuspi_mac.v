@@ -67,7 +67,7 @@ reg [31:0]	utc_sec_gps;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		utc_sec_gps <= 32'h0;
-	else if((cnt_vld == 5'd17) & spi_vld)
+	else if((cnt_vld == 5'd13) & spi_vld)
 		utc_sec_gps <= utc_buf;
 	else ;
 end

@@ -41,15 +41,15 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		repk_frm_falling_dly <= {repk_frm_falling_dly[6:0],repk_frm_falling};
 end
 	
-reg[1:0] whit_chip;
+reg[3:0] whit_chip;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		whit_chip <= 2'b0;
+		whit_chip <= 3'b0;
 	else if(repk_frm_falling_dly[7])	begin
 //		if(whit_chip == 2'h2)
 //			whit_chip <= 2'h0;
 //		else 
-			whit_chip <= whit_chip + 2'h1;
+			whit_chip <= whit_chip + 3'h1;
 	end else ;
 end
 		
@@ -59,45 +59,45 @@ end
 //----------- ram for buf ----------
 wire [7:0] 	wdata;
 reg  [14:0] waddr;
-wire				wren_a;
-wire				wren_b;
-wire				wren_c;
-wire				wren_d;
+wire				wren_0;
+wire				wren_1;
+wire				wren_2;
+wire				wren_3;
 reg  [14:0] raddr;
-wire [7:0]	q_a;
-wire [7:0]	q_b;
-wire [7:0]	q_c;
+wire [7:0]	q_0;
+wire [7:0]	q_1;
+wire [7:0]	q_2;
 wire [7:0]	q_d;
-ram8x32k u_ram8x32k_a(
+ram8x32k u_ram8x32k_0(
 .clock(clk_sys),
 .data(wdata),
 .rdaddress(raddr),
 .wraddress(waddr),
-.wren(wren_a),
-.q(q_a)
+.wren(wren_0),
+.q(q_0)
 );
-ram8x32k u_ram8x32k_b(
+ram8x32k u_ram8x32k_1(
 .clock(clk_sys),
 .data(wdata),
 .rdaddress(raddr),
 .wraddress(waddr),
-.wren(wren_b),
-.q(q_b)
+.wren(wren_1),
+.q(q_1)
 );
-ram8x32k u_ram8x32k_c(
+ram8x32k u_ram8x32k_2(
 .clock(clk_sys),
 .data(wdata),
 .rdaddress(raddr),
 .wraddress(waddr),
-.wren(wren_c),
-.q(q_c)
+.wren(wren_2),
+.q(q_2)
 );
-ram8x32k u_ram8x32k_d(
+ram8x32k u_ram8x32k_3(
 .clock(clk_sys),
 .data(wdata),
 .rdaddress(raddr),
 .wraddress(waddr),
-.wren(wren_d),
+.wren(wren_3),
 .q(q_d)
 );
 
@@ -107,10 +107,10 @@ reg [7:0] repk_vld_reg;
 always @(posedge clk_sys)
 	repk_vld_reg <= repk_vld;
 wire wren = repk_vld | repk_vld_reg;
-assign wren_a = (whit_chip == 2'h0) & wren;
-assign wren_b = (whit_chip == 2'h1) & wren;
-assign wren_c = (whit_chip == 2'h2) & wren;
-assign wren_d = (whit_chip == 2'h3) & wren;
+assign wren_0 = (whit_chip[1:0] == 2'h0) & wren;
+assign wren_1 = (whit_chip[1:0] == 2'h1) & wren;
+assign wren_2 = (whit_chip[1:0] == 2'h2) & wren;
+assign wren_3 = (whit_chip[1:0] == 2'h3) & wren;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		waddr <= 15'h0;
@@ -161,9 +161,9 @@ end
 
 
 wire [7:0] buf_q;
-assign buf_q = 	(read_chip[1:0] == 2'h0) ? q_a : 
-								(read_chip[1:0] == 2'h1) ? q_b : 
-								(read_chip[1:0] == 2'h2) ? q_c : 
+assign buf_q = 	(read_chip[1:0] == 2'h0) ? q_0 : 
+								(read_chip[1:0] == 2'h1) ? q_1 : 
+								(read_chip[1:0] == 2'h2) ? q_2 : 
 								(read_chip[1:0] == 2'h3) ? q_d : 8'h0;
 
 

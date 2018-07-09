@@ -5,6 +5,7 @@ tx_info,
 fire_sync,
 fire_info,
 utc_sec_gps,
+err,
 //clk rst
 clk_sys,
 rst_n
@@ -15,6 +16,7 @@ input		fire_sync;
 input 	fire_info;
 input [31:0]	utc_sec_gps;
 //clk rst
+output err;
 input clk_sys;
 input rst_n;
 //------------------------------------------
@@ -28,7 +30,8 @@ always @ (posedge clk_sys)	begin
 	else ;
 end
 wire utc_sec_gps_change = (utc_sec_gps != utc_sec_gps_old) ? 1'b1 : 1'b0;	
-		
+
+wire err = 		fire_sync & (utc_sec_gps != (utc_sec_gps_old + 32'h1) );
 
 //----------- utc secord register --------
 reg [31:0]	utc_sec;
