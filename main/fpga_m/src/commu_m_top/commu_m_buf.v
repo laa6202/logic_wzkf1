@@ -63,11 +63,19 @@ wire				wren_0;
 wire				wren_1;
 wire				wren_2;
 wire				wren_3;
+wire				wren_4;
+wire				wren_5;
+wire				wren_6;
+wire				wren_7;
 reg  [14:0] raddr;
 wire [7:0]	q_0;
 wire [7:0]	q_1;
 wire [7:0]	q_2;
-wire [7:0]	q_d;
+wire [7:0]	q_3;
+wire [7:0]	q_4;
+wire [7:0]	q_5;
+wire [7:0]	q_6;
+wire [7:0]	q_7;
 ram8x32k u_ram8x32k_0(
 .clock(clk_sys),
 .data(wdata),
@@ -98,7 +106,39 @@ ram8x32k u_ram8x32k_3(
 .rdaddress(raddr),
 .wraddress(waddr),
 .wren(wren_3),
-.q(q_d)
+.q(q_3)
+);
+ram8x32k u_ram8x32k_4(
+.clock(clk_sys),
+.data(wdata),
+.rdaddress(raddr),
+.wraddress(waddr),
+.wren(wren_4),
+.q(q_4)
+);
+ram8x32k u_ram8x32k_5(
+.clock(clk_sys),
+.data(wdata),
+.rdaddress(raddr),
+.wraddress(waddr),
+.wren(wren_5),
+.q(q_5)
+);
+ram8x32k u_ram8x32k_6(
+.clock(clk_sys),
+.data(wdata),
+.rdaddress(raddr),
+.wraddress(waddr),
+.wren(wren_6),
+.q(q_6)
+);
+ram8x32k u_ram8x32k_7(
+.clock(clk_sys),
+.data(wdata),
+.rdaddress(raddr),
+.wraddress(waddr),
+.wren(wren_7),
+.q(q_7)
 );
 
 //---------- write path ----------
@@ -107,10 +147,14 @@ reg [7:0] repk_vld_reg;
 always @(posedge clk_sys)
 	repk_vld_reg <= repk_vld;
 wire wren = repk_vld | repk_vld_reg;
-assign wren_0 = (whit_chip[1:0] == 2'h0) & wren;
-assign wren_1 = (whit_chip[1:0] == 2'h1) & wren;
-assign wren_2 = (whit_chip[1:0] == 2'h2) & wren;
-assign wren_3 = (whit_chip[1:0] == 2'h3) & wren;
+assign wren_0 = (whit_chip[2:0] == 3'h0) & wren;
+assign wren_1 = (whit_chip[2:0] == 3'h1) & wren;
+assign wren_2 = (whit_chip[2:0] == 3'h2) & wren;
+assign wren_3 = (whit_chip[2:0] == 3'h3) & wren;
+assign wren_4 = (whit_chip[2:0] == 3'h4) & wren;
+assign wren_5 = (whit_chip[2:0] == 3'h5) & wren;
+assign wren_6 = (whit_chip[2:0] == 3'h6) & wren;
+assign wren_7 = (whit_chip[2:0] == 3'h7) & wren;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		waddr <= 15'h0;
@@ -146,25 +190,29 @@ wire buf_frm_falling = (buf_frm_reg) & (~buf_frm);
 		
 
 
-reg[1:0] read_chip;
+reg[2:0] read_chip;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
-		read_chip <= 2'b0;
+		read_chip <= 3'b0;
 	else if(buf_frm_falling) begin
 //		if(read_chip == 2'h2)
 //			read_chip <= 2'h0;
 //		else 
-			read_chip <= read_chip + 2'h1;
+			read_chip <= read_chip + 3'h1;
 	//else if()  //强制转换
 	end else ;
 end
 
 
 wire [7:0] buf_q;
-assign buf_q = 	(read_chip[1:0] == 2'h0) ? q_0 : 
-								(read_chip[1:0] == 2'h1) ? q_1 : 
-								(read_chip[1:0] == 2'h2) ? q_2 : 
-								(read_chip[1:0] == 2'h3) ? q_d : 8'h0;
+assign buf_q = 	(read_chip[2:0] == 3'h0) ? q_0 : 
+								(read_chip[2:0] == 3'h1) ? q_1 : 
+								(read_chip[2:0] == 3'h2) ? q_2 : 
+								(read_chip[2:0] == 3'h3) ? q_3 : 
+								(read_chip[2:0] == 3'h4) ? q_4 : 
+								(read_chip[2:0] == 3'h5) ? q_5 : 
+								(read_chip[2:0] == 3'h6) ? q_6 : 
+								(read_chip[2:0] == 3'h7) ? q_7 : 8'h0;
 
 
 //---------- wd ----------
