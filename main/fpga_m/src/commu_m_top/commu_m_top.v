@@ -21,6 +21,8 @@ fx_q,
 mod_id,
 len_pkg,
 //clk rst
+wd_arm_high,
+pluse_us,
 clk_sys,
 rst_n
 );
@@ -44,6 +46,8 @@ output  [7:0]	fx_q;
 input [5:0] mod_id;
 input [15:0]	len_pkg;
 //clk rst
+output wd_arm_high;
+input pluse_us;
 input clk_sys;
 input rst_n;
 //-----------------------------------------
@@ -53,6 +57,7 @@ input rst_n;
 //------------ commu_m_reg ---------
 wire [7:0] cfg_tp;
 wire [7:0] stu_buf_rdy;
+wire [7:0] stu_irq_test;
 commu_m_reg u_commu_m_reg(
 //fx bus
 .fx_waddr(fx_waddr),
@@ -65,6 +70,7 @@ commu_m_reg u_commu_m_reg(
 //configuration
 .cfg_tp(cfg_tp),
 .stu_buf_rdy(stu_buf_rdy),
+.stu_irq_test(stu_irq_test),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -103,6 +109,7 @@ commu_m_main u_commu_m_main(
 .arm_int_n(arm_int_n),
 .stu_buf_rdy(stu_buf_rdy),
 //clk rst
+.wd_arm_high(wd_arm_high),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
@@ -176,6 +183,16 @@ spi_inf u_spi_inf(
 .rst_n(rst_n)
 );
 
+
+
+//---------- irq_test ----------
+gen_irq_test u_gen_irq_test(
+.stu_irq_test(stu_irq_test),
+//clk rst
+.pluse_us(pluse_us),
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
 
 
 endmodule

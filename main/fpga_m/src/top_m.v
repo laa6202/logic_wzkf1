@@ -21,6 +21,7 @@ gps_pluse,
 mcu_csn,
 mcu_sck,
 mcu_mosi,
+beep,
 //clk rst
 mclk0,
 mclk1,
@@ -51,6 +52,7 @@ input gps_pluse;
 input 	mcu_csn;
 input 	mcu_sck;
 input 	mcu_mosi;
+output 	beep;
 //clk rst
 input	mclk0;
 input	mclk1;
@@ -135,6 +137,7 @@ fx_bus_m u_fx_bus_m(
 //--------- syn_m_top ---------
 wire tx_syn1;
 wire fire_sync;
+wire err_syn_m;
 syn_m_top u_syn_m(
 .tx_syn(tx_syn),
 .fire_sync(fire_sync),
@@ -143,6 +146,7 @@ syn_m_top u_syn_m(
 .mcu_csn(mcu_csn),
 .mcu_sck(mcu_sck),
 .mcu_mosi(mcu_mosi),
+.err(err_syn_m),
 //clk rst
 .clk_sys(clk_sys),
 .pluse_us(pluse_us),
@@ -206,6 +210,7 @@ repkg_top u_repkg_top(
 
 
 //---------- arm commu_top ----------
+wire wd_arm_high;
 commu_m_top u_commu_m(
 //arm spi
 .spi_csn(pspi_csn),
@@ -227,10 +232,26 @@ commu_m_top u_commu_m(
 .mod_id(6'h32),
 .len_pkg(len_pkg),
 //clk rst
+.wd_arm_high(wd_arm_high),
+.pluse_us(pluse_us),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
 
+
+
+reg [27:0] cnt_beep;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_beep <= 28'd0;
+	else if(err_syn_m | wd_arm_high)
+		cnt_beep <= 28'd500_000_00;
+	else if(cnt_beep != 28'h0)
+		cnt_beep <= cnt_beep - 28'h1;
+	else ;
+end
+wire beep = (cnt_beep != 28'h0) ? 1'b1 : 1'b0;
+//wire beep = 1'b1;
 
 
 endmodule

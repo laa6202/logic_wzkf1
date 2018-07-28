@@ -8,6 +8,7 @@ gps_pluse,
 mcu_csn,
 mcu_sck,
 mcu_mosi,
+err,
 //clk rst
 clk_sys,
 pluse_us,
@@ -20,6 +21,7 @@ input		gps_pluse;
 input 	mcu_csn;
 input 	mcu_sck;
 input 	mcu_mosi;
+output  err;
 //clk rst
 input clk_sys;
 input pluse_us;
@@ -81,17 +83,21 @@ syn_m_sync u_syn_m_sync(
 
 
 wire tx_info;
+wire err;
 syn_m_info u_syn_m_info(
 .tx_info(tx_info),
 .fire_sync(fire_sync),
 .fire_info(fire_info),
 .utc_sec_gps(utc_sec_gps),
 //clk rst
+.err(err),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
 
 wire tx_syn =  tx_sync & tx_info;
+
+
 
 
 endmodule
