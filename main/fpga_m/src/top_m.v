@@ -245,7 +245,7 @@ always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_beep <= 28'd0;
 	else if(err_syn_m | wd_arm_high)
-		cnt_beep <= 28'd500_000_00;
+		cnt_beep <= 28'd10_000_00;
 	else if(cnt_beep != 28'h0)
 		cnt_beep <= cnt_beep - 28'h1;
 	else ;

@@ -9,6 +9,8 @@ repk_frm,
 buf_rd,
 buf_frm,
 buf_q,
+//status 
+cnt_pkg_buf,
 //clk rst
 clk_sys,
 rst_n
@@ -21,6 +23,8 @@ input					repk_frm;
 input 				buf_rd;
 input 				buf_frm;
 output [7:0]	buf_q;
+//status 
+output [3:0] cnt_pkg_buf;
 //clk rst
 input clk_sys;
 input rst_n;
@@ -41,11 +45,14 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		repk_frm_falling_dly <= {repk_frm_falling_dly[6:0],repk_frm_falling};
 end
 	
-reg[3:0] whit_chip;
+wire repk_frm_ok/*synthesis keep*/;
+assign repk_frm_ok = repk_frm_falling_dly[7];
+	
+reg[2:0] whit_chip;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		whit_chip <= 3'b0;
-	else if(repk_frm_falling_dly[7])	begin
+	else if(repk_frm_ok)	begin
 //		if(whit_chip == 2'h2)
 //			whit_chip <= 2'h0;
 //		else 
@@ -147,6 +154,7 @@ reg [7:0] repk_vld_reg;
 always @(posedge clk_sys)
 	repk_vld_reg <= repk_vld;
 wire wren = repk_vld | repk_vld_reg;
+
 assign wren_0 = (whit_chip[2:0] == 3'h0) & wren;
 assign wren_1 = (whit_chip[2:0] == 3'h1) & wren;
 assign wren_2 = (whit_chip[2:0] == 3'h2) & wren;
@@ -155,6 +163,12 @@ assign wren_4 = (whit_chip[2:0] == 3'h4) & wren;
 assign wren_5 = (whit_chip[2:0] == 3'h5) & wren;
 assign wren_6 = (whit_chip[2:0] == 3'h6) & wren;
 assign wren_7 = (whit_chip[2:0] == 3'h7) & wren;
+/*
+assign wren_0 = (whit_chip[1:0] == 2'h0) & wren;
+assign wren_1 = (whit_chip[1:0] == 2'h1) & wren;
+assign wren_2 = (whit_chip[1:0] == 2'h2) & wren;
+assign wren_3 = (whit_chip[1:0] == 2'h3) & wren;
+*/
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		waddr <= 15'h0;
@@ -186,8 +200,9 @@ end
 
 reg buf_frm_reg;
 always @ (posedge clk_sys) buf_frm_reg <= buf_frm;
-wire buf_frm_falling = (buf_frm_reg) & (~buf_frm);
-		
+wire buf_frm_falling/*synthesis keep*/;
+assign buf_frm_falling = (buf_frm_reg) & (~buf_frm);
+wire buf_frm_rasing = (~buf_frm_reg) & (buf_frm);	
 
 
 reg[2:0] read_chip;
@@ -204,6 +219,20 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 
 
+reg [3:0] cnt_pkg_buf;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_pkg_buf <= 4'h0;
+	else if(repk_frm_ok) begin
+		cnt_pkg_buf <= (cnt_pkg_buf != 4'h7) ? (cnt_pkg_buf + 4'h1) : 4'h7;
+	end
+	else if(buf_frm_rasing)	begin
+		cnt_pkg_buf <= (cnt_pkg_buf != 4'h0) ? (cnt_pkg_buf - 4'h1) : 4'h0;
+	end
+	else ;
+end
+
+
 wire [7:0] buf_q;
 assign buf_q = 	(read_chip[2:0] == 3'h0) ? q_0 : 
 								(read_chip[2:0] == 3'h1) ? q_1 : 
@@ -213,6 +242,13 @@ assign buf_q = 	(read_chip[2:0] == 3'h0) ? q_0 :
 								(read_chip[2:0] == 3'h5) ? q_5 : 
 								(read_chip[2:0] == 3'h6) ? q_6 : 
 								(read_chip[2:0] == 3'h7) ? q_7 : 8'h0;
+
+/*
+assign buf_q = 	(read_chip[1:0] == 2'h0) ? q_0 : 
+								(read_chip[1:0] == 2'h1) ? q_1 : 
+								(read_chip[1:0] == 2'h2) ? q_2 : 
+								(read_chip[1:0] == 2'h3) ? q_3 : 8'h0;
+*/
 
 
 //---------- wd ----------

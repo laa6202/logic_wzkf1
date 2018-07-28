@@ -81,6 +81,7 @@ commu_m_reg u_commu_m_reg(
 wire				buf_rd;
 wire				buf_frm;
 wire [7:0]	buf_q;
+wire [7:0]	cnt_pkg_buf;
 commu_m_buf u_commu_m_buf(
 //pkg data
 .repk_data(repk_data),
@@ -90,6 +91,7 @@ commu_m_buf u_commu_m_buf(
 .buf_rd(buf_rd),
 .buf_frm(buf_frm),
 .buf_q(buf_q),
+.cnt_pkg_buf(cnt_pkg_buf),
 //clk rst
 .clk_sys(clk_sys),
 .rst_n(rst_n)
@@ -100,11 +102,9 @@ commu_m_buf u_commu_m_buf(
 wire fire_push;
 wire done_push;
 commu_m_main u_commu_m_main(
-.fire_push(fire_push),
-.done_push(done_push),
 .repk_frm(repk_frm),
 .buf_frm(buf_frm),
-.buf_rd(buf_rd),
+.cnt_pkg_buf(cnt_pkg_buf),
 //configuration
 .arm_int_n(arm_int_n),
 .stu_buf_rdy(stu_buf_rdy),

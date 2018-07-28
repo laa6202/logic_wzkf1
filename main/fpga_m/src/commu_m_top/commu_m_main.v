@@ -5,31 +5,25 @@
 
 
 module commu_m_main(
-fire_push,
-done_push,
 repk_frm,
 buf_frm,
-buf_rd,
+cnt_pkg_buf,
 //configuration
 arm_int_n,
 stu_buf_rdy,
 //clk rst
 wd_arm_high,
-debug,
 clk_sys,
 rst_n
 );
-output	fire_push;
-input		done_push;
 input		repk_frm;
 input 	buf_frm;
-input		buf_rd;
+input [3:0] cnt_pkg_buf;
 //configuration
 output 	arm_int_n;
 output [7:0] stu_buf_rdy;
 //clk rst
 output wd_arm_high;
-output debug;
 input clk_sys;
 input rst_n;
 //------------------------------------------
@@ -38,21 +32,22 @@ input rst_n;
 
 reg repk_frm_reg;
 reg buf_frm_reg;
-reg buf_rd_reg;
+
 always @(posedge clk_sys )	begin
 	repk_frm_reg <= repk_frm;
 	buf_frm_reg <= buf_frm;
-	buf_rd_reg  <= buf_rd;
+
 end
 wire repk_frm_falling = repk_frm_reg & (~repk_frm);
-wire buf_frm_falling = buf_frm_reg & (~buf_frm);
+//wire buf_frm_falling = buf_frm_reg & (~buf_frm);
 wire buf_frm_rasing = (~buf_frm_reg) & (buf_frm);
-wire buf_rd_falling = buf_rd_reg & (~buf_rd);
+
 
 
 reg arm_int;
-wire rst_delay_now;
 wire wd_arm_high;
+/*
+wire rst_delay_now;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		arm_int <= 1'b0;
@@ -67,6 +62,55 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		arm_int <= 1'b0;
 	else ;
 end
+*/
+
+
+parameter S_RST  = 3'h6;
+parameter S_IDLE = 3'h0;
+//parameter S_CKECK= 3'h1;
+parameter S_UP	 = 3'h2;
+parameter S_DOWN = 3'h3;
+parameter S_DONE = 3'h7;
+reg [2:0] st_buf;
+wire finish_rst;
+wire finish_down;
+wire bufpkg_now;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		st_buf <= S_RST;
+	else begin
+		case(st_buf)
+			S_RST : st_buf <= finish_rst ? S_IDLE : S_RST;
+			S_IDLE: st_buf <= bufpkg_now ? S_UP : S_IDLE;
+			S_UP 	: st_buf <= wd_arm_high ? S_DOWN : 
+												buf_frm_rasing ? S_DOWN : S_UP;
+			S_DOWN: st_buf <= finish_down ? S_DONE : S_DOWN;
+			S_DONE: st_buf <= S_IDLE;
+			default : st_buf <= S_IDLE;
+		endcase
+	end
+end
+
+assign finish_rst = ~rst_delay_now;
+assign bufpkg_now = (cnt_pkg_buf > 4'h1) ? 1'b1 : 1'b0;
+reg [29:0] cnt_down;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_down <= 30'h0;
+	else if(st_buf == S_DOWN)
+		cnt_down <= cnt_down + 30'h1;
+	else 
+		cnt_down <= 30'h0;
+end
+assign finish_down = (cnt_down == 30'd10_000_00) ? 1'b1 : 1'b0;
+
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		arm_int <= 1'b0;
+	else 
+		arm_int = (st_buf == S_UP) ? 1'b1 : 1'b0;
+end
+
 
 
 //---------- protect for por and wd ---------
@@ -99,18 +143,6 @@ wire [7:0] stu_buf_rdy;
 assign stu_buf_rdy = arm_int_n ? 8'h0 : 8'hff;
 
 
-//----------- for debug ------------
-reg [9:0] cnt_repk_frm;
 
-always @ (posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		cnt_repk_frm <= 10'h0;
-	else if(cnt_repk_frm  == 10'h3ff)
-		;
-	else if(buf_frm_falling)
-		cnt_repk_frm <= cnt_repk_frm + 10'h1;
-	else ;
-end
-wire debug = ^cnt_repk_frm;
 
 endmodule
