@@ -175,7 +175,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : C15       :        :                   :      
 GND                          : C16       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C17       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : C18       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : C19       :        :                   :         : 7         :                
+mclk2                        : C19       : input  : 2.5 V             :         : 7         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : C20       :        :                   :         : 6         :                
 cspi_mosi                    : C21       : input  : 2.5 V             :         : 6         : Y              
 cspi_sck                     : C22       : input  : 2.5 V             :         : 6         : Y              
@@ -197,7 +197,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : D15       :        :                   :      
 VCCIO7                       : D16       : power  :                   : 2.5V    : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D17       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D18       :        :                   :         : 7         :                
-mclk2                        : D19       : input  : 2.5 V             :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : D19       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : D20       :        :                   :         : 6         :                
 pspi_miso                    : D21       : output : 2.5 V             :         : 6         : Y              
 pspi_sck                     : D22       : input  : 2.5 V             :         : 6         : Y              

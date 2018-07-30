@@ -56,7 +56,7 @@ edge_det u_edge_csn(
 .rst_n(rst_n)
 );
 
-wire sck_r;
+wire sck_r/*synthesis keep*/;
 wire sck_f;
 edge_det u_edge_sck(
 .din(sck),
@@ -98,7 +98,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_wd <= 20'h0;
 end
-assign wd_sck= (cnt_wd == 20'd10_000_00) ? 1'b1 : 1'b0;		//10ms
+assign wd_sck= (cnt_wd == 20'd10_00) ? 1'b1 : 1'b0;		//10us
+//assign wd_sck = 1'b0;
 
 
 //-------- mosi path ---------
