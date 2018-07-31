@@ -46,7 +46,8 @@ end
 reg gps_pluse_true_reg;
 always @ (posedge clk_sys)
 	gps_pluse_true_reg <= gps_pluse_true;
-wire gps_pluse_true_rasing = (~gps_pluse_true_reg) & gps_pluse_true;
+//wire gps_pluse_true_r = (~gps_pluse_true_reg) & gps_pluse_true;
+wire gps_pluse_true_f = (gps_pluse_true_reg) & (~gps_pluse_true);
 
 
 
@@ -55,7 +56,7 @@ reg [21:0] cnt_us;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_us <= 22'h0;
-	else if(gps_pluse_true_rasing)
+	else if(gps_pluse_true_f)
 		cnt_us <= 22'h0;
 	else if(pluse_us) begin
 `ifdef SIM

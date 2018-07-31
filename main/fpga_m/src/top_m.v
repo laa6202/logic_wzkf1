@@ -250,8 +250,8 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		cnt_beep <= cnt_beep - 28'h1;
 	else ;
 end
-wire beep = (cnt_beep != 28'h0) ? 1'b1 : 1'b0;
-//wire beep = 1'b0;
+//wire beep = (cnt_beep != 28'h0) ? 1'b1 : 1'b0;
+wire beep = 1'b0;
 
 
 endmodule

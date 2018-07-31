@@ -91,6 +91,7 @@ syn_m_info u_syn_m_info(
 .utc_sec_gps(utc_sec_gps),
 //clk rst
 .err(err),
+.pluse_us(pluse_us),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

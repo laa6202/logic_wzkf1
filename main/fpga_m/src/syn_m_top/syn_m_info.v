@@ -7,6 +7,7 @@ fire_info,
 utc_sec_gps,
 err,
 //clk rst
+pluse_us,
 clk_sys,
 rst_n
 );
@@ -17,6 +18,7 @@ input 	fire_info;
 input [31:0]	utc_sec_gps;
 //clk rst
 output err;
+input pluse_us;
 input clk_sys;
 input rst_n;
 //------------------------------------------
@@ -24,14 +26,23 @@ input rst_n;
 
 
 reg [31:0]	utc_sec_gps_old;
+reg [31:0]	utc_sec_gps_old2;
 always @ (posedge clk_sys)	begin
 	if(fire_sync)
 		utc_sec_gps_old <= utc_sec_gps;
 	else ;
 end
+always @ (posedge clk_sys)	begin
+	if(fire_info)
+		utc_sec_gps_old2 <= utc_sec_gps;
+	else ;
+end
+
 wire utc_sec_gps_change = (utc_sec_gps != utc_sec_gps_old) ? 1'b1 : 1'b0;	
 
-wire err = 		fire_sync & (utc_sec_gps != (utc_sec_gps_old + 32'h1) );
+wire err1 = 		fire_sync & (utc_sec_gps != (utc_sec_gps_old + 32'h1) );
+wire err2 = 		fire_info & (utc_sec_gps != (utc_sec_gps_old2 + 32'h1) );
+wire err = err1 | err2;
 
 //----------- utc secord register --------
 reg [31:0]	utc_sec;
@@ -46,7 +57,8 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		if((utc_sec_gps > 32'h00B70000) & utc_sec_gps_change)
 			utc_sec <= utc_sec_gps + 32'h1;		//modify 1s as mac delay 1s
 		else 
-			utc_sec <= utc_sec + 32'h1;
+			//utc_sec <= utc_sec + 32'h1;
+			utc_sec <= utc_sec_gps + 32'h1;
 	end
 	else ;
 end
@@ -124,6 +136,20 @@ tx_info_phy u_tx_syn_phy(
 .tbit_period(20'd1000),	//100K
 `endif
 //clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n)
+);
+
+
+//--------- monitor -----------
+syn_m_monitor u_monitor(
+//control 
+.fire_tx(fire_tx),
+.data_tx(data_tx),
+.pluse(fire_sync),
+//clk rst
+.err(),
+.pluse_us(pluse_us),
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );

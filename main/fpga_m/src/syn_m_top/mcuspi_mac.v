@@ -6,7 +6,6 @@ utc_sec_gps,
 spi_data,
 spi_vld,
 //clk rst
-err,
 clk_sys,
 rst_n
 );
@@ -14,7 +13,6 @@ output [31:0]	utc_sec_gps;
 input [7:0]	spi_data;
 input				spi_vld;
 //clk rst
-output err;
 input	clk_sys;
 input	rst_n;
 //-------------------------------------------
@@ -75,16 +73,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 
 
-//---------- err ------------
-reg err;
-always @ (posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		err <= 1'b0;
-	else if(spi_vld & (cnt_vld != spi_data))
-		err <= 1'b1;
-	else 
-		err <= 1'b0;
-end
+
 
 endmodule
 
