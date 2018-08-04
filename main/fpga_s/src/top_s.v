@@ -205,6 +205,7 @@ syn_top u_syn_top(
 //clk rst
 .mod_id(6'h2),
 .clk_sys(clk_sys),
+.clk_slow(clk_slow),
 .rst_n(rst_n)
 );
 

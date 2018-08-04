@@ -15,6 +15,7 @@ fx_q,
 //clk rst
 mod_id,
 clk_sys,
+clk_slow,
 rst_n
 );
 input	rx_syn;
@@ -31,6 +32,7 @@ output  [7:0]	fx_q;
 //clk rst
 input [5:0]	mod_id;
 input clk_sys;
+input clk_slow;
 input rst_n;
 //----------------------------------------
 //----------------------------------------
@@ -64,6 +66,7 @@ rx_syn_phy u_rx_syn_phy(
 .syn_vld(syn_vld),
 //clk rst
 .clk_sys(clk_sys),
+.clk_slow(clk_slow),
 .rst_n(rst_n)
 );
 

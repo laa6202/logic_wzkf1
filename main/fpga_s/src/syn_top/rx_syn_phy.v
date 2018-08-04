@@ -8,6 +8,7 @@ rx_vld,
 rx_data,
 //clk rst
 clk_sys,
+clk_slow,
 rst_n
 );
 input 				rx;
@@ -17,30 +18,35 @@ output 				rx_vld;
 output [7:0]	rx_data;
 //clk rst
 input clk_sys;
+input clk_slow;
 input rst_n;
 
 //----------------------------------
 //----------------------------------
 
 //--------- rx prepare ---------
-// reg [7:0]	rx_reg;
-// always @ (posedge clk_sys) 
-	// rx_reg <= {rx_reg[6:0],rx};
+reg [3:0]	rx_reg;
+always @ (posedge clk_slow) 
+	rx_reg <= {rx_reg[2:0],rx};
 
-// reg rx_real;
-// always @ (posedge clk_sys or negedge rst_n)	begin
-	// if(~rst_n)
-		// rx_real <= 1'b1;
-	// else if(rx_reg == 8'hff)
-		// rx_real <= 1'b1;
-	// else if(rx_reg == 8'h0)
-		// rx_real <= 1'b0;
-	// else ;
-// end
-wire rx_real = rx;
-reg rx_real_reg;
+reg rx_real;
+always @ (posedge clk_slow or negedge rst_n)	begin
+	if(~rst_n)
+		rx_real <= 1'b1;
+	else if(rx_reg == 4'hf)
+		rx_real <= 1'b1;
+	else if(rx_reg == 4'h0)
+		rx_real <= 1'b0;
+	else ;
+end
+
+
+
+//wire rx_real = rx;
+
+reg[1:0] rx_real_reg;
 always @(posedge clk_sys)
-	rx_real_reg <= rx_real;
+	rx_real_reg <= {rx_real_reg[0],rx_real};
 
 
 //---------- main FSM ----------
@@ -58,14 +64,14 @@ parameter S_STOP = 4'ha;
 parameter S_STOP2 = 4'hb;
 parameter S_DONE = 4'hf;
 reg [3:0] st_rx_phy;
-wire rx_falling;
+wire rx_f;
 wire finish_bit;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		st_rx_phy <= S_IDLE;
 	else begin
 		case (st_rx_phy)
-			S_IDLE : st_rx_phy <= rx_falling ? S_START : S_IDLE;
+			S_IDLE : st_rx_phy <= rx_f ? S_START : S_IDLE;
 			S_START: st_rx_phy <= finish_bit ? S_S7 : S_START;
 			S_S7	 : st_rx_phy <= finish_bit ? S_S6 : S_S7;
 			S_S6	 : st_rx_phy <= finish_bit ? S_S5 : S_S6;
@@ -86,7 +92,8 @@ wire send_bit = (st_rx_phy != S_IDLE) & (st_rx_phy != S_DONE);
 
 
 //--------- FSM finish_bit ----------
-assign rx_falling = (~rx_real) & rx_real_reg;
+assign rx_f = (~rx_real_reg[0]) & rx_real_reg[1];
+
 
 reg [19:0] cnt_cycle;
 always @(posedge clk_sys or negedge rst_n)	begin
@@ -110,14 +117,14 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		rx_data_int <= 8'h0;
 	else if(cnt_cycle == point_get)	begin
 		case(st_rx_phy)
-			S_S7 : rx_data_int[7] <= rx_real;
-			S_S6 : rx_data_int[6] <= rx_real;
-			S_S5 : rx_data_int[5] <= rx_real;
-			S_S4 : rx_data_int[4] <= rx_real;
-			S_S3 : rx_data_int[3] <= rx_real;
-			S_S2 : rx_data_int[2] <= rx_real;
-			S_S1 : rx_data_int[1] <= rx_real;
-			S_S0 : rx_data_int[0] <= rx_real;			
+			S_S7 : rx_data_int[7] <= rx_real_reg[0];
+			S_S6 : rx_data_int[6] <= rx_real_reg[0];
+			S_S5 : rx_data_int[5] <= rx_real_reg[0];
+			S_S4 : rx_data_int[4] <= rx_real_reg[0];
+			S_S3 : rx_data_int[3] <= rx_real_reg[0];
+			S_S2 : rx_data_int[2] <= rx_real_reg[0];
+			S_S1 : rx_data_int[1] <= rx_real_reg[0];
+			S_S0 : rx_data_int[0] <= rx_real_reg[0];			
 			default : ;
 		endcase
 	end
