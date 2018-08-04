@@ -45,7 +45,7 @@ input rst_n;
 //-----------------------------------------
 
 
-//---------- fetch_reg ------------
+//------------- fetch_reg ------------
 wire [7:0]	cfg_sample;
 wire [7:0]	cfg_numDev;
 fetch_reg u_fetch_reg(
@@ -99,6 +99,19 @@ fetch_rx_inf u_fetch_inf(
 .clk_sys(clk_sys),
 .rst_n(rst_n)
 );
+
+
+fetch_monitor u_fetch_mnit(
+.rx(rx_a),
+.tbit_period(tbit_period),
+.rx_vld(rx_vld),
+.rx_data(rx_data),
+//clk rst
+.clk_sys(clk_sys),
+.rst_n(rst_n),
+.test_out()
+);
+
 
 
 //----------- fetch_pkg ----------

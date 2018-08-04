@@ -46,8 +46,8 @@ end
 reg gps_pluse_true_reg;
 always @ (posedge clk_sys)
 	gps_pluse_true_reg <= gps_pluse_true;
-//wire gps_pluse_true_r = (~gps_pluse_true_reg) & gps_pluse_true;
-wire gps_pluse_true_f = (gps_pluse_true_reg) & (~gps_pluse_true);
+wire gps_pluse_true_r = (~gps_pluse_true_reg) & gps_pluse_true;
+//wire gps_pluse_true_f = (gps_pluse_true_reg) & (~gps_pluse_true);
 
 
 
@@ -56,7 +56,7 @@ reg [21:0] cnt_us;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		cnt_us <= 22'h0;
-	else if(gps_pluse_true_f)
+	else if(gps_pluse_true_r)
 		cnt_us <= 22'h0;
 	else if(pluse_us) begin
 `ifdef SIM
@@ -65,8 +65,8 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		else 
 			cnt_us <= cnt_us + 22'd1;
 `else 
-		if(cnt_us == 22'd1_199_999)
-			cnt_us <= 22'd0_200_000;
+		if(cnt_us == 22'd1_099_999)
+			cnt_us <= 22'd0_100_000;
 		else 
 			cnt_us <= cnt_us + 22'd1;
 `endif
@@ -87,7 +87,7 @@ wire fire_info;
 `ifdef SIM
 assign fire_info = pluse_us & (cnt_us == 22'd0_60);
 `else 
-assign fire_info = pluse_us & (cnt_us == 22'd0_600_000);
+assign fire_info = pluse_us & (cnt_us == 22'd0_500_000);
 `endif
 
 endmodule

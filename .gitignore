@@ -31,3 +31,4 @@
 /ref/WZ_sPCB_1803xx/History
 /ref/WZ_sPCB_1803xx/*.SchDocPreview
 /ref/WZ_mPCB_1803xx/History
+/main/fpga_m/src/syn_m_top/dbg_pkg.v
