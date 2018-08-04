@@ -1,7 +1,7 @@
 //commu_m_main.v
 
 //3秒ARM无响应，清理一次缓存的包，再发一次边沿中断
-`define T_WD_ARM_HIGH 32'd3_000_000_00
+`define T_WD_ARM_HIGH 32'd1_000_000_00
 
 
 module commu_m_main(
@@ -102,7 +102,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else 
 		cnt_down <= 30'h0;
 end
-assign finish_down = (cnt_down == 30'd10_000_00) ? 1'b1 : 1'b0;
+assign finish_down = (cnt_down == 30'd40_000_00) ? 1'b1 : 1'b0;
 
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)

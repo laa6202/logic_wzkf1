@@ -47,18 +47,18 @@ end
 	
 wire repk_frm_ok/*synthesis keep*/;
 assign repk_frm_ok = repk_frm_falling_dly[7];
+
+
+reg buf_frm_reg;
+always @ (posedge clk_sys) buf_frm_reg <= buf_frm;
+wire buf_frm_f;
+assign buf_frm_f = (buf_frm_reg) & (~buf_frm);
+wire buf_frm_r = (~buf_frm_reg) & (buf_frm);	
+
+
+
 	
-reg[2:0] whit_chip;
-always @(posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		whit_chip <= 3'b0;
-	else if(repk_frm_ok)	begin
-//		if(whit_chip == 2'h2)
-//			whit_chip <= 2'h0;
-//		else 
-			whit_chip <= whit_chip + 3'h1;
-	end else ;
-end
+
 		
 
 
@@ -148,7 +148,34 @@ ram8x32k u_ram8x32k_7(
 .q(q_7)
 );
 
+
+
+//-------- cnt_pkg_buf ------------
+reg [3:0] cnt_pkg_buf;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_pkg_buf <= 4'h0;
+	else if(repk_frm_ok) begin
+		cnt_pkg_buf <= (cnt_pkg_buf != 4'h8) ? (cnt_pkg_buf + 4'h1) : 4'h8;
+	end
+	else if(buf_frm_r)	begin
+		cnt_pkg_buf <= (cnt_pkg_buf != 4'h0) ? (cnt_pkg_buf - 4'h1) : 4'h0;
+	end
+	else ;
+end
+
+
+
 //---------- write path ----------
+reg[2:0] whit_chip;
+always @(posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		whit_chip <= 3'b0;
+	else if(repk_frm_ok)
+		whit_chip <= whit_chip + 3'h1;
+	else ;
+end
+
 wire wd_wr;
 reg [7:0] repk_vld_reg;
 always @(posedge clk_sys)
@@ -163,12 +190,7 @@ assign wren_4 = (whit_chip[2:0] == 3'h4) & wren;
 assign wren_5 = (whit_chip[2:0] == 3'h5) & wren;
 assign wren_6 = (whit_chip[2:0] == 3'h6) & wren;
 assign wren_7 = (whit_chip[2:0] == 3'h7) & wren;
-/*
-assign wren_0 = (whit_chip[1:0] == 2'h0) & wren;
-assign wren_1 = (whit_chip[1:0] == 2'h1) & wren;
-assign wren_2 = (whit_chip[1:0] == 2'h2) & wren;
-assign wren_3 = (whit_chip[1:0] == 2'h3) & wren;
-*/
+
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		waddr <= 15'h0;
@@ -198,39 +220,22 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 
-reg buf_frm_reg;
-always @ (posedge clk_sys) buf_frm_reg <= buf_frm;
-wire buf_frm_falling/*synthesis keep*/;
-assign buf_frm_falling = (buf_frm_reg) & (~buf_frm);
-wire buf_frm_rasing = (~buf_frm_reg) & (buf_frm);	
+
 
 
 reg[2:0] read_chip;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		read_chip <= 3'b0;
-	else if(buf_frm_falling) begin
-//		if(read_chip == 2'h2)
-//			read_chip <= 2'h0;
-//		else 
-			read_chip <= read_chip + 3'h1;
-	//else if()  //强制转换
-	end else ;
-end
-
-
-reg [3:0] cnt_pkg_buf;
-always @ (posedge clk_sys or negedge rst_n)	begin
-	if(~rst_n)
-		cnt_pkg_buf <= 4'h0;
-	else if(repk_frm_ok) begin
-		cnt_pkg_buf <= (cnt_pkg_buf != 4'h7) ? (cnt_pkg_buf + 4'h1) : 4'h7;
-	end
-	else if(buf_frm_rasing)	begin
-		cnt_pkg_buf <= (cnt_pkg_buf != 4'h0) ? (cnt_pkg_buf - 4'h1) : 4'h0;
-	end
+	else if(repk_frm_ok & (cnt_pkg_buf == 4'h8))
+		read_chip <= whit_chip + 3'h1;
+	else if(buf_frm_f)
+		read_chip <= read_chip + 3'h1;
 	else ;
 end
+
+
+
 
 
 wire [7:0] buf_q;
