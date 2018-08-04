@@ -96,7 +96,10 @@ syn_m_info u_syn_m_info(
 .rst_n(rst_n)
 );
 
-wire tx_syn =  tx_sync & tx_info;
+
+reg tx_syn;
+always @ (posedge clk_sys) 
+	tx_syn <=  tx_sync & tx_info;
 
 
 

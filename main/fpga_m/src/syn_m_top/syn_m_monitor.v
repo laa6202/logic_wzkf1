@@ -31,6 +31,7 @@ always @(posedge clk_sys or negedge rst_n)	begin
 		cnt_tx <= cnt_tx + 2'h1;
 	else ;
 end
+wire d0_vld = fire_tx & (cnt_tx == 2'h0);
 wire d3_vld = fire_tx & (cnt_tx == 2'h3);
 
 
@@ -43,7 +44,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 
-wire err1 = d3_vld & ((d3_reg + 8'h1) != data_tx);
+wire err1 = d3_vld & ((d3_reg + 8'h1) != data_tx) | d0_vld;
 
 
 //----------- check pluse teriod -------------
