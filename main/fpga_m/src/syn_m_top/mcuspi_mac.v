@@ -3,16 +3,20 @@
 
 module mcuspi_mac(
 utc_sec_gps,
+utc_sec_vld,
 spi_data,
 spi_vld,
 //clk rst
+debug,
 clk_sys,
 rst_n
 );
 output [31:0]	utc_sec_gps;
+output				utc_sec_vld;
 input [7:0]	spi_data;
 input				spi_vld;
 //clk rst
+output debug;
 input	clk_sys;
 input	rst_n;
 //-------------------------------------------
@@ -72,8 +76,45 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 	else ;
 end
 
+reg utc_sec_vld;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		utc_sec_vld <= 1'b0;
+	else 
+		utc_sec_vld <= (cnt_vld == 5'd13) & spi_vld;
+end
 
 
+
+//----------- debug ----------
+reg [31:0] cnt_cycle;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		cnt_cycle <= 32'h0;
+	else if(utc_sec_vld)
+		cnt_cycle <= 32'h0;
+	else 
+		cnt_cycle <= cnt_cycle + 32'h1;
+end
+reg [31:0] max_uv;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		max_uv <= 32'h0;
+	else if(utc_sec_vld)
+		max_uv <= (cnt_cycle > max_uv) ? cnt_cycle : max_uv;
+	else ;
+end
+reg [31:0] min_uv;
+always @ (posedge clk_sys or negedge rst_n)	begin
+	if(~rst_n)
+		min_uv <= 32'hffff_ffff;
+	else if(utc_sec_vld)
+		min_uv <= (cnt_cycle < min_uv)?cnt_cycle : min_uv;
+	else ;
+end
+
+
+wire debug = ^max_uv ^ ^min_uv;
 
 endmodule
 

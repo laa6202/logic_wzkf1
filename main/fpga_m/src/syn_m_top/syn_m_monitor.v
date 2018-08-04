@@ -60,7 +60,7 @@ wire err2 = pluse & (cnt_cycle == 32'h0);
 
 
 
-wire err = err1 ;//| err2;
+wire err = err1 | err2;
 
 endmodule
 

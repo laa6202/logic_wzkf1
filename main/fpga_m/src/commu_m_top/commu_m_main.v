@@ -1,7 +1,7 @@
 //commu_m_main.v
 
 //3秒ARM无响应，清理一次缓存的包，再发一次边沿中断
-`define T_WD_ARM_HIGH 32'd1_500_000_00
+`define T_WD_ARM_HIGH 32'd3_000_000_00
 
 
 module commu_m_main(
@@ -92,7 +92,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 end
 
 assign finish_rst = ~rst_delay_now;
-assign bufpkg_now = (cnt_pkg_buf > 4'h1) ? 1'b1 : 1'b0;
+assign bufpkg_now = (cnt_pkg_buf > 4'h0) ? 1'b1 : 1'b0;
 reg [29:0] cnt_down;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -134,6 +134,7 @@ always @ (posedge clk_sys or negedge rst_n)	begin
 		cnt_wd <= 32'h0;
 end
 assign wd_arm_high = (cnt_wd == `T_WD_ARM_HIGH) ? 1'b1 :1'b0;
+//assign wd_arm_high = 1'b0;
 
 
 wire arm_int_n = ~arm_int;
