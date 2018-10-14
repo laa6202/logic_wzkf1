@@ -22,6 +22,9 @@ mcu_csn,
 mcu_sck,
 mcu_mosi,
 beep,
+//hmi
+led_gps_n,
+led_ch_n,
 //clk rst
 mclk0,
 mclk1,
@@ -53,6 +56,9 @@ input 	mcu_csn;
 input 	mcu_sck;
 input 	mcu_mosi;
 output 	beep;
+//hmi
+output led_gps_n;
+output [7:0]	led_ch_n;
 //clk rst
 input	mclk0;
 input	mclk1;
@@ -242,7 +248,7 @@ commu_m_top u_commu_m(
 );
 
 
-
+/*
 reg [27:0] cnt_beep;
 always @(posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
@@ -255,6 +261,22 @@ always @(posedge clk_sys or negedge rst_n)	begin
 end
 //wire beep = (cnt_beep != 28'h0) ? 1'b1 : 1'b0;
 wire beep = 1'b0;
+*/
+
+
+hmi_top u_hmi(
+.led_gps_n(led_gps_n),
+.led_ch_n(led_ch_n),
+//input signal
+.pkg_data(pkg_data),
+.pkg_vld(pkg_vld),
+.pkg_frm(pkg_frm),
+.gps_pluse(gps_pluse),
+//clk rst
+.clk_sys(clk_sys),
+.pluse_us(pluse_us),
+.rst_n(rst_n)
+);
 
 
 endmodule
