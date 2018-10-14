@@ -46,6 +46,7 @@ wire buf_frm_rasing = (~buf_frm_reg) & (buf_frm);
 
 reg arm_int;
 wire wd_arm_high;
+wire rst_delay_now; 
 /*
 wire rst_delay_now;
 always @(posedge clk_sys or negedge rst_n)	begin
