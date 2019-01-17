@@ -48,7 +48,7 @@ reg [7:0] trig_ch;
 always @ (posedge clk_sys or negedge rst_n)	begin
 	if(~rst_n)
 		trig_ch <= 8'h0;
-	else if((st_read == S_RDY) & pkg_vld)
+	else if((st_read == S_IDLE) & pkg_vld)
 		trig_ch <= pkg_data[7:0];
 	else ;
 end

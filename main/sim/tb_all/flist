@@ -113,6 +113,7 @@ tb.v
 ../../fpga_m/src/syn_m_top/syn_m_sync.v
 ../../fpga_m/src/syn_m_top/syn_m_info.v
 ../../fpga_m/src/syn_m_top/tx_info_phy.v
+../../fpga_m/src/syn_m_top/syn_m_monitor.v
 //../../fpga_m/src/syn_m_top/mcuspi_inf.v
 ../../fpga_m/src/syn_m_top/mcuspi_mac.v
 ../../fpga_m/src/fetch_top/fetch_top.v
@@ -120,6 +121,7 @@ tb.v
 ../../fpga_m/src/fetch_top/fetch_base.v
 ../../fpga_m/src/fetch_top/fetch_rx_inf.v
 ../../fpga_m/src/fetch_top/fetch_pkg.v
+../../fpga_m/src/fetch_top/fetch_monitor.v
 ../../fpga_m/src/repkg_top/repkg_top.v
 ../../fpga_m/src/repkg_top/repkg_reg.v
 ../../fpga_m/src/commu_m_top/commu_m_top.v
@@ -130,6 +132,10 @@ tb.v
 ../../fpga_m/src/commu_m_top/commu_m_tp.v
 ../../fpga_m/src/commu_m_top/commu_m_mux.v
 ../../fpga_m/src/commu_m_top/spi_inf.v
+../../fpga_m/src/commu_m_top/gen_irq_test.v
+../../fpga_m/src/hmi_top/hmi_top.v
+../../fpga_m/src/hmi_top/led_gps.v
+../../fpga_m/src/hmi_top/led_pkg.v
 
 
 
